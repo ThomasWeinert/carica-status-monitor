@@ -63,6 +63,7 @@ table#grid td {
 }
 
 .feed {
+  width : 100%;
   display: inline-block;
   padding: 0;
   margin-bottom: 15px;
@@ -76,6 +77,10 @@ table#grid td {
 .feed li.header {
   font-weight: bold;
   color: #FFF;
+}
+.feed li.loading {
+  background: transparent url(loader.gif) no-repeat center 5px;
+  height: 16px;
 }
 .feed li img {
   width: 48px;
