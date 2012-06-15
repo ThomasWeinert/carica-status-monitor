@@ -71,9 +71,17 @@ table#grid td {
   font-weight: bold;
   color: #FFF;
 }
+.feed li.status {
+  height: 16px;
+}
 .feed li.loading {
   background: transparent url(../img/loader.gif) no-repeat center 5px;
   height: 16px;
+}
+.feed li.error {
+  font-weight: bold;
+  text-align: center;
+  color: #FFF;
 }
 .feed li img {
   width: 48px;
@@ -110,11 +118,19 @@ table#grid td {
   background: -ms-linear-gradient(top, #666666 0%,#444444 100%); /* IE10+ */
   background: linear-gradient(top, #666666 0%,#444444 100%); /* W3C */
 }
-.gradient-light, .feed, .feed li {
+.gradient-light, .feed, .feed li.status {
   background: #FFFFFF; /* Old browsers */
   background: -moz-linear-gradient(top, #FFFFFF 0%, #DEDEDE 40%, #B6B6B6 100%); /* FF3.6+ */
   background: -webkit-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* Chrome10+,Safari5.1+ */
   background: -o-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* IE10+ */
   background: linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* W3C */
+}
+.gradient-red, .feed li.error {
+  background: #FFFFFF; /* Old browsers */
+  background: -moz-linear-gradient(top, #FF0000 0%, #660000 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* IE10+ */
+  background: linear-gradient(top, #FF0000 0%, #660000 100%); /* W3C */
 }

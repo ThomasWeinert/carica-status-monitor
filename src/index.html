@@ -14,11 +14,20 @@
       <tr class="row">
         <td class="column">
           <div id="feeds">
-            <ul class="feed" data-feed="{url:'../tests/data/sample.xml',mode:'all'}">
+            <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed.xml" data-mode="all">
               <li class="header">
                 Sample Feed
               </li>
-              <li class="loading">
+              <li class="status loading">
+              </li>
+            </ul>
+          </div>
+          <div id="feeds">
+            <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed-error.xml" data-mode="all">
+              <li class="header">
+                 Not Existing Feed
+              </li>
+              <li class="status loading">
               </li>
             </ul>
           </div>
@@ -31,7 +40,7 @@
     <script type="text/javascript">
       jQuery(document).ready(
         function() {
-          jQuery('[data-feed]').AtomReader();
+          jQuery('[data-plugin="feed"]').AtomReader();
         }
       );
     </script>
