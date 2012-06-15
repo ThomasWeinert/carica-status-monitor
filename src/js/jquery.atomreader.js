@@ -27,7 +27,7 @@
     fetch : function() {
       console.log(this.options);
       if (this.options.url != '') {
-        this.node.find('.status').removeClass('error').addClass('loading').slideDown();
+        this.node.find('.status').attr('class', 'status').addClass('loading').slideDown();
         $.get(this.options.url)
           .success($.proxy(this.ajaxSuccess, this))
           .error($.proxy(this.ajaxError, this));
@@ -39,7 +39,7 @@
     },
 
     ajaxError : function(data) {
-      this.node.find('.status').removeClass('loading').addClass('error').text(
+      this.node.find('.status').attr('class', 'status').addClass('error').text(
         data.status + ' ' + data.statusText
       );
     }
