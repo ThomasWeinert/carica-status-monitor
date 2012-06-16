@@ -9,16 +9,21 @@
     updated : null,
 
     update : function(data) {
+      var updated = new Date(data.updated);
       if (this.node) {
+        if (updated > this.updated) {
+          return;
+        }
         this.hide();
       } else {
         this.create();
       }
       this.id = data.id;
-      this.updated = data.updated;
+      this.updated = updated;
       this.node.atomReaderEntry = this;
-      this.node.find('.title').text(data.title);
-      this.node.find('.summary').text(data.summary);
+      this.node.find('h3').text(data.title);
+      this.node.find('p').text(data.summary);
+      this.node.find('.updated').text(updated.toLocaleString());
       this.show();
     },
 
@@ -49,7 +54,7 @@
           //'<img src="img/dummy.png" class="icon"/>' +
           '<h3>Title</h3>' +
           '<p>Summary</p>' +
-          '<span class="spacer">' +
+          '<span class="updated"></span>' +
         '</li>'
       );
     }
