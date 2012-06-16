@@ -1,5 +1,19 @@
 (function($){
 
+  var AtomReaderItem = {
+
+    node : null,
+    id : null,
+    modified : null,
+    title : null,
+    text : null,
+
+    show : function(reader, data) {
+      console.log.data();
+    }
+
+  };
+
   var AtomReader = {
 
     node : null,
@@ -11,7 +25,7 @@
       interval : 60
     },
 
-    xmlns : {
+    namespaces : {
       'atom' : 'http://www.w3.org/2005/Atom',
       'media' : 'http://search.yahoo.com/mrss/',
       'carica' : 'http://www.a-basketful-of-papays.net/ns/status-monitor'
@@ -25,7 +39,6 @@
     },
 
     fetch : function() {
-      console.log(this.options);
       if (this.options.url != '') {
         this.node.find('.status').attr('class', 'status').addClass('loading').slideDown();
         $.get(this.options.url)
@@ -34,7 +47,21 @@
       }
     },
 
+    update : function(data) {
+      var reader = this;
+      $(data).xmlns(
+        reader.namespaces,
+        function () {
+          console.log(this.find('atom|entry').text());
+        }
+      );
+    },
+
     ajaxSuccess : function(data) {
+      if (typeof data == 'string') {
+        data = new DOMParser().parseFromString(data, 'text/xml');
+      }
+      this.update(data);
       this.node.find('.status').slideUp();
     },
 
