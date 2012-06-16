@@ -5,6 +5,8 @@
     entries : null,
     node : null,
 
+    defaultIcon : null,
+
     id : null,
     updated : null,
 
@@ -16,14 +18,24 @@
         }
         this.hide();
       } else {
+        var nodes = this.entries.reader.node.find('li.entry');
+        for (var i = nodes.length; i > 1, i >=  this.entries.reader.options.max; i--) {
+          nodes.eq(i - 1).data('atomReaderEntry').remove();
+        }
         this.create();
       }
       this.id = data.id;
       this.updated = updated;
-      this.node.atomReaderEntry = this;
+      this.node.attr('class', 'entry').addClass(
+        (data.status != '') ? data.status : 'information'
+      );
+      this.node.find('img').attr(
+        'src', (data.icon != '') ? data.icon : this.defaultIcon
+      );
       this.node.find('h3').text(data.title);
       this.node.find('p').text(data.summary);
       this.node.find('.updated').text(updated.toLocaleString());
+      this.node.addClass('changed');
       this.show();
     },
 
@@ -51,12 +63,14 @@
     create : function () {
       this.node = $(
         '<li class="entry">' +
-          //'<img src="img/dummy.png" class="icon"/>' +
+          '<img src="img/dialog-information.png" class="icon"/>' +
           '<h3>Title</h3>' +
           '<p>Summary</p>' +
           '<span class="updated"></span>' +
         '</li>'
       );
+      this.node.data('atomReaderEntry', this);
+      this.defaultIcon = this.node.find('img').attr('src');
     }
   };
 
@@ -100,7 +114,7 @@
     namespaces : {
       'atom' : 'http://www.w3.org/2005/Atom',
       'media' : 'http://search.yahoo.com/mrss/',
-      'carica' : 'http://www.a-basketful-of-papays.net/ns/status-monitor'
+      'csm' : 'http://thomas.weinert.info/carica/ns/status-monitor'
     },
 
     setUp : function(node, options) {
@@ -131,7 +145,8 @@
         reader.namespaces,
         function () {
           var entries = this.find('atom|entry');
-          for (var i = reader.options.max; i > 0; i--) {
+          var max = reader.options.max;
+          for (var i = max; i > 0; i--) {
             var entry = entries.eq(i - 1);
             if (entry.length > 0) {
               var data = new Object();
@@ -139,6 +154,8 @@
               data.updated = entry.find('atom|updated').text();
               data.title = entry.find('atom|title').text();
               data.summary = entry.find('atom|summary').text();
+              data.status = entry.find('csm|status').text();
+              data.icon = entry.find('csm|icon').attr('src');
               reader.entries.get(data.id).update(data);
             }
           }

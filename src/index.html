@@ -14,7 +14,7 @@
       <tr class="row">
         <td class="column">
           <div id="feeds">
-            <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed.xml" data-mode="all">
+            <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed.xml">
               <li class="header">
                 Sample Feed
               </li>
@@ -23,9 +23,18 @@
             </ul>
           </div>
           <div id="feeds">
-            <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed-error.xml" data-mode="all">
+            <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-buildstatus.xml">
               <li class="header">
-                 Not Existing Feed
+                Project Build Status
+              </li>
+              <li class="status loading">
+              </li>
+            </ul>
+          </div>
+          <div id="feeds">
+            <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed-error.xml">
+              <li class="header">
+                 No Existing Feed
               </li>
               <li class="status loading">
               </li>

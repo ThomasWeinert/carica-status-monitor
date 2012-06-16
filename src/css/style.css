@@ -73,6 +73,8 @@ table#grid td {
 }
 .feed li.status {
   height: 16px;
+  text-align: center;
+  border-top: 1px solid #000;
 }
 .feed li.loading {
   background: transparent url(../img/loader.gif) no-repeat center 5px;
@@ -80,8 +82,10 @@ table#grid td {
 }
 .feed li.error {
   font-weight: bold;
-  text-align: center;
   color: #FFF;
+}
+.feed li.entry { 
+  border-top: 1px solid #000;
 }
 .feed li img {
   width: 48px;
@@ -107,6 +111,24 @@ table#grid td {
   text-align: right;
   color: #444;
 }
+.feed li.error .updated {
+  color: #FFF;
+}
+
+@-moz-keyframes glowing {
+  0% { 
+    box-shadow: inset 0 0 20px rgba(252, 175, 62, 1);
+  }
+  50% { 
+    box-shadow: inset 0 0 20px rgba(252, 175, 62, 0); 
+  }  
+  100% { 
+    box-shadow: inset 0 0 20px rgba(252, 175, 62, 1); 
+  }
+}
+.feed li.changed {
+  -moz-animation: glowing 3s 10 ease;
+}
 
 
 /** Gradients **/
@@ -127,7 +149,7 @@ table#grid td {
   background: -ms-linear-gradient(top, #666666 0%,#444444 100%); /* IE10+ */
   background: linear-gradient(top, #666666 0%,#444444 100%); /* W3C */
 }
-.gradient-light, .feed, .feed li.status {
+.gradient-light, .feed, .feed li {
   background: #FFFFFF; /* Old browsers */
   background: -moz-linear-gradient(top, #FFFFFF 0%, #DEDEDE 40%, #B6B6B6 100%); /* FF3.6+ */
   background: -webkit-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* Chrome10+,Safari5.1+ */
