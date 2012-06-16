@@ -1,28 +1,95 @@
 (function($){
 
-  var AtomReaderItem = {
+  var AtomReaderEntry = {
 
+    entries : null,
     node : null,
+
     id : null,
-    modified : null,
-    title : null,
-    text : null,
+    updated : null,
 
-    show : function(reader, data) {
-      console.log.data();
+    update : function(data) {
+      if (this.node) {
+        this.hide();
+      } else {
+        this.create();
+      }
+      this.id = data.id;
+      this.updated = data.updated;
+      this.node.atomReaderEntry = this;
+      this.node.find('.title').text(data.title);
+      this.node.find('.summary').text(data.summary);
+      this.show();
+    },
+
+    show : function() {
+      this.entries.reader.node.find('li.status, li.title').last().after(this.node);
+      this.node.slideDown();
+    },
+
+    hide : function() {
+      if (this.node) {
+        this.node.slideUp();
+      }
+    },
+
+    remove : function() {
+      this.hide();
+      if (this.node) {
+        this.node.remove();
+        if (this.entries[this.id]) {
+          delete(this.entries[this.id]);
+        }
+      }
+    },
+
+    create : function () {
+      this.node = $(
+        '<li class="entry">' +
+          //'<img src="img/dummy.png" class="icon"/>' +
+          '<h3>Title</h3>' +
+          '<p>Summary</p>' +
+          '<span class="spacer">' +
+        '</li>'
+      );
     }
+  };
 
+  var AtomReaderEntries = {
+
+    reader : null,
+    entries : {},
+
+    get : function(id) {
+      if (!this.entries[id]) {
+        this.entries[id] = $.extend(
+          true, {}, AtomReaderEntry
+        );
+        this.entries[id].entries = this;
+      }
+      return this.entries[id];
+    },
+
+    remove : function(id) {
+      if (this.entries[id]) {
+        var entry = this.entries[id];
+        delete(this.entries[id]);
+        entry.remove();
+      }
+      return false;
+    }
   };
 
   var AtomReader = {
 
     node : null,
+    entries : null,
 
     options : {
       url : '',
       mode : 'all',
       max : 5,
-      interval : 60
+      interval : 0
     },
 
     namespaces : {
@@ -33,9 +100,15 @@
 
     setUp : function(node, options) {
       this.node = node;
+      this.entries = $.extend(true, {}, AtomReaderEntries);
+      this.entries.reader = this;
       this.options = $.extend($.extend(this.options, options), node.data());
       this.fetch();
-      window.setInterval($.proxy(this.fetch, this), 1000 * this.options.interval);
+      if (this.options.interval > 0) {
+        window.setInterval(
+          $.proxy(this.fetch, this), 1000 * this.options.interval
+        );
+      }
     },
 
     fetch : function() {
@@ -47,12 +120,23 @@
       }
     },
 
-    update : function(data) {
+    read : function(data) {
       var reader = this;
       $(data).xmlns(
         reader.namespaces,
         function () {
-          console.log(this.find('atom|entry').text());
+          var entries = this.find('atom|entry');
+          for (var i = reader.options.max; i > 0; i--) {
+            var entry = entries.eq(i - 1);
+            if (entry.length > 0) {
+              var data = new Object();
+              data.id = entry.find('atom|id').text();
+              data.updated = entry.find('atom|updated').text();
+              data.title = entry.find('atom|title').text();
+              data.summary = entry.find('atom|summary').text();
+              reader.entries.get(data.id).update(data);
+            }
+          }
         }
       );
     },
@@ -61,7 +145,7 @@
       if (typeof data == 'string') {
         data = new DOMParser().parseFromString(data, 'text/xml');
       }
-      this.update(data);
+      this.read(data);
       this.node.find('.status').slideUp();
     },
 
