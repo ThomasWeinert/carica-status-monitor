@@ -88,6 +88,13 @@ table#grid td {
   float: left;
   border-radius: 5px;
 }
+.feed li h2 {
+  font-size: 1em;
+}
+.feed li h3 {
+  margin-left: 60px;
+  font-size: 0.8em;
+}
 .feed li p {
   margin-left: 60px;
   font-size: 0.8em;
