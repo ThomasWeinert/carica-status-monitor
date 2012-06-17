@@ -13,7 +13,7 @@
     update : function(data) {
       var updated = new Date(data.updated);
       if (this.node) {
-        if (updated > this.updated) {
+        if (updated <= this.updated) {
           return;
         }
         this.hide();
