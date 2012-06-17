@@ -63,22 +63,25 @@ table#grid td {
   box-shadow: 5px 5px 1px #000000;
 }
 .feed li {
+  display: inline-block;
+  width: 100%;
   list-style: none;
   padding: 0.4em;
   clear: both;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 .feed li.header {
   font-weight: bold;
   color: #FFF;
 }
 .feed li.status {
-  height: 16px;
+  height: 28px;
   text-align: center;
   border-top: 1px solid #000;
 }
 .feed li.loading {
   background: transparent url(../img/loader.gif) no-repeat center 5px;
-  height: 16px;
 }
 .feed li.error {
   font-weight: bold;

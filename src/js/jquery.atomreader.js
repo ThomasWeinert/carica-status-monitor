@@ -132,8 +132,10 @@
 
     fetch : function() {
       if (this.options.url != '') {
+        var hash = window.location.hash ? window.location.hash : '';
+        var url = this.options.url.replace(/\{hash\}/, escape(hash));
         this.node.find('.status').attr('class', 'status').addClass('loading').slideDown();
-        $.get(this.options.url)
+        $.get(url)
           .success($.proxy(this.ajaxSuccess, this))
           .error($.proxy(this.ajaxError, this));
       }
