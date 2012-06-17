@@ -13,7 +13,7 @@
   <body>
     <div id="pageHeader">
       <img src="img/twitter.png" class="icon"/>
-      <h1>Twitter Wall</h1>
+      <h1 data-plugin="hash">Twitter Wall</h1>
     </div>
     <table id="grid">
       <tr class="row">
@@ -30,9 +30,11 @@
     <script type="text/javascript" src="js/external/jquery.min.js"></script>
     <script type="text/javascript" src="js/external/jquery.xmlns.js"></script>
     <script type="text/javascript" src="js/jquery.atomreader.js"></script>
+    <script type="text/javascript" src="js/jquery.hashreplace.js"></script>
     <script type="text/javascript">
       jQuery(document).ready(
         function() {
+          jQuery('[data-plugin="hash"]').HashReplace();
           jQuery('[data-plugin="feed"]').AtomReader();
         }
       );
