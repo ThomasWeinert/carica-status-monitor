@@ -18,10 +18,10 @@ namespace Carica\StatusMonitor\Library\Filter {
      * @return \DOMDocument
      */
     public function filter(\DOMDocument $dom) {
-      $template = new DOMDocument();
-      $template->load($xsltFile);
-      $this->processor->importStylesheet($template);
-      return $this->processor()->transformToXml($dom);
+      $template = new \DOMDocument();
+      $template->load($this->_xsltFile);
+      $this->processor()->importStylesheet($template);
+      return $this->processor()->transformToDoc($dom);
     }
 
     /**
