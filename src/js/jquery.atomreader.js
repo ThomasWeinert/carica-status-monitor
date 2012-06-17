@@ -156,6 +156,9 @@
               data.summary = entry.find('atom|summary').text();
               data.status = entry.find('csm|status').text();
               data.icon = entry.find('csm|icon').attr('src');
+              if (data.icon == '') {
+                data.icon = entry.find('atom:link[rel=image]').attr('href');
+              }
               reader.entries.get(data.id).update(data);
             }
           }
