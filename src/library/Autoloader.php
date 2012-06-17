@@ -11,17 +11,16 @@ namespace Carica\StatusMonitor\Library {
     }
 
     public static function getFilename($class) {
-      $baseNamespace = substr(__NAMESPACE__, 0, strrpos(__NAMESPACE__, '\\'));
-      if (0 == strpos($class, $baseNamespace)) {
+      if (0 == strpos($class, __NAMESPACE__)) {
         return str_replace(
-          '\\', DIRECTORY_SEPARATOR, substr($class, strlen($baseNamespace))
+          '\\', DIRECTORY_SEPARATOR, substr($class, strlen(__NAMESPACE__))
         ).'.php';
       }
       return FALSE;
     }
 
     public static function register() {
-      spl_autoload_register(array(self, 'load'));
+      spl_autoload_register(array(__CLASS__, 'load'));
     }
   }
 }

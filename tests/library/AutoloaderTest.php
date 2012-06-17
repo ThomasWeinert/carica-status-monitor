@@ -2,7 +2,7 @@
 
 namespace Carica\StatusMonitor\Library {
 
-  include_once(__DIR__.'/../../src/library/Autoloader.php');
+  require_once(__DIR__.'/../../src/library/Autoloader.php');
 
   class AutoloaderTest extends \PHPUnit_Framework_TestCase {
 
@@ -19,7 +19,7 @@ namespace Carica\StatusMonitor\Library {
 
     public static function provideFilenameClassPairs() {
       return array(
-        array('/Library/Filter/Xslt.php', __NAMESPACE__.'\Filter\Xslt')
+        array('/Filter/Xslt.php', __NAMESPACE__.'\Filter\Xslt')
       );
     }
   }
