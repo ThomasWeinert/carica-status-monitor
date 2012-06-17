@@ -119,6 +119,7 @@
 
     setUp : function(node, options) {
       this.node = node;
+      this.node.data('AtomReader', this);
       this.entries = $.extend(true, {}, AtomReaderEntries);
       this.entries.reader = this;
       this.options = $.extend($.extend(this.options, options), node.data());
