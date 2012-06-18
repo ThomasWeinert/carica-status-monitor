@@ -35,7 +35,9 @@
       this.node.find('h3').text(data.title);
       this.node.find('p').text(data.summary);
       this.node.find('.updated').text(updated.toLocaleString());
-      this.node.addClass('changed');
+      if (this.entries.reader.options.highlight == 'yes') {
+        this.node.addClass('changed');
+      }
       this.show();
     },
 
@@ -106,7 +108,7 @@
 
     options : {
       url : '',
-      mode : 'all',
+      highlight : 'yes',
       max : 5,
       interval : 0
     },
