@@ -211,8 +211,7 @@
     },
 
     /**
-     * Read data returned from the ajax request. If the response contains a string
-     * try to convert it into a dom. Update the found items.
+     * Read dom returned from the Ajax request. Update the found items.
      *
      * @param data
      */
@@ -244,7 +243,8 @@
     },
 
     /**
-     * Ajax request successful callback.
+     * Ajax request successful callback. If the response contains a string
+     * try to convert it into a dom.
      *
      * @param data
      */
@@ -257,7 +257,7 @@
     },
 
     /**
-     * Ajax request error callback.
+     * Ajax request error callback. Display the error in the status element.
      *
      * @param data
      */
