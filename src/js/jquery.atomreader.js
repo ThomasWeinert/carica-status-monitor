@@ -1,3 +1,22 @@
+/**
+* A jQuery based Atom reader. It adds li elements to the given list
+* element depending on the fetched feed.
+*
+* Use data-Attributes in the list element to define options.
+*
+* Usage:
+*
+* <ul data-plugin="feed" data-url="..." data-interval="120" data-max="10">
+*
+* jQuery('ul[data-plugin="feed"]').AtomReader();
+*
+* Options:
+*
+* url: the Atom feed url, required
+* interval: refresh time in seconds, 0 = no refresh, default = 0
+* max: maximum items default = 5
+* highlight: higlight new/changed items, default = yes
+*/
 (function($){
 
   var AtomReaderEntry = {
@@ -10,6 +29,12 @@
     id : null,
     updated : null,
 
+    /**
+     * Update an entry if new data is available. This contains
+     * an implicit create for the dom elements
+     *
+     * @param object data
+     */
     update : function(data) {
       var updated = new Date(data.updated);
       if (this.node) {
@@ -41,17 +66,26 @@
       this.show();
     },
 
+    /**
+     * Move an item to the top of the list and show it.
+     */
     show : function() {
       this.entries.reader.node.find('li.status, li.title').last().after(this.node);
       this.node.slideDown();
     },
 
+    /**
+     * Hide the dom element if here is one.
+     */
     hide : function() {
       if (this.node) {
         this.node.slideUp();
       }
     },
 
+    /**
+     * Remove the dom elements and the item.
+     */
     remove : function() {
       this.hide();
       if (this.node) {
@@ -62,6 +96,9 @@
       }
     },
 
+    /**
+     * Create the dom elements for the item
+     */
     create : function () {
       this.node = $(
         '<li class="entry">' +
@@ -81,6 +118,13 @@
     reader : null,
     entries : {},
 
+    /**
+     * Get an entry item for the provided id, creates the item
+     * if it is not found.
+     *
+     * @param string id
+     * @returns
+     */
     get : function(id) {
       if (!this.entries[id]) {
         this.entries[id] = $.extend(
@@ -91,13 +135,16 @@
       return this.entries[id];
     },
 
+    /**
+     * Remove an item from the list, calls remove on the item, too.
+     * @param id
+     */
     remove : function(id) {
       if (this.entries[id]) {
         var entry = this.entries[id];
         delete(this.entries[id]);
         entry.remove();
       }
-      return false;
     }
   };
 
@@ -113,12 +160,19 @@
       interval : 0
     },
 
+    /**
+     * Define namespaces for the css selectors
+     */
     namespaces : {
       'atom' : 'http://www.w3.org/2005/Atom',
-      'media' : 'http://search.yahoo.com/mrss/',
       'csm' : 'http://thomas.weinert.info/carica/ns/status-monitor'
     },
 
+    /**
+     * Set up a new Atom reader instance
+     * @param node
+     * @param options
+     */
     setUp : function(node, options) {
       this.node = node;
       this.node.data('AtomReader', this);
@@ -133,6 +187,10 @@
       }
     },
 
+    /**
+     * Fetch the feed from the url. The url will be modified if it contains
+     * the joker {hash}. It will be replaced with the current fragment/hash.
+     */
     fetch : function() {
       if (this.options.url != '') {
         var hash = window.location.hash ? window.location.hash : '';
@@ -148,6 +206,12 @@
       }
     },
 
+    /**
+     * Read data returned from the ajax request. If the response contains a string
+     * try to convert it into a dom. Update the found items.
+     *
+     * @param data
+     */
     read : function(data) {
       var reader = this;
       $(data).xmlns(
@@ -175,6 +239,11 @@
       );
     },
 
+    /**
+     * Ajax request successful callback.
+     *
+     * @param data
+     */
     ajaxSuccess : function(data) {
       if (typeof data == 'string') {
         data = new DOMParser().parseFromString(data, 'text/xml');
@@ -183,6 +252,11 @@
       this.node.find('.status').slideUp();
     },
 
+    /**
+     * Ajax request error callback.
+     *
+     * @param data
+     */
     ajaxError : function(data) {
       this.node.find('.status').attr('class', 'status').addClass('error').text(
         data.status + ' ' + data.statusText
@@ -190,6 +264,9 @@
     }
   };
 
+  /**
+   * jQuery selector handling to attach Atom reader to list elements
+   */
   $.fn.AtomReader = function(options) {
     return this.each(
       function() {
