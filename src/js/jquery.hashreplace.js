@@ -47,7 +47,7 @@
     },
 
     /**
-     * Read the has, insert it into the text content. If it is empty insert
+     * Read the hash, insert it into the text content. If it is empty insert
      * the stored default text.
      */
     replace : function () {
