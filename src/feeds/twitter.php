@@ -1,4 +1,12 @@
 <?php
+/**
+* Do a Twitter search and return the result.
+*
+* Twitter provides a nice Atom feed.
+*
+* @license http://www.opensource.org/licenses/mit-license.php The MIT License
+* @copyright 2012 Thomas Weinert <thomas@weinert.info>
+*/
 
 if (empty($_GET['q'])) {
   header('Status: 400 Bad Request', TRUE, 400);

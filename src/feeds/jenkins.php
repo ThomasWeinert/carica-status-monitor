@@ -1,4 +1,11 @@
 <?php
+/**
+* Fetch the xml of an Jenkins jobs listview and
+* transform it using an xslt template.
+*
+* @license http://www.opensource.org/licenses/mit-license.php The MIT License
+* @copyright 2012 Thomas Weinert <thomas@weinert.info>
+*/
 
 if (empty($_GET['view'])) {
   header('Status: 400 Bad Request', TRUE, 400);
