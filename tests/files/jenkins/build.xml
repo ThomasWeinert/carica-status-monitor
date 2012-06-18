@@ -1,0 +1,35 @@
+<freeStyleBuild>
+  <action>
+    <cause>
+      <shortDescription>Started by user Thomas Weinert</shortDescription>
+      <userId>weinert</userId>
+      <userName>Thomas Weinert</userName>
+    </cause>
+  </action>
+  <action/><action/><action/><action/><action/><action/>
+  <action>
+    <failCount>0</failCount>
+    <skipCount>0</skipCount>
+    <totalCount>4718</totalCount>
+    <urlName>testReport</urlName>
+  </action>
+  <action/>
+  <building>false</building>
+  <duration>187798</duration>
+  <estimatedDuration>187748</estimatedDuration>
+  <fullDisplayName>papayaCMS #92</fullDisplayName>
+  <id>2012-06-14_12-33-10</id>
+  <keepLog>false</keepLog>
+  <number>92</number>
+  <result>SUCCESS</result>
+  <timestamp>1339669990450</timestamp>
+  <url>http://java.sample.tld/jenkins/job/papayaCMS/92/</url>
+  <builtOn/>
+  <changeSet>
+    <kind>svn</kind>
+    <revision>
+      <module>http://svn.sample.tld/papayaCMS/trunk/papayaCMS</module>
+      <revision>37132</revision>
+    </revision>
+  </changeSet>
+</freeStyleBuild>

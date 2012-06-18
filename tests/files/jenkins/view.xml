@@ -1,0 +1,14 @@
+<listView>
+  <job>
+    <name>papayaCMS</name>
+    <url>http://sample.tld/jenkins/job/papayaCMS/</url>
+    <color>blue</color>
+  </job>
+  <job>
+    <name>Sample One</name>
+    <url>http://sample.tld/jenkins/job/Sample%20One/</url>
+    <color>red</color>
+  </job>
+  <name>Compact</name>
+  <url>http://sample.tld/jenkins/view/Compact/</url>
+</listView>
