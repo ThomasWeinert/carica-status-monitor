@@ -1,9 +1,9 @@
 ---------------------------------------------------------------------
  Carica Status Monitor
  
- Licence:  The MIT License
-           http://www.opensource.org/licenses/mit-license.php 
- Copright: 2012 Thomas Weinert <thomas@weinert.info>
+ License:   The MIT License
+            http://www.opensource.org/licenses/mit-license.php 
+ Copyright: 2012 Thomas Weinert <thomas@weinert.info>
 ---------------------------------------------------------------------
 
 This is a panic/status monitor. The main component is an Atom reader
