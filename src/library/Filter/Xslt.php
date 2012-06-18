@@ -1,7 +1,16 @@
 <?php
+/**
+* Transform a DOM using an xslt file.
+*
+* @license http://www.opensource.org/licenses/mit-license.php The MIT License
+* @copyright 2012 Thomas Weinert <thomas@weinert.info>
+*/
 
 namespace Carica\StatusMonitor\Library\Filter {
 
+  /**
+   * Transform a DOM using an xslt file.
+   */
   class Xslt implements \Carica\StatusMonitor\Library\Filter {
 
     /**

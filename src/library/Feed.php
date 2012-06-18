@@ -1,7 +1,18 @@
 <?php
+/**
+* The feed object combines a source and an optional filter
+* to create an feed for the AtomReader
+*
+* @license http://www.opensource.org/licenses/mit-license.php The MIT License
+* @copyright 2012 Thomas Weinert <thomas@weinert.info>
+*/
 
 namespace Carica\StatusMonitor\Library {
 
+  /**
+   * The feed object combines a source and an optional filter
+   * to create an feed for the AtomReader
+   */
   class Feed {
 
     /**
