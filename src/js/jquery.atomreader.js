@@ -1,7 +1,7 @@
 /**
 * A jQuery based Atom reader. It adds li elements to the given list
 * element depending on the fetched feed.
-*
+**
 * Use data-Attributes in the list element to define options.
 *
 * Usage:
@@ -16,6 +16,10 @@
 * interval: refresh time in seconds, 0 = no refresh, default = 0
 * max: maximum items default = 5
 * highlight: higlight new/changed items, default = yes
+*
+*
+* @license http://www.opensource.org/licenses/mit-license.php The MIT License
+* @copyright 2012 Thomas Weinert <thomas@weinert.info>
 */
 (function($){
 
