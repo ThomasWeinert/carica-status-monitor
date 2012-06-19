@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+		<rss version="2.0" xmlns:yweather="http://xml.weather.yahoo.com/ns/rss/1.0" xmlns:geo="http://www.w3.org/2003/01/geo/wgs84_pos#">
+			<channel>
+		
+<title>Yahoo! Weather - Cologne, DE</title>
+<link>http://us.rd.yahoo.com/dailynews/rss/weather/Cologne__DE/*http://weather.yahoo.com/forecast/GMXX0018_f.html</link>
+<description>Yahoo! Weather for Cologne, DE</description>
+<language>en-us</language>
+<lastBuildDate>Tue, 19 Jun 2012 6:19 pm CEST</lastBuildDate>
+<ttl>60</ttl>
+<yweather:location city="Cologne" region="NW"   country="Germany"/>
+<yweather:units temperature="F" distance="mi" pressure="in" speed="mph"/>
+<yweather:wind chill="68"   direction="350"   speed="6" />
+<yweather:atmosphere humidity="73"  visibility="6.21"  pressure="30.03"  rising="0" />
+<yweather:astronomy sunrise="5:16 am"   sunset="9:46 pm"/>
+<image>
+<title>Yahoo! Weather</title>
+<width>142</width>
+<height>18</height>
+<link>http://weather.yahoo.com</link>
+<url>http://l.yimg.com/a/i/brand/purplelogo//uh/us/news-wea.gif</url>
+</image>
+<item>
+<title>Conditions for Cologne, DE at 6:19 pm CEST</title>
+<geo:lat>50.94</geo:lat>
+<geo:long>6.96</geo:long>
+<link>http://us.rd.yahoo.com/dailynews/rss/weather/Cologne__DE/*http://weather.yahoo.com/forecast/GMXX0018_f.html</link>
+<pubDate>Tue, 19 Jun 2012 6:19 pm CEST</pubDate>
+<yweather:condition  text="Fair"  code="34"  temp="68"  date="Tue, 19 Jun 2012 6:19 pm CEST" />
+<description><![CDATA[
+<img src="http://l.yimg.com/a/i/us/we/52/34.gif"/><br />
+<b>Current Conditions:</b><br />
+Fair, 68 F<BR />
+<BR /><b>Forecast:</b><BR />
+Tue - Showers. High: 68 Low: 60<br />
+Wed - Showers. High: 71 Low: 59<br />
+<br />
+<a href="http://us.rd.yahoo.com/dailynews/rss/weather/Cologne__DE/*http://weather.yahoo.com/forecast/GMXX0018_f.html">Full Forecast at Yahoo! Weather</a><BR/><BR/>
+(provided by <a href="http://www.weather.com" >The Weather Channel</a>)<br/>
+]]></description>
+<yweather:forecast day="Tue" date="19 Jun 2012" low="60" high="68" text="Showers" code="11" />
+<yweather:forecast day="Wed" date="20 Jun 2012" low="59" high="71" text="Showers" code="11" />
+<guid isPermaLink="false">GMXX0018_2012_06_20_7_00_CEST</guid>
+</item>
+</channel>
+</rss>
+<!-- api6.weather.ch1.yahoo.com compressed/chunked Tue Jun 19 09:52:21 PDT 2012 -->
