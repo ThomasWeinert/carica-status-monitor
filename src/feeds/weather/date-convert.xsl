@@ -7,7 +7,11 @@
   extension-element-prefixes="date func"
 >
 
-<!-- Convert a RFC822 date time string into a RFC3339 one. -->
+<!-- 
+  Convert a RFC822 date time string into a RFC3339 one.
+
+  Wed, 20 Jun 2012 12:50 am CEST
+ -->
 <func:function name="date:convertDateRssToAtom">
   <xsl:param name="rssDate"/>
   <xsl:variable name="weekDay" select="substring-before($rssDate, ', ')"/>
@@ -101,7 +105,7 @@
         <xsl:text>12</xsl:text>
       </xsl:when>
       <xsl:when test="$hour = 12 and $amPm = 'am'">
-        <xsl:text>0</xsl:text>
+        <xsl:text>00</xsl:text>
       </xsl:when>
       <xsl:when test="$amPm = 'pm'">
         <xsl:value-of select="format-number(12 + $hour, '00')"/>
