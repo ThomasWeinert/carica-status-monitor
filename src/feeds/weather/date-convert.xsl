@@ -7,9 +7,9 @@
   extension-element-prefixes="date func"
 >
 
+<!-- Convert a RFC822 date time string into a RFC3339 one. -->
 <func:function name="date:convertDateRssToAtom">
   <xsl:param name="rssDate"/>
-  <!--  Tue, 19 Jun 2012 6:19 pm CEST -->
   <xsl:variable name="weekDay" select="substring-before($rssDate, ', ')"/>
   <xsl:variable name="withoutWeekDay">
     <xsl:choose>
@@ -115,7 +115,7 @@
     <xsl:text>:</xsl:text>
     <xsl:value-of select="format-number($seconds, '00')"/>
     <xsl:choose>
-      <!--- Yeah! timezones imcomplete list of course-->
+      <!--- Yeah! timezones incomplete list of course-->
       <xsl:when test="$zone = 'Z'">Z</xsl:when>
       <xsl:when test="$zone = 'UT'">Z</xsl:when>
       <xsl:when test="$zone = 'GMT'">Z</xsl:when>
