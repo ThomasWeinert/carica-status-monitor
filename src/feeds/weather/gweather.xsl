@@ -19,21 +19,23 @@
     <atom:title>Google Weather</atom:title>
     <atom:id>urn:google/weather/<xsl:value-of select="$information/postal_code/@data"/></atom:id>
     <atom:updated><xsl:value-of select="date:date-time()"/></atom:updated>
-    <atom:entry>
-      <atom:id>urn:google/weather/<xsl:value-of select="$information/postal_code/@data"/>/<xsl:value-of select="$information/forecast_date/@data"/></atom:id>
-      <atom:updated><xsl:value-of select="date:date-time()"/></atom:updated>
-      <atom:link rel="image" href="http://www.google.com/{$current/icon/@data}"/>
-      <atom:title><xsl:value-of select="$information/city/@data"/></atom:title>
-      <atom:summary>
-        <xsl:value-of select="$current/condition/@data"/>
-        <xsl:text>, </xsl:text>
-        <xsl:value-of select="$current/temp_c/@data"/>
-        <xsl:text>°C, </xsl:text>
-        <xsl:value-of select="$current/humidity/@data"/>
-        <xsl:text>, </xsl:text>
-        <xsl:value-of select="$current/wind_condition/@data"/>
-      </atom:summary>
-    </atom:entry>
+    <xsl:if test="$current/condition/@data != ''">
+      <atom:entry>
+        <atom:id>urn:google/weather/<xsl:value-of select="$information/postal_code/@data"/>/<xsl:value-of select="$information/forecast_date/@data"/></atom:id>
+        <atom:updated><xsl:value-of select="date:date-time()"/></atom:updated>
+        <atom:link rel="image" href="http://www.google.com/{$current/icon/@data}"/>
+        <atom:title><xsl:value-of select="$information/city/@data"/></atom:title>
+        <atom:summary>
+          <xsl:value-of select="$current/condition/@data"/>
+          <xsl:text>, </xsl:text>
+          <xsl:value-of select="$current/temp_c/@data"/>
+          <xsl:text>°C, </xsl:text>
+          <xsl:value-of select="$current/humidity/@data"/>
+          <xsl:text>, </xsl:text>
+          <xsl:value-of select="$current/wind_condition/@data"/>
+        </atom:summary>
+      </atom:entry>
+    </xsl:if>
   </atom:feed>
 </xsl:template>
 
