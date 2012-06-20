@@ -1,8 +1,8 @@
 ---------------------------------------------------------------------
  Carica Status Monitor
- 
+
  License:   The MIT License
-            http://www.opensource.org/licenses/mit-license.php 
+            http://www.opensource.org/licenses/mit-license.php
  Copyright: 2012 Thomas Weinert <thomas@weinert.info>
 ---------------------------------------------------------------------
 
@@ -16,19 +16,20 @@ in your favorite browser.
 
 Browser Compatiblity:
 - Firefox 13 (Windows 7)
+- Firefox 11 (Ubuntu Linux)
 
 --------------------------------------------------------------------
 
 /src/index.html
 
-A status monitor example. The feeds are configured using 
+A status monitor example. The feeds are configured using
 data-attributes inside the html. Several feeds are only test data.
 
 --------------------------------------------------------------------
 
 /src/twitter-wall.html
 
-A twitter wall example. It uses only a single feed (a simple 
+A twitter wall example. It uses only a single feed (a simple
 twitter search proxy) and displays the feed on all columns.
 
-The search is defined by the url fragment/hash. 
+The search is defined by the url fragment/hash.
