@@ -29,11 +29,14 @@
         <csm:icon>
           <xsl:attribute name="src">
             <xsl:choose>
+              <xsl:when test="contains(color, '_anim')">
+                <xsl:text>img/view-refresh.png</xsl:text>
+              </xsl:when>
               <xsl:when test="$status = 'error'">
-                <xsl:text>img/weather-severe-alert.png</xsl:text>
+                <xsl:text>img/face-devilish.png</xsl:text>
               </xsl:when>
               <xsl:otherwise>
-                <xsl:text>img/weather-clear.png</xsl:text>
+                <xsl:text>img/face-angel.png</xsl:text>
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
