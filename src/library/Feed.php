@@ -46,7 +46,7 @@ namespace Carica\StatusMonitor\Library {
       if ($dom && $this->_filter) {
         $dom = $this->_filter->filter($dom);
       }
-      return ($dom === NULL) ? '' :  $dom->saveXml();
+      return ($dom) ? $dom->saveXml() : '';
     }
 
   }
