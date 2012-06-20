@@ -81,11 +81,11 @@
       <!--sleet-->
       <xsl:when test="$code = 18">weather-severe-alert.png</xsl:when>
       <!--dust-->
-      <xsl:when test="$code = 19"></xsl:when>
+      <xsl:when test="$code = 19">weather-foggy.png</xsl:when>
       <!--foggy-->
-      <xsl:when test="$code = 20"></xsl:when>
+      <xsl:when test="$code = 20">weather-foggy.png</xsl:when>
       <!--haze-->
-      <xsl:when test="$code = 21">weather-severe-alert.png</xsl:when>
+      <xsl:when test="$code = 21">weather-foggy.png</xsl:when>
       <!--smoky-->
       <xsl:when test="$code = 22">weather-severe-alert.png</xsl:when>
       <!--blustery-->
@@ -93,29 +93,29 @@
       <!--windy-->
       <xsl:when test="$code = 24"></xsl:when>
       <!--cold-->
-      <xsl:when test="$code = 25"></xsl:when>
+      <xsl:when test="$code = 25">weather-cold.png</xsl:when>
       <!--cloudy-->
       <xsl:when test="$code = 26">weather-overcast.png</xsl:when>
       <!--mostly cloudy (night)-->
-      <xsl:when test="$code = 27"></xsl:when>
+      <xsl:when test="$code = 27">weather-overcast.png</xsl:when>
       <!--mostly cloudy (day)-->
-      <xsl:when test="$code = 28"></xsl:when>
+      <xsl:when test="$code = 28">weather-overcast.png</xsl:when>
       <!--partly cloudy (night)-->
-      <xsl:when test="$code = 29"></xsl:when>
+      <xsl:when test="$code = 29">weather-few-clouds-night.png</xsl:when>
       <!--partly cloudy (day)-->
       <xsl:when test="$code = 30">weather-few-clouds.png</xsl:when>
       <!--clear (night)-->
-      <xsl:when test="$code = 31"></xsl:when>
+      <xsl:when test="$code = 31">weather-clear-night.png</xsl:when>
       <!--sunny-->
       <xsl:when test="$code = 32">weather-clear.png</xsl:when>
       <!--fair (night)-->
-      <xsl:when test="$code = 33"></xsl:when>
+      <xsl:when test="$code = 33">weather-clear-night.png</xsl:when>
       <!--fair (day)-->
       <xsl:when test="$code = 34">weather-clear.png</xsl:when>
       <!--mixed rain and hail-->
       <xsl:when test="$code = 35">weather-showers.png</xsl:when>
       <!--hot-->
-      <xsl:when test="$code = 36">weather-clear.png</xsl:when>
+      <xsl:when test="$code = 36">weather-hot.png</xsl:when>
       <!--isolated thunderstorms-->
       <xsl:when test="$code = 37">weather-storm.png</xsl:when>
       <!--scattered thunderstorms-->
