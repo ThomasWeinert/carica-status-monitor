@@ -38,7 +38,7 @@ namespace Carica\StatusMonitor\Library\Source {
     $exampleUrl = 'http://example.tld/';
     if (0 === strpos($url, $exampleUrl)) {
       return realpath(
-          __DIR__.'/../../../tests/files/'.substr($url, strlen($exampleUrl))
+          __DIR__.'/../../tests/files/'.substr($url, strlen($exampleUrl))
       );
     }
     return $url;
