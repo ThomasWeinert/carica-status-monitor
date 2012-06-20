@@ -20,3 +20,27 @@ namespace Carica\StatusMonitor\Library {
 
   }
 }
+
+namespace Carica\StatusMonitor\Library\Source {
+
+  /**
+   * Validate that it start with http:// oder
+   * https://, map http://example.tld/ to the local example files
+   * directory.
+   *
+   * @throws UnexpectedValueException
+   * @return string
+   */
+  function validateUrl($url) {
+    if (!preg_match('(^https?://)', $url)) {
+      throw new UnexpectedValueException('Source url is invalid.');
+    }
+    $exampleUrl = 'http://example.tld/';
+    if (0 === strpos($url, $exampleUrl)) {
+      return realpath(
+          __DIR__.'/../../../tests/files/'.substr($url, strlen($exampleUrl))
+      );
+    }
+    return $url;
+  }
+}
