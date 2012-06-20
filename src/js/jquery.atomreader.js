@@ -83,7 +83,7 @@
      */
     hide : function() {
       if (this.node) {
-        this.node.slideUp();
+        this.node.hide();
       }
     },
 
@@ -110,6 +110,7 @@
           '<h3>Title</h3>' +
           '<p>Summary</p>' +
           '<span class="updated"></span>' +
+          '<span class="spacer"></span>' +
         '</li>'
       );
       this.node.data('atomReaderEntry', this);
@@ -160,6 +161,7 @@
     options : {
       url : '',
       highlight : 'yes',
+      refresh : 'updated',
       max : 5,
       interval : 0
     },
@@ -183,6 +185,9 @@
       this.entries = $.extend(true, {}, AtomReaderEntries);
       this.entries.reader = this;
       this.options = $.extend($.extend(this.options, options), node.data());
+      if (this.options.refresh == 'all') {
+        this.options.highlight = 'no';
+      }
       this.fetch();
       if (this.options.interval > 0) {
         window.setInterval(
@@ -222,6 +227,11 @@
         function () {
           var entries = this.find('atom|entry');
           var max = reader.options.max;
+          if (reader.options.refresh == 'all') {
+            for (var i in reader.entries) {
+              reader.entries.remove(i);
+            }
+          }
           for (var i = max; i > 0; i--) {
             var entry = entries.eq(i - 1);
             if (entry.length > 0) {
