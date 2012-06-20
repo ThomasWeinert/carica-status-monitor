@@ -7,13 +7,14 @@
   extension-element-prefixes="date func"
 >
 
-<!-- 
+<!--
   Convert a RFC822 date time string into a RFC3339 one.
 
   Wed, 20 Jun 2012 12:50 am CEST
  -->
 <func:function name="date:convertDateRssToAtom">
   <xsl:param name="rssDate"/>
+  <xsl:variable name="timezones" select="document('./timezone.xml')/*/*"/>
   <xsl:variable name="weekDay" select="substring-before($rssDate, ', ')"/>
   <xsl:variable name="withoutWeekDay">
     <xsl:choose>
@@ -23,15 +24,15 @@
       <xsl:otherwise>
         <xsl:value-of select="$rssDate"/>
       </xsl:otherwise>
-    </xsl:choose> 
+    </xsl:choose>
   </xsl:variable>
-  <xsl:variable name="day" select="substring-before($withoutWeekDay, ' ')"/> 
-  <xsl:variable name="withoutDay" select="substring-after($withoutWeekDay, ' ')"/> 
-  <xsl:variable name="month" select="substring-before($withoutDay, ' ')"/> 
-  <xsl:variable name="withoutMonth" select="substring-after($withoutDay, ' ')"/> 
-  <xsl:variable name="year" select="substring-before($withoutMonth, ' ')"/> 
-  <xsl:variable name="withoutYear" select="substring-after($withoutMonth, ' ')"/> 
-  <xsl:variable name="hour" select="substring-before($withoutYear, ':')"/> 
+  <xsl:variable name="day" select="substring-before($withoutWeekDay, ' ')"/>
+  <xsl:variable name="withoutDay" select="substring-after($withoutWeekDay, ' ')"/>
+  <xsl:variable name="month" select="substring-before($withoutDay, ' ')"/>
+  <xsl:variable name="withoutMonth" select="substring-after($withoutDay, ' ')"/>
+  <xsl:variable name="year" select="substring-before($withoutMonth, ' ')"/>
+  <xsl:variable name="withoutYear" select="substring-after($withoutMonth, ' ')"/>
+  <xsl:variable name="hour" select="substring-before($withoutYear, ':')"/>
   <xsl:variable name="withoutHour" select="substring-after($withoutYear, ':')"/>
   <xsl:variable name="minute">
     <xsl:choose>
@@ -42,7 +43,7 @@
         <xsl:value-of select="substring-before($withoutHour, ' ')"/>
       </xsl:otherwise>
     </xsl:choose>
-  </xsl:variable> 
+  </xsl:variable>
   <xsl:variable name="withoutMinute">
     <xsl:choose>
       <xsl:when test="contains($withoutHour, ':')">
@@ -60,7 +61,7 @@
       </xsl:when>
       <xsl:otherwise>0</xsl:otherwise>
     </xsl:choose>
-  </xsl:variable> 
+  </xsl:variable>
   <xsl:variable name="withoutSeconds">
     <xsl:choose>
       <xsl:when test="contains($withoutHour, ':')">
@@ -71,8 +72,8 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <xsl:variable name="amPm" select="substring-before($withoutSeconds, ' ')"/> 
-  <xsl:variable name="zone" select="substring-after($withoutSeconds, ' ')"/> 
+  <xsl:variable name="amPm" select="substring-before($withoutSeconds, ' ')"/>
+  <xsl:variable name="zone" select="substring-after($withoutSeconds, ' ')"/>
   <xsl:variable name="result">
     <xsl:choose>
       <xsl:when test="$year &lt; 100">
@@ -119,27 +120,10 @@
     <xsl:text>:</xsl:text>
     <xsl:value-of select="format-number($seconds, '00')"/>
     <xsl:choose>
-      <!--- Yeah! timezones incomplete list of course-->
-      <xsl:when test="$zone = 'Z'">Z</xsl:when>
-      <xsl:when test="$zone = 'UT'">Z</xsl:when>
-      <xsl:when test="$zone = 'GMT'">Z</xsl:when>
-      <xsl:when test="$zone = 'EST'">-0500</xsl:when>
-      <xsl:when test="$zone = 'EDT'">-0400</xsl:when>
-      <xsl:when test="$zone = 'CST'">-0600</xsl:when>
-      <xsl:when test="$zone = 'CDT'">-0500</xsl:when>
-      <xsl:when test="$zone = 'MST'">-0700</xsl:when>
-      <xsl:when test="$zone = 'MDT'">-0600</xsl:when>
-      <xsl:when test="$zone = 'PST'">-0800</xsl:when>
-      <xsl:when test="$zone = 'PDT'">-0700</xsl:when>
-      <xsl:when test="$zone = 'CEST'">+0200</xsl:when>
-      <xsl:when test="$zone = 'CET'">+0100</xsl:when>
-      <xsl:when test="$zone = 'A'">-0100</xsl:when>
-      <xsl:when test="$zone = 'M'">-1200</xsl:when>
-      <xsl:when test="$zone = 'N'">+0100</xsl:when>
-      <xsl:when test="$zone = 'Y'">+1200</xsl:when>
-      <xsl:when test="contains($zone, '+') or contains($zone, '-')">
-        <xsl:value-of select="$zone"/>
+      <xsl:when test="$timezones[@code = $zone]">
+        <xsl:value-of select="$timezones[@code = $zone]/@offset"/>
       </xsl:when>
+      <xsl:otherwise>Z</xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
   <func:result select="$result"/>
