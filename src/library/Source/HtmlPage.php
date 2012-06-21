@@ -35,10 +35,10 @@ namespace Carica\StatusMonitor\Library\Source {
         'http'=>array(
           'method'=> "GET",
           'user_agent' => "User-Agent: Mozilla/5.0 (Windows NT 6.0; rv:13.0) Gecko/20100101 Firefox/13.0",
-          'timeout' => 2.0
+          'timeout' => 3.0
         )
       );
-      $xml = file_get_contents(validateUrl($this->_url), FALSE, stream_context_create($options));
+      $xml = @file_get_contents(validateUrl($this->_url), FALSE, stream_context_create($options));
       if (!empty($xml)) {
         $dom = new \DOMDocument();
         $dom->loadHtml($xml);

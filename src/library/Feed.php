@@ -43,11 +43,23 @@ namespace Carica\StatusMonitor\Library {
      */
     public function __toString() {
       $dom = $this->_source->read();
-      if ($dom && $this->_filter) {
-        $dom = $this->_filter->filter($dom);
+      if ($dom) {
+        if ($this->_filter) {
+          $dom = $this->_filter->filter($dom);
+        }
+      } else {
+        $this->status(504, 'Gateway Time-out');
       }
       return ($dom) ? $dom->saveXml() : '';
     }
 
+    /**
+     * Change the response status
+     * @param integer $code
+     * @param string $text
+     */
+    public function status($code, $text) {
+      header('Status: '.$text, TRUE, $code);
+    }
   }
 }
