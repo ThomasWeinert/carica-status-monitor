@@ -17,7 +17,8 @@
     <xsl:for-each select="$events">
       <xsl:sort select="xCal:dtstart" data-type="text" order="ascending"/>
       <xsl:variable name="startDate" select="date:parseIcalDateTime(xCal:dtstart, xCal:dtstart/@value)"/>
-      <xsl:if test="date:difference($startDate, $now) != 0">
+      <xsl:variable name="upcoming" select="starts-with(date:difference($startDate, $now), '-')"/>
+      <xsl:if test="$upcoming">
         <atom:entry>
           <atom:title><xsl:value-of select="xCal:summary"/></atom:title>
           <atom:id><xsl:value-of select="xCal:url"/></atom:id>
