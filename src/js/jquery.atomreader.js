@@ -36,8 +36,8 @@
     template : 
       '<li class="entry">' +
         '<img src="img/dialog-information.png" class="icon"/>' +
-        '<h3>Title</h3>' +
-        '<p>Summary</p>' +
+        '<h3/>' +
+        '<p/>' +
         '<span class="updated"></span>' +
         '<span class="spacer"></span>' +
       '</li>',
@@ -140,6 +140,19 @@
   
   var AtomReaderEntryXCal = {
       
+      template : 
+        '<li class="entry">' +
+          '<span class="dateIcon">'+
+            '<span class="day"/>'+
+            '<span class="month"/>'+
+          '</span>' +
+          '<h3/>' +
+          '<p/>' +
+          '<span class="updated"></span>' +
+          '<span class="spacer"></span>' +
+        '</li>',
+
+      
     /**
      * Read values from entry xml and update the dom element
      * 
@@ -149,20 +162,29 @@
       
     updateNode : function(data, entry) {
       var status = entry.find('csm|status').text();
-      var icon = entry.find('csm|icon').attr('src');
-      if (!icon || icon == '') {
-        icon = entry.find('atom|link[rel=image]').attr('href');
-      }
       this.node.attr('class', 'entry').addClass(
         (status != '') ? status : 'information'
       );
-      this.node.find('img').attr(
-        'src', (icon != '') ? icon : this.defaultIcon
-      );
-      this.node.find('h3').text(
-        this.formatXCalDate(entry.find('xcal|dtstart'))
-      );
-      this.node.find('p').text(entry.find('atom|title').text());
+      var startDate = this.parseXCalDate(entry.find('xcal|dtstart'));
+      var startDateFormat = entry.find('xcal|dtstart').attr('value');
+      this.node.find('.dateIcon .month').text(Globalize.format(startDate, "MMM"));
+      this.node.find('.dateIcon .day').text(Globalize.format(startDate, " d"));
+      if (Globalize.format(startDate, "d") == Globalize.format(new Date(), "d")) {
+        this.node.find('.dateIcon').removeClass('allday').addClass('today');
+      } else if (startDateFormat != 'DATE-TIME') {
+        this.node.find('.dateIcon').removeClass('today').addClass('allday');
+      } else {
+        this.node.find('.dateIcon').removeClass('today').removeClass('allday');
+      }
+      if (startDateFormat == 'DATE-TIME') {
+        this.node.find('h3').text(
+          Globalize.format(startDate, "t") + ' ' + entry.find('atom|title').text()
+        );
+      } else {
+        this.node.find('h3').text(
+            entry.find('atom|title').text()
+        );
+      }
       this.node.find('.updated').text(Globalize.format(this.updated, "f"));
     },
     
@@ -173,7 +195,7 @@
      * @param node
      * @returns string 
      */
-    formatXCalDate : function(node) {
+    parseXCalDate : function(node) {
       var string = node.text();
       var format = node.attr('value');
       var dateString = 
@@ -185,12 +207,8 @@
           string.substr(8, 3) + ':' +
           string.substr(11, 2) + ':' +
           string.substr(13);
-        var date = new Date(dateString);
-        return Globalize.format(date, "d") + ' ' + Globalize.format(date, "t");
-      } else {
-        var date = new Date(dateString);
-        return Globalize.format(date, "d");
       }
+      return date = new Date(dateString);
     }
   };
 

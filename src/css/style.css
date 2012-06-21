@@ -100,6 +100,7 @@ table#grid td {
 }
 .feed li.entry {
   border-top: 1px solid #000;
+  min-height: 54px;
 }
 .feed li img {
   width: 48px;
@@ -116,7 +117,7 @@ table#grid td {
 }
 .feed li p {
   margin-left: 60px;
-  font-size: 0.8em;
+  font-size: 0.75em;
 }
 .feed li .updated {
   float: right;
@@ -139,6 +140,55 @@ span.spacer {
   clear: both;
   line-height: 1px;
   height: 1px;
+}
+
+/** Date Icon **/
+span.dateIcon {
+  display: inline-block;
+  float: left;
+  width: 48px;
+  border: 1px solid #404040;
+  border-radius: 5px;
+}
+span.dateIcon .month {
+  display: block;
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 0.2em;
+  padding-left: 0.4em;
+  color: #FFF;
+  text-aling: center;
+  border-top: 1px solid #404040;
+  background: #3465a4; /* Old browsers */
+  background: -moz-linear-gradient(top, #3465a4 0%, #204a87 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top, #3465a4 0%, #204a87 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #3465a4 0%, #204a87 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #3465a4 0%, #204a87 100%); /* IE10+ */
+  background: linear-gradient(top, #3465a4 0%, #204a87 100%); /* W3C */
+}
+span.dateIcon.today .month {
+  background: #FF0000; /* Old browsers */
+  background: -moz-linear-gradient(top, #FF0000 0%, #660000 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* IE10+ */
+  background: linear-gradient(top, #FF0000 0%, #660000 100%); /* W3C */
+}
+span.dateIcon.allday .month {
+  background: #4e9a06; /* Old browsers */
+  background: -moz-linear-gradient(top, #4e9a06 0%, #376b04 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top, #4e9a06 0%, #376b04 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #4e9a06 0%, #376b04 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #4e9a06 0%, #376b04 100%); /* IE10+ */
+  background: linear-gradient(top, #4e9a06 0%, #376b04 100%); /* W3C */
+}
+span.dateIcon .day {
+  display: block;
+  font-size: 2em;
+  padding: 0.1em;
+  line-height: 1em;
+  font-weight: bold;
+  text-align: right;
 }
 
 
@@ -169,7 +219,7 @@ span.spacer {
   background: linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* W3C */
 }
 .gradient-red, .feed li.error {
-  background: #FFFFFF; /* Old browsers */
+  background: #FF0000; /* Old browsers */
   background: -moz-linear-gradient(top, #FF0000 0%, #660000 100%); /* FF3.6+ */
   background: -webkit-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* Chrome10+,Safari5.1+ */
   background: -o-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* Opera 11.10+ */
