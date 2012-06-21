@@ -26,7 +26,7 @@ include_once(__DIR__.'/../library/Autoloader.php');
 Library\Autoloader::register();
 
 if (!empty($_GET['user'])) {
-  $url = 'https://twitter.com/statuses/user_timeline/'.urlencode($_GET['user']).'.atom';
+  $url = 'http://twitter.com/statuses/user_timeline/'.urlencode($_GET['user']).'.atom';
 } else {
   $url = 'http://search.twitter.com/search.atom?q='.urlencode($_GET['q']);
 }
