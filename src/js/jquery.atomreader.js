@@ -32,6 +32,15 @@
 
     id : null,
     updated : null,
+    
+    template : 
+      '<li class="entry">' +
+        '<img src="img/dialog-information.png" class="icon"/>' +
+        '<h3>Title</h3>' +
+        '<p>Summary</p>' +
+        '<span class="updated"></span>' +
+        '<span class="spacer"></span>' +
+      '</li>',
 
     /**
      * Update an entry if new data is available. This contains
@@ -39,7 +48,7 @@
      *
      * @param object data
      */
-    update : function(data) {
+    update : function(data, entry) {
       var updated = new Date(data.updated);
       if (this.node) {
         if (updated <= this.updated) {
@@ -47,27 +56,38 @@
         }
         this.hide();
       } else {
-        var nodes = this.entries.reader.node.find('li.entry');
-        for (var i = nodes.length; i > 1, i >=  this.entries.reader.options.max; i--) {
-          nodes.eq(i - 1).data('atomReaderEntry').remove();
-        }
         this.create();
       }
       this.id = data.id;
       this.updated = updated;
-      this.node.attr('class', 'entry').addClass(
-        (data.status != '') ? data.status : 'information'
-      );
-      this.node.find('img').attr(
-        'src', (data.icon != '') ? data.icon : this.defaultIcon
-      );
-      this.node.find('h3').text(data.title);
-      this.node.find('p').text(data.summary);
-      this.node.find('.updated').text(Globalize.format(updated, "f"));
+      this.updateNode(data, entry);
       if (this.entries.reader.options.highlight == 'yes') {
         this.node.addClass('changed');
       }
       this.show();
+    },
+    
+    /**
+     * Read values from entry xml and update the dom element
+     * 
+     * @param data
+     * @param entry
+     */
+    updateNode : function(data, entry) {
+      var status = entry.find('csm|status').text();
+      var icon = entry.find('csm|icon').attr('src');
+      if (!icon || icon == '') {
+        icon = entry.find('atom|link[rel=image]').attr('href');
+      }
+      this.node.attr('class', 'entry').addClass(
+        (status != '') ? status : 'information'
+      );
+      this.node.find('img').attr(
+        'src', (icon != '') ? icon : this.defaultIcon
+      );
+      this.node.find('h3').text(entry.find('atom|title').text());
+      this.node.find('p').text(entry.find('atom|summary').text());
+      this.node.find('.updated').text(Globalize.format(this.updated, "f"));
     },
 
     /**
@@ -108,15 +128,11 @@
      * Create the dom elements for the item
      */
     create : function () {
-      this.node = $(
-        '<li class="entry">' +
-          '<img src="img/dialog-information.png" class="icon"/>' +
-          '<h3>Title</h3>' +
-          '<p>Summary</p>' +
-          '<span class="updated"></span>' +
-          '<span class="spacer"></span>' +
-        '</li>'
-      );
+      var nodes = this.entries.reader.node.find('li.entry');
+      for (var i = nodes.length; i > 1, i >=  this.entries.reader.options.max; i--) {
+        nodes.eq(i - 1).data('atomReaderEntry').remove();
+      }
+      this.node = $(this.template).clone();
       this.node.data('atomReaderEntry', this);
       this.defaultIcon = this.node.find('img').attr('src');
     }
@@ -254,14 +270,7 @@
               var data = new Object();
               data.id = entry.find('atom|id').text();
               data.updated = entry.find('atom|updated').text();
-              data.title = entry.find('atom|title').text();
-              data.summary = entry.find('atom|summary').text();
-              data.status = entry.find('csm|status').text();
-              data.icon = entry.find('csm|icon').attr('src');
-              if (!data.icon || data.icon == '') {
-                data.icon = entry.find('atom|link[rel=image]').attr('href');
-              }
-              reader.entries.get(data.id).update(data);
+              reader.entries.get(data.id).update(data, entry);
             }
           }
         }
