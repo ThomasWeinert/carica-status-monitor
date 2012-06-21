@@ -75,7 +75,11 @@
      */
     show : function() {
       this.entries.reader.node.find('li.message, li.status, li.title').last().after(this.node);
-      this.node.show();
+      if (this.entries.reader.options.refresh == 'updated') {
+        this.node.fadeIn(3000); 
+      } else {
+        this.node.show();
+      }
     },
 
     /**
