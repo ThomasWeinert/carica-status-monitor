@@ -17,6 +17,7 @@ in your favorite browser.
 Browser Compatiblity:
 - Firefox 13 (Windows 7)
 - Firefox 11 (Ubuntu Linux)
+- Chrome 19 (Windows 7)
 
 --------------------------------------------------------------------
 
