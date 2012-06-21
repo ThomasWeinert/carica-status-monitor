@@ -24,6 +24,7 @@
             <xsl:value-of select="data[@name='LOCATION']/value"/>
           </atom:summary>
           <csm:event-start-time><xsl:value-of select="$startDate"/></csm:event-start-time>
+          <csm:icon src="img/calendar.png"/>
         </atom:entry>
       </xsl:if>
     </xsl:for-each>

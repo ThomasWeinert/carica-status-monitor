@@ -24,7 +24,7 @@
       <xsl:variable name="departureTimeMinutes" select="substring-before($departureTime, ' Min')"/>
       <xsl:if test="($departureTimeMinutes = '') or ($departureTimeMinutes &gt; 4)">
         <atom:entry>
-          <csm:icon src="img/feets.png"/>
+          <csm:icon src="img/traffic-tram.png"/>
           <atom:id>urn:kvb/departure/route/<xsl:value-of select="$route"/>/<xsl:value-of select="$destination"/></atom:id>
           <atom:updated><xsl:value-of select="$currentDate"/></atom:updated>
           <atom:title><xsl:value-of select="$route"/> - <xsl:value-of select="$destination"/></atom:title>
