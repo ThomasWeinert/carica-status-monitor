@@ -137,6 +137,62 @@
       this.defaultIcon = this.node.find('img').attr('src');
     }
   };
+  
+  var AtomReaderEntryXCal = {
+      
+    /**
+     * Read values from entry xml and update the dom element
+     * 
+     * @param data
+     * @param entry
+     */
+      
+    updateNode : function(data, entry) {
+      var status = entry.find('csm|status').text();
+      var icon = entry.find('csm|icon').attr('src');
+      if (!icon || icon == '') {
+        icon = entry.find('atom|link[rel=image]').attr('href');
+      }
+      this.node.attr('class', 'entry').addClass(
+        (status != '') ? status : 'information'
+      );
+      this.node.find('img').attr(
+        'src', (icon != '') ? icon : this.defaultIcon
+      );
+      this.node.find('h3').text(
+        this.formatXCalDate(entry.find('xcal|dtstart'))
+      );
+      this.node.find('p').text(entry.find('atom|title').text());
+      this.node.find('.updated').text(Globalize.format(this.updated, "f"));
+    },
+    
+    /**
+     * Convert the iCalendar date format into one parseable by
+     * the Date() object and use Globalize to format the date
+     * 
+     * @param node
+     * @returns string 
+     */
+    formatXCalDate : function(node) {
+      var string = node.text();
+      var format = node.attr('value');
+      var dateString = 
+        string.substr(0, 4) + '-' +
+        string.substr(4, 2) + '-' +
+        string.substr(6, 2); 
+      if (format == 'DATE-TIME') {
+        dateString += 
+          string.substr(8, 3) + ':' +
+          string.substr(11, 2) + ':' +
+          string.substr(13);
+        var date = new Date(dateString);
+        return Globalize.format(date, "d") + ' ' + Globalize.format(date, "t");
+      } else {
+        var date = new Date(dateString);
+        return Globalize.format(date, "d");
+      }
+    }
+  };
 
   var AtomReaderEntries = {
 
@@ -150,10 +206,10 @@
      * @param string id
      * @returns
      */
-    get : function(id) {
+    get : function(id, mixIn) {
       if (!this.entries[id]) {
         this.entries[id] = $.extend(
-          true, {}, AtomReaderEntry
+          true, {}, AtomReaderEntry, mixIn
         );
         this.entries[id].entries = this;
       }
@@ -199,6 +255,7 @@
      */
     namespaces : {
       'atom' : 'http://www.w3.org/2005/Atom',
+      'xcal' : 'urn:ietf:params:xml:ns:xcal',
       'csm' : 'http://thomas.weinert.info/carica/ns/status-monitor'
     },
 
@@ -270,7 +327,11 @@
               var data = new Object();
               data.id = entry.find('atom|id').text();
               data.updated = entry.find('atom|updated').text();
-              reader.entries.get(data.id).update(data, entry);
+              var mixIn = {};
+              if (entry.find('xcal|vevent').length > 0) {
+                mixIn = AtomReaderEntryXCal;
+              }
+              reader.entries.get(data.id, mixIn).update(data, entry);
             }
           }
         }

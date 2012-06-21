@@ -27,7 +27,7 @@
           </atom:summary>
           <csm:event-start-time><xsl:value-of select="$startDate"/></csm:event-start-time>
           <csm:icon src="img/calendar.png"/>
-          <xsl:copy-of select="xCal:*"/>
+          <xsl:copy-of select="."/>
         </atom:entry>
       </xsl:if>
     </xsl:for-each>

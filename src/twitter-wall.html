@@ -28,11 +28,13 @@
     <script type="text/javascript" src="js/external/jquery.min.js"></script>
     <script type="text/javascript" src="js/external/jquery.xmlns.js"></script>
     <script type="text/javascript" src="js/external/globalize.js"></script>
+    <script type="text/javascript" src="js/external/cultures/globalize.cultures.js"></script>
     <script type="text/javascript" src="js/jquery.atomreader.js"></script>
     <script type="text/javascript" src="js/jquery.hashreplace.js"></script>
     <script type="text/javascript">
       jQuery(document).ready(
         function() {
+          Globalize.culture('de');
           jQuery('[data-plugin="hash"]').HashReplace(
             {
               onUpdate : function() {
