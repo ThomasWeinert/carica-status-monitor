@@ -30,7 +30,13 @@ namespace Carica\StatusMonitor\Library\Source {
      * @return \DOMDocument
      */
     public function read() {
-      $xml = file_get_contents(validateUrl($this->_url));
+      $options = array(
+        'http'=>array(
+          'method'=> "GET",
+          'timeout' => 2.0
+        )
+      );
+      $xml = file_get_contents(validateUrl($this->_url), FALSE, stream_context_create($options));
       if (!empty($xml)) {
         $dom = new \DOMDocument();
         $dom->loadXml($xml);

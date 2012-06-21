@@ -33,11 +33,9 @@ namespace Carica\StatusMonitor\Library\Source {
     public function read() {
       $options = array(
         'http'=>array(
-          'method'=>
-            "GET",
-          'header'=>
-            "Accept-language: de\r\n" .
-            "User-Agent: Mozilla/5.0 (Windows NT 6.0; rv:13.0) Gecko/20100101 Firefox/13.0 \r\n"
+          'method'=> "GET",
+          'user_agent' => "User-Agent: Mozilla/5.0 (Windows NT 6.0; rv:13.0) Gecko/20100101 Firefox/13.0",
+          'timeout' => 2.0
         )
       );
       $xml = file_get_contents(validateUrl($this->_url), FALSE, stream_context_create($options));
