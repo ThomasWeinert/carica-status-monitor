@@ -1,6 +1,8 @@
 <?php
 /**
-* Load an iCalendar file and convert at into an DOM.
+* Load an iCalendar file and convert at into an xCalendar DOM.
+*
+* http://tools.ietf.org/html/draft-royer-calsch-xcal-03
 *
 * @license http://www.opensource.org/licenses/mit-license.php The MIT License
 * @copyright 2012 Thomas Weinert <thomas@weinert.info>
@@ -11,7 +13,9 @@ namespace Carica\StatusMonitor\Library\Source {
   use Carica\StatusMonitor\Library as Library;
 
   /**
-* Load an iCalendar file and convert at into an DOM.
+   * Load an iCalendar file and convert at into an xCalendar DOM.
+   *
+   * http://tools.ietf.org/html/draft-royer-calsch-xcal-03
    */
   class Icalendar implements Library\Source {
 
@@ -19,6 +23,10 @@ namespace Carica\StatusMonitor\Library\Source {
     * @var string
     */
     private $_url = '';
+
+    private $_xmlns = 'urn:ietf:params:xml:ns:xcal';
+    private $_document = NULL;
+    private $_currentNode = NULL;
 
     /**
      * @var Traversable
@@ -50,88 +58,90 @@ namespace Carica\StatusMonitor\Library\Source {
      * @return \DOMDocument
      */
     public function read() {
-      $dom = new \DOMDocument();
-      $calendarNode = NULL;
-      $itemNode = NULL;
+      $this->_document = new \DOMDocument();
+      $this->_document->appendChild(
+        $this->_currentNode = $this->_document->createElementNS(
+          $this->_xmlns, 'xCal:iCalendar'
+        )
+      );
       $lineBuffer = '';
       foreach ($this->fileIterator() as $line) {
         $line = rtrim($line, "\r\n");
         $firstChar = substr($line, 0, 1);
         if ($lineBuffer != '' && $firstChar != ' ' && $firstChar != "\t") {
           if ($token = $this->parseLine($lineBuffer)) {
-            switch ($token['name']) {
-            case 'BEGIN' :
-              switch ($token['value']) {
-              case 'VCALENDAR' :
-                $dom->appendChild(
-                  $calendarNode = $dom->createElement('calendar')
-                );
-                break;
-              case 'VEVENT' :
-                if (isset($calendarNode)) {
-                  $calendarNode->appendChild(
-                    $itemNode = $dom->createElement('event')
-                  );
-                }
-                break;
-              case 'VTODO' :
-                if (isset($calendarNode)) {
-                  $calendarNode->appendChild(
-                    $itemNode = $dom->createElement('todo')
-                  );
-                }
-                break;
-              }
-              break;
-            case 'END' :
-              switch ($token['value']) {
-              case 'VCALENDAR' :
-                $calendarNode = NULL;
-                break;
-              case 'VEVENT' :
-              case 'VTODO' :
-                $itemNode = NULL;
-              }
-              break;
-            default :
-              if (isset($itemNode)) {
-                $itemNode->appendChild(
-                  $dataNode = $dom->createElement('data')
-                );
-                $dataNode->setAttribute('name', $token['name']);
-                $dataNode->appendChild(
-                  $valueNode = $dom->createElement('value')
-                );
-                $valueNode->appendChild(
-                  $dom->createTextNode(
-                    str_replace(
-                      array('\\,', '\\n'),
-                      array(',', "\n\n"),
-                      $token['value']
-                    )
-                  )
-                );
-                if (!empty($token['paramName'])) {
-                  $dataNode->appendChild(
-                    $paramNode = $dom->createElement('parameter')
-                  );
-                  $paramNode->setAttribute(
-                    'name', $token['paramName']
-                  );
-                  $paramNode->setAttribute(
-                    'value', $token['paramValue']
-                  );
-                }
-              }
-            }
+            $this->appendToken($token);
           }
           $lineBuffer = '';
         }
         $lineBuffer .= ltrim($line);
       }
-      return $dom;
+      if ($lineBuffer != '' && ($token = $this->parseLine($lineBuffer))) {
+        $this->appendToken($token);
+      }
+      return $this->_document;
     }
 
+    /**
+     * Append the token data to the dom, If the name is BEGIN an new group element ist created
+     * and set as the current element. END switches the current element to its parent
+     *
+     * All other tokens are appended as with ther name in lowecase as element name.
+     * Parameters are converted to attributes.
+     *
+     * @param array $token
+     */
+
+    private function appendToken(array $token) {
+      switch ($token['name']) {
+      case 'BEGIN' :
+        $this->_currentNode->appendChild(
+          $groupNode = $this->createXcalElement($token['value'])
+        );
+        $this->_currentNode = $groupNode;
+        break;
+      case 'END' :
+        $this->_currentNode = $this->_currentNode->parentNode;
+        break;
+      default :
+        $this->_currentNode->appendChild(
+          $itemNode = $this->createXcalElement($token['name'])
+        );
+        $itemNode->appendChild(
+          $this->_document->createTextNode(
+            str_replace(
+              array('\\,', '\\n'),
+              array(',', "\n\n"),
+              $token['value']
+            )
+          )
+        );
+        if (!empty($token['paramName'])) {
+          $itemNode->setAttribute(
+            strtolower($token['paramName']), $token['paramValue']
+          );
+        }
+      }
+    }
+
+    /**
+     * Create a DOMElement in the xcal namespace
+     *
+     * @param string $name
+     * @return DOMElement
+     */
+    private function createXcalElement($name) {
+      return $this->_document->createElementNS(
+        $this->_xmlns, 'xCal:'.strtolower($name)
+      );
+    }
+
+    /**
+     * Parse the token line using a PCRE
+     *
+     * @param string $line
+     * @return array|FALSE
+     */
     private function parseLine($line) {
       if (preg_match($this->_linePattern, $line, $parts)) {
         return $parts;
@@ -139,6 +149,12 @@ namespace Carica\StatusMonitor\Library\Source {
       return FALSE;
     }
 
+    /**
+     * Getter/Setter for the line iterator including an implicit create for
+     * a file iterator using the stored url.
+     *
+     * @param $iterator
+     */
     public function fileIterator(\Traversable $iterator = NULL) {
       if (isset($iterator)) {
         $this->_fileIterator = $iterator;

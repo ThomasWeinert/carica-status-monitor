@@ -19,30 +19,19 @@ namespace Carica\StatusMonitor\Library\Source {
         )
       );
       $this->assertXmlStringEqualsXmlString(
-        '<calendar>
-          <event>
-            <data name="DTEND">
-              <value>20120619T230000Z</value>
-              <parameter name="VALUE" value="DATE-TIME"/>
-            </data>
-            <data name="DTSTART">
-              <value>20120619T180000Z</value>
-              <parameter name="VALUE" value="DATE-TIME"/>
-            </data>
-            <data name="DESCRIPTION">
-              <value>Sample Description</value>
-            </data>
-            <data name="URL">
-              <value>http://example.tld/</value>
-            </data>
-            <data name="SUMMARY">
-              <value>Example Summary</value>
-            </data>
-            <data name="LOCATION">
-              <value>Example Location</value>
-            </data>
-          </event>
-        </calendar>',
+        '<xCal:iCalendar xmlns:xCal="urn:ietf:params:xml:ns:xcal">
+          <xCal:vcalendar>
+            <xCal:version>2.0</xCal:version>
+            <xCal:vevent>
+              <xCal:dtend value="DATE-TIME">20120619T230000Z</xCal:dtend>
+              <xCal:dtstart value="DATE-TIME">20120619T180000Z</xCal:dtstart>
+              <xCal:description>Sample Description</xCal:description>
+              <xCal:url>http://example.tld/</xCal:url>
+              <xCal:summary>Example Summary</xCal:summary>
+              <xCal:location>Example Location</xCal:location>
+            </xCal:vevent>
+          </xCal:vcalendar>
+        </xCal:iCalendar>',
         $source->read()->saveXml()
       );
     }
