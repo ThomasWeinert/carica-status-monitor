@@ -75,7 +75,7 @@
      */
     show : function() {
       this.entries.reader.node.find('li.status, li.title').last().after(this.node);
-      this.node.slideDown();
+      this.node.show();
     },
 
     /**
@@ -208,7 +208,7 @@
           .attr('class', 'status')
           .text('')
           .addClass('loading')
-          .slideDown();
+          .show();
         $.get(url)
           .success($.proxy(this.ajaxSuccess, this))
           .error($.proxy(this.ajaxError, this));
@@ -263,7 +263,7 @@
         data = new DOMParser().parseFromString(data, 'text/xml');
       }
       this.read(data);
-      this.node.find('.status').slideUp();
+      this.node.find('.status').hide();
     },
 
     /**
