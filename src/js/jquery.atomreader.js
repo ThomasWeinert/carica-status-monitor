@@ -74,7 +74,7 @@
      * Move an item to the top of the list and show it.
      */
     show : function() {
-      this.entries.reader.node.find('li.status, li.title').last().after(this.node);
+      this.entries.reader.node.find('li.message, li.status, li.title').last().after(this.node);
       this.node.show();
     },
 
@@ -193,6 +193,13 @@
       this.entries = $.extend(true, {}, AtomReaderEntries);
       this.entries.reader = this;
       this.options = $.extend($.extend(this.options, options), node.data());
+      var header = this.node.find('.header');
+      if (header.length > 0) {
+        header.prepend('<span class="status"/>');
+        header.after('<li class="message"/>');
+      } else {
+        this.node.append('<li class="status"><span class="message"/></li>');
+      }
       if (this.options.refresh == 'all') {
         this.options.highlight = 'no';
       }
@@ -215,11 +222,7 @@
       if (this.options.url != '') {
         var hash = window.location.hash ? window.location.hash : '';
         var url = this.options.url.replace(/\{hash\}/, escape(hash));
-        this.node.find('.status')
-          .attr('class', 'status')
-          .text('')
-          .addClass('loading')
-          .show();
+        this.updateStatus('loading', '');
         $.get(url)
           .success($.proxy(this.ajaxSuccess, this))
           .error($.proxy(this.ajaxError, this));
@@ -260,6 +263,28 @@
         }
       );
     },
+    
+    /**
+     * Update the status and message elements, if the are not showing something
+     * they are hidden.
+     */
+    updateStatus : function(status, message) {
+      var statusNode = this.node.find('.status');
+      var messageNode = this.node.find('.message');
+      statusNode.attr('class', 'status');
+      messageNode.attr('class', 'message');
+      if (status != 'none' && status != '') {
+        statusNode.addClass(status).show();
+        messageNode.addClass(status);
+      } else {
+        statusNode.hide();
+      }
+      if (message != '') {
+        messageNode.text(message).show();
+      } else {
+        messageNode.text('').hide();
+      }
+    },
 
     /**
      * Ajax request successful callback. If the response contains a string
@@ -272,7 +297,7 @@
         data = new DOMParser().parseFromString(data, 'text/xml');
       }
       this.read(data);
-      this.node.find('.status').hide();
+      this.updateStatus('none', '');
       this.schedule();
     },
 
@@ -282,9 +307,7 @@
      * @param data
      */
     ajaxError : function(data) {
-      this.node.find('.status').attr('class', 'status').addClass('error').text(
-        data.status + ' ' + data.statusText
-      );
+      this.updateStatus('error', data.status + ' ' + data.statusText);
       this.schedule();
     }
   };

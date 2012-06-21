@@ -76,8 +76,18 @@ table#grid td {
   font-weight: bold;
   color: #FFF;
 }
-.feed li.status {
-  height: 28px;
+.feed li.header span.status.loading {
+  float: right;
+  height: 1em;
+  width: 3em;
+  font-weight: bold;
+  color: #FFF;
+}
+.feed li.header span.status.loading {
+  background: transparent url(../img/loader.gif) no-repeat center 0;
+}
+.feed li.status, .feed li.message {
+  height: 2em;
   text-align: center;
   border-top: 1px solid #000;
 }
