@@ -150,6 +150,14 @@
         delete(this.entries[id]);
         entry.remove();
       }
+    },
+
+    /**
+     * Remove all items and their dom elements
+     */
+    clear : function() {
+      this.reader.node.find('.entry').remove();
+      this.entries = new Object();
     }
   };
 
@@ -189,8 +197,11 @@
         this.options.highlight = 'no';
       }
       this.fetch();
+    },
+
+    schedule : function() {
       if (this.options.interval > 0) {
-        window.setInterval(
+        window.setTimeout(
           $.proxy(this.fetch, this), 1000 * this.options.interval
         );
       }
@@ -228,9 +239,7 @@
           var entries = this.find('atom|entry');
           var max = reader.options.max;
           if (reader.options.refresh == 'all') {
-            for (var i in reader.entries) {
-              reader.entries.remove(i);
-            }
+            reader.entries.clear();
           }
           for (var i = max; i > 0; i--) {
             var entry = entries.eq(i - 1);
@@ -264,6 +273,7 @@
       }
       this.read(data);
       this.node.find('.status').hide();
+      this.schedule();
     },
 
     /**
@@ -275,6 +285,7 @@
       this.node.find('.status').attr('class', 'status').addClass('error').text(
         data.status + ' ' + data.statusText
       );
+      this.schedule();
     }
   };
 
