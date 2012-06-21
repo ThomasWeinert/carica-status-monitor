@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<weather-conditions>
+  <condition code="0" text="tornado" icon="weather-severe-alert.png"/>
+  <condition code="1" text="tropical storm" icon="weather-severe-alert.png"/>
+  <condition code="2" text="hurricane" icon="weather-severe-alert.png"/>
+  <condition code="3" text="severe thunderstorms" icon="weather-storm.png"/>
+  <condition code="4" text="thunderstorms" icon="weather-storm.png"/>
+  <condition code="5" text="mixed rain and snow" icon="weather-snow.png"/>
+  <condition code="6" text="mixed rain and sleet" icon="weather-snow.png"/>
+  <condition code="7" text="mixed snow and sleet" icon="weather-snow.png"/>
+  <condition code="8" text="freezing drizzle" icon="weather-showers-scattered.png"/>
+  <condition code="9" text="drizzle" icon="weather-showers-scattered.png"/>
+  <condition code="10" text="freezing rain" icon="weather-showers.png"/>
+  <condition code="11" text="showers" icon="weather-showers.png"/>
+  <condition code="12" text="showers" icon="weather-showers.png"/>
+  <condition code="13" text="snow flurries" icon="weather-snow.png"/>
+  <condition code="14" text="light snow showers" icon="weather-snow.png"/>
+  <condition code="15" text="blowing snow" icon="weather-snow.png"/>
+  <condition code="16" text="snow" icon="weather-snow.png"/>
+  <condition code="17" text="hail" icon="weather-snow.png"/>
+  <condition code="18" text="sleet" icon="weather-snow.png"/>
+  <condition code="19" text="dust" icon="weather-foggy.png"/>
+  <condition code="20" text="foggy" icon="weather-foggy.png"/>
+  <condition code="21" text="haze" icon="weather-foggy.png"/>
+  <condition code="22" text="smoky" icon="weather-severe-alert.png"/>
+  <condition code="23" text="blustery" icon="weather-storm.png"/>
+  <condition code="24" text="windy" icon=""/>
+  <condition code="25" text="cold" icon="weather-cold.png"/>
+  <condition code="26" text="cloudy" icon="weather-overcast.png"/>
+  <condition code="27" text="mostly cloudy (night)" icon="weather-overcast.png"/>
+  <condition code="28" text="mostly cloudy (day)" icon="weather-overcast.png"/>
+  <condition code="29" text="partly cloudy (night)" icon="weather-few-clouds-night.png"/>
+  <condition code="30" text="partly cloudy (day)" icon="weather-few-clouds.png"/>
+  <condition code="31" text="clear (night)" icon="weather-clear-night.png"/>
+  <condition code="32" text="sunny" icon="weather-clear.png"/>
+  <condition code="33" text="fair (night)" icon="weather-clear-night.png"/>
+  <condition code="34" text="fair (day)" icon="weather-clear.png"/>
+  <condition code="35" text="mixed rain and hail" icon="weather-showers.png"/>
+  <condition code="36" text="hot" icon="weather-hot.png"/>
+  <condition code="37" text="isolated thunderstorms" icon="weather-storm.png"/>
+  <condition code="38" text="scattered thunderstorms" icon="weather-storm.png"/>
+  <condition code="39" text="scattered thunderstorms" icon="weather-storm.png"/>
+  <condition code="40" text="scattered showers" icon="weather-showers-scattered.png"/>
+  <condition code="41" text="heavy snow" icon="weather-snow.png"/>
+  <condition code="42" text="scattered snow showers" icon="weather-snow.png"/>
+  <condition code="43" text="heavy snow" icon="weather-snow.png"/>
+  <condition code="44" text="partly cloudy" icon="weather-few-clouds.png"/>
+  <condition code="45" text="thundershowers" icon="weather-storm.png"/>
+  <condition code="46" text="snow showers" icon="weather-snow.png"/>
+  <condition code="47" text="isolated thundershowers" icon="weather-storm.png"/>
+</weather-conditions>
