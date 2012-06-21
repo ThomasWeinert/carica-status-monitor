@@ -189,6 +189,8 @@ span.dateIcon .day {
   line-height: 1em;
   font-weight: bold;
   text-align: right;
+  background-color: #FFF;
+  border-radius: 5px 5px 0 0;
 }
 
 
