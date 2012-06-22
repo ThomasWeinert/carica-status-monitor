@@ -7,7 +7,6 @@
    xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
    xmlns:svg="http://www.w3.org/2000/svg"
    xmlns="http://www.w3.org/2000/svg"
-   xmlns:xlink="http://www.w3.org/1999/xlink"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
    width="48px"
@@ -44,7 +43,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="21.639661"
-     inkscape:cx="29.390235"
+     inkscape:cx="27.466572"
      inkscape:cy="32.269228"
      inkscape:current-layer="layer1"
      showgrid="true"
@@ -80,14 +79,6 @@
      id="layer1"
      inkscape:label="Layer 1"
      inkscape:groupmode="layer">
-    <image
-       y="1.6037526"
-       x="62.335865"
-       id="image2878"
-       height="34.441555"
-       width="34.441555"
-       xlink:href="file:///C:/Users/weinert.PAPAYA/Downloads/ice-front-final.jpg"
-       style="opacity:0.5" />
     <path
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:round;stroke-linejoin:miter;stroke-opacity:1"
        d="m 28.561203,26.563609 4.987369,4.987368"
