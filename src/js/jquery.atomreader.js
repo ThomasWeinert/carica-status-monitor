@@ -32,8 +32,8 @@
 
     id : null,
     updated : null,
-    
-    template : 
+
+    template :
       '<li class="entry">' +
         '<img src="img/dialog-information.png" class="icon"/>' +
         '<h3/>' +
@@ -66,10 +66,10 @@
       }
       this.show();
     },
-    
+
     /**
      * Read values from entry xml and update the dom element
-     * 
+     *
      * @param data
      * @param entry
      */
@@ -96,7 +96,7 @@
     show : function() {
       this.entries.reader.node.find('li.message, li.status, li.title').last().after(this.node);
       if (this.entries.reader.options.refresh == 'updated') {
-        this.node.fadeIn(3000); 
+        this.node.fadeIn(3000);
       } else {
         this.node.show();
       }
@@ -137,10 +137,10 @@
       this.defaultIcon = this.node.find('img').attr('src');
     }
   };
-  
+
   var AtomReaderEntryXCal = {
-      
-      template : 
+
+      template :
         '<li class="entry">' +
           '<span class="dateIcon">'+
             '<span class="day"/>'+
@@ -152,14 +152,14 @@
           '<span class="spacer"></span>' +
         '</li>',
 
-      
+
     /**
      * Read values from entry xml and update the dom element
-     * 
+     *
      * @param data
      * @param entry
      */
-      
+
     updateNode : function(data, entry) {
       var status = entry.find('csm|status').text();
       this.node.attr('class', 'entry').addClass(
@@ -187,23 +187,23 @@
       }
       this.node.find('.updated').text(Globalize.format(this.updated, "f"));
     },
-    
+
     /**
      * Convert the iCalendar date format into one parseable by
      * the Date() object and use Globalize to format the date
-     * 
+     *
      * @param node
-     * @returns string 
+     * @returns string
      */
     parseXCalDate : function(node) {
       var string = node.text();
       var format = node.attr('value');
-      var dateString = 
+      var dateString =
         string.substr(0, 4) + '-' +
         string.substr(4, 2) + '-' +
-        string.substr(6, 2); 
+        string.substr(6, 2);
       if (format == 'DATE-TIME') {
-        dateString += 
+        dateString +=
           string.substr(8, 3) + ':' +
           string.substr(11, 2) + ':' +
           string.substr(13);
@@ -259,6 +259,7 @@
 
     node : null,
     entries : null,
+    timer : null,
 
     options : {
       url : '',
@@ -293,7 +294,7 @@
         header.prepend('<span class="status"/>');
         header.after('<li class="message"/>');
       } else {
-        this.node.append('<li class="status"><span class="message"/></li>');
+        this.node.append('<li class="status"><span class="message">&nbsp;</span></li>');
       }
       if (this.options.refresh == 'all') {
         this.options.highlight = 'no';
@@ -303,7 +304,10 @@
 
     schedule : function() {
       if (this.options.interval > 0) {
-        window.setTimeout(
+        if (this.timer) {
+          window.clearTimeout(this.timer);
+        }
+        this.timer = window.setTimeout(
           $.proxy(this.fetch, this), 1000 * this.options.interval
         );
       }
@@ -355,7 +359,7 @@
         }
       );
     },
-    
+
     /**
      * Update the status and message elements, if the are not showing something
      * they are hidden.
@@ -374,7 +378,7 @@
       if (message != '') {
         messageNode.text(message).show();
       } else {
-        messageNode.text('').hide();
+        messageNode.html('&nbsp;').filter('li').hide();
       }
     },
 
