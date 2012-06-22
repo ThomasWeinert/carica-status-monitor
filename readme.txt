@@ -21,7 +21,7 @@ Browser Compatiblity:
 
 --------------------------------------------------------------------
 
-/src/index.html
+/src/status-monitor.html
 
 A status monitor example. The feeds are configured using
 data-attributes inside the html. Several feeds are only test data.
