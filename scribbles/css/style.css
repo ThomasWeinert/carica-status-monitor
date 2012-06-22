@@ -273,7 +273,7 @@ span.dateIcon .day {
   padding: 0.1em;
   line-height: 1em;
   font-weight: bold;
-  text-align: right;
+  text-align: center;
   background-color: #FFF;
   border-radius: 5px 5px 0 0;
 }
