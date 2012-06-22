@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
   <head>
     <title>Status Board</title>
@@ -10,59 +10,53 @@
       <img src="img/title-image.png" class="icon" alt=""/>
       <h1>Status Monitor</h1>
     </div>
-    <table id="grid">
-      <tr class="row">
-        <td class="column">
-          <div id="feeds">
-            <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed.xml">
-              <li class="header">
-                Sample Feed
-              </li>
-            </ul>
-            <ul class="feed" data-plugin="feed" data-url="feeds/jenkins.php?view=http://example.tld/jenkins/view.xml" data-highlight="no" data-interval="60">
-              <li class="header">
-                Project Build Status
-              </li>
-            </ul>
-            <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed-error.xml">
-              <li class="header">
-                 No Existing Feed
-              </li>
-            </ul>
-            <ul class="feed" data-plugin="feed" data-url="feeds/ical.php?url=http://example.tld/hcking.de.ical">
-              <li class="header">
-                 Kalendar
-              </li>
-            </ul>
-            <ul class="feed" data-plugin="feed" data-url="feeds/gweather.php?location=50670-Germany&language=de" data-interval="600">
-              <li class="header">
-                Google Weather
-              </li>
-            </ul>
-            <ul class="feed" data-plugin="feed" data-url="feeds/yweather.php?location=667931" data-interval="600">
-              <li class="header">
-                Yahoo Weather
-              </li>
-            </ul>
-            <ul class="feed" data-plugin="feed" data-url="feeds/kvb-station.php?code=36" data-interval="60" data-max="5" data-refresh="all">
-              <li class="header">
-                Abfahrtszeiten KVB, Hansaring
-              </li>
-            </ul>
-            <ul class="feed" data-plugin="feed" data-url="feeds/twitter.php?user=papayaCMS" data-interval="60">
-              <li class="header">
-                 @papayaCMS on Twitter
-              </li>
-            </ul>
-            <ul class="feed" data-plugin="feed" data-url="feeds/twitter.php?q=%23php%20-job%20-freelance" data-interval="60">
-              <li class="header">
-                 #PHP on Twitter
-              </li>
-            </ul>
-          </div>
-        </td>
-      </tr>
-    </table>
+    <div id="feeds">
+      <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed.xml">
+        <li class="header">
+          Sample Feed
+        </li>
+      </ul>
+      <ul class="feed" data-plugin="feed" data-url="feeds/jenkins.php?view=http://example.tld/jenkins/view.xml" data-highlight="no" data-interval="60">
+        <li class="header">
+          Project Build Status
+        </li>
+      </ul>
+      <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed-error.xml">
+        <li class="header">
+           No Existing Feed
+        </li>
+      </ul>
+      <ul class="feed" data-plugin="feed" data-url="feeds/ical.php?url=http://example.tld/hcking.de.ical">
+        <li class="header">
+           Kalendar
+        </li>
+      </ul>
+      <ul class="feed" data-plugin="feed" data-url="feeds/gweather.php?location=50670-Germany&language=de" data-interval="600">
+        <li class="header">
+          Google Weather
+        </li>
+      </ul>
+      <ul class="feed" data-plugin="feed" data-url="feeds/yweather.php?location=667931" data-interval="600">
+        <li class="header">
+          Yahoo Weather
+        </li>
+      </ul>
+      <ul class="feed" data-plugin="feed" data-url="feeds/kvb-station.php?code=36" data-interval="60" data-max="5" data-refresh="all">
+        <li class="header">
+          Abfahrtszeiten KVB, Hansaring
+        </li>
+      </ul>
+      <ul class="feed" data-plugin="feed" data-url="feeds/twitter.php?user=papayaCMS" data-interval="60">
+        <li class="header">
+           @papayaCMS on Twitter
+        </li>
+      </ul>
+      <ul class="feed" data-plugin="feed" data-url="feeds/twitter.php?q=%23php%20-job%20-freelance" data-interval="60">
+        <li class="header">
+           #PHP on Twitter
+        </li>
+      </ul>
+    </div>
     <script type="text/javascript" src="js/external/jquery.min.js"></script>
     <script type="text/javascript" src="js/external/jquery.xmlns.js"></script>
     <script type="text/javascript" src="js/external/globalize.js"></script>
