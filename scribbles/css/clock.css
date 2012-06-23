@@ -1,7 +1,15 @@
 #clock {
   position: absolute;
-  top: 0.6em;
+  top: 0.5em;
   right: 1em;
+  display: inline-block;
+  background: transparent url(../img/weather-clear.png) no-repeat 7.2em top;
+  height: 4em;
+}
+#clock .digits {
+  float: left;
+  display: inline-block;
+  padding-top: 0.2em;
 }
 
 #clock .digit {
@@ -13,7 +21,7 @@
   margin: 0;
   padding: 0.1em;
   border-radius: 5px;
-  box-shadow: inset 1px 1px 2px 2px rgba(0, 0, 0, 0.5);
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
   width: 1.2em;
 
   background-color: #FFFFFF; /* Old browsers */
@@ -22,4 +30,15 @@
   background: -o-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* Opera 11.10+ */
   background: -ms-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* IE10+ */
   background: linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* W3C */
+}
+#clock .details {
+  display: inline-block;
+  color: #FFF;  
+  width: 7em;
+  padding-left: 2em;
+}
+#clock .details span {
+  display: block;
+  font-size: 0.7em;
+  text-align: right;
 }
