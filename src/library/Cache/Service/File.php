@@ -35,6 +35,9 @@ namespace Carica\StatusMonitor\Library\Cache {
       $this->setDirectory($configuration->get('PATH', '').'/'.$bucket);
     }
 
+    /**
+     * @param string $directory
+     */
     public function setDirectory($directory) {
       $this->_directory = $directory;
     }
@@ -45,6 +48,7 @@ namespace Carica\StatusMonitor\Library\Cache {
      * @param string $name
      * @param mixed $parameters
      * @param integer $expires Seconds
+     * @return NULL
      */
     public function read($name, $parameters, $expires = 0) {
       $file = $this->getFile($name, $parameters);
@@ -59,7 +63,7 @@ namespace Carica\StatusMonitor\Library\Cache {
      *
      * @param string $name
      * @param mixed $parameters
-     * @param intger $expires
+     * @param integer $expires
      * @param mixed $data
      */
     public function write($name, $parameters, $expires, $data) {
@@ -79,7 +83,11 @@ namespace Carica\StatusMonitor\Library\Cache {
       $this->getFile($name, $parameters)->delete();
     }
 
-    public function fileSystem(Library\FileSystem\Factory $factory) {
+    /**
+     * @param NULL|Library\FileSystem\Factory $factory
+     * @return Library\FileSystem\Factory
+     */
+    public function fileSystem(Library\FileSystem\Factory $factory = NULL) {
       if (isset($factory)) {
         $this->_fileSystemFactory = $factory;
       } elseif (NULL == $this->_fileSystemFactory) {
@@ -88,6 +96,11 @@ namespace Carica\StatusMonitor\Library\Cache {
       return $this->_fileSystemFactory;
     }
 
+    /**
+     * @param string $name
+     * @param mixed $parameters
+     * @return Libary\FileSystem\File
+     */
     private function getFile($name, $parameters) {
       $this->validateName($name, 'Invalid cache element name.');
       return $this->fileSystem->getFile(
@@ -95,6 +108,10 @@ namespace Carica\StatusMonitor\Library\Cache {
       );
     }
 
+    /**
+     * @param string $name
+     * @return Libary\FileSystem\Directory
+     */
     private function getDirectory($name) {
       $this->validateName($name, 'Invalid cache element name.');
       return $this->fileSystem->getDirectory(
@@ -102,6 +119,11 @@ namespace Carica\StatusMonitor\Library\Cache {
       );
     }
 
+    /**
+     * @param string $string
+     * @param string $errorMessage
+     * @throws UnexpectedValueException
+     */
     private function validateName($string, $errorMessage) {
       if (!preg_match('(^[a-z\d]+)$', $string)) {
         throw new UnexpectedValueException($errorMessage);

@@ -12,9 +12,11 @@ namespace Carica\StatusMonitor\Library\Cache {
 
     /**
      * Read a cache element if it is not older then the given expire.
+     *
      * @param string $name
      * @param mixed $parameters
      * @param integer $expires Seconds
+     * @return mixed
      */
     function read($name, $parameters, $expires = 0);
 

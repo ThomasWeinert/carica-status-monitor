@@ -17,11 +17,11 @@ namespace Carica\StatusMonitor\Library {
         )
       );
       $this->assertEquals(
-          array(
-              'STRING' => 'success',
-              'INTEGER' => 42
-          ),
-          iterator_to_array($configuration)
+        array(
+          'STRING' => 'success',
+          'INTEGER' => 42
+        ),
+        iterator_to_array($configuration)
       );
     }
 
