@@ -50,8 +50,11 @@ namespace Carica\StatusMonitor\Library\File {
      * the line variable to -1 and call next to read the first line.
      */
     public function rewind() {
-      fseek($this->_resource, 0);
-      $this->_line = -1;
+      $options = stream_get_meta_data($this->_resource);
+      if ($options['seekable']) {
+        fseek($this->_resource, 0);
+        $this->_line = -1;
+      }
       $this->next();
     }
 

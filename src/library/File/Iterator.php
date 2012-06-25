@@ -40,7 +40,15 @@ namespace Carica\StatusMonitor\Library\File {
     }
 
     public function getIterator() {
-      return new ResourceIterator(fopen($this->_name, 'r'), $this->_options);
+      $resource = fopen($this->_name, 'r');
+      $options = stream_get_meta_data($resource); 
+      if ($options['seekable']) {
+        return new ResourceIterator($resource, $this->_options);
+      } else {
+        return new \ArrayIterator(
+          iterator_to_array(new ResourceIterator($resource, $this->_options))
+        );
+      }
     }
   }
 }
