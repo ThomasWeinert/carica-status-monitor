@@ -12,13 +12,26 @@
 
 <xsl:template match="/*">
   <xsl:variable name="now" select="date:date-time()"/>
+  <xsl:variable name="nowTimestamp" select="date:seconds($now)"/>
   <xsl:variable name="events" select="xCal:vcalendar/xCal:vevent"/>
   <atom:feed>
     <xsl:for-each select="$events">
       <xsl:sort select="xCal:dtstart" data-type="text" order="ascending"/>
+      <xsl:variable name="isFullday" select="xCal:dtstart/@value = 'DATE'"/>
       <xsl:variable name="startDate" select="date:parseIcalDateTime(xCal:dtstart, xCal:dtstart/@value)"/>
-      <xsl:variable name="upcoming" select="starts-with(date:difference($startDate, $now), '-')"/>
-      <xsl:if test="$upcoming">
+      <xsl:variable name="endDate">
+        <xsl:choose>
+          <xsl:when test="$isFullday">
+            <xsl:value-of select="date:add(date:parseIcalDateTime(xCal:dtend, xCal:dtend/@value), 'P1D')"/>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:value-of select="date:parseIcalDateTime(xCal:dtend, xCal:dtend/@value)"/>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
+      <xsl:variable name="isStarted" select="date:seconds($startDate) &lt;= $nowTimestamp"/>
+      <xsl:variable name="isEnded" select="date:seconds($endDate) &lt; $nowTimestamp"/>
+      <xsl:if test="($isStarted and not($isEnded)) or not($isStarted)">
         <atom:entry>
           <atom:title><xsl:value-of select="xCal:summary"/></atom:title>
           <atom:id><xsl:value-of select="xCal:url"/></atom:id>
@@ -26,7 +39,6 @@
           <atom:summary>
             <xsl:value-of select="xCal:location"/>
           </atom:summary>
-          <csm:event-start-time><xsl:value-of select="$startDate"/></csm:event-start-time>
           <csm:icon src="img/calendar.png"/>
           <xsl:copy-of select="."/>
         </atom:entry>
