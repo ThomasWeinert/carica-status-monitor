@@ -19,12 +19,25 @@
     <xsl:for-each select="//body/table[position() = last()]//tr[not(starts-with(td[3], 'Sofort'))]">
       <xsl:variable name="parts" select="td"/>
       <xsl:variable name="route" select="normalize-space(translate($parts[1], '&#160;', ' '))"/>
+      <xsl:variable name="type">
+        <xsl:choose>
+          <xsl:when test="$route &gt; 99">BUS</xsl:when>
+          <xsl:otherwise>STR</xsl:otherwise>
+        </xsl:choose>
+      </xsl:variable>
       <xsl:variable name="destination" select="normalize-space(translate($parts[2], '&#160;', ' '))"/>
       <xsl:variable name="departureTime" select="normalize-space(translate($parts[3], '&#160;', ' '))"/>
       <xsl:variable name="departureTimeMinutes" select="substring-before($departureTime, ' Min')"/>
       <xsl:if test="($departureTimeMinutes = '') or ($departureTimeMinutes &gt; 4)">
         <atom:entry>
-          <csm:icon src="img/traffic-tram.png"/>
+          <csm:icon title="{$type} {$route}">
+            <xsl:attribute name="src">
+              <xsl:choose>
+                <xsl:when test="$type = 'BUS'">img/traffic-sprite-bus.png</xsl:when>
+                <xsl:otherwise>img/traffic-sprite-tram.png</xsl:otherwise>
+              </xsl:choose>
+            </xsl:attribute>
+          </csm:icon>
           <atom:id>urn:kvb/departure/route/<xsl:value-of select="$route"/>/<xsl:value-of select="$destination"/></atom:id>
           <atom:updated><xsl:value-of select="$currentDate"/></atom:updated>
           <atom:title><xsl:value-of select="$route"/> - <xsl:value-of select="$destination"/></atom:title>
