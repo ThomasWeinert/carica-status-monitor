@@ -107,6 +107,9 @@
             condition.attr('temp') + '°' +
             data.find('yweather|units').attr('temperature')
           );
+          clock.node.css(
+            'background-image', 'url('+data.find('atom|link[rel=image]').attr('href')+')'
+          );
         }
       );
     },

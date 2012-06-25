@@ -33,12 +33,13 @@
 }
 #clock .details {
   display: inline-block;
-  color: #FFF;  
-  width: 7em;
+  color: #FFF;
+  width: 9em;
   padding-left: 2em;
 }
 #clock .details span {
   display: block;
   font-size: 0.7em;
   text-align: right;
+  text-shadow: 0 0 2px #000;
 }
