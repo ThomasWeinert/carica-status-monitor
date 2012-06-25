@@ -26,16 +26,16 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="14.747262"
-     inkscape:cx="282.55244"
-     inkscape:cy="160.66319"
+     inkscape:zoom="5.2139445"
+     inkscape:cx="327.74368"
+     inkscape:cy="132.97988"
      inkscape:document-units="px"
      inkscape:current-layer="g2824"
      showgrid="true"
-     inkscape:window-width="1680"
-     inkscape:window-height="1000"
-     inkscape:window-x="1042"
-     inkscape:window-y="312"
+     inkscape:window-width="1050"
+     inkscape:window-height="1660"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1"
      inkscape:snap-grids="false">
     <inkscape:grid
@@ -400,7 +400,7 @@
          height="48"
          width="48"
          style="fill:#eeeeec;fill-opacity:1;fill-rule:nonzero;stroke:none;visibility:visible;display:inline;enable-background:accumulate"
-         inkscape:export-filename="Y:\weinert\modules\spielwiese\htdocs\carica-status-monitor\scribbles\status-monitor-48.png"
+         inkscape:export-filename="Y:\weinert\modules\spielwiese\htdocs\csm\scribbles\img\status-monitor.png"
          inkscape:export-xdpi="90"
          inkscape:export-ydpi="90" />
       <rect
@@ -1256,7 +1256,7 @@
        d="m 53.1149,44.210573 c -21.198803,0 -21.912875,0.180888 -21.912875,16.120868 l 0,66.012159 231.864595,-17.37162 0,-48.640539 c 0,-16.339414 -0.16883,-16.120868 -21.91288,-16.120868 l -188.03884,0 z"
        style="opacity:0.25;fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none;display:inline" />
     <rect
-       style="fill:none;fill-opacity:1;fill-rule:nonzero;stroke:#888a85;stroke-width:5.60892057000000040;display:inline"
+       style="fill:none;stroke:#888a85;stroke-width:5.60892057;display:inline"
        id="rect3153"
        width="229.21213"
        height="180.08638"

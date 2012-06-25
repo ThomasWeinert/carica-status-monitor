@@ -273,21 +273,27 @@ span.dateIcon .day {
   border-radius: 5px 5px 0 0;
 }
 
-/* sprite icon (an icon combined from an background image and a subtitle span */
-span.spriteIcon {
+/* sprite icon (an icon combined from an background image and a subtitle */
+.spriteIcon {
   display: inline-block;
   float: left;
   width: 48px;
   min-height: 48px;
-  border: 1px solid #404040;
   border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center middle;
+  background-size: contain;
+}
+.spriteIcon.hasTitle {
+  border: 1px solid #404040;
   background-color: #FFF;
 }
-span.spriteIcon .sprite {
+.spriteIcon .sprite {
   display: inline-block;
+  width: 48px;
   height: 32px;
 }
-span.spriteIcon .subTitle {
+.spriteIcon .title {
   display: block;
   position: relative;
   bottom: 0;
@@ -295,6 +301,7 @@ span.spriteIcon .subTitle {
   font-weight: bold;
   padding: 0.2em;
   text-align: center;
+  overflow: hidden;
   color: #FFF;
   background-color: #222222;
   background: -moz-linear-gradient(top, #444444 0%, #222222 100%); /* FF3.6+ */
