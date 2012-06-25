@@ -34,8 +34,23 @@
       <xsl:if test="($isStarted and not($isEnded)) or not($isStarted)">
         <atom:entry>
           <atom:title><xsl:value-of select="xCal:summary"/></atom:title>
-          <atom:id><xsl:value-of select="xCal:url"/></atom:id>
-          <atom:updated><xsl:value-of select="$now"/></atom:updated>
+          <atom:id>
+            <xsl:choose>
+              <xsl:when test="xCal:uid"><xsl:value-of select="xCal:uid"/></xsl:when>
+              <xsl:when test="xCal:url"><xsl:value-of select="xCal:url"/></xsl:when>
+            </xsl:choose>
+          </atom:id>
+          <atom:updated>
+            <xsl:choose>
+              <xsl:when test="xCal:last-modified">
+                <xsl:value-of select="date:parseIcalDateTime(xCal:last-modified)"/>
+              </xsl:when>
+              <xsl:when test="xCal:created">
+                <xsl:value-of select="date:parseIcalDateTime(xCal:created)"/>
+              </xsl:when>
+              <xsl:otherwise><xsl:value-of select="$now"/></xsl:otherwise>
+            </xsl:choose>
+          </atom:updated>
           <atom:summary>
             <xsl:value-of select="xCal:location"/>
           </atom:summary>
@@ -59,7 +74,7 @@
     <xsl:value-of select="substring($dateTime, 7, 2)"/>
     <xsl:text>T</xsl:text>
     <xsl:choose>
-      <xsl:when test="$format = 'DATE-TIME'">
+      <xsl:when test="$format != 'DATE'">
         <xsl:value-of select="substring($dateTime, 10, 2)"/>
         <xsl:text>:</xsl:text>
         <xsl:value-of select="substring($dateTime, 12, 2)"/>
