@@ -35,7 +35,10 @@
 
     template :
       '<li class="entry">' +
-        '<img src="img/dialog-information.png" class="icon"/>' +
+        '<div class="spriteIcon icon">' +
+          '<div class="sprite"> </div>' +
+          '<div class="title"> </div>' +
+        '</div>' +
         '<h3/>' +
         '<p/>' +
         '<span class="updated"></span>' +
@@ -75,16 +78,25 @@
      */
     updateNode : function(data, entry) {
       var status = entry.find('csm|status').text();
+      this.node.attr('class', 'entry').addClass(
+        (status != '') ? status : 'information'
+      );
+      var iconNode = this.node.find('.icon');
       var icon = entry.find('csm|icon').attr('src');
       if (!icon || icon == '') {
         icon = entry.find('atom|link[rel=image]').attr('href');
       }
-      this.node.attr('class', 'entry').addClass(
-        (status != '') ? status : 'information'
+      iconNode.css(
+        'background-image', 'url(' + (icon ? icon : this.defaultIcon) + ')'
       );
-      this.node.find('img').attr(
-        'src', (icon != '') ? icon : this.defaultIcon
-      );
+      var iconTitle = entry.find('csm|icon').attr('title');
+      if (iconTitle) {
+        iconNode.find('.title').text(iconTitle).show();
+        iconNode.addClass('hasTitle');
+      } else {
+        iconNode.find('.title').text(' ').hide();
+        iconNode.removeClass('hasTitle');
+      }
       this.node.find('h3').text(entry.find('atom|title').text());
       this.node.find('p').text(entry.find('atom|summary').text());
       this.node.find('.updated').text(Globalize.format(this.updated, "f"));
@@ -134,7 +146,7 @@
       }
       this.node = $(this.template).clone();
       this.node.data('atomReaderEntry', this);
-      this.defaultIcon = this.node.find('img').attr('src');
+      this.defaultIcon = 'img/dialog-information.png';
     }
   };
 

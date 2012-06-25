@@ -15,12 +15,7 @@ html, body {
 body {
   font-size: 0.9em;
   font-family: sans-serif;
-  background-color: #444444;
-  background: -moz-linear-gradient(top, #666666 0%, #444444 100%); /* FF3.6+ */
-  background: -webkit-linear-gradient(top, #666666 0%,#444444 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #666666 0%,#444444 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #666666 0%,#444444 100%); /* IE10+ */
-  background: linear-gradient(top, #666666 0%,#444444 100%); /* W3C */
+  background-color: #666666;
 }
 
 #pageHeader {
@@ -276,6 +271,44 @@ span.dateIcon .day {
   text-align: center;
   background-color: #FFF;
   border-radius: 5px 5px 0 0;
+}
+
+/* sprite icon (an icon combined from an background image and a subtitle */
+.spriteIcon {
+  display: inline-block;
+  float: left;
+  width: 48px;
+  min-height: 48px;
+  border-radius: 5px;
+  background-repeat: no-repeat;
+  background-position: center middle;
+  background-size: contain;
+}
+.spriteIcon.hasTitle {
+  border: 1px solid #404040;
+  background-color: #FFF;
+}
+.spriteIcon .sprite {
+  display: inline-block;
+  width: 48px;
+  height: 32px;
+}
+.spriteIcon .title {
+  display: block;
+  position: relative;
+  bottom: 0;
+  font-size: 0.6em;
+  font-weight: bold;
+  padding: 0.2em;
+  text-align: center;
+  overflow: hidden;
+  color: #FFF;
+  background-color: #222222;
+  background: -moz-linear-gradient(top, #444444 0%, #222222 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top, #444444 0%,#222222 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #444444 0%,#222222 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #444444 0%,#222222 100%); /* IE10+ */
+  background: linear-gradient(top, #444444 0%,#222222 100%); /* W3C */
 }
 
 div#visualization {
