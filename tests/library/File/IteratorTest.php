@@ -23,7 +23,10 @@ namespace Carica\StatusMonitor\Library\File {
      */
     public function testGetIterator() {
       $iterator = new Iterator(__FILE__);
-      $this->assertInstanceOf('ResourceIterator', $iterator->getIterator());
+      $this->assertInstanceOf(
+        '\Carica\StatusMonitor\Library\File\ResourceIterator',
+        $iterator->getIterator()
+      );
     }
   }
 }

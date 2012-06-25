@@ -64,12 +64,12 @@
     <script type="text/javascript" src="js/external/globalize.js"></script>
     <script type="text/javascript" src="js/external/cultures/globalize.cultures.js"></script>
     <script type="text/javascript" src="js/jquery.atomreader.js"></script>
-    <script type="text/javascript" src="js/jquery.clock.js"></script>
+    <script type="text/javascript" src="js/jquery.weatherclock.js"></script>
     <script type="text/javascript">
       jQuery(document).ready(
         function() {
           Globalize.culture('de');
-          jQuery('[data-plugin="clock"]').Clock();
+          jQuery('[data-plugin="clock"]').WeatherClock();
           jQuery('[data-plugin="feed"]').AtomReader();
         }
       );
