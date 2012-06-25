@@ -178,6 +178,7 @@
         (status != '') ? status : 'information'
       );
       var startDate = this.parseXCalDate(entry.find('xcal|dtstart'));
+      var endDate = this.parseXCalDate(entry.find('xcal|dtend'));
       var startDateFormat = entry.find('xcal|dtstart').attr('value');
       this.node.find('.dateIcon .month').text(Globalize.format(startDate, "MMM"));
       this.node.find('.dateIcon .day').text(Globalize.format(startDate, " d"));
@@ -190,7 +191,11 @@
       }
       if (startDateFormat == 'DATE-TIME') {
         this.node.find('h3').text(
-          Globalize.format(startDate, "t") + ' ' + entry.find('atom|title').text()
+          Globalize.format(startDate, "t") + 
+          ' - ' + 
+          Globalize.format(endDate, "t") + 
+          ' ' + 
+          entry.find('atom|title').text()
         );
       } else {
         this.node.find('h3').text(
