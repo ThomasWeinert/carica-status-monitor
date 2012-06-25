@@ -23,6 +23,17 @@ namespace Carica\StatusMonitor\Library {
     protected $_options = array();
 
     /**
+     * If options are provided, assign them
+     *
+     * @param array|\Traversable $options
+     */
+    public function __construct($options = NULL) {
+      if (NULL !== $options) {
+        $this->assign($options);
+      }
+    }
+
+    /**
      * Check if the options exists
      *
      * @param string $name

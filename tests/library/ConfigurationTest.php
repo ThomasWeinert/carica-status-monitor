@@ -9,6 +9,25 @@ namespace Carica\StatusMonitor\Library {
     /**
      * @covers Configuration::offsetExists
      */
+    public function testConstructor() {
+      $configuration = new Configuration_TestProxy(
+        array(
+          'STRING' => 'success',
+          'INTEGER' => 42
+        )
+      );
+      $this->assertEquals(
+          array(
+              'STRING' => 'success',
+              'INTEGER' => 42
+          ),
+          iterator_to_array($configuration)
+      );
+    }
+
+    /**
+     * @covers Configuration::offsetExists
+     */
     public function testOffsetExistsExpectingTrue() {
       $configuration = new Configuration_TestProxy();
       $this->assertTrue(isset($configuration['STRING']));
