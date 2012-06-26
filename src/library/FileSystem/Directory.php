@@ -6,7 +6,7 @@
 * @copyright 2012 Thomas Weinert <thomas@weinert.info>
 */
 
-namespace Carica\StatusMonitor\Library {
+namespace Carica\StatusMonitor\Library\FileSystem {
 
   /**
    * Wrapping directory functions into an object
