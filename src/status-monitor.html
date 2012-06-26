@@ -12,19 +12,9 @@
       <h1>Status Monitor</h1>
     </div>
     <div id="feeds">
-      <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed.xml">
-        <li class="header">
-          Sample Feed
-        </li>
-      </ul>
       <ul class="feed" data-plugin="feed" data-url="feeds/jenkins.php?view=http://example.tld/jenkins/view.xml" data-highlight="no" data-interval="60">
         <li class="header">
           Project Build Status
-        </li>
-      </ul>
-      <ul class="feed" data-plugin="feed" data-url="../tests/files/sample-feed-error.xml">
-        <li class="header">
-           No Existing Feed
         </li>
       </ul>
       <ul class="feed" data-plugin="feed" data-url="feeds/ical.php?url=http://example.tld/hcking.de.ical">
@@ -60,17 +50,11 @@
     </div>
     <div id="clock" data-plugin="clock"></div>
     <script type="text/javascript" src="js/external/jquery.min.js"></script>
-    <script type="text/javascript" src="js/external/jquery.xmlns.js"></script>
-    <script type="text/javascript" src="js/external/globalize.js"></script>
-    <script type="text/javascript" src="js/external/cultures/globalize.cultures.js"></script>
-    <script type="text/javascript" src="js/jquery.atomreader.js"></script>
-    <script type="text/javascript" src="js/jquery.weatherclock.js"></script>
+    <script type="text/javascript" src="js/jquery.statusmonitor.js"></script>
     <script type="text/javascript">
       jQuery(document).ready(
         function() {
-          Globalize.culture('de');
-          jQuery('[data-plugin="clock"]').WeatherClock();
-          jQuery('[data-plugin="feed"]').AtomReader();
+          jQuery.StatusMonitor({locale : 'de'});
         }
       );
     </script>
