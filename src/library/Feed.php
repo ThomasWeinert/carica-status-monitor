@@ -41,7 +41,7 @@ namespace Carica\StatusMonitor\Library {
      * @return Source $source
      * @return Filter|NULL $filter
      */
-    public function __toString() {
+    public function get() {
       $dom = $this->_source->read();
       if ($dom) {
         if ($this->_filter) {

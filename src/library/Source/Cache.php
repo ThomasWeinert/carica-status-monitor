@@ -39,7 +39,7 @@ namespace Carica\StatusMonitor\Library\Source {
      * @param Library\Source $url
      */
     public function __construct(
-      Libary\Cache\Service $cache,
+      Library\Cache\Service $cache,
       Library\Source $source,
       $identifier,
       $expires = 60
@@ -57,7 +57,7 @@ namespace Carica\StatusMonitor\Library\Source {
      */
     public function read() {
       if ($this->_expires > 0) {
-        $name = preg__replace(
+        $name = preg_replace(
           '([^A-Za-z\d]+)', '_', get_class($this->_source)
         );
         $cacheData = $this->_cache->read(

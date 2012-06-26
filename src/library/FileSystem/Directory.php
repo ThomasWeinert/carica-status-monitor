@@ -32,7 +32,7 @@ namespace Carica\StatusMonitor\Library\FileSystem {
     }
 
     /**
-     * Validate if the file exists
+     * Validate if the directory exists
      *
      * @return boolean
      */
@@ -40,6 +40,29 @@ namespace Carica\StatusMonitor\Library\FileSystem {
       return file_exists($this->_path) && is_dir($this->_path);
     }
 
+    /**
+     * Validate if the directory is readable
+     *
+     * @return boolean
+     */
+    public function isReadable() {
+      return $this->exists($this->_path) && is_readable($this->_path);
+    }
+
+    /**
+     * Validate if the directory is writeable
+     *
+     * @return boolean
+     */
+    public function isWriteable() {
+      return $this->exists($this->_path) && is_writeable($this->_path);
+    }
+
+    /**
+     * force directory creation (recursive)
+     *
+     * @throws LogicException
+     */
     public function force() {
       if (!$this->exists()) {
         $oldMask = umask(0);
