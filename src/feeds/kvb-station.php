@@ -29,4 +29,4 @@ $feed = new Library\Feed(
 
 header('Content-Type: text/xml');
 ini_set('display_errors', 1);
-echo $feed;
+echo $feed->get();

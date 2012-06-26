@@ -23,4 +23,4 @@ $feed = new Library\Feed(
 );
 
 header('Content-Type: text/xml');
-echo $feed;
+echo $feed->get();

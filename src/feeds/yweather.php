@@ -28,4 +28,4 @@ $feed = new Library\Feed(
 
 error_reporting(E_ALL);
 header('Content-Type: text/xml');
-echo $feed;
+echo $feed->get();
