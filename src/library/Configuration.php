@@ -58,10 +58,10 @@ namespace Carica\StatusMonitor\Library {
         $name = $offset;
         $defaultValue = NULL;
       }
-      if (isset($this->_options[$name])) {
-        return $this->_options[$name];
-      } else {
+      if (empty($this->_options[$name])) {
         return $defaultValue;
+      } else {
+        return $this->_options[$name];
       }
     }
 
