@@ -11,6 +11,7 @@
   Convert a RFC822 date time string into a RFC3339 one.
 
   Wed, 20 Jun 2012 12:50 am CEST
+  Wed, 27 Jun 2012 19:50:44 +0200
  -->
 <func:function name="date:convertDateRssToAtom">
   <xsl:param name="rssDate"/>
@@ -72,8 +73,24 @@
       </xsl:otherwise>
     </xsl:choose>
   </xsl:variable>
-  <xsl:variable name="amPm" select="substring-before($withoutSeconds, ' ')"/>
-  <xsl:variable name="zone" select="substring-after($withoutSeconds, ' ')"/>
+  <xsl:variable name="amPm">
+    <xsl:choose>
+      <xsl:when test="starts-with($withoutSeconds, 'am')">am</xsl:when>
+      <xsl:when test="starts-with($withoutSeconds, 'AM')">am</xsl:when>
+      <xsl:when test="starts-with($withoutSeconds, 'pm')">pm</xsl:when>
+      <xsl:when test="starts-with($withoutSeconds, 'pm')">pm</xsl:when>
+    </xsl:choose>
+  </xsl:variable>
+  <xsl:variable name="zone">
+    <xsl:choose>
+      <xsl:when test="contains($withoutSeconds, ' ')">
+        <xsl:value-of select="substring-after($withoutSeconds, ' ')"/>
+      </xsl:when>
+      <xsl:otherwise>
+        <xsl:value-of select="$withoutSeconds"/>
+      </xsl:otherwise>
+    </xsl:choose>
+  </xsl:variable>
   <xsl:variable name="result">
     <xsl:choose>
       <xsl:when test="$year &lt; 100">
