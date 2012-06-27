@@ -24,7 +24,7 @@ Library\Autoloader::register();
 
 $feed = new Library\Feed(
   new Library\Source\HtmlPage($url),
-  new Library\Filter\Xslt(__DIR__.'/kvb/station.xsl')
+  new Library\Filter\Xslt(__DIR__.'/xslt/traffic/kvb-station.xsl')
 );
 
 header('Content-Type: text/xml');

@@ -10,8 +10,6 @@
   extension-element-prefixes="date func"
 >
 
-<xsl:import href="date-convert.xsl"/>
-
 <xsl:template match="/*">
   <xsl:variable name="information" select="weather/forecast_information"/>
   <xsl:variable name="current" select="weather/current_conditions"/>

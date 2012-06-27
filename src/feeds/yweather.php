@@ -23,7 +23,7 @@ $url .= '&u='.((isset($_GET['unit']) && $_GET['unit'] == 'f') ? 'f' : 'c');
 
 $feed = new Library\Feed(
   new Library\Source\Url($url),
-  new Library\Filter\Xslt(__DIR__.'/weather/yweather.xsl')
+  new Library\Filter\Xslt(__DIR__.'/xslt/weather/yahoo.xsl')
 );
 
 error_reporting(E_ALL);

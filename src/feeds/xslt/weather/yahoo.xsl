@@ -10,7 +10,7 @@
   extension-element-prefixes="date func"
 >
 
-<xsl:import href="date-convert.xsl"/>
+<xsl:import href="../rss/dates.xsl"/>
 
 <xsl:template match="/*">
   <atom:feed>

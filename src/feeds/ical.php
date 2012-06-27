@@ -18,7 +18,7 @@ Library\Autoloader::register();
 
 $feed = new Library\Feed(
   new Library\Source\Icalendar($_GET['url']),
-  new Library\Filter\Xslt(__DIR__.'/ical/event.xsl')
+  new Library\Filter\Xslt(__DIR__.'/xslt/xcalendar.xsl')
 );
 
 header('Content-Type: text/xml');

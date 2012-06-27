@@ -19,7 +19,7 @@ Library\Autoloader::register();
 
 $feed = new Library\Feed(
   new Library\Source\Url($_GET['view']),
-  new Library\Filter\Xslt(__DIR__.'/jenkins/view.xsl')
+  new Library\Filter\Xslt(__DIR__.'/xslt/jenkins.xsl')
 );
 
 header('Content-Type: text/xml');
