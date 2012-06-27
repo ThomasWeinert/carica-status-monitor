@@ -2,22 +2,24 @@
 <timezones>
   <zone code="A" offset="+0100">Alpha Time Zone Military</zone>
   <zone code="ADT" offset="-0300">Atlantic Daylight Time  Atlantic</zone>
-  <zone code="ADT" offset="-0300">Atlantic Daylight Time  North America</zone>
+  <!-- <zone code="ADT" offset="-0300">Atlantic Daylight Time  North America</zone>  -->
   <zone code="AFT" offset="+0430">Afghanistan Time  Asia</zone>
   <zone code="AKDT" offset="-0800">Alaska Daylight Time  North America</zone>
   <zone code="AKST" offset="-0900">Alaska Standard Time  North America</zone>
   <zone code="ALMT" offset="+0600">Alma-Ata Time Asia</zone>
   <zone code="AMST" offset="+0500">Armenia Summer Time Asia</zone>
-  <zone code="AMST" offset="-0300">Amazon Summer Time  South America</zone>
+  <!-- <zone code="AMST" offset="-0300">Amazon Summer Time  South America</zone>  -->
   <zone code="AMT" offset="+0400">Armenia Time  Asia</zone>
-  <zone code="AMT" offset="-0400">Amazon Time South America</zone>
+  <!-- <zone code="AMT" offset="-0400">Amazon Time South America</zone> -->
   <zone code="ANAST" offset="+1200">Anadyr Summer Time  Asia</zone>
   <zone code="ANAT" offset="+1200">Anadyr Time Asia</zone>
   <zone code="AQTT" offset="+0500">Aqtobe Time Asia</zone>
   <zone code="ART" offset="-0300">Argentina Time  South America</zone>
-  <zone code="AST" offset="+0300">Arabia Standard Time  Asia</zone>
+  <!--
+  <zone code="AST" offset="+0300">Arabia Standard Time  Asia</zone> 
   <zone code="AST" offset="-0400">Atlantic Standard Time  Atlantic</zone>
   <zone code="AST" offset="-0400">Atlantic Standard Time  Caribbean</zone>
+   -->
   <zone code="AST" offset="-0400">Atlantic Standard Time  North America</zone>
   <zone code="AZOST" offset="+0000">Azores Summer Time  Atlantic</zone>
   <zone code="AZOT" offset="-0100">Azores Time Atlantic</zone>
@@ -35,22 +37,26 @@
   <zone code="CAST" offset="+0800">Casey Time  Antarctica</zone>
   <zone code="CAT" offset="+0200">Central Africa Time Africa</zone>
   <zone code="CCT" offset="+0630">Cocos Islands Time  Indian Ocean</zone>
+  <!-- 
   <zone code="CDT" offset="+1030">Central Daylight Time Australia</zone>
-  <zone code="CDT" offset="-0400">Cuba Daylight Time  Caribbean</zone>
+  <zone code="CDT" offset="-0400">Cuba Daylight Time  Caribbean</zone> 
+  -->
   <zone code="CDT" offset="-0500">Central Daylight Time North America</zone>
   <zone code="CEST" offset="+0200">Central European Summer Time  Europe</zone>
   <zone code="CET" offset="+0100">Central European Time Africa</zone>
-  <zone code="CET" offset="+0100">Central European Time Europe</zone>
+  <!-- <zone code="CET" offset="+0100">Central European Time Europe</zone> -->
   <zone code="CHADT" offset="+1345">Chatham Island Daylight Time  Pacific</zone>
   <zone code="CHAST" offset="+1245">Chatham Island Standard Time  Pacific</zone>
   <zone code="CKT" offset="-1000">Cook Island Time  Pacific</zone>
   <zone code="CLST" offset="-0300">Chile Summer Time South America</zone>
   <zone code="CLT" offset="-0400">Chile Standard Time South America</zone>
   <zone code="COT" offset="-0500">Colombia Time South America</zone>
+  <!-- 
   <zone code="CST" offset="+0800">China Standard Time Asia</zone>
   <zone code="CST" offset="+0930">Central Standard Time Australia</zone>
   <zone code="CST" offset="-0600">Central Standard Time Central America</zone>
   <zone code="CST" offset="-0500">Cuba Standard Time  Caribbean</zone>
+  -->
   <zone code="CST" offset="-0600">Central Standard Time North America</zone>
   <zone code="CVT" offset="-0100">Cape Verde Time Africa</zone>
   <zone code="CXT" offset="+0700">Christmas Island Time Australia</zone>
@@ -61,26 +67,36 @@
   <zone code="EASST" offset="-0500">Easter Island Summer Time Pacific</zone>
   <zone code="EAST" offset="-0600">Easter Island Standard Time Pacific</zone>
   <zone code="EAT" offset="+0300">Eastern Africa Time Africa</zone>
-  <zone code="EAT" offset="+0300">East Africa Time  Indian Ocean</zone>
+  <!-- <zone code="EAT" offset="+0300">East Africa Time Indian Ocean</zone> -->
   <zone code="ECT" offset="-0500">Ecuador Time  South America</zone>
+  <!--
   <zone code="EDT" offset="+1100">Eastern Daylight Time Australia</zone>
   <zone code="EDT" offset="-0400">Eastern Daylight Time Caribbean</zone>
+  -->
   <zone code="EDT" offset="-0400">Eastern Daylight Time North America</zone>
-  <zone code="EDT" offset="+1100">Eastern Daylight Time Pacific</zone>
+  <!-- <zone code="EDT" offset="+1100">Eastern Daylight Time Pacific</zone> -->
   <zone code="EEST" offset="+0300">Eastern European Summer Time  Africa</zone>
+  <!-- 
   <zone code="EEST" offset="+0300">Eastern European Summer Time  Asia</zone>
   <zone code="EEST" offset="+0300">Eastern European Summer Time  Europe</zone>
+   -->
   <zone code="EET" offset="+0200">Eastern European Time Africa</zone>
+  <!--
   <zone code="EET" offset="+0200">Eastern European Time Asia</zone>
   <zone code="EET" offset="+0200">Eastern European Time Europe</zone>
+  -->
   <zone code="EGST" offset="+0000">Eastern Greenland Summer Time North America</zone>
   <zone code="EGT" offset="-0100">East Greenland Time North America</zone>
+  <!--
   <zone code="EST" offset="+1000">Eastern Standard Time Australia</zone>
   <zone code="EST" offset="-0500">Eastern Standard Time Central America</zone>
   <zone code="EST" offset="-0500">Eastern Standard Time Caribbean</zone>
+  -->
   <zone code="EST" offset="-0500">Eastern Standard Time North America</zone>
+  <!--
   <zone code="ET" offset="-0500">Tiempo del Este Central America</zone>
   <zone code="ET" offset="-0500">Tiempo del Este Caribbean</zone>
+  -->
   <zone code="ET" offset="-0500">Tiempo Del Este   North America</zone>
   <zone code="F" offset="+0600">Foxtrot Time Zone Military</zone>
   <zone code="FJST" offset="+1300">Fiji Summer Time  Pacific</zone>
@@ -95,7 +111,7 @@
   <zone code="GFT" offset="-0300">French Guiana Time  South America</zone>
   <zone code="GILT" offset="+1200">Gilbert Island Time Pacific</zone>
   <zone code="GMT" offset="+0000">Greenwich Mean Time Africa</zone>
-  <zone code="GMT" offset="+0000">Greenwich Mean Time Europe</zone>
+  <!--<zone code="GMT" offset="+0000">Greenwich Mean Time Europe</zone>-->
   <zone code="GST" offset="+0400">Gulf Standard Time  Asia</zone>
   <zone code="GYT" offset="-0400">Guyana Time South America</zone>
   <zone code="H" offset="+0800">Hotel Time Zone Military</zone>
@@ -104,7 +120,7 @@
   <zone code="HAC" offset="-0500">Heure Avancée du Centre North America</zone>
   <zone code="HADT" offset="-0900">Hawaii-Aleutian Daylight Time North America</zone>
   <zone code="HAE" offset="-0400">Heure Avancée de l'Est  Caribbean</zone>
-  <zone code="HAE" offset="-0400">Heure Avancée de l'Est  North America</zone>
+  <!--<zone code="HAE" offset="-0400">Heure Avancée de l'Est  North America</zone>-->
   <zone code="HAP" offset="-0700">Heure Avancée du Pacifique  North America</zone>
   <zone code="HAR" offset="-0600">Heure Avancée des Rocheuses North America</zone>
   <zone code="HAST" offset="-1000">Hawaii-Aleutian Standard Time North America</zone>
@@ -112,13 +128,17 @@
   <zone code="HAY" offset="-0800">Heure Avancée du Yukon  North America</zone>
   <zone code="HKT" offset="+0800">Hong Kong Time  Asia</zone>
   <zone code="HLV" offset="-0430">Hora Legal de Venezuela South America</zone>
+  <!--
   <zone code="HNA" offset="-0400">Heure Normale de l'Atlantique Atlantic</zone>
   <zone code="HNA" offset="-0400">Heure Normale de l'Atlantique Caribbean</zone>
+  -->
   <zone code="HNA" offset="-0400">Heure Normale de l'Atlantique North America</zone>
   <zone code="HNC" offset="-0600">Heure Normale du Centre Central America</zone>
   <zone code="HNC" offset="-0600">Heure Normale du Centre North America</zone>
+  <!--
   <zone code="HNE" offset="-0500">Heure Normale de l'Est  Central America</zone>
   <zone code="HNE" offset="-0500">Heure Normale de l'Est  Caribbean</zone>
+  -->
   <zone code="HNE" offset="-0500">Heure Normale de l'Est  North America</zone>
   <zone code="HNP" offset="-0800">Heure Normale du Pacifique  North America</zone>
   <zone code="HNR" offset="-0700">Heure Normale des Rocheuses North America</zone>
@@ -134,8 +154,10 @@
   <zone code="IRKT" offset="+0900">Irkutsk Time  Asia</zone>
   <zone code="IRST" offset="+0330">Iran Standard Time  Asia</zone>
   <zone code="IST" offset="+0200">Israel Standard Time  Asia</zone>
+  <!--
   <zone code="IST" offset="+0530">India Standard Time Asia</zone>
   <zone code="IST" offset="+0100">Irish Standard Time Europe</zone>
+  -->
   <zone code="JST" offset="+0900">Japan Standard Time Asia</zone>
   <zone code="K" offset="+1000">Kilo Time Zone  Military</zone>
   <zone code="KGT" offset="+0600">Kyrgyzstan Time Asia</zone>
@@ -173,9 +195,9 @@
   <zone code="NST" offset="-0330">Newfoundland Standard Time  North America</zone>
   <zone code="NUT" offset="-1100">Niue Time Pacific</zone>
   <zone code="NZDT" offset="+1300">New Zealand Daylight Time Antarctica</zone>
-  <zone code="NZDT" offset="+1300">New Zealand Daylight Time Pacific</zone>
+  <!--<zone code="NZDT" offset="+1300">New Zealand Daylight Time Pacific</zone>-->
   <zone code="NZST" offset="+1200">New Zealand Standard Time Antarctica</zone>
-  <zone code="NZST" offset="+1200">New Zealand Standard Time Pacific</zone>
+  <!--<zone code="NZST" offset="+1200">New Zealand Standard Time Pacific</zone>-->
   <zone code="O" offset="-0200">Oscar Time Zone Military</zone>
   <zone code="OMSST" offset="+0700">Omsk Summer Time  Asia</zone>
   <zone code="OMST" offset="+0700">Omsk Standard Time  Asia</zone>
@@ -192,7 +214,7 @@
   <zone code="PMST" offset="-0300">Pierre &amp; Miquelon Standard Time North America</zone>
   <zone code="PONT" offset="+1100">Pohnpei Standard Time Pacific</zone>
   <zone code="PST" offset="-0800">Pacific Standard Time North America</zone>
-  <zone code="PST" offset="-0800">Pitcairn Standard Time  Pacific</zone>
+  <!--<zone code="PST" offset="-0800">Pitcairn Standard Time  Pacific</zone>-->
   <zone code="PT" offset="-0800">Tiempo del Pacífico North America</zone>
   <zone code="PWT" offset="+0900">Palau Time  Pacific</zone>
   <zone code="PYST" offset="-0300">Paraguay Summer Time  South America</zone>
@@ -231,10 +253,10 @@
   <zone code="WAT" offset="+0100">West Africa Time  Africa</zone>
   <zone code="WDT" offset="+0900">Western Daylight Time Australia</zone>
   <zone code="WEST" offset="+0100">Western European Summer Time  Africa</zone>
-  <zone code="WEST" offset="+0100">Western European Summer Time  Europe</zone>
+  <!--<zone code="WEST" offset="+0100">Western European Summer Time  Europe</zone>-->
   <zone code="WESZ" offset="+0100">Westeuropäische Sommerzeit  Africa</zone>
   <zone code="WET" offset="+0000">Western European Time Africa</zone>
-  <zone code="WET" offset="+0000">Western European Time Europe</zone>
+  <!--<zone code="WET" offset="+0000">Western European Time Europe</zone>-->
   <zone code="WEZ" offset="+0000">Westeuropäische Zeit  Europe</zone>
   <zone code="WFT" offset="+1200">Wallis and Futuna Time  Pacific</zone>
   <zone code="WGST" offset="-0200">Western Greenland Summer Time North America</zone>
@@ -243,7 +265,7 @@
   <zone code="WIT" offset="+0900">Eastern Indonesian Time Asia</zone>
   <zone code="WITA" offset="+0800">Central Indonesian Time Asia</zone>
   <zone code="WST" offset="+0100">Western Sahara Summer Time  Africa</zone>
-  <zone code="WST" offset="+0800">Western Standard Time Australia</zone>
+  <!--<zone code="WST" offset="+0800">Western Standard Time Australia</zone>-->
   <zone code="WST" offset="+1300">West Samoa Time Pacific</zone>
   <zone code="WT" offset="+0000">Western Sahara Standard Time  Africa</zone>
   <zone code="X" offset="-1100">X-ray Time Zone Military</zone>
