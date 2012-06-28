@@ -11,17 +11,22 @@ namespace Carica\StatusMonitor\Library\Source {
    * Load the DOM from an url
    */
   class Url implements \Carica\StatusMonitor\Library\Source {
-
+    
+    /**
+     * @var string
+     */
+    private $_url = '';
     /**
     * @var string
     */
-    private $_url = '';
+    private $_timeout = 2;
 
     /**
      * @param string $url
      */
-    public function __construct($url) {
+    public function __construct($url, $timeout = 3) {
       $this->_url = $url;
+      $this->_timeout = ($timeout > 0 && $timeout < 60) ? $timeout : 3;
     }
 
     /**
@@ -33,7 +38,7 @@ namespace Carica\StatusMonitor\Library\Source {
       $options = array(
         'http'=>array(
           'method'=> "GET",
-          'timeout' => 3.0
+          'timeout' => (float)$this->_timeout
         )
       );
       $xml = @file_get_contents(validateUrl($this->_url), FALSE, stream_context_create($options));
