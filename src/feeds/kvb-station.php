@@ -27,6 +27,4 @@ $feed = new Library\Feed(
   new Library\Filter\Xslt(__DIR__.'/xslt/traffic/kvb-station.xsl')
 );
 
-header('Content-Type: text/xml');
-ini_set('display_errors', 1);
 echo $feed->get();

@@ -22,5 +22,4 @@ $feed = new Library\Feed(
   new Library\Filter\Xslt(__DIR__.'/xslt/jenkins.xsl')
 );
 
-header('Content-Type: text/xml');
 echo $feed->get();

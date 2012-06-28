@@ -26,6 +26,11 @@ namespace Carica\StatusMonitor\Library {
     private $_filter = NULL;
 
     /**
+     * @var string
+     */
+    private $_contentType = 'text/xml';
+
+    /**
      * @return Source $source
      * @return Filter|NULL $filter
      */
@@ -42,15 +47,71 @@ namespace Carica\StatusMonitor\Library {
      * @return Filter|NULL $filter
      */
     public function get() {
-      $dom = $this->_source->read();
+      if (!($source = $this->source())) {
+        throw new LogixException('No datasource defined.');
+      }
+      $dom = $source->read();
       if ($dom) {
-        if ($this->_filter) {
-          $dom = $this->_filter->filter($dom);
+        if ($filter = $this->filter()) {
+          $dom = $filter->filter($dom);
         }
       } else {
         $this->status(504, 'Gateway Time-out');
       }
-      return ($dom) ? $dom->saveXml() : '';
+      if ($dom) {
+        $this->sendContentType();
+        return $dom->saveXml();
+      }
+      return '';
+    }
+
+    /**
+     * Getter/Setter for the source object, calls createSource if
+     * source is not set.
+     *
+     * @param Library\Source $source
+     */
+    public function source(Library\Source $source = NULL) {
+      if (isset($source)) {
+        $this->_source = $source;
+      } elseif (NULL === $this->_source) {
+        $this->_source = $this->createSource();
+      }
+      return $this->_source;
+    }
+
+    /**
+     * Implicit create for the source object, can be overloaded in
+     * child classes
+     *
+     * @return FALSE|Library\Source
+     */
+    protected function createSource() {
+      return FALSE;
+    }
+
+    /**
+     * Getter/Setter for the filter object
+     *
+     * @param Library\Filter $filter
+     */
+    public function filter(Library\Filter $filter = NULL) {
+      if (isset($filter)) {
+        $this->_filter = $filter;
+      } elseif (NULL === $this->_filter) {
+        $this->_filter = $this->createFilter();
+      }
+      return $this->_filter;
+    }
+
+    /**
+     * Implicit create for the source object, can be overloaded in
+     * child classes
+     *
+     * @return FALSE|Library\Filter
+     */
+    protected function createFilter() {
+      return FALSE;
     }
 
     /**
@@ -60,6 +121,17 @@ namespace Carica\StatusMonitor\Library {
      */
     public function status($code, $text) {
       header('Status: '.$text, TRUE, $code);
+    }
+
+    /**
+     * Send response content type
+     * @param integer $code
+     * @param string $text
+     */
+    public function sendContentType() {
+      if (!headers_sent()) {
+        header('Content-Type: '.$this->_contentType.'; charset=utf-8');
+      }
     }
   }
 }

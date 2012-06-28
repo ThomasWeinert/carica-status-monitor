@@ -21,5 +21,4 @@ $feed = new Library\Feed(
   new Library\Filter\Xslt(__DIR__.'/xslt/xcalendar.xsl')
 );
 
-header('Content-Type: text/xml');
-echo (string)$feed->get();;
+echo $feed->get();;
