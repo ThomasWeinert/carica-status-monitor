@@ -39,6 +39,12 @@ namespace Carica\StatusMonitor\Library\File {
       $this->_options = $options;
     }
 
+    /**
+     * Return an Iterator instance, if the resource is not seekable, read it completly
+     * and return an array iterator. If it is seekable return a ResourceIterator
+     * 
+     * @see IteratorAggregate::getIterator()
+     */
     public function getIterator() {
       $resource = fopen($this->_name, 'r');
       $options = stream_get_meta_data($resource); 
