@@ -60,7 +60,7 @@ namespace Carica\StatusMonitor\Library {
       } elseif ($this->_caches[$bucket] instanceOf Cache\Configuration) {
         $configuration = $this->_caches[$bucket];
         $service = __NAMESPACE__.'\\Cache\\Service\\'.ucfirst(
-          $configuration[['SERVICE', 'file']]
+          $configuration->get('SERVICE', 'file')
         );
         $this->_caches[$bucket] = new $service($bucket, $configuration);
       }

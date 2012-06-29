@@ -32,6 +32,20 @@ namespace Carica\StatusMonitor\Library {
         $this->assign($options);
       }
     }
+    
+    /**
+     * Get an option, if the option value is empty, teh defualt value will be returned
+     * 
+     * @param string $name
+     * @param mixed $defaultValue
+     */
+    public function get($name, $defaultValue = NULL) {
+      if (empty($this->_options[$name])) {
+        return $defaultValue;
+      } else {
+        return $this->_options[$name];
+      }
+    }
 
     /**
      * Check if the options exists
@@ -58,11 +72,7 @@ namespace Carica\StatusMonitor\Library {
         $name = $offset;
         $defaultValue = NULL;
       }
-      if (empty($this->_options[$name])) {
-        return $defaultValue;
-      } else {
-        return $this->_options[$name];
-      }
+      return $this->get($name, $defaultValue);
     }
 
     /**

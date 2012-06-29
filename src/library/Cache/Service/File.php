@@ -38,7 +38,7 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
      */
     public function __construct($bucket, Library\Cache\Configuration $configuration) {
       $this->validateName($bucket, 'Invalid cache bucket name: '.$bucket);
-      $this->_directory = $configuration[['PATH', '']];
+      $this->_directory = $configuration->get('PATH', '');
       $this->_bucket = $bucket;
     }
 

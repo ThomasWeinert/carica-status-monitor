@@ -55,7 +55,7 @@ namespace Carica\StatusMonitor\Library {
     public function testOffsetGetReturnsDefault() {
       $configuration = new Configuration_TestProxy();
       $this->assertEquals(
-        'default', $configuration[['INVALID_OPTIONS', 'default']]
+        'default', $configuration[array('INVALID_OPTIONS', 'default')]
       );
     }
 
