@@ -127,12 +127,12 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
       return $this->fileSystem()->getFile(
         implode(
           DIRECTORY_SEPARATOR,
-          [
+          array(
             $this->_directory,
             $this->_bucket,
             $name,
             md5(serialize($parameters))
-          ]
+          )
         )
       );
     }
@@ -146,11 +146,11 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
       return $this->fileSystem()->getDirectory(
         implode(
           DIRECTORY_SEPARATOR,
-          [
+          array(
             $this->_directory,
             $this->_bucket,
             $name
-          ]
+          )
         )
       );
     }
