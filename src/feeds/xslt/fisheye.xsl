@@ -10,9 +10,14 @@
 <xsl:template name="images">
   <xsl:variable name="fromBackgroundImage" select="substring-after(description, 'background-image:url(/')"/>
   <xsl:variable name="backgroundImageWithoutSize" select="substring-before($fromBackgroundImage, '?s=16')"/>
-  <xsl:if test="$backgroundImageWithoutSize">
-    <atom:link rel="image" href="{/rss/channel/link}{$backgroundImageWithoutSize}?s=48"/>
-  </xsl:if>
+  <xsl:choose>
+    <xsl:when test="$backgroundImageWithoutSize and not(contains($backgroundImageWithoutSize, 'avatar/j_doe'))">
+      <atom:link rel="image" href="{/rss/channel/link}{$backgroundImageWithoutSize}?s=48"/>
+    </xsl:when>
+    <xsl:otherwise>
+      <atom:link rel="image" href="img/user-no-avatar.png"/>
+    </xsl:otherwise>
+  </xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>
