@@ -18,15 +18,15 @@
     plugins : {
       feed : {
         file : 'js/jquery.atomreader.js',
-        object : 'AtomReader',
+        object : 'AtomReader'
       },
       clock : {
         file : 'js/jquery.weatherclock.js',
-        object : 'WeatherClock',
+        object : 'WeatherClock'
       },
       hash : {
         file : 'js/jquery.hashreplace.js',
-        object : 'HashReplace',
+        object : 'HashReplace'
       }
     },
     
@@ -70,7 +70,7 @@
           {
             url : this.requires[i],
             cache: this.options.cache,
-            dataType: "script",
+            dataType: "script"
           }
         ).done(
           $.proxy(this.onRequireCompleted, this)
@@ -113,7 +113,7 @@
           {
             url : plugin.file,
             cache: this.options.cache,
-            dataType: "script",
+            dataType: "script"
           }
         ).success(
           function (plugin, options, nodes) {
