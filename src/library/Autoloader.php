@@ -20,8 +20,11 @@ namespace Carica\StatusMonitor\Library {
      */
     public static function load($class) {
       if ($file = self::getFilename($class)) {
-        include(__DIR__.$file);
-        return TRUE;
+        $file = __DIR__.$file;
+        if (file_exists($file) && is_readable($file)) {
+          include($file);
+          return TRUE;
+        }
       }
       return FALSE;
     }
