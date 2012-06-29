@@ -7,7 +7,7 @@ namespace Carica\StatusMonitor\Library {
   class ConfigurationTest extends TestCase {
 
     /**
-     * @covers Configuration::offsetExists
+     * @covers \Carica\StatusMonitor\Library\Configuration::offsetExists
      */
     public function testConstructor() {
       $configuration = new Configuration_TestProxy(
@@ -26,7 +26,7 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Configuration::offsetExists
+     * @covers \Carica\StatusMonitor\Library\Configuration::offsetExists
      */
     public function testOffsetExistsExpectingTrue() {
       $configuration = new Configuration_TestProxy();
@@ -34,7 +34,7 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Configuration::offsetExists
+     * @covers \Carica\StatusMonitor\Library\Configuration::offsetExists
      */
     public function testOffsetExistsExpectingFalse() {
       $configuration = new Configuration_TestProxy();
@@ -42,7 +42,7 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Configuration::offsetGet
+     * @covers \Carica\StatusMonitor\Library\Configuration::offsetGet
      */
     public function testOffsetGet() {
       $configuration = new Configuration_TestProxy();
@@ -50,7 +50,7 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Configuration::offsetGet
+     * @covers \Carica\StatusMonitor\Library\Configuration::offsetGet
      */
     public function testOffsetGetReturnsDefault() {
       $configuration = new Configuration_TestProxy();
@@ -60,7 +60,7 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Configuration::offsetSet
+     * @covers \Carica\StatusMonitor\Library\Configuration::offsetSet
      */
     public function testOffsetSet() {
       $configuration = new Configuration_TestProxy();
@@ -69,7 +69,7 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Configuration::offsetSet
+     * @covers \Carica\StatusMonitor\Library\Configuration::offsetSet
      */
     public function testOffsetSetConvertsType() {
       $configuration = new Configuration_TestProxy();
@@ -78,7 +78,7 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Configuration::offsetSet
+     * @covers \Carica\StatusMonitor\Library\Configuration::offsetSet
      */
     public function testOffsetSetWithInvalidOptionExpectingException() {
       $configuration = new Configuration_TestProxy();
@@ -87,8 +87,8 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Configuration::assign
-     * @covers Configuration::getIterator
+     * @covers \Carica\StatusMonitor\Library\Configuration::assign
+     * @covers \Carica\StatusMonitor\Library\Configuration::getIterator
      */
     public function testAssign() {
       $configuration = new Configuration_TestProxy();

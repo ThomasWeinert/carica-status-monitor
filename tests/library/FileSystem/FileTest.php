@@ -9,7 +9,7 @@ namespace Carica\StatusMonitor\Library\FileSystem {
   class FileTest extends Library\TestCase {
 
     /**
-     * @covers File::exists
+     * @covers Carica\StatusMonitor\Library\FileSystem\File::exists
      */
     public function testExistsExpectingTrue() {
       $file = new File(__FILE__);
@@ -17,7 +17,7 @@ namespace Carica\StatusMonitor\Library\FileSystem {
     }
 
     /**
-     * @covers File::exists
+     * @covers Carica\StatusMonitor\Library\FileSystem\File::exists
      */
     public function testExistsExpectingFalse() {
       $file = new File(__FILE__.'INVALID');

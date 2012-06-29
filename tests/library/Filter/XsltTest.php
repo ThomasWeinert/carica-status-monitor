@@ -7,7 +7,7 @@ namespace Carica\StatusMonitor\Library\Filter {
   class XsltTest extends \Carica\StatusMonitor\Library\TestCase {
 
     /**
-     * @covers Xslt::__construct
+     * @covers Carica\StatusMonitor\Library\Filter\Xslt::__construct
      */
     public function testConstructor() {
       $filter = new Xslt('success.xsl');
@@ -17,7 +17,7 @@ namespace Carica\StatusMonitor\Library\Filter {
     }
 
     /**
-     * @covers Xslt::filter
+     * @covers Carica\StatusMonitor\Library\Filter\Xslt::filter
      */
     public function testFilter() {
       $filter = new Xslt(__DIR__.'/TestData/sample.xsl');
@@ -30,7 +30,7 @@ namespace Carica\StatusMonitor\Library\Filter {
     }
 
     /**
-     * @covers Xslt::processor
+     * @covers Carica\StatusMonitor\Library\Filter\Xslt::processor
      */
     function testProcessorGetAfterSet() {
       $processor = $this->getMock('\XsltProcessor');
@@ -42,7 +42,7 @@ namespace Carica\StatusMonitor\Library\Filter {
     }
 
     /**
-     * @covers Xslt::processor
+     * @covers Carica\StatusMonitor\Library\Filter\Xslt::processor
      */
     function testProcessorGetImplicitCreate() {
       $filter = new Xslt('sample.xsl');

@@ -9,7 +9,7 @@ namespace Carica\StatusMonitor\Library\Source {
   class IcalendarTest extends Library\TestCase {
 
     /**
-     * @covers Icalendar
+     * @covers Carica\StatusMonitor\Library\Source\Icalendar
      */
     public function testReadWithSimpleFile() {
       $source = new Icalendar('');

@@ -4,12 +4,12 @@ namespace Carica\StatusMonitor\Library\File {
 
   require_once(__DIR__.'/../TestCase.php');
 
-  use \Carica\StatusMonitor\Library as Library;
+  use Carica\StatusMonitor\Library as Library;
 
   class IteratorTest extends Library\TestCase {
 
     /**
-     * @covers Iterator::__construct
+     * @covers \Carica\StatusMonitor\Library\File\Iterator::__construct
      */
     public function testConstructor() {
       $iterator = new Iterator('success.txt');
@@ -19,7 +19,7 @@ namespace Carica\StatusMonitor\Library\File {
     }
 
     /**
-     * @covers Iterator::getIterator
+     * @covers \Carica\StatusMonitor\Library\File\Iterator::getIterator
      */
     public function testGetIterator() {
       $iterator = new Iterator(__FILE__);

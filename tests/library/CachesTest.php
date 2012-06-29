@@ -7,7 +7,7 @@ namespace Carica\StatusMonitor\Library {
   class CachesTest extends TestCase {
 
     /**
-     * @covers Caches::register
+     * @covers \Carica\StatusMonitor\Library\Caches::register
      */
     public function testRegister() {
       $configuration = $this->getMock(
@@ -19,7 +19,7 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Caches::offsetExists
+     * @covers \Carica\StatusMonitor\Library\Caches::offsetExists
      */
     public function testOffsetExistsExpectingFalse() {
       $caches = new Caches();
@@ -28,7 +28,7 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Caches::offsetExists
+     * @covers \Carica\StatusMonitor\Library\Caches::offsetExists
      */
     public function testOffsetExistsExpectingTrue() {
       $service = $this->getMock(
@@ -40,10 +40,10 @@ namespace Carica\StatusMonitor\Library {
     }
 
     /**
-     * @covers Caches::get
-     * @covers Caches::set
-     * @covers Caches::offsetGet
-     * @covers Caches::offsetSet
+     * @covers \Carica\StatusMonitor\Library\Caches::get
+     * @covers \Carica\StatusMonitor\Library\Caches::set
+     * @covers \Carica\StatusMonitor\Library\Caches::offsetGet
+     * @covers \Carica\StatusMonitor\Library\Caches::offsetSet
      */
     public function testOffsetGetAfterSet() {
       $service = $this->getMock(

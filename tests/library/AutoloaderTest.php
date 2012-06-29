@@ -7,7 +7,7 @@ namespace Carica\StatusMonitor\Library {
   class AutoloaderTest extends \PHPUnit_Framework_TestCase {
 
     /**
-     * @covers Autoloader
+     * @covers \Carica\StatusMonitor\Library\Autoloader
      * @dataProvider provideFilenameClassPairs
      */
     public function testGetFilename($expected, $class) {
@@ -19,7 +19,8 @@ namespace Carica\StatusMonitor\Library {
 
     public static function provideFilenameClassPairs() {
       return array(
-        array('/Filter/Xslt.php', __NAMESPACE__.'\Filter\Xslt')
+        array('/Filter/Xslt.php', __NAMESPACE__.'\Filter\Xslt'),
+        array('/Configuration.php', 'Carica\StatusMonitor\Library\Configuration')
       );
     }
   }

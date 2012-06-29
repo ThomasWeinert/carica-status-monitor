@@ -9,7 +9,7 @@ namespace Carica\StatusMonitor\Library\File {
   class ResourceIteratorTest extends Library\TestCase {
 
     /**
-     * @covers ResourceIterator::__construct
+     * @covers \Carica\StatusMonitor\Library\File\ResourceIterator::__construct
      */
     public function testConstructor() {
       $iterator = new ResourceIterator($fh = $this->getMemoryStream('foo'));
@@ -19,7 +19,7 @@ namespace Carica\StatusMonitor\Library\File {
     }
 
     /**
-     * @covers ResourceIterator::__construct
+     * @covers \Carica\StatusMonitor\Library\File\ResourceIterator::__construct
      */
     public function testConstructorWithOptions() {
       $iterator = new ResourceIterator(
@@ -35,7 +35,7 @@ namespace Carica\StatusMonitor\Library\File {
     }
 
     /**
-     * @covers ResourceIterator
+     * @covers \Carica\StatusMonitor\Library\File\ResourceIterator
      */
     public function testIteration() {
       $iterator = new ResourceIterator($this->getMemoryStream("foo\r\nbar"));
@@ -46,7 +46,7 @@ namespace Carica\StatusMonitor\Library\File {
     }
 
     /**
-     * @covers ResourceIterator
+     * @covers \Carica\StatusMonitor\Library\File\ResourceIterator
      */
     public function testIterationWithEmptyLine() {
       $iterator = new ResourceIterator(
@@ -59,7 +59,7 @@ namespace Carica\StatusMonitor\Library\File {
     }
 
     /**
-     * @covers ResourceIterator
+     * @covers \Carica\StatusMonitor\Library\File\ResourceIterator
      */
     public function testIterationIgnoringEmptyLines() {
       $iterator = new ResourceIterator(
@@ -73,7 +73,7 @@ namespace Carica\StatusMonitor\Library\File {
     }
 
     /**
-     * @covers ResourceIterator
+     * @covers \Carica\StatusMonitor\Library\File\ResourceIterator
      */
     public function testIterationTrimLineFeeds() {
       $iterator = new ResourceIterator(
@@ -86,6 +86,12 @@ namespace Carica\StatusMonitor\Library\File {
       );
     }
 
+    /**
+     * Fixture method return an resource handle for the string
+     * 
+     * @param string $data
+     * @return resource
+     */
     private function getMemoryStream($data) {
       return fopen('data://text/plain,'.$data, 'r');
     }
