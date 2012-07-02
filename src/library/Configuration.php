@@ -32,16 +32,16 @@ namespace Carica\StatusMonitor\Library {
         $this->assign($options);
       }
     }
-    
+
     /**
-     * Get an option, if the option value is empty, teh defualt value will be returned
-     * 
+     * Get an option, if the option value is empty, the default value will be returned
+     *
      * @param string $name
      * @param mixed $defaultValue
      */
     public function get($name, $defaultValue = NULL) {
       if (empty($this->_options[$name])) {
-        return $defaultValue;
+        return isset($defaultValue) ? $defaultValue : $this->_options[$name];
       } else {
         return $this->_options[$name];
       }
@@ -100,9 +100,7 @@ namespace Carica\StatusMonitor\Library {
      */
     public function offsetUnset($name) {
       if ($this->offsetExists($name)) {
-        $type = getType($this->_options[$name]);
-        $this->_options[$name] = NULL;
-        setType($this->_options[$name], $type);
+        $this->offsetSet($name, NULL);
       }
     }
 

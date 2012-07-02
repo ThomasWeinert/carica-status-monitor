@@ -7,7 +7,7 @@ namespace Carica\StatusMonitor\Library {
   class ConfigurationTest extends TestCase {
 
     /**
-     * @covers \Carica\StatusMonitor\Library\Configuration::offsetExists
+     * @covers \Carica\StatusMonitor\Library\Configuration::__construct
      */
     public function testConstructor() {
       $configuration = new Configuration_TestProxy(
@@ -23,6 +23,22 @@ namespace Carica\StatusMonitor\Library {
         ),
         iterator_to_array($configuration)
       );
+    }
+
+    /**
+     * @covers \Carica\StatusMonitor\Library\Configuration::get
+     */
+    public function testGet() {
+      $configuration = new Configuration_TestProxy();
+      $this->assertEquals('sample', $configuration->get('STRING'));
+    }
+
+    /**
+     * @covers \Carica\StatusMonitor\Library\Configuration::get
+     */
+    public function testGetReturningDefaultValue() {
+      $configuration = new Configuration_TestProxy();
+      $this->assertEquals('default', $configuration->get('non_existing', 'default'));
     }
 
     /**
@@ -84,6 +100,15 @@ namespace Carica\StatusMonitor\Library {
       $configuration = new Configuration_TestProxy();
       $this->setExpectedException('InvalidArgumentException');
       $configuration['INVALID_OPTION'] = 'Trigger Exception';
+    }
+
+    /**
+     * @covers \Carica\StatusMonitor\Library\Configuration::offsetUnset
+     */
+    public function testOffsetUnset() {
+      $configuration = new Configuration_TestProxy();
+      unset($configuration['INTEGER']);
+      $this->assertSame(0, $configuration['INTEGER']);
     }
 
     /**
