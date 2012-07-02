@@ -40,7 +40,7 @@ namespace Carica\StatusMonitor\Library {
      * @return string|NULL
      */
     public static function getFilename($class) {
-      if (0 == strpos($class, __NAMESPACE__)) {
+      if (0 === strpos($class, __NAMESPACE__)) {
         return str_replace(
           '\\', DIRECTORY_SEPARATOR, substr($class, strlen(__NAMESPACE__))
         ).'.php';

@@ -8,12 +8,30 @@ namespace Carica\StatusMonitor\Library {
 
     /**
      * @covers \Carica\StatusMonitor\Library\Autoloader
+     */
+    public function testLoadWithInvalidClass() {
+      $this->assertFalse(
+        Autoloader::load('\stdClass')
+      );
+    }
+
+    /**
+     * @covers \Carica\StatusMonitor\Library\Autoloader
      * @dataProvider provideFilenameClassPairs
      */
     public function testGetFilename($expected, $class) {
       $this->assertEquals(
         $expected,
         str_replace(DIRECTORY_SEPARATOR, '/', Autoloader::getFileName($class))
+      );
+    }
+
+    /**
+     * @covers \Carica\StatusMonitor\Library\Autoloader
+     */
+    public function testGetFilenameExpectingFalse() {
+      $this->assertFalse(
+        Autoloader::getFileName('\stdClass')
       );
     }
 
