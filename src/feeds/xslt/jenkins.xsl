@@ -30,7 +30,7 @@
           <xsl:attribute name="src">
             <xsl:choose>
               <xsl:when test="contains(color, '_anim')">
-                <xsl:text>img/view-refresh.png</xsl:text>
+                <xsl:text>img/refresh-animated.png</xsl:text>
               </xsl:when>
               <xsl:when test="$status = 'error'">
                 <xsl:text>img/face-devilish.png</xsl:text>

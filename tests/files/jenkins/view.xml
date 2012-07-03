@@ -9,6 +9,11 @@
     <url>http://sample.tld/jenkins/job/Sample%20One/</url>
     <color>red</color>
   </job>
+  <job>
+    <name>Sample Two</name>
+    <url>http://sample.tld/jenkins/job/Sample%20Two/</url>
+    <color>blue_anim</color>
+  </job>
   <name>Compact</name>
   <url>http://sample.tld/jenkins/view/Compact/</url>
 </listView>
