@@ -9,6 +9,17 @@ namespace Carica\StatusMonitor\Library\FileSystem {
   class FileTest extends Library\TestCase {
 
     /**
+     * @covers Carica\StatusMonitor\Library\FileSystem\File::__construct
+     * @covers Carica\StatusMonitor\Library\FileSystem\File::__toString
+     */
+    public function testConstructor() {
+      $file = new File(__FILE__);
+      $this->assertSame(
+        __FILE__, (string)$file
+      );
+    }
+
+    /**
      * @covers Carica\StatusMonitor\Library\FileSystem\File::exists
      */
     public function testExistsExpectingTrue() {
