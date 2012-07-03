@@ -40,6 +40,9 @@
               <xsl:when test="xCal:url"><xsl:value-of select="xCal:url"/></xsl:when>
             </xsl:choose>
           </atom:id>
+          <xsl:if test="xCal:url">
+            <atom:link rel="alternate" type="text/html" href="{xCal:url}"/>
+          </xsl:if>
           <atom:updated>
             <xsl:choose>
               <xsl:when test="xCal:last-modified">

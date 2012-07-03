@@ -42,7 +42,7 @@
     <xsl:for-each select="$channel/item">
       <atom:entry>
         <atom:title><xsl:value-of select="title"/></atom:title>
-        <atom:link rel="alternate" href="{link}"/>
+        <atom:link rel="alternate" type="text/html" href="{link}"/>
         <atom:id>
           <xsl:choose>
             <xsl:when test="guid"><xsl:value-of select="guid"/></xsl:when>

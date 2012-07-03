@@ -15,6 +15,7 @@
         <atom:title><xsl:value-of select="name"/></atom:title>
         <atom:id><xsl:value-of select="url"/></atom:id>
         <atom:updated><xsl:value-of select="date:date-time()"/></atom:updated>
+        <atom:link ref="alternate" type="text/html" href="{url}"/>
         <xsl:variable name="status">
           <xsl:choose>
             <xsl:when test="starts-with(color, 'red')">
