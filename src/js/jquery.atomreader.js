@@ -32,6 +32,7 @@
 
     id : null,
     updated : null,
+    link : null,
 
     template :
       '<li class="entry">' +
@@ -64,6 +65,7 @@
       this.id = data.id;
       this.updated = updated;
       this.updateNode(data, entry);
+      this.updateLink(data, entry);
       if (this.entries.reader.options.highlight == 'yes') {
         this.node.addClass('changed');
       }
@@ -100,6 +102,34 @@
       this.node.find('h3').text(entry.find('atom|title').text());
       this.node.find('p').text(entry.find('atom|summary').text());
       this.node.find('.updated').text(Globalize.format(this.updated, "f"));
+    },
+
+
+    /**
+     * Read values from entry xml and update the click action data
+     *
+     * @param data
+     * @param entry
+     */
+    updateLink : function(data, entry) {
+      this.link = entry
+        .find('atom|link[type="text/html"],atom|link[rel=alternate]')
+        .first()
+        .attr('href');
+      if (this.link && this.link != '') {
+        this.node.addClass('clickable');
+      } else {
+        this.node.removeClass('clickable');
+      }
+    },
+    
+    /**
+     * Handle a click on the element
+     */
+    onClick : function () {
+      if (this.link && this.link != '') {
+        window.open(this.link, '_blank');
+      }
     },
 
     /**
@@ -146,6 +176,7 @@
       }
       this.node = $(this.template).clone();
       this.node.data('atomReaderEntry', this);
+      this.node.click($.proxy(this.onClick, this));
       this.defaultIcon = 'img/dialog-information.png';
     }
   };

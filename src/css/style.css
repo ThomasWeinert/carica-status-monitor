@@ -135,6 +135,9 @@ table#splitview td {
   background: -ms-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* IE10+ */
   background: linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* W3C */
 }
+.feed li.clickable {
+  cursor: pointer;
+}
 .feed li.header {
   font-weight: bold;
   color: #FFF;
