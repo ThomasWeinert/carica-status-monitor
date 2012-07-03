@@ -34,5 +34,20 @@ namespace Carica\StatusMonitor\Library\FileSystem {
       $file = new File(__FILE__.'INVALID');
       $this->assertFalse($file->exists());
     }
+
+    /**
+     * @covers Carica\StatusMonitor\Library\FileSystem\File::isReadable
+     */
+    public function testIsReadableExpectingTrue() {
+      $file = new File(__FILE__);
+      $this->assertTrue($file->isReadable());
+    }
+    /**
+     * @covers Carica\StatusMonitor\Library\FileSystem\File::isReadable
+     */
+    public function testIsReadableExpectingFalse() {
+      $file = new File(__FILE__.'INVALID');
+      $this->assertFalse($file->isReadable());
+    }
   }
 }
