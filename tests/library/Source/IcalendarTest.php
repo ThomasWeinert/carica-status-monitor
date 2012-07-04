@@ -35,5 +35,47 @@ namespace Carica\StatusMonitor\Library\Source {
         $source->read()->saveXml()
       );
     }
+
+    /**
+     * @covers Carica\StatusMonitor\Library\Source\Icalendar
+     */
+    public function testReadWithEmptyLines() {
+      $source = new Icalendar('');
+      $source->fileIterator(
+        new \ArrayIterator(
+          array(' ')
+        )
+      );
+      $this->assertXmlStringEqualsXmlString(
+        '<xCal:iCalendar xmlns:xCal="urn:ietf:params:xml:ns:xcal"/>',
+        $source->read()->saveXml()
+      );
+    }
+    /**
+     * @covers Carica\StatusMonitor\Library\Source\Icalendar
+     */
+    public function testReadWithInvalidLines() {
+      $source = new Icalendar('');
+      $source->fileIterator(
+        new \ArrayIterator(
+          array('Invalid')
+        )
+      );
+      $this->assertXmlStringEqualsXmlString(
+        '<xCal:iCalendar xmlns:xCal="urn:ietf:params:xml:ns:xcal"/>',
+        $source->read()->saveXml()
+      );
+    }
+
+    /**
+     * @covers Carica\StatusMonitor\Library\Source\Icalendar::fileIterator
+     */
+    public function testFileIteratorImplicitCreate() {
+      $source = new Icalendar('http://example.tld/hcking.de.ical');
+      $this->assertInstanceOf(
+        'Carica\\StatusMonitor\\Library\\File\\Iterator',
+        $source->fileIterator()
+      );
+    }
   }
 }
