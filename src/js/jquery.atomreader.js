@@ -100,7 +100,12 @@
         iconNode.removeClass('hasTitle');
       }
       this.node.find('h3').text(entry.find('atom|title').text());
-      this.node.find('p').text(entry.find('atom|summary').text());
+      if (entry.find('atom|summary').attr('type') == 'html') {
+        this.node.find('p').html(entry.find('atom|summary').text());
+        this.node.find('p').text(this.node.find('p').text());
+      } else {
+        this.node.find('p').text(entry.find('atom|summary').text());
+      }
       this.node.find('.updated').text(Globalize.format(this.updated, "f"));
     },
 
