@@ -21,6 +21,4 @@ $feed = new Library\Feed(
   new Library\Filter\Xslt(__DIR__.'/xslt/fisheye.xsl')
 );
 
-error_reporting(E_ALL);
-header('Content-Type: text/xml');
-echo $feed->get();
+$feed->output();

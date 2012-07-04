@@ -41,7 +41,7 @@ namespace Carica\StatusMonitor\Library {
 
     /**
      * Read the data from the source and filter it if an filter object was provided.
-     * Return the xml of the created DOMDocument.
+     * Return the the created DOMDocument.
      *
      * @return Source $source
      * @return Filter|NULL $filter
@@ -51,18 +51,25 @@ namespace Carica\StatusMonitor\Library {
         throw new LogixException('No datasource defined.');
       }
       $dom = $source->read();
-      if ($dom) {
-        if ($filter = $this->filter()) {
-          $dom = $filter->filter($dom);
-        }
+      if ($dom && $filter = $this->filter()) {
+        $dom = $filter->filter($dom);
+      }
+      return $dom;
+    }
+    
+    /**
+     * Get the feed result and output it. Send HTTP headers, too.
+     *
+     * @return Source $source
+     * @return Filter|NULL $filter
+     */
+    public function output() {
+      if ($dom = $this->get()) {
+        $this->sendContentType();
+        echo $dom->saveXml();
       } else {
         $this->status(504, 'Gateway Time-out');
       }
-      if ($dom) {
-        $this->sendContentType();
-        return $dom->saveXml();
-      }
-      return '';
     }
 
     /**

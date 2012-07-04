@@ -22,4 +22,4 @@ $feed = new Library\Feed(
   new Library\Filter\Xslt(__DIR__.'/xslt/jenkins.xsl')
 );
 
-echo $feed->get();
+$feed->output();

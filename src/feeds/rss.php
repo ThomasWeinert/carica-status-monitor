@@ -24,4 +24,4 @@ if (!empty($_GET['timeout'])) {
   $feed->setTimeout($_GET['timeout']);
 }
 
-echo $feed->get();
+$feed->output();

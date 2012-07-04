@@ -27,4 +27,4 @@ $feed = new Library\Feed(
   new Library\Filter\Xslt(__DIR__.'/xslt/traffic/kvb-station.xsl')
 );
 
-echo $feed->get();
+$feed->output();

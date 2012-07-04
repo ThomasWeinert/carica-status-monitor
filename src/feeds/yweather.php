@@ -26,4 +26,4 @@ $feed = new Library\Feed(
   new Library\Filter\Xslt(__DIR__.'/xslt/weather/yahoo.xsl')
 );
 
-echo $feed->get();
+$feed->output();

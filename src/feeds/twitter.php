@@ -37,4 +37,4 @@ $feed = new Library\Feed(
   )
 );
 
-echo $feed->get();
+$feed->output();
