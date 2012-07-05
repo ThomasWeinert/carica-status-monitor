@@ -34,7 +34,7 @@
     
     options : {
       /* cache script files */
-      cache : true,
+      cache : false,
       /* locale for date time formatting */
       locale : 'en'
     },
