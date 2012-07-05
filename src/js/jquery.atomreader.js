@@ -40,8 +40,10 @@
           '<div class="sprite"> </div>' +
           '<div class="title"> </div>' +
         '</div>' +
-        '<h3/>' +
-        '<p/>' +
+        '<div class="teaser">' +
+          '<h3/>' +
+          '<div class="summary"/>' +
+        '</div>' +
         '<span class="updated"></span>' +
         '<span class="spacer"></span>' +
       '</li>',
@@ -99,16 +101,25 @@
         iconNode.find('.title').text(' ').hide();
         iconNode.removeClass('hasTitle');
       }
-      this.node.find('h3').text(entry.find('atom|title').text());
-      if (entry.find('atom|summary').attr('type') == 'html') {
-        this.node.find('p').html(entry.find('atom|summary').text());
-        this.node.find('p').text(this.node.find('p').text());
-      } else {
-        this.node.find('p').text(entry.find('atom|summary').text());
-      }
+      this.updateTeaser(data, entry);
       this.node.find('.updated').text(Globalize.format(this.updated, "f"));
     },
-
+    
+    /**
+     * Read values from entry xml and update the teaser summary text
+     *
+     * @param data
+     * @param entry
+     */
+    updateTeaser : function(data, entry) {
+      this.node.find('h3').text(entry.find('atom|title').text());
+      if (entry.find('atom|summary').attr('type') == 'html') {
+        this.node.find('.summary').html(entry.find('atom|summary').text());
+        this.node.find('.summary').text(this.node.find('p').text());
+      } else {
+        this.node.find('.summary').text(entry.find('atom|summary').text());
+      } 
+    },
 
     /**
      * Read values from entry xml and update the click action data
@@ -188,18 +199,19 @@
 
   var AtomReaderEntryXCal = {
 
-      template :
-        '<li class="entry">' +
-          '<span class="dateIcon">'+
-            '<span class="day"/>'+
-            '<span class="month"/>'+
-          '</span>' +
+    template :
+      '<li class="entry">' +
+        '<div class="dateIcon">'+
+          '<span class="day"/>'+
+          '<span class="month"/>'+
+        '</div>' +
+        '<div class="teaser">' +
           '<h3/>' +
-          '<p/>' +
-          '<span class="updated"></span>' +
-          '<span class="spacer"></span>' +
-        '</li>',
-
+          '<div class="summary"/>' +
+        '</div>' +
+        '<span class="updated"></span>' +
+        '<span class="spacer"></span>' +
+       '</li>',
 
     /**
      * Read values from entry xml and update the dom element
@@ -207,7 +219,6 @@
      * @param data
      * @param entry
      */
-
     updateNode : function(data, entry) {
       var status = entry.find('csm|status').text();
       this.node.attr('class', 'entry').addClass(
@@ -225,17 +236,14 @@
       } else {
         this.node.find('.dateIcon').removeClass('today').removeClass('allday');
       }
+      this.updateTeaser(data, entry);
       if (startDateFormat == 'DATE-TIME') {
         this.node.find('h3').text(
           Globalize.format(startDate, "t") + 
           ' - ' + 
           Globalize.format(endDate, "t") + 
           ' ' + 
-          entry.find('atom|title').text()
-        );
-      } else {
-        this.node.find('h3').text(
-            entry.find('atom|title').text()
+          this.node.find('h3').text()
         );
       }
       this.node.find('.updated').text(Globalize.format(this.updated, "f"));

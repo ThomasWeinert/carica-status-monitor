@@ -185,22 +185,18 @@ table#splitview td {
   border-top: 1px solid #000;
   min-height: 54px;
 }
-.feed li img {
-  width: 48px;
-  height: 48px;
-  float: left;
-  border-radius: 5px;
-}
 .feed li h2 {
   font-size: 1em;
 }
-.feed li h3 {
-  margin-left: 60px;
-  font-size: 0.8em;
-}
-.feed li p {
+.feed li .teaser {
   margin-left: 60px;
   font-size: 0.75em;
+  min-height: 3em;
+  max-height: 6em;
+  overflow: hidden;
+}
+.feed li h3 {
+  font-size: 1em;
 }
 .feed li .updated {
   float: right;
