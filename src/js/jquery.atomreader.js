@@ -113,12 +113,21 @@
      */
     updateTeaser : function(data, entry) {
       this.node.find('h3').text(entry.find('atom|title').text());
-      if (entry.find('atom|summary').attr('type') == 'html') {
-        this.node.find('.summary').html(entry.find('atom|summary').text());
-        this.node.find('.summary').text(this.node.find('p').text());
+      var type = entry.find('atom|summary').attr('type'); 
+      var teaser;
+      if (type == 'html') {
+        teaser = $($.parseHTML(entry.find('atom|summary').text()));
+      } else if (type == 'xhtml') {
+        teaser = entry.find('atom|summary').children();
       } else {
         this.node.find('.summary').text(entry.find('atom|summary').text());
+        return;
       } 
+      if (!this.entries.reader.options.allowHtml) {
+        this.node.find('.summary').text(teaser.text());
+      }
+      this.node.find('.summary').empty();
+      this.node.find('.summary').append(teaser.clone());
     },
 
     /**
@@ -238,12 +247,13 @@
       }
       this.updateTeaser(data, entry);
       if (startDateFormat == 'DATE-TIME') {
-        this.node.find('h3').text(
-          Globalize.format(startDate, "t") + 
-          ' - ' + 
-          Globalize.format(endDate, "t") + 
-          ' ' + 
-          this.node.find('h3').text()
+        this.node.find('h3').prepend(
+          document.createTextNode(
+            Globalize.format(startDate, "t") + 
+            ' - ' + 
+            Globalize.format(endDate, "t") + 
+            ' '
+          )
         );
       }
       this.node.find('.updated').text(Globalize.format(this.updated, "f"));
@@ -327,7 +337,8 @@
       highlight : 'yes',
       refresh : 'updated',
       max : 5,
-      interval : 0
+      interval : 0,
+      allowHtml : true
     },
 
     /**
