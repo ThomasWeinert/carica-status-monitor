@@ -193,7 +193,7 @@ table#splitview td {
   font-size: 0.75em;
   min-height: 3em;
   max-height: 6em;
-  overflow: hidden;
+  overflow: auto;
 }
 .feed li h3 {
   font-size: 1em;
