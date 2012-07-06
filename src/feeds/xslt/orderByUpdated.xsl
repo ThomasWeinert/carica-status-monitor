@@ -14,11 +14,18 @@
 
 <xsl:strip-space elements="*"/>
 
-<xsl:template match="node()|@*">
+<xsl:key name="entries-by-id" match="atom:entry" use="atom:id" />
+
+<xsl:template match="/*">
   <xsl:copy>
-    <xsl:apply-templates select="node()|@*">
+    <xsl:copy-of select="@*"/>
+    <xsl:copy-of select="*[name() != 'atom:entry']"/>
+    <xsl:for-each select="atom:entry[count(. | key('entries-by-id', atom:id)[1]) = 1]">
       <xsl:sort select="atom:updated" order="descending"/>
-    </xsl:apply-templates>
+      <xsl:copy>
+        <xsl:copy-of select="node()|@*"/>
+      </xsl:copy>
+    </xsl:for-each>
   </xsl:copy>
 </xsl:template>
 
