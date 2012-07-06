@@ -128,7 +128,6 @@
         summary.text(teaser.text());
         return;
       }
-      console.log(entry.find('atom|link').attr('href'));
       summary.empty();
       summary.append(teaser.clone());
       this.expandHrefs(summary.find('a[href],img[src]'), entry.find('atom|link').attr('href'));
