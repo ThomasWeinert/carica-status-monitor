@@ -162,7 +162,7 @@
                   return function(event) {
                     event.preventDefault();
                     window.open(href, '_blank');
-                  }
+                  };
                 }(this.getAttribute('href'))  
               );
             }
@@ -425,6 +425,10 @@
       this.fetch();
     },
 
+    /**
+     * schedule a ajax refresh in n seconds, the currently scheduled refresh is 
+     * stopped and removed.
+     */
     schedule : function() {
       if (this.options.interval > 0) {
         if (this.timer) {
@@ -442,8 +446,11 @@
      */
     fetch : function() {
       if (this.options.url != '') {
-        var hash = window.location.hash ? window.location.hash : '';
-        var url = this.options.url.replace(/\{hash\}/, escape(hash));
+        var href = window.location.href;
+        var hash = (href.lastIndexOf('#') > 0) 
+         ? href.substr(href.lastIndexOf('#') + 1)
+         : '';
+        var url = this.options.url.replace(/\{hash\}/, hash);
         this.updateStatus('loading', '');
         $.get(url)
           .success($.proxy(this.ajaxSuccess, this))

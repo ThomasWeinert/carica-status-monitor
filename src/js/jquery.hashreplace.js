@@ -51,9 +51,12 @@
      * the stored default text.
      */
     replace : function () {
-      var hash = window.location.hash ? window.location.hash.substring(1) : '';
+      var href = window.location.href;
+      var hash = (href.lastIndexOf('#') > 0) 
+        ? href.substr(href.lastIndexOf('#') + 1)
+        : '';
       this.node.text(
-        (hash != '') ? hash : this.defaultText
+        (hash != '') ? decodeURIComponent(hash) : this.defaultText
       );
     },
 
