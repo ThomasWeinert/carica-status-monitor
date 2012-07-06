@@ -135,6 +135,9 @@ table#splitview td {
   background: -ms-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* IE10+ */
   background: linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* W3C */
 }
+.feed li.clickable {
+  cursor: pointer;
+}
 .feed li.header {
   font-weight: bold;
   color: #FFF;
@@ -182,22 +185,18 @@ table#splitview td {
   border-top: 1px solid #000;
   min-height: 54px;
 }
-.feed li img {
-  width: 48px;
-  height: 48px;
-  float: left;
-  border-radius: 5px;
-}
 .feed li h2 {
   font-size: 1em;
 }
-.feed li h3 {
-  margin-left: 60px;
-  font-size: 0.8em;
-}
-.feed li p {
+.feed li .teaser {
   margin-left: 60px;
   font-size: 0.75em;
+  min-height: 3em;
+  max-height: 6em;
+  overflow: auto;
+}
+.feed li h3 {
+  font-size: 1em;
 }
 .feed li .updated {
   float: right;
@@ -271,7 +270,7 @@ span.spacer {
   font-weight: bold;
   text-align: center;
   background-color: #FFF;
-  border-radius: 5px 5px 0 0;
+  border-radius: 4px 4px 0 0;
 }
 
 /* sprite icon (an icon combined from an background image and a subtitle */
