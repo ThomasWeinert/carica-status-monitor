@@ -128,8 +128,54 @@
         summary.text(teaser.text());
         return;
       }
+      console.log(entry.find('atom|link').attr('href'));
       summary.empty();
       summary.append(teaser.clone());
+      this.expandHrefs(summary.find('a[href],img[src]'), entry.find('atom|link').attr('href'));
+    },
+    
+    /**
+     * Makes href/src attributes of the matches elements absolute
+     * 
+     * @param nodes
+     * @param baseHref
+     */
+    expandHrefs : function(nodes, baseHref) {
+      if (baseHref) {
+        if (baseHref.lastIndexOf('#') > 0) {
+          baseHref = baseHref.substr(0, baseHref.lastIndexOf('#'));
+        }
+        if (baseHref.lastIndexOf('?') > 0) {
+          baseHref = baseHref.substr(0, baseHref.lastIndexOf('?'));
+        }
+        if (baseHref.lastIndexOf('/') > 0) {
+          baseHref = baseHref.substr(0, baseHref.lastIndexOf('/') + 1);
+        }
+        nodes.each(
+          function () {
+            if (this.getAttribute('href')) {
+              var href = this.getAttribute('href');
+              if (!href.match(/^\w+:/)) {
+                this.setAttribute('href', baseHref + href); 
+              }
+              $(this).click(
+                function(href) {
+                  return function(event) {
+                    event.preventDefault();
+                    window.open(href, '_blank');
+                  }
+                }(this.getAttribute('href'))  
+              );
+            }
+            if (this.getAttribute('src')) {
+              var href = this.getAttribute('src');
+              if (!href.match(/^\w+:/)) {
+                this.setAttribute('src', baseHref + href); 
+              }
+            }
+          }
+        );
+      }
     },
 
     /**
@@ -154,6 +200,7 @@
      * Handle a click on the element
      */
     onClick : function () {
+      event.preventDefault();
       if (this.link && this.link != '') {
         window.open(this.link, '_blank');
       }
