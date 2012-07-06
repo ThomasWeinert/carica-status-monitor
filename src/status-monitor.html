@@ -12,65 +12,51 @@
       <h1>Status Monitor</h1>
     </div>
     <div id="feeds">
-      <ul class="feed" 
-          data-plugin="feed" 
-          data-url="feeds/jenkins.php?view=http://example.tld/jenkins/view.xml" 
-          data-highlight="no" 
-          data-interval="60">
-        <li class="header">
-          Project Build Status
-        </li>
-      </ul>
-      <ul class="feed" 
-          data-plugin="feed" 
-          data-url="feeds/ical.php?url=http://example.tld/hcking.de.ical"
-          data-interval="1800">
-        <li class="header">
-           Kalendar
-        </li>
-      </ul>
-      <ul class="feed" 
-          data-plugin="feed" 
-          data-url="feeds/gweather.php?location=50670-Germany&language=de" 
-          data-interval="600">
-        <li class="header">
-          Google Weather
-        </li>
-      </ul>
-      <ul class="feed" 
-          data-plugin="feed" 
-          data-url="feeds/yweather.php?location=667931" 
-          data-interval="600">
-        <li class="header">
-          Yahoo Weather
-        </li>
-      </ul>
-      <ul class="feed" 
-          data-plugin="feed" 
-          data-url="feeds/kvb-station.php?code=36" 
-          data-interval="60" 
-          data-refresh="all">
-        <li class="header">
-          Abfahrtszeiten KVB, Hansaring
-        </li>
-      </ul>
-      <ul class="feed" 
-          data-plugin="feed" 
-          data-url="feeds/twitter.php?user=papayaCMS" 
-          data-interval="60">
-        <li class="header">
-           @papayaCMS on Twitter
-        </li>
-      </ul>
-      <ul class="feed" 
-          data-plugin="feed" 
-          data-url="feeds/twitter.php?q=%23php%20-job%20-freelance"
-          data-interval="60"
-          data-max="8">
-        <li class="header">
-           #PHP on Twitter
-        </li>
-      </ul>
+      <div class="feed" 
+           data-plugin="feed" 
+           data-url="feeds/jenkins.php?view=http://example.tld/jenkins/view.xml" 
+           data-highlight="no" 
+           data-interval="60">
+        <h2>Project Build Status</h2>
+      </div>
+      <div class="feed" 
+           data-plugin="feed" 
+           data-url="feeds/ical.php?url=http://example.tld/hcking.de.ical"
+           data-interval="1800">
+        <h2>Kalendar</h2>
+      </div>
+      <div class="feed" 
+           data-plugin="feed" 
+           data-url="feeds/gweather.php?location=50670-Germany&language=de" 
+           data-interval="600">
+        <h2>Google Weather</h2>
+      </div>
+      <div class="feed" 
+           data-plugin="feed" 
+           data-url="feeds/yweather.php?location=667931" 
+           data-interval="600">
+        <h2>Yahoo Weather</h2>
+      </div>
+      <div class="feed" 
+           data-plugin="feed" 
+           data-url="feeds/kvb-station.php?code=36" 
+           data-interval="60" 
+           data-refresh="all">
+        <h2>Abfahrtszeiten KVB, Hansaring</h2>
+      </div>
+      <div class="feed" 
+           data-plugin="feed" 
+           data-url="feeds/twitter.php?user=papayaCMS" 
+           data-interval="60">
+        <h2>@papayaCMS on Twitter</h2>
+      </div>
+      <div class="feed" 
+           data-plugin="feed" 
+           data-url="feeds/twitter.php?q=%23php%20-job%20-freelance"
+           data-interval="60"
+           data-max="8">
+        <h2>#PHP on Twitter</h2>
+      </div>
     </div>
     <div id="clock" data-plugin="clock"></div>
     <script type="text/javascript" src="js/external/jquery.js"></script>

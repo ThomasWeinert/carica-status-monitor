@@ -125,7 +125,7 @@ table#splitview td {
   padding: 0;
   margin-bottom: 15px;
 }
-.feed li {
+.feed li, .feed h2, .feed div.status, .feed div.message {
   display: inline-block;
   width: 100%;
   list-style: none;
@@ -145,7 +145,8 @@ table#splitview td {
 .feed li.clickable {
   cursor: pointer;
 }
-.feed li.header {
+.feed h2 {
+  font-size: 1em;
   font-weight: bold;
   color: #FFF;
   background-color: #000000;
@@ -155,22 +156,23 @@ table#splitview td {
   background: -ms-linear-gradient(top, #444444 0%,#000000 100%); /* IE10+ */
   background: linear-gradient(top, #444444 0%,#000000 100%); /* W3C */
 }
-.feed li.header span.status {
+.feed h2 span.status {
   float: right;
   height: 1em;
   width: 3em;
   font-weight: bold;
   color: #FFF;
 }
-.feed li.header span.status.loading {
+.feed h2 span.status.loading {
   background: transparent url(../img/loader.gif) no-repeat center 0;
 }
-.feed li.status, .feed li.message {
+.feed div.status, .feed div.message {
+  color: #000;
   height: 2em;
   text-align: center;
   border-top: 1px solid #000;
 }
-.feed li.loading {
+.feed div.loading {
   background-color: #FFFFFF; /* Old browsers */
   background: url(../img/loader.gif) no-repeat center 5px, -moz-linear-gradient(top, #FFFFFF 0%, #DEDEDE 40%, #B6B6B6 100%); /* FF3.6+ */
   background: url(../img/loader.gif) no-repeat center 5px, -webkit-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* Chrome10+,Safari5.1+ */
@@ -178,7 +180,7 @@ table#splitview td {
   background: url(../img/loader.gif) no-repeat center 5px, -ms-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* IE10+ */
   background: url(../img/loader.gif) no-repeat center 5px, linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* W3C */
 }
-.feed li.error {
+.feed li.error, .feed div.error {
   font-weight: bold;
   color: #FFF;
   background-color: #FF0000; /* Old browsers */
@@ -191,9 +193,6 @@ table#splitview td {
 .feed li.entry {
   border-top: 1px solid #000;
   min-height: 54px;
-}
-.feed li h2 {
-  font-size: 1em;
 }
 .feed li .teaser {
   margin-left: 60px;
@@ -212,7 +211,7 @@ table#splitview td {
   color: #444;
   margin-top: 0.5em;
 }
-.feed li.error .updated {
+.feed div.error .updated {
   color: #FFF;
 }
 

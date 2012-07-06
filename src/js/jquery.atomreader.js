@@ -209,7 +209,7 @@
      * Move an item to the top of the list and show it.
      */
     show : function() {
-      this.entries.reader.node.find('li.message, li.status, li.title').last().after(this.node);
+      this.entries.reader.node.find('ul').prepend(this.node);
       if (this.entries.reader.options.refresh == 'updated') {
         this.node.fadeIn(3000);
       } else {
@@ -369,7 +369,7 @@
      * Remove all items and their dom elements
      */
     clear : function() {
-      this.reader.node.find('.entry').remove();
+      this.reader.node.find('ul').empty();
       this.entries = new Object();
     }
   };
@@ -412,10 +412,13 @@
       var header = this.node.find('.header');
       if (header.length > 0) {
         header.prepend('<span class="status"/>');
-        header.after('<li class="message"/>');
+        header.after('<div class="message"/>');
       } else {
-        this.node.append('<li class="status"><span class="message">&nbsp;</span></li>');
+        this.node.append(
+          '<div class="status"><span class="message">&nbsp;</span></div>'
+        );
       }
+      this.node.append('<ul/>');
       if (this.options.refresh == 'all') {
         this.options.highlight = 'no';
       }
@@ -498,7 +501,7 @@
       if (message != '') {
         messageNode.text(message).show();
       } else {
-        messageNode.html('&nbsp;').filter('li').hide();
+        messageNode.html('&nbsp;').filter('div').hide();
       }
     },
 
