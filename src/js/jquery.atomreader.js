@@ -114,20 +114,22 @@
     updateTeaser : function(data, entry) {
       this.node.find('h3').text(entry.find('atom|title').text());
       var type = entry.find('atom|summary').attr('type'); 
+      var summary = this.node.find('.summary');
       var teaser;
       if (type == 'html') {
         teaser = $($.parseHTML(entry.find('atom|summary').text()));
       } else if (type == 'xhtml') {
         teaser = entry.find('atom|summary').children();
       } else {
-        this.node.find('.summary').text(entry.find('atom|summary').text());
+        summary.text(entry.find('atom|summary').text());
         return;
       } 
-      if (!this.entries.reader.options.allowHtml) {
-        this.node.find('.summary').text(teaser.text());
+      if (this.entries.reader.options.allowHtml != 'yes') {
+        summary.text(teaser.text());
+        return;
       }
-      this.node.find('.summary').empty();
-      this.node.find('.summary').append(teaser.clone());
+      summary.empty();
+      summary.append(teaser.clone());
     },
 
     /**
@@ -338,7 +340,7 @@
       refresh : 'updated',
       max : 5,
       interval : 0,
-      allowHtml : true
+      allowHtml : 'no'
     },
 
     /**
