@@ -18,6 +18,13 @@ body {
   background-color: #666666;
 }
 
+a {
+  color: #204A87;
+}
+a:visited {
+  color: #444444;
+}
+
 #pageHeader {
   color: #FFF;
   background-color: #000000;
