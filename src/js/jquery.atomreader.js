@@ -409,7 +409,7 @@
       this.entries = $.extend(true, {}, AtomReaderEntries);
       this.entries.reader = this;
       this.options = $.extend(this.options, options, node.data());
-      var header = this.node.find('.header');
+      var header = this.node.find('h2');
       if (header.length > 0) {
         header.prepend('<span class="status"/>');
         header.after('<div class="message"/>');
