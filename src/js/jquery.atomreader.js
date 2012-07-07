@@ -408,7 +408,7 @@
       this.node.data('AtomReader', this);
       this.entries = $.extend(true, {}, AtomReaderEntries);
       this.entries.reader = this;
-      this.options = $.extend($.extend(this.options, options), node.data());
+      this.options = $.extend(this.options, options, node.data());
       var header = this.node.find('.header');
       if (header.length > 0) {
         header.prepend('<span class="status"/>');

@@ -43,7 +43,7 @@
      */
     setUp : function(node, options) {
       this.node = node;
-      this.options = $.extend($.extend(this.options, options), node.data());
+      this.options = $.extend(this.options, options, node.data());
       this.create(node);
       this.update();
       this.fetchWeather();
