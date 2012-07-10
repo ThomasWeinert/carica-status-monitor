@@ -18,6 +18,11 @@ namespace Carica\StatusMonitor\Library\Filter {
      */
     private $_processor = NULL;
 
+    /**
+     * @var string
+     */
+    private $_xsltFile = '';
+
     public function __construct($xsltFile) {
       $this->_xsltFile = $xsltFile;
     }
