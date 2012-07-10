@@ -84,7 +84,7 @@ namespace Carica\StatusMonitor\Library\FileSystem {
      * @return string
      */
     public function delete() {
-      if ($this->isWriteable) {
+      if ($this->isWriteable()) {
         unlink($this->_filename);
       }
     }

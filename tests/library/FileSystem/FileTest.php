@@ -66,5 +66,13 @@ namespace Carica\StatusMonitor\Library\FileSystem {
       $file = new File(__DIR__.'/TestData/sample.txt');
       $this->assertEquals('success', $file->read());
     }
+
+    /**
+     * @covers Carica\StatusMonitor\Library\FileSystem\File::modified
+     */
+    public function testModified() {
+      $file = new File(__DIR__.'/TestData/sample.txt');
+      $this->assertGreaterThan(0, $file->modified());
+    }
   }
 }
