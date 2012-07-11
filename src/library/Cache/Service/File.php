@@ -42,23 +42,30 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
       $this->_bucket = $bucket;
     }
 
-    public function usable() {
+    /**
+     * Validate if the cache is useable
+     *
+     * @param string $bucket
+     * @param Library\Cache\Configuration $configuration
+     */
+    public function isUseable() {
       $path = $this->fileSystem()->getDirectory($this->_directory);
       if (!$path->exists()) {
-        throw new LogicException(
+        throw new \LogicException(
           sprintf('Cache directory "%s" not found.', $this->_directory)
         );
       }
       if (!$path->isReadable()) {
-        throw new LogicException(
+        throw new \LogicException(
           sprintf('Cache directory "%s" not readable.', $this->_directory)
         );
       }
       if (!$path->isWriteable()) {
-        throw new LogicException(
+        throw new \LogicException(
           sprintf('Cache directory "%s" not writeable.', $this->_directory)
         );
       }
+      return TRUE;
     }
 
     /**
