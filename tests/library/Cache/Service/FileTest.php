@@ -158,6 +158,63 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
       $this->assertTrue($service->isUseable());
     }
 
+    /**
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::read
+     */
+    public function testRead() {
+      $file = $this
+        ->getMockBuilder(
+          '\Carica\StatusMonitor\Library\FileSystem\File'
+        )
+        ->disableOriginalConstructor()
+        ->getMock();
+      $file
+        ->expects($this->once())
+        ->method('isReadable')
+        ->will($this->returnValue(TRUE));
+      $file
+        ->expects($this->once())
+        ->method('modified')
+        ->will($this->returnValue(time()));
+      $file
+        ->expects($this->once())
+        ->method('read')
+        ->will($this->returnValue(serialize('success')));
+      $service = new File(
+        'bucket', new Library\Cache\Configuration(array('PATH' => '/some/path'))
+      );
+      $service->fileSystem($this->getFileSystemFactory(NULL, $file));
+      $this->assertEquals('success', $service->read('foo', NULL, 1800));
+    }
+
+    /**
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::read
+     */
+    public function testReadExpiredExpectingNull() {
+      $file = $this
+        ->getMockBuilder(
+          '\Carica\StatusMonitor\Library\FileSystem\File'
+        )
+        ->disableOriginalConstructor()
+        ->getMock();
+      $file
+        ->expects($this->once())
+        ->method('isReadable')
+        ->will($this->returnValue(TRUE));
+      $file
+        ->expects($this->once())
+        ->method('modified')
+        ->will($this->returnValue(time() - 1800));
+      $file
+        ->expects($this->never())
+        ->method('read');
+      $service = new File(
+        'bucket', new Library\Cache\Configuration(array('PATH' => '/some/path'))
+      );
+      $service->fileSystem($this->getFileSystemFactory(NULL, $file));
+      $this->assertNull($service->read('foo', NULL, 900));
+    }
+
     private function getFileSystemFactory($directory = NULL, $file = NULL) {
       $factory = $this->getMock(
         '\Carica\StatusMonitor\Library\FileSystem\Factory'
