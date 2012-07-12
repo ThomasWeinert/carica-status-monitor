@@ -216,7 +216,7 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
     }
 
     /**
-     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::read
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::write
      */
     public function testWrite() {
       $directory = $this
@@ -257,6 +257,27 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
       );
       $service->fileSystem($this->getFileSystemFactory($directory, $file));
       $this->assertNull($service->write('foo', NULL, 900, 'success'));
+    }
+
+    /**
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::invalidate
+     */
+    public function testInvalidate() {
+      $file = $this
+        ->getMockBuilder(
+          '\Carica\StatusMonitor\Library\FileSystem\File'
+        )
+        ->disableOriginalConstructor()
+        ->getMock();
+      $file
+        ->expects($this->once())
+        ->method('delete')
+        ->will($this->returnValue(TRUE));
+      $service = new File(
+        'bucket', new Library\Cache\Configuration(array('PATH' => '/some/path'))
+      );
+      $service->fileSystem($this->getFileSystemFactory(NULL, $file));
+      $this->assertNull($service->invalidate('foo', NULL));
     }
 
     private function getFileSystemFactory($directory = NULL, $file = NULL) {
