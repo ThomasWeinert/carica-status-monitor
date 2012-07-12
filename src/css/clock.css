@@ -3,13 +3,14 @@
   top: 0.5em;
   right: 1em;
   display: inline-block;
-  background: transparent url(../img/weather-clear.png) no-repeat 7.2em top;
+  background: transparent url(../img/weather-clear.png) no-repeat 8em top;
   height: 4em;
 }
 #clock .digits {
   float: left;
   display: inline-block;
   padding: 0.2em 0 0 0;
+  font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
 #clock .digit {
@@ -22,7 +23,7 @@
   padding: 0.1em;
   border-radius: 5px;
   box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.5);
-  width: 1.2em;
+  min-width: 1.5em;
 
   background-color: #FFFFFF; /* Old browsers */
   background: -moz-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%);
@@ -33,13 +34,16 @@
 }
 #clock .details {
   display: inline-block;
-  color: #FFF;
-  width: 9em;
-  padding-left: 2em;
+  color: #FFF;  
+  padding-left: 4em;
 }
 #clock .details span {
-  display: block;
+  clear: both;
+  display: inline-block;
+  float: right;
+  min-width: 9em;
   font-size: 0.7em;
   text-align: right;
   text-shadow: 0 0 2px #000;
+  white-space: nowrap;
 }

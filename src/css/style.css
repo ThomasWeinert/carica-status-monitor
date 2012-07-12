@@ -65,10 +65,10 @@ table#splitview td {
 
 /** multicolumn layout depending on screen size **/
 #feeds {
-  -moz-column-gap: 1.5em;
-  -webkit-column-gap: 1.5em;
-  column-gap: 1em;
-  margin: 1em;
+  -moz-column-gap: 0;
+  -webkit-column-gap: 0;
+  column-gap: 0;
+  margin: 0.5em;
 }
 @media screen and (min-width: 500px) {
   #feeds {
@@ -120,10 +120,13 @@ table#splitview td {
 }
 
 .feed {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
   width : 100%;
   display: inline-block;
-  padding: 0;
-  margin-bottom: 15px;
+  padding: 1em;
 }
 .feed li, .feed h2, .feed div.status, .feed div.message {
   display: inline-block;
@@ -131,7 +134,7 @@ table#splitview td {
   list-style: none;
   padding: 0.4em;
   clear: both;
-  box-shadow: 0px 5px 5px #000000;
+  box-shadow: 0px 0.5em 0.8em #000000;
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
@@ -328,25 +331,25 @@ div#visualization {
 /** Animations **/
 @-webkit-keyframes item-glow {
   0% {
-    box-shadow: inset 0 0 20px rgba(252, 175, 62, 0), 0px 5px 3px #000000;
+    box-shadow: inset 0 0 20px rgba(252, 175, 62, 0), 0px 0.5em 0.8em #000000;
   }
   100% {
-    box-shadow: inset 0 0 20px rgba(252, 175, 62, 1), 0px 5px 3px #000000;
+    box-shadow: inset 0 0 20px rgba(252, 175, 62, 1), 0px 0.5em 0.8em #000000;
   }
 }
 @-moz-keyframes item-glow {
   0% {
-    box-shadow: inset 0 0 20px rgba(252, 175, 62, 0), 0px 5px 3px #000000;
+    box-shadow: inset 0 0 20px rgba(252, 175, 62, 0), 0px 0.5em 0.8em #000000;
   }
   100% {
-    box-shadow: inset 0 0 20px rgba(252, 175, 62, 1), 0px 5px 3px #000000;
+    box-shadow: inset 0 0 20px rgba(252, 175, 62, 1), 0px 0.5em 0.8em #000000;
   }
 }
 @keyframes item-glow {
   0% {
-    box-shadow: inset 0 0 20px rgba(252, 175, 62, 0), 0px 5px 3px #000000;
+    box-shadow: inset 0 0 20px rgba(252, 175, 62, 0), 0px 0.5em 0.8em #000000;
   }
   100% {
-    box-shadow: inset 0 0 20px rgba(252, 175, 62, 1), 0px 5px 3px #000000;
+    box-shadow: inset 0 0 20px rgba(252, 175, 62, 1), 0px 0.5em 0.8em #000000;
   }
 }
