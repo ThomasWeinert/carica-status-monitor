@@ -67,18 +67,10 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
         ->expects($this->once())
         ->method('isWriteable')
         ->will($this->returnValue(TRUE));
-      $factory = $this->getMock(
-        '\Carica\StatusMonitor\Library\FileSystem\Factory'
-      );
-      $factory
-        ->expects($this->once())
-        ->method('getDirectory')
-        ->with('/some/path')
-        ->will($this->returnValue($directory));
       $service = new File(
         'bucket', new Library\Cache\Configuration(array('PATH' => '/some/path'))
       );
-      $service->fileSystem($factory);
+      $service->fileSystem($this->getFileSystemFactory($directory));
       $this->assertTrue($service->isUseable());
     }
 
@@ -96,18 +88,10 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
         ->expects($this->once())
         ->method('exists')
         ->will($this->returnValue(FALSE));
-      $factory = $this->getMock(
-        '\Carica\StatusMonitor\Library\FileSystem\Factory'
-      );
-      $factory
-        ->expects($this->once())
-        ->method('getDirectory')
-        ->with('/some/path')
-        ->will($this->returnValue($directory));
       $service = new File(
         'bucket', new Library\Cache\Configuration(array('PATH' => '/some/path'))
       );
-      $service->fileSystem($factory);
+      $service->fileSystem($this->getFileSystemFactory($directory));
       $this->setExpectedException(
         'LogicException', 'Cache directory "/some/path" not found.'
       );
@@ -132,18 +116,10 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
         ->expects($this->once())
         ->method('isReadable')
         ->will($this->returnValue(FALSE));
-      $factory = $this->getMock(
-        '\Carica\StatusMonitor\Library\FileSystem\Factory'
-      );
-      $factory
-        ->expects($this->once())
-        ->method('getDirectory')
-        ->with('/some/path')
-        ->will($this->returnValue($directory));
       $service = new File(
         'bucket', new Library\Cache\Configuration(array('PATH' => '/some/path'))
       );
-      $service->fileSystem($factory);
+      $service->fileSystem($this->getFileSystemFactory($directory));
       $this->setExpectedException(
         'LogicException', 'Cache directory "/some/path" not readable.'
       );
@@ -172,22 +148,35 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
         ->expects($this->once())
         ->method('isWriteable')
         ->will($this->returnValue(FALSE));
-      $factory = $this->getMock(
-        '\Carica\StatusMonitor\Library\FileSystem\Factory'
-      );
-      $factory
-        ->expects($this->once())
-        ->method('getDirectory')
-        ->with('/some/path')
-        ->will($this->returnValue($directory));
       $service = new File(
         'bucket', new Library\Cache\Configuration(array('PATH' => '/some/path'))
       );
-      $service->fileSystem($factory);
+      $service->fileSystem($this->getFileSystemFactory($directory));
       $this->setExpectedException(
         'LogicException', 'Cache directory "/some/path" not writeable.'
       );
       $this->assertTrue($service->isUseable());
+    }
+
+    private function getFileSystemFactory($directory = NULL, $file = NULL) {
+      $factory = $this->getMock(
+        '\Carica\StatusMonitor\Library\FileSystem\Factory'
+      );
+      if ($directory) {
+        $factory
+          ->expects($this->any())
+          ->method('getDirectory')
+          ->withAnyParameters()
+          ->will($this->returnValue($directory));
+      }
+      if ($file) {
+        $factory
+          ->expects($this->any())
+          ->method('getFile')
+          ->withAnyParameters()
+          ->will($this->returnValue($file));
+      }
+      return $factory;
     }
   }
 }
