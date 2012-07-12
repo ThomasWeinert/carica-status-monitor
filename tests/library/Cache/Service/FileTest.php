@@ -215,6 +215,50 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
       $this->assertNull($service->read('foo', NULL, 900));
     }
 
+    /**
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::read
+     */
+    public function testWrite() {
+      $directory = $this
+        ->getMockBuilder(
+          '\Carica\StatusMonitor\Library\FileSystem\Directory'
+        )
+        ->disableOriginalConstructor()
+        ->getMock();
+      $directory
+        ->expects($this->once())
+        ->method('exists')
+        ->will($this->returnValue(TRUE));
+      $directory
+        ->expects($this->once())
+        ->method('isReadable')
+        ->will($this->returnValue(TRUE));
+      $directory
+        ->expects($this->once())
+        ->method('isWriteable')
+        ->will($this->returnValue(TRUE));
+      $directory
+        ->expects($this->once())
+        ->method('force')
+        ->will($this->returnValue(TRUE));
+      $file = $this
+        ->getMockBuilder(
+          '\Carica\StatusMonitor\Library\FileSystem\File'
+        )
+        ->disableOriginalConstructor()
+        ->getMock();
+      $file
+        ->expects($this->once())
+        ->method('write')
+        ->with(serialize('success'))
+        ->will($this->returnValue(TRUE));
+      $service = new File(
+        'bucket', new Library\Cache\Configuration(array('PATH' => '/some/path'))
+      );
+      $service->fileSystem($this->getFileSystemFactory($directory, $file));
+      $this->assertNull($service->write('foo', NULL, 900, 'success'));
+    }
+
     private function getFileSystemFactory($directory = NULL, $file = NULL) {
       $factory = $this->getMock(
         '\Carica\StatusMonitor\Library\FileSystem\Factory'
