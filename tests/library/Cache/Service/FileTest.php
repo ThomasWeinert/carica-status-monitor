@@ -10,6 +10,7 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
 
     /**
      * @covers \Carica\StatusMonitor\Library\Cache\Service\File::__construct
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::validateName
      */
     public function testConstructor() {
       $configuration = $this->getMock(
@@ -36,6 +37,7 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
 
     /**
      * @covers \Carica\StatusMonitor\Library\Cache\Service\File::__construct
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::validateName
      */
     public function testConstructorWithInvalidBucketExpectingException() {
       $configuration = $this->getMock(
@@ -160,6 +162,7 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
 
     /**
      * @covers \Carica\StatusMonitor\Library\Cache\Service\File::read
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::getFile
      */
     public function testRead() {
       $file = $this
@@ -189,6 +192,7 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
 
     /**
      * @covers \Carica\StatusMonitor\Library\Cache\Service\File::read
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::getFile
      */
     public function testReadExpiredExpectingNull() {
       $file = $this
@@ -217,6 +221,8 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
 
     /**
      * @covers \Carica\StatusMonitor\Library\Cache\Service\File::write
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::getDirectory
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::getFile
      */
     public function testWrite() {
       $directory = $this
@@ -278,6 +284,31 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
       );
       $service->fileSystem($this->getFileSystemFactory(NULL, $file));
       $this->assertNull($service->invalidate('foo', NULL));
+    }
+
+    /**
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::fileSystem
+     */
+    public function testFileSystemGetAfterSet() {
+      $factory = $this->getFileSystemFactory();
+      $service = new File(
+        'bucket', new Library\Cache\Configuration(array('PATH' => '/some/path'))
+      );
+      $service->fileSystem($factory);
+      $this->assertSame($factory, $service->fileSystem());
+    }
+
+    /**
+     * @covers \Carica\StatusMonitor\Library\Cache\Service\File::fileSystem
+     */
+    public function testFileSystemGetImplicitCreate() {
+      $service = new File(
+        'bucket', new Library\Cache\Configuration(array('PATH' => '/some/path'))
+      );
+      $this->assertInstanceOf(
+        '\Carica\StatusMonitor\Library\FileSystem\Factory',
+        $service->fileSystem()
+      );
     }
 
     private function getFileSystemFactory($directory = NULL, $file = NULL) {
