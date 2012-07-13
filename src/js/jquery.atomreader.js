@@ -198,7 +198,7 @@
     /**
      * Handle a click on the element
      */
-    onClick : function () {
+    onClick : function(event) {
       event.preventDefault();
       if (this.link && this.link != '') {
         window.open(this.link, '_blank');
