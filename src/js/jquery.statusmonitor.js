@@ -11,8 +11,7 @@
     requires : [
       'js/external/jquery.xmlns.js',
       'js/external/globalize.js',
-      'js/external/cultures/globalize.cultures.js',
-      'js/external/jquery.xmlns.js',
+      'js/external/cultures/globalize.cultures.js'
     ],
       
     plugins : {
