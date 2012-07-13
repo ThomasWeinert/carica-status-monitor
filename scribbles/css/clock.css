@@ -1,15 +1,15 @@
 #clock {
   position: absolute;
-  top: 0.5em;
+  top: 0.1em;
   right: 1em;
   display: inline-block;
-  background: transparent url(../img/weather-clear.png) no-repeat 8em top;
+  background: transparent url(../img/weather-clear.png) no-repeat 8em 0.6em;
   height: 4em;
 }
 #clock .digits {
   float: left;
   display: inline-block;
-  padding: 0.2em 0 0 0;
+  padding: 0.3em 0 0 0;
   font-family: Verdana, Arial, Helvetica, sans-serif;
 }
 
