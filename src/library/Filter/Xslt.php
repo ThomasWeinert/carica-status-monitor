@@ -23,11 +23,18 @@ namespace Carica\StatusMonitor\Library\Filter {
      */
     private $_xsltFile = '';
 
+    /**
+     * Create the filter object and store the xslt file name
+     *
+     * @param string $xsltFile
+     */
     public function __construct($xsltFile) {
       $this->_xsltFile = $xsltFile;
     }
 
     /**
+     * Apply the xslt to the provided docment and return the result
+     *
      * @param \DOMDocument $dom
      * @return \DOMDocument
      */
@@ -39,6 +46,8 @@ namespace Carica\StatusMonitor\Library\Filter {
     }
 
     /**
+     * Getter/Settr for the xsl processor - allow to mock it.
+     *
      * @param \XSLTProcessor $processor
      * @return \XSLTProcessor
      */

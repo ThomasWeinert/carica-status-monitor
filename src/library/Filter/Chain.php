@@ -11,7 +11,9 @@ namespace Carica\StatusMonitor\Library\Filter {
   use Carica\StatusMonitor\Library as Library;
 
   /**
-* Transform a DOM using the provided filters.
+   * Transform a DOM using the provided filters.
+   *
+   * This allows to chain multiple filters.
    */
   class Chain implements \Carica\StatusMonitor\Library\Filter {
 
@@ -21,6 +23,7 @@ namespace Carica\StatusMonitor\Library\Filter {
     private $_filters = array();
 
     /**
+     * Create object attach all filters provided as arguments to the constructor.
      */
     public function __construct() {
       foreach (func_get_args() as $filter) {
@@ -37,6 +40,9 @@ namespace Carica\StatusMonitor\Library\Filter {
     }
 
     /**
+     * Pass the document trough all attached filters and
+     * return the result.
+     *
      * @param \DOMDocument $dom
      * @return \DOMDocument
      */
