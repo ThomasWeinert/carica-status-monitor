@@ -94,7 +94,7 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
      * @param mixed $data
      */
     public function write($name, $parameters, $expires, $data) {
-      $this->usable();
+      $this->isUseable();
       $this->getDirectory($name)->force();
       $file = $this->getFile($name, $parameters);
       $file->write(serialize($data));
