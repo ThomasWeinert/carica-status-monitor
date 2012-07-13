@@ -12,8 +12,16 @@ namespace Carica\StatusMonitor\Library\Source {
 
   class Aggregate implements Library\Source {
 
-    private $_feeds = '';
-    
+    /**
+     * List of feeds to aggregate
+     * @var array(\Carica\StatusMonitor\Library\Feed)
+     */
+    private $_feeds = array();
+
+    /**
+     * the atom namespace urn
+     * @var string
+     */
     private $_xmlns = 'http://www.w3.org/2005/Atom';
 
     /**
@@ -26,16 +34,16 @@ namespace Carica\StatusMonitor\Library\Source {
         $this->attachFeed($feed);
       }
     }
-    
+
     /**
      * Store a feed in the internal list. Duplicate feed objects are replaced.
-     * 
+     *
      * @param Library\Feed $feed
      */
     public function attachFeed(Library\Feed $feed) {
       $this->_feeds[spl_object_hash($feed)] = $feed;
     }
-    
+
     /**
      * Read all feeds and aggregate the entries.
      *
@@ -55,10 +63,10 @@ namespace Carica\StatusMonitor\Library\Source {
       }
       return $result;
     }
-    
+
     /**
      * Create a specified atom element, add attribute and text content
-     * 
+     *
      * @param DOMDocument $dom
      * @param string $name
      * @param array $attributes
@@ -71,7 +79,7 @@ namespace Carica\StatusMonitor\Library\Source {
         $node->setAttribute($name, $value);
       }
       if (!empty($content)) {
-        $node->appendElement($dom->createTextNode($content)); 
+        $node->appendElement($dom->createTextNode($content));
       }
       return $node;
     }
