@@ -11,7 +11,7 @@ namespace Carica\StatusMonitor\Library\Source {
    * Load the DOM from an url
    */
   class Url implements \Carica\StatusMonitor\Library\Source {
-    
+
     /**
      * @var string
      */
@@ -25,8 +25,12 @@ namespace Carica\StatusMonitor\Library\Source {
      * @param string $url
      */
     public function __construct($url, $timeout = 3) {
-      $this->_url = $url;
+      $this->setUrl($url);
       $this->_timeout = ($timeout > 0 && $timeout < 60) ? $timeout : 3;
+    }
+
+    public function setUrl($url) {
+      $this->_url = $url;
     }
 
     /**
