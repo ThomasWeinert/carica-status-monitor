@@ -2,20 +2,45 @@
 <xsl:stylesheet
   version="1.0"
   xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml"
   xmlns:atom="http://www.w3.org/2005/Atom"
   xmlns:csm="http://thomas.weinert.info/carica/ns/status-monitor"
+  xmlns:func="http://exslt.org/functions"
   xmlns:date="http://exslt.org/dates-and-times"
-  extension-element-prefixes="date"
+  extension-element-prefixes="func date"
 >
+
+<!--  
+  The level of detail an jenkins output depends on the "depth" parameter
+  
+  0 = only the jobs list
+  1 = jobs and details about them including the build list
+  2 = jobs, details and build details 
+  
+  This template currently handles informations from the jobs list and the job details,
+  but no build details.
+-->
 
 <xsl:template match="/">
   <atom:feed>
-    <xsl:for-each select="./listView/job">
+    <xsl:for-each select="*/job">
       <atom:entry>
         <atom:title><xsl:value-of select="name"/></atom:title>
         <atom:id><xsl:value-of select="url"/></atom:id>
         <atom:updated><xsl:value-of select="date:date-time()"/></atom:updated>
         <atom:link ref="alternate" type="text/html" href="{url}"/>
+        <xsl:if test="healthReport">
+          <atom:summary type="xhtml">
+            <p>
+              <xsl:for-each select="healthReport">
+                <xsl:if test="position() &gt; 1">
+                  <xsl:text>, </xsl:text><xhtml:br/>
+                </xsl:if>
+                <xsl:value-of select="description"/>
+              </xsl:for-each>
+            </p>
+          </atom:summary>
+        </xsl:if>
         <xsl:variable name="status">
           <xsl:choose>
             <xsl:when test="starts-with(color, 'red')">
@@ -33,6 +58,11 @@
               <xsl:when test="contains(color, '_anim')">
                 <xsl:text>img/refresh-animated.png</xsl:text>
               </xsl:when>
+              <xsl:when test="healthReport">
+                <xsl:call-template name="icon-from-health-report">
+                  <xsl:with-param name="reports" select="healthReport"/>
+                </xsl:call-template>
+              </xsl:when>
               <xsl:when test="$status = 'error'">
                 <xsl:text>img/face-devilish.png</xsl:text>
               </xsl:when>
@@ -46,5 +76,30 @@
     </xsl:for-each>
   </atom:feed>
 </xsl:template>
+
+<xsl:template name="icon-from-health-report">
+  <xsl:param name="reports"/>
+  <xsl:variable name="health" select="func:min($reports/score)"/>
+  <xsl:choose>
+    <xsl:when test="$health &lt;= 20">img/weather-storm.png</xsl:when>
+    <xsl:when test="$health &lt;= 40">img/weather-showers-scattered.png</xsl:when>
+    <xsl:when test="$health &lt;= 60">img/weather-overcast.png</xsl:when>
+    <xsl:when test="$health &lt;= 80">img/weather-few-clouds.png</xsl:when>
+    <xsl:otherwise>img/weather-clear.png</xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<func:function name="func:min">
+  <xsl:param name="scores"/>
+  <xsl:variable name="result">
+    <xsl:for-each select="$scores">
+      <xsl:sort select="." data-type="number"/>
+      <xsl:if test="position() = 1">
+        <xsl:value-of select="."/>
+      </xsl:if>
+    </xsl:for-each>
+  </xsl:variable>
+  <func:result select="$result"/>
+</func:function>
 
 </xsl:stylesheet>
