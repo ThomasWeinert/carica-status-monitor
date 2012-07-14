@@ -43,7 +43,7 @@ namespace Carica\StatusMonitor\Library\Source {
       $xml = @file_get_contents(validateUrl($this->_url), FALSE, stream_context_create($options));
       if (!empty($xml)) {
         $dom = new \DOMDocument();
-        $dom->loadHtml($xml);
+        @$dom->loadHtml($xml);
         return $dom;
       }
       return NULL;
