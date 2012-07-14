@@ -50,7 +50,19 @@
           </xsl:if>
         </atom:summary>
         <xsl:if test="span[func:contains-token(@class, 'red')]">
-          <csm:status>error</csm:status>
+          <xsl:variable name="delay">
+            <xsl:call-template name="delay-from-info">
+              <xsl:with-param name="info" select="$info"/>
+            </xsl:call-template>
+          </xsl:variable>
+          <xsl:choose>
+            <xsl:when test="number($delay) &lt; 10">
+              <csm:status>warning</csm:status>
+            </xsl:when>
+            <xsl:otherwise>
+              <csm:status>error</csm:status>
+            </xsl:otherwise>
+          </xsl:choose>
         </xsl:if>
         <xsl:call-template name="image-by-route">
           <xsl:with-param name="route" select="$route"/>
@@ -72,6 +84,16 @@
     <xsl:otherwise>
       <csm:icon src="img/traffic-sprite-train.png" title="{$route}"/>
     </xsl:otherwise>
+  </xsl:choose>
+</xsl:template>
+
+<xsl:template name="delay-from-info">
+  <xsl:param name="info"/>
+  <xsl:choose>
+    <xsl:when test="contains($info, '+')">
+      <xsl:value-of select="substring-after($info, '+')"/>
+    </xsl:when>
+    <xsl:otherwise>0</xsl:otherwise>
   </xsl:choose>
 </xsl:template>
 
