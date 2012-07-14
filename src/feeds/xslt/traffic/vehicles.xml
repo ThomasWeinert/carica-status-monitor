@@ -6,7 +6,7 @@
   <vehicle code="U" name="Underground" image="traffic-sprite-underground.png"/>
   <vehicle code="RB" name="Regionalbahn" image="traffic-sprite-train.png"/>
   <vehicle code="RE" name="Regionalexpress" image="traffic-sprite-train.png"/>
-  <vehicle code="THA" name="Thalis" image="traffic-sprite-train-fast.png"/>
+  <vehicle code="THA" name="Thalis" image="traffic-sprite-train-thalys.png"/>
   <vehicle code="IC" name="IC" image="traffic-sprite-train-fast.png"/>
   <vehicle code="ICE" name="ICE" image="traffic-sprite-train-fast.png"/>
 </vehicles>
