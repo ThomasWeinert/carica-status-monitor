@@ -6,6 +6,11 @@
 * code = Station Code
 *   Köln Hansaring: 008003392
 *   Köln Hbf: 008000207
+*   Köln Süd: 238003361
+*
+* products = Trains Types to Display
+*   11111: Only "real" trains
+*   1111111111: All types of trains and buses
 *
 * offset = A time period
 *   5 minutes: PT5M
@@ -24,6 +29,7 @@ $time->add(
   new DateInterval(empty($_GET['offset']) ? 'PT5M' : $_GET['offset'])
 );
 
+
 $parameters = array(
   'ld'=> 96236,
   'rt' => 1,
@@ -31,7 +37,7 @@ $parameters = array(
   'boardType' => 'Abfahrt',
   'input' => $_GET['code'],
   'REQTrain_name' => '',
-  'productsFilter' => '1111111111000000',
+  'productsFilter' => isset($_GET['products']) ? $_GET['products'] : '1111111111000000',
   'maxJourneys' => 10,
   'date' => $time->format('d.m.y'),
   'time' => $time->format('Hi'),

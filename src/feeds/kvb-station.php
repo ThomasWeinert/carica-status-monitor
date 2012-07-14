@@ -5,6 +5,8 @@
 *
 * code = Station Code
 *   Hansaring: 36
+*   Barbarossaplatz: 23
+*   Zülpicher Platz: 24
 *
 * @license http://www.opensource.org/licenses/mit-license.php The MIT License
 * @copyright 2012 Thomas Weinert <thomas@weinert.info>
