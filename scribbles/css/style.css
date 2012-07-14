@@ -188,10 +188,20 @@ table#splitview td {
   color: #FFF;
   background-color: #FF0000; /* Old browsers */
   background: -moz-linear-gradient(top, #FF0000 0%, #660000 100%); /* FF3.6+ */
-  background: -webkit-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* Chrome10+,Safari5.1+ */
-  background: -o-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* Opera 11.10+ */
-  background: -ms-linear-gradient(top, #FF0000 0%, #AA0000 100%); /* IE10+ */
+  background: -webkit-linear-gradient(top, #FF0000 0%, #660000 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #FF0000 0%, #660000 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #FF0000 0%, #660000 100%); /* IE10+ */
   background: linear-gradient(top, #FF0000 0%, #660000 100%); /* W3C */
+}
+.feed li.warning, .feed div.warning {
+  font-weight: bold;
+  color: #000;
+  background-color: #FF0000; /* Old browsers */
+  background: -moz-linear-gradient(top, #fcaf3e 0%, #f57900 100%); /* FF3.6+ */
+  background: -webkit-linear-gradient(top, #fcaf3e 0%, #f57900 100%); /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #fcaf3e 0%, #f57900 100%); /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #fcaf3e 0%, #f57900 100%); /* IE10+ */
+  background: linear-gradient(top, #fcaf3e 0%, #f57900 100%); /* W3C */
 }
 .feed li.entry {
   border-top: 1px solid #000;
