@@ -214,8 +214,8 @@ table#splitview td {
   color: #444;
   margin-top: 0.5em;
 }
-.feed div.error .updated {
-  color: #FFF;
+.feed li.error .updated {
+  color: #F88;
 }
 
 .feed li.changed {
