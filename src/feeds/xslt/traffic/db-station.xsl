@@ -45,7 +45,9 @@
         <atom:summary>
           <xsl:value-of select="$platform"/>
           <xsl:if test="$info != ''">
-            <xsl:text>, </xsl:text>
+            <xsl:if test="$platform != ''">
+              <xsl:text>, </xsl:text>
+            </xsl:if>
             <xsl:value-of select="$info"/>
           </xsl:if>
         </atom:summary>
