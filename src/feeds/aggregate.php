@@ -31,7 +31,7 @@ if (isset($_GET['atom']) && is_array($_GET['atom'])) {
 
 $feed = new Library\Feed(
   new Library\Source\Aggregate($feeds),
-  new Library\Filter\Xslt('xslt/orderByUpdated.xsl')
+  new Library\Filter\Xslt('xslt/atom/order-by-updated.xsl')
 );
 
 $feed->output();

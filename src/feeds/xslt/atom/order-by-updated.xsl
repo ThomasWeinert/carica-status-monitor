@@ -12,6 +12,12 @@
   extension-element-prefixes="date func"
 >
 
+<!-- 
+
+This file orders all atom entries by the updated time (descending)
+
+-->
+
 <xsl:strip-space elements="*"/>
 
 <xsl:key name="entries-by-id" match="atom:entry" use="atom:id" />

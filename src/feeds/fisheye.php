@@ -18,7 +18,7 @@ Library\Autoloader::register();
 
 $feed = new Library\Feed(
   new Library\Source\Url($_GET['url'], empty($_GET['timeout']) ? 5 : (int)$_GET['timeout']),
-  new Library\Filter\Xslt(__DIR__.'/xslt/fisheye.xsl')
+  new Library\Filter\Xslt(__DIR__.'/xslt/fisheye/activities.xsl')
 );
 
 $feed->output();
