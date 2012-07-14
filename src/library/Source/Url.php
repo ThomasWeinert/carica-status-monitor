@@ -23,6 +23,7 @@ namespace Carica\StatusMonitor\Library\Source {
 
     /**
      * @param string $url
+     * @param integer|float $timeout
      */
     public function __construct($url, $timeout = 3) {
       $this->setUrl($url);

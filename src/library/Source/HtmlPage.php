@@ -8,10 +8,12 @@
 
 namespace Carica\StatusMonitor\Library\Source {
 
+  use Carica\StatusMonitor\Library as Library;
+
   /**
 * Load the DOM from an html page url, play browser
    */
-  class HtmlPage implements \Carica\StatusMonitor\Library\Source {
+  class HtmlPage implements Library\Source {
 
     /**
     * @var string
