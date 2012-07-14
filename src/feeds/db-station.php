@@ -7,6 +7,9 @@
 *   Köln Hansaring: 008003392
 *   Köln Hbf: 008000207
 *
+* offset = A time period
+*   5 minutes: PT5M
+*
 * @license http://www.opensource.org/licenses/mit-license.php The MIT License
 * @copyright 2012 Thomas Weinert <thomas@weinert.info>
 */
@@ -15,6 +18,11 @@ if (empty($_GET['code'])) {
   header('Status: 400 Bad Request', TRUE, 400);
   exit;
 }
+
+$time = new DateTime();
+$time->add(
+  new DateInterval(empty($_GET['offset']) ? 'PT5M' : $_GET['offset'])
+);
 
 $parameters = array(
   'ld'=> 96236,
@@ -25,8 +33,8 @@ $parameters = array(
   'REQTrain_name' => '',
   'productsFilter' => '1111111111000000',
   'maxJourneys' => 10,
-  'date' => date('d.m.y'),
-  'time' => date('Hi'),
+  'date' => $time->format('d.m.y'),
+  'time' => $time->format('Hi'),
   'start' => 1,
   'ao' => 'yes'
 );
