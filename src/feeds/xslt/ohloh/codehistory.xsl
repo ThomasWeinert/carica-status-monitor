@@ -28,10 +28,7 @@
         </atom:summary>
         <csm:data-series>
           <xsl:for-each select="data/data">
-            <csm:data-point>
-              <csm:data-point-x><xsl:value-of select="data[position() = 1]"/></csm:data-point-x>
-              <csm:data-point-y><xsl:value-of select="data[position() = 2]"/></csm:data-point-y>
-            </csm:data-point>
+            <csm:data-point x="{data[position() = 1]}" y="{data[position() = 2]}"/>
           </xsl:for-each>
         </csm:data-series>
       </atom:entry>
