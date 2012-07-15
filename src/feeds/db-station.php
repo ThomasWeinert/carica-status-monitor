@@ -5,12 +5,24 @@
 *
 * code = Station Code
 *   Köln Hansaring: 008003392
-*   Köln Hbf: 008000207
+*   Köln Hbf: 238000207
 *   Köln Süd: 238003361
 *
 * products = Trains Types to Display
-*   11111: Only "real" trains
-*   1111111111: All types of trains and buses
+*   tailing zeros can  be skipped
+*   1 1 1 1 1 1 1 1
+*   | | | | | | | Trams
+*   | | | | | | | Metro Lines
+*   | | | | | | Ferries
+*   | | | | | Buses
+*   | | | | Commuter (S) Trains
+*   | | | Local Trains (RB + RE ...)
+*   | | Express (IR + D) Trains
+*   | InterCity (IC) Trains
+*   InterCityExpress (ICE) Trains
+*
+* So if you like only "real" trains, it's 11111, if you like all types
+*    of transport, it's 11111111, if you like only IC trains, it's 01
 *
 * offset = A time period
 *   5 minutes: PT5M
