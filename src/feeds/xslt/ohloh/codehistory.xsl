@@ -17,6 +17,9 @@
   <atom:feed>
     <atom:id>urn:ohloh/codehistory</atom:id>
     <atom:updated><xsl:value-of select="$currentDate"/></atom:updated>
+    <csm:chart>
+      <csm:axis-x tick-format="month-of-year"/>
+    </csm:chart>
     <xsl:for-each select="//series/series">
       <atom:entry>
         <atom:title><xsl:value-of select="name"/></atom:title>
@@ -28,13 +31,14 @@
         </atom:summary>
         <csm:data-series>
           <xsl:for-each select="data/data">
-            <csm:data-point x="{data[position() = 1]}" y="{data[position() = 2]}"/>
+            <xsl:variable name="x" select="data[position() = 1]"/>
+            <xsl:variable name="y" select="data[position() = 2]"/>
+            <csm:data-point x="{$x}" y="{$y}"/>
           </xsl:for-each>
         </csm:data-series>
       </atom:entry>
     </xsl:for-each>
   </atom:feed>
 </xsl:template>
-
 
 </xsl:stylesheet>
