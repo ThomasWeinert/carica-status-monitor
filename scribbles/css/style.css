@@ -64,62 +64,62 @@ table#splitview td {
 }
 
 /** multicolumn layout depending on screen size **/
-#feeds {
+#widgets {
   -moz-column-gap: 0;
   -webkit-column-gap: 0;
   column-gap: 0;
   margin: 0.5em;
 }
 @media screen and (min-width: 500px) {
-  #feeds {
+  #widgets {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
   }
-  #splitview #feeds {
+  #splitview #widgets {
     -moz-column-count: 1;
     -webkit-column-count: 1;
     column-count: 1;
   }
 }
 @media screen and (min-width: 1000px) {
-  #feeds {
+  #widgets {
     -moz-column-count: 3;
     -webkit-column-count: 3;
     column-count: 3;
   }
-  #splitview #feeds {
+  #splitview #widgets {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
   }
 }
 @media screen and (min-width: 1500px) {
-  #feeds {
+  #widgets {
     -moz-column-count: 4;
     -webkit-column-count: 4;
     column-count: 4;
   }
-  #splitview #feeds {
+  #splitview #widgets {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
   }
 }
 @media screen and (min-width: 2000px) {
-  #feeds {
+  #widgets {
     -moz-column-count: 5;
     -webkit-column-count: 5;
     column-count: 5;
   }
-  #splitview #feeds {
+  #splitview #widgets {
     -moz-column-count: 3;
     -webkit-column-count: 3;
     column-count: 3;
   }
 }
 
-.feed {
+.widget {
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
   -ms-box-sizing: border-box;
@@ -128,7 +128,7 @@ table#splitview td {
   display: inline-block;
   padding: 1em;
 }
-.feed li, .feed h2, .feed div.status, .feed div.message {
+.widget li, .widget h2, .widget div.status, .widget div.message {
   display: inline-block;
   width: 100%;
   list-style: none;
@@ -145,10 +145,10 @@ table#splitview td {
   background: -ms-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* IE10+ */
   background: linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* W3C */
 }
-.feed li.clickable {
+.widget li.clickable {
   cursor: pointer;
 }
-.feed h2 {
+.widget h2 {
   font-size: 1em;
   font-weight: bold;
   color: #FFF;
@@ -159,23 +159,23 @@ table#splitview td {
   background: -ms-linear-gradient(top, #444444 0%,#000000 100%); /* IE10+ */
   background: linear-gradient(top, #444444 0%,#000000 100%); /* W3C */
 }
-.feed h2 span.status {
+.widget h2 span.status {
   float: right;
   height: 1em;
   width: 3em;
   font-weight: bold;
   color: #FFF;
 }
-.feed h2 span.status.loading {
+.widget h2 span.status.loading {
   background: transparent url(../img/loader.gif) no-repeat center 0;
 }
-.feed div.status, .feed div.message {
+.widget div.status, .widget div.message {
   color: #000;
   height: 2em;
   text-align: center;
   border-top: 1px solid #000;
 }
-.feed div.loading {
+.widget div.loading {
   background-color: #FFFFFF; /* Old browsers */
   background: url(../img/loader.gif) no-repeat center 5px, -moz-linear-gradient(top, #FFFFFF 0%, #DEDEDE 40%, #B6B6B6 100%); /* FF3.6+ */
   background: url(../img/loader.gif) no-repeat center 5px, -webkit-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* Chrome10+,Safari5.1+ */
@@ -183,7 +183,7 @@ table#splitview td {
   background: url(../img/loader.gif) no-repeat center 5px, -ms-linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* IE10+ */
   background: url(../img/loader.gif) no-repeat center 5px, linear-gradient(top, #FFFFFF 0%,#DEDEDE 40%,#B6B6B6 100%); /* W3C */
 }
-.feed li.error, .feed div.error {
+.widget div.error, .widget li.error {
   font-weight: bold;
   color: #FFF;
   background-color: #FF0000; /* Old browsers */
@@ -193,7 +193,7 @@ table#splitview td {
   background: -ms-linear-gradient(top, #FF0000 0%, #660000 100%); /* IE10+ */
   background: linear-gradient(top, #FF0000 0%, #660000 100%); /* W3C */
 }
-.feed li.warning, .feed div.warning {
+.widget div.warning, .feed li.warning {
   font-weight: bold;
   color: #000;
   background-color: #FF0000; /* Old browsers */
