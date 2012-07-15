@@ -11,13 +11,18 @@
     requires : [
       'js/external/jquery.xmlns.js',
       'js/external/globalize.js',
-      'js/external/cultures/globalize.cultures.js'
+      'js/external/cultures/globalize.cultures.js',
+      'js/external/jquery.flot.js'
     ],
       
     plugins : {
       feed : {
         file : 'js/jquery.atomreader.js',
         object : 'AtomReader'
+      },
+      chart : {
+        file : 'js/jquery.statuschart.js',
+        object : 'StatusChart'
       },
       clock : {
         file : 'js/jquery.weatherclock.js',
