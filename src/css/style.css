@@ -233,8 +233,9 @@ table#splitview td {
   -moz-animation: item-glow 3s ease 10 alternate;
   animation: item-glow 3s ease 10 alternate;
 }
-.chart {
+.widget .chart {
   padding: 0.4em;
+  padding-right: 1em;
 }
 
 span.spacer {

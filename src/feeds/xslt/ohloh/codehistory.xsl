@@ -17,9 +17,9 @@
   <atom:feed>
     <atom:id>urn:ohloh/codehistory</atom:id>
     <atom:updated><xsl:value-of select="$currentDate"/></atom:updated>
-    <csm:chart>
-      <csm:axis-x tick-format="month-of-year"/>
-    </csm:chart>
+    <csm:chart-options>
+      <csm:axis-x mode="time"/>
+    </csm:chart-options>
     <xsl:for-each select="//series/series">
       <atom:entry>
         <atom:title><xsl:value-of select="name"/></atom:title>

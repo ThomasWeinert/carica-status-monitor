@@ -20,10 +20,13 @@
       xml.each(
        function(entryIndex) {
          var row = $(this).find('csm|data-series').first();
-         series.data[entryIndex] = [];
+         series.data[entryIndex] = {
+           label : $(this).find('atom|title').text(),
+           data : []
+         };
          row.find('csm|data-point').each(
            function(pointIndex) {
-             series.data[entryIndex][pointIndex] = [
+             series.data[entryIndex].data[pointIndex] = [
                this.getAttribute('x'), this.getAttribute('y')
              ];
            }  
@@ -37,7 +40,8 @@
 
     options : {
       url : '',
-      interval : 0
+      interval : 0,
+      height: '300px'
     },
     
     template : '<div class="chart"><div class="container"/></div>',
@@ -47,13 +51,37 @@
      * 
      * @param data
      */
-    update: function(data) {
+    update: function(xml) {
       var container = this.node.find('.chart .container');
-      var entries = data.find('atom|entry');
+      var entries = xml.find('atom|entry');
       var series = $.extend(true, {}, CaricaStatusMonitorChartSeries);
       series.read(entries);
-      container.css('height', '200px');
-      $.plot(container, series.data);
+      container.css('height', this.options.height);
+      
+      var options = {
+        series: {
+          lines: { show: true },
+          points: { show: true }
+        },
+        xaxis: this.getAxisOptions(xml.find('csm|chart-options csm|axis-x')),
+        yaxis: this.getAxisOptions(xml.find('csm|chart-options csm|axis-y'))
+      };
+      $.plot(container, series.data, options);
+    },
+    
+    /**
+     * Read the axis options from the xml node
+     *  
+     * @param xml
+     */
+    getAxisOptions : function(xml) {
+      var options = {
+        mode : xml.attr('mode') != '' ? xml.attr('mode') : null,
+        timeformat : xml.attr('timeformat') != '' ? xml.attr('timeformat') : null,
+        min : xml.attr('min') > 0 ? xml.attr('min') : null,
+        max : xml.attr('max') != '' ? xml.attr('max') : null  
+      };
+      return options;
     }
   };
 
