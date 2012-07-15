@@ -19,7 +19,7 @@ Library\Autoloader::register();
 
 $feed = new Library\Feed(
   new Library\Source\Url(
-    $_GET['url']'
+    $_GET['url']
   )
 );
 
