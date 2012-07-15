@@ -12,7 +12,8 @@
       'js/external/jquery.xmlns.js',
       'js/external/globalize.js',
       'js/external/cultures/globalize.cultures.js',
-      'js/external/jquery.flot.js'
+      'js/external/jquery.flot.js',
+      'js/jquery.statuswidget.js'
     ],
       
     plugins : {
@@ -48,7 +49,7 @@
         onUpdate : function() {
           jQuery('[data-plugin~=feed]').each(
             function () {
-              $(this).data('AtomReader').fetch();
+              $(this).data('Widget').fetch();
             }
           );
         }

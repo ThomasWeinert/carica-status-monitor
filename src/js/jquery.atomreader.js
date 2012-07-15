@@ -376,7 +376,6 @@
 
   var AtomReader = {
 
-    node : null,
     entries : null,
     timer : null,
 
@@ -397,64 +396,14 @@
       'xcal' : 'urn:ietf:params:xml:ns:xcal',
       'csm' : 'http://thomas.weinert.info/carica/ns/status-monitor'
     },
-
-    /**
-     * Set up a new Atom reader instance
-     * @param node
-     * @param options
-     */
-    setUp : function(node, options) {
-      this.node = node;
-      this.node.data('AtomReader', this);
+    
+    template : '<ul class="feed"/>',
+    
+    prepare : function() {
       this.entries = $.extend(true, {}, AtomReaderEntries);
       this.entries.reader = this;
-      this.options = $.extend(this.options, options, node.data());
-      var header = this.node.find('h2');
-      if (header.length > 0) {
-        header.prepend('<span class="status"/>');
-        header.after('<div class="message"/>');
-      } else {
-        this.node.append(
-          '<div class="status"><span class="message">&nbsp;</span></div>'
-        );
-      }
-      this.node.append('<ul class="feed"/>');
       if (this.options.refresh == 'all') {
         this.options.highlight = 'no';
-      }
-      this.fetch();
-    },
-
-    /**
-     * schedule a ajax refresh in n seconds, the currently scheduled refresh is 
-     * stopped and removed.
-     */
-    schedule : function() {
-      if (this.options.interval > 0) {
-        if (this.timer) {
-          window.clearTimeout(this.timer);
-        }
-        this.timer = window.setTimeout(
-          $.proxy(this.fetch, this), 1000 * this.options.interval
-        );
-      }
-    },
-
-    /**
-     * Fetch the feed from the url. The url will be modified if it contains
-     * the joker {hash}. It will be replaced with the current fragment/hash.
-     */
-    fetch : function() {
-      if (this.options.url != '') {
-        var href = window.location.href;
-        var hash = (href.lastIndexOf('#') > 0) 
-         ? href.substr(href.lastIndexOf('#') + 1)
-         : '';
-        var url = this.options.url.replace(/\{hash\}/, hash);
-        this.updateStatus('loading', '');
-        $.get(url)
-          .success($.proxy(this.ajaxSuccess, this))
-          .error($.proxy(this.ajaxError, this));
       }
     },
 
@@ -463,78 +412,26 @@
      *
      * @param data
      */
-    read : function(data) {
-      var reader = this;
-      $(data).xmlns(
-        reader.namespaces,
-        function () {
-          var entries = this.find('atom|entry');
-          var max = reader.options.max;
-          if (reader.options.refresh == 'all') {
-            reader.entries.clear();
+    update : function(xml) {
+      var entry, data, mixIn;
+      var entries = xml.find('atom|entry');
+      var max = this.options.max;
+      if (this.options.refresh == 'all') {
+        this.entries.clear();
+      }
+      for (var i = max; i > 0; i--) {
+        entry = entries.eq(i - 1);
+        if (entry.length > 0) {
+          data = new Object();
+          data.id = entry.find('atom|id').text();
+          data.updated = entry.find('atom|updated').text();
+          mixIn = {};
+          if (entry.find('xcal|vevent').length > 0) {
+            mixIn = AtomReaderEntryXCal;
           }
-          for (var i = max; i > 0; i--) {
-            var entry = entries.eq(i - 1);
-            if (entry.length > 0) {
-              var data = new Object();
-              data.id = entry.find('atom|id').text();
-              data.updated = entry.find('atom|updated').text();
-              var mixIn = {};
-              if (entry.find('xcal|vevent').length > 0) {
-                mixIn = AtomReaderEntryXCal;
-              }
-              reader.entries.get(data.id, mixIn).update(data, entry);
-            }
-          }
+          this.entries.get(data.id, mixIn).update(data, entry);
         }
-      );
-    },
-
-    /**
-     * Update the status and message elements, if the are not showing something
-     * they are hidden.
-     */
-    updateStatus : function(status, message) {
-      var statusNode = this.node.find('.status');
-      var messageNode = this.node.find('.message');
-      statusNode.attr('class', 'status');
-      messageNode.attr('class', 'message');
-      if (status != 'none' && status != '') {
-        statusNode.addClass(status).show();
-        messageNode.addClass(status);
-      } else {
-        statusNode.hide();
       }
-      if (message != '') {
-        messageNode.text(message).show();
-      } else {
-        messageNode.html('&nbsp;').filter('div').hide();
-      }
-    },
-
-    /**
-     * Ajax request successful callback. If the response contains a string
-     * try to convert it into a dom.
-     *
-     * @param data
-     */
-    ajaxSuccess : function(data) {
-      if (typeof data == 'string') {
-        data = new DOMParser().parseFromString(data, 'text/xml');
-      }
-      this.read(data);
-      this.updateStatus('none', '');
-      this.schedule();
-    },
-
-    /**
-     * Ajax request error callback. Display the error in the status element.
-     *
-     * @param data
-     */
-    ajaxError : function(data) {
-      this.updateStatus('error', data.status + ' ' + data.statusText);
-      this.schedule();
     }
   };
 
@@ -544,8 +441,8 @@
   $.fn.AtomReader = function(options) {
     return this.each(
       function() {
-        var feed = $.extend(true, {}, AtomReader);
-        feed.setUp($(this), options);
+        var widget = $.extend(true, $.StatusWidget(), AtomReader);
+        widget.setUp($(this), options);
       }
     );
   };
