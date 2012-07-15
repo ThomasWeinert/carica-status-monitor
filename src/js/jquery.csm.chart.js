@@ -61,7 +61,7 @@
       var options = {
         series: {
           lines: { show: true },
-          points: { show: true }
+          points: { show: false }
         },
         xaxis: this.getAxisOptions(xml.find('csm|chart-options csm|axis-x')),
         yaxis: this.getAxisOptions(xml.find('csm|chart-options csm|axis-y'))
