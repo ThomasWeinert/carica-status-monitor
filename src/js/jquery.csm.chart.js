@@ -6,10 +6,15 @@
  */
 (function($){
   
-  var StatusChartSeries = {
+  var CaricaStatusMonitorChartSeries = {
       
     data : [],
     
+    /**
+     * Read the data series from the xml into an array
+     * 
+     * @param xml
+     */
     read : function(xml) {
       series = this;
       xml.each(
@@ -28,7 +33,7 @@
     }
   };
 
-  var StatusChart = {
+  var CaricaStatusMonitorChart = {
 
     options : {
       url : '',
@@ -39,12 +44,13 @@
     
     /**
      * Read the feed data and update the chart.
+     * 
      * @param data
      */
     update: function(data) {
       var container = this.node.find('.chart .container');
       var entries = data.find('atom|entry');
-      var series = $.extend(true, {}, StatusChartSeries);
+      var series = $.extend(true, {}, CaricaStatusMonitorChartSeries);
       series.read(entries);
       container.css('height', '200px');
       $.plot(container, series.data);
@@ -53,11 +59,15 @@
 
   /**
    * jQuery selector handling to attach StatusChart to list elements
+   * 
+   * @param options
    */
-  $.fn.StatusChart = function(options) {
+  $.fn.CaricaStatusMonitorChart = function(options) {
     return this.each(
       function() {
-        var widget = $.extend(true, $.StatusWidget(), StatusChart);
+        var widget = $.extend(
+          true, $.CaricaStatusMonitorWidget(), CaricaStatusMonitorChart
+        );
         widget.setUp($(this), options);
       }
     );

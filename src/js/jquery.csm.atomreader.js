@@ -1,14 +1,14 @@
 /**
-* A jQuery based Atom reader. It adds li elements to the given list
-* element depending on the fetched feed.
+* A jQuery based Atom reader. It adds an <ul> to the element and
+* <li> for the items.
 **
-* Use data-Attributes in the list element to define options.
+* Use data-Attributes to define options.
 *
 * Usage:
 *
-* <ul data-plugin="feed" data-url="..." data-interval="120" data-max="10">
+* <div data-plugin="feed" data-url="..." data-interval="120" data-max="10"/>
 *
-* jQuery('ul[data-plugin="feed"]').AtomReader();
+* jQuery('ul[data-plugin="feed"]').CaricaStatusMonitorAtomReader();
 *
 * Options:
 *
@@ -23,7 +23,7 @@
 */
 (function($){
 
-  var AtomReaderEntry = {
+  var CaricaStatusMonitorAtomReaderEntry = {
 
     entries : null,
     node : null,
@@ -52,7 +52,8 @@
      * Update an entry if new data is available. This contains
      * an implicit create for the dom elements
      *
-     * @param object data
+     * @param data
+     * @param entry
      */
     update : function(data, entry) {
       var updated = new Date(data.updated);
@@ -197,6 +198,8 @@
     
     /**
      * Handle a click on the element
+     * 
+     * @param event
      */
     onClick : function(event) {
       event.preventDefault();
@@ -242,7 +245,7 @@
     /**
      * Create the dom elements for the item
      */
-    create : function () {
+    create : function() {
       var nodes = this.entries.reader.node.find('li.entry');
       for (var i = nodes.length; i > 1, i >=  this.entries.reader.options.max; i--) {
         nodes.eq(i - 1).data('atomReaderEntry').remove();
@@ -254,7 +257,7 @@
     }
   };
 
-  var AtomReaderEntryXCal = {
+  var CaricaStatusMonitorAtomReaderEntryXCal = {
 
     template :
       '<li class="entry">' +
@@ -331,7 +334,7 @@
     }
   };
 
-  var AtomReaderEntries = {
+  var CaricaStatusMonitorAtomReaderEntries = {
 
     reader : null,
     entries : {},
@@ -346,7 +349,7 @@
     get : function(id, mixIn) {
       if (!this.entries[id]) {
         this.entries[id] = $.extend(
-          true, {}, AtomReaderEntry, mixIn
+          true, {}, CaricaStatusMonitorAtomReaderEntry, mixIn
         );
         this.entries[id].entries = this;
       }
@@ -374,7 +377,7 @@
     }
   };
 
-  var AtomReader = {
+  var CaricaStatusMonitorAtomReader = {
 
     entries : null,
     timer : null,
@@ -399,8 +402,11 @@
     
     template : '<ul class="feed"/>',
     
+    /**
+     * Prapare the object before fetching the data
+     */
     prepare : function() {
-      this.entries = $.extend(true, {}, AtomReaderEntries);
+      this.entries = $.extend(true, {}, CaricaStatusMonitorAtomReaderEntries);
       this.entries.reader = this;
       if (this.options.refresh == 'all') {
         this.options.highlight = 'no';
@@ -410,7 +416,7 @@
     /**
      * Read dom returned from the Ajax request. Update the found items.
      *
-     * @param data
+     * @param xml
      */
     update : function(xml) {
       var entry, data, mixIn;
@@ -427,7 +433,7 @@
           data.updated = entry.find('atom|updated').text();
           mixIn = {};
           if (entry.find('xcal|vevent').length > 0) {
-            mixIn = AtomReaderEntryXCal;
+            mixIn = CaricaStatusMonitorAtomReaderEntryXCal;
           }
           this.entries.get(data.id, mixIn).update(data, entry);
         }
@@ -437,11 +443,15 @@
 
   /**
    * jQuery selector handling to attach Atom reader to list elements
+   * 
+   * @param options
    */
-  $.fn.AtomReader = function(options) {
+  $.fn.CaricaStatusMonitorAtomReader = function(options) {
     return this.each(
       function() {
-        var widget = $.extend(true, $.StatusWidget(), AtomReader);
+        var widget = $.extend(
+          true, $.CaricaStatusMonitorWidget(), CaricaStatusMonitorAtomReader
+        );
         widget.setUp($(this), options);
       }
     );

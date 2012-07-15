@@ -20,7 +20,7 @@
  */
 (function($){
 
-  var HashReplace = {
+  var CaricaStatusMonitorHashReplace = {
 
     node : null,
     defaultText : '',
@@ -74,11 +74,11 @@
   /**
    * Activate the hash replacement for an element
    */
-  $.fn.HashReplace = function(options) {
+  $.fn.CaricaStatusMonitorHashReplace = function(options) {
     return this.each(
       function() {
-        var replace = $.extend(true, {}, HashReplace);
-        replace.setUp($(this), options);
+        var instance = $.extend(true, {}, CaricaStatusMonitorHashReplace);
+        instance.setUp($(this), options);
       }
     );
   };

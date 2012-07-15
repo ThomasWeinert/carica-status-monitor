@@ -6,7 +6,7 @@
  */
 (function($){
 
-  var WeatherClock = {
+  var CaricaStatusMonitorWeatherClock = {
 
     node : null,
 
@@ -131,10 +131,10 @@
   /**
    * Activate the Weather clock inside the given container
    */
-  $.fn.WeatherClock = function(options) {
+  $.fn.CaricaStatusMonitorWeatherClock = function(options) {
     return this.each(
       function() {
-        var instance = $.extend(true, {}, WeatherClock);
+        var instance = $.extend(true, {}, CaricaStatusMonitorWeatherClock);
         instance.setUp($(this), options);
       }
     );

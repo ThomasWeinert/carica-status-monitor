@@ -6,32 +6,32 @@
  */
 (function($){
 
-  var StatusMonitor = {
+  var CaricaStatusMonitor = {
     
     requires : [
       'js/external/jquery.xmlns.js',
       'js/external/globalize.js',
       'js/external/cultures/globalize.cultures.js',
       'js/external/jquery.flot.js',
-      'js/jquery.statuswidget.js'
+      'js/jquery.csm.widget.js'
     ],
       
     plugins : {
       feed : {
-        file : 'js/jquery.atomreader.js',
-        object : 'AtomReader'
+        file : 'js/jquery.csm.atomreader.js',
+        object : 'CaricaStatusMonitorAtomReader'
       },
       chart : {
-        file : 'js/jquery.statuschart.js',
-        object : 'StatusChart'
+        file : 'js/jquery.csm.chart.js',
+        object : 'CaricaStatusMonitorChart'
       },
       clock : {
-        file : 'js/jquery.weatherclock.js',
-        object : 'WeatherClock'
+        file : 'js/jquery.csm.weatherclock.js',
+        object : 'CaricaStatusMonitorWeatherClock'
       },
       hash : {
-        file : 'js/jquery.hashreplace.js',
-        object : 'HashReplace'
+        file : 'js/jquery.csm.hashreplace.js',
+        object : 'CaricaStatusMonitorHashReplace'
       }
     },
     
@@ -134,8 +134,8 @@
   /**
    * Activate the status monitor, load required scripts and used plugins
    */
-  $.StatusMonitor = function(options, pluginOptions) {
-    StatusMonitor.setUp(options, pluginOptions);
+  $.CaricaStatusMonitor = function(options, pluginOptions) {
+    CaricaStatusMonitor.setUp(options, pluginOptions);
     return this;
   };
 

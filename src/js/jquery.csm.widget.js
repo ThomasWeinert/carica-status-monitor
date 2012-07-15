@@ -8,7 +8,7 @@
  */
 (function($){
   
-  var StatusWidget = {
+  var CaricaStatusMonitorWidget = {
 
     node : null,
 
@@ -171,8 +171,8 @@
   /**
    * Get the a clone of the StatusWidget object 
    */
-  $.StatusWidget = function() {
-    return $.extend(true, {}, StatusWidget);
+  $.CaricaStatusMonitorWidget = function() {
+    return $.extend(true, {}, CaricaStatusMonitorWidget);
   };
 
 })(jQuery);
