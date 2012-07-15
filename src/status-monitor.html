@@ -11,9 +11,8 @@
       <img src="img/title-image.png" class="icon" alt=""/>
       <h1>Status Monitor</h1>
     </div>
-    <div id="feeds">
-      <!-- 
-      <div class="feed" 
+    <div id="widgets">
+      <div class="widget" 
            data-plugin="feed" 
            data-url="feeds/jenkins.php?view=http://example.tld/jenkins/view.xml" 
            data-refresh="all"
@@ -21,34 +20,32 @@
            data-interval="60">
         <h2>Project Build Status</h2>
       </div>
-      <div class="feed" 
+      <div class="widget" 
            data-plugin="feed" 
            data-url="feeds/ical.php?url=http://example.tld/hcking.de.ical" 
            data-refresh="all"
            data-interval="1800">
         <h2>Kalendar</h2>
       </div>
-      <div class="feed" 
+      <div class="widget" 
            data-plugin="feed" 
            data-url="feeds/gweather.php?location=50670-Germany&language=de" 
            data-interval="600">
         <h2>Google Weather</h2>
       </div>
-      <div class="feed" 
+      <div class="widget" 
            data-plugin="feed" 
            data-url="feeds/yweather.php?location=667931" 
            data-interval="600">
         <h2>Yahoo Weather</h2>
-      </div> 
-      -->
-      <div class="feed" 
-           data-plugin="chart" 
+      </div>
+      <div class="widget" 
+           data-plugin="feed" 
            data-url="feeds/ohloh-codehistory.php?project=carica-status-monitor" 
            data-interval="600">
         <h2>Line Status: Carica Status Monitor</h2>
       </div>
-      <!-- 
-      <div class="feed" 
+      <div class="widget" 
            data-plugin="feed" 
            data-url="feeds/db-station.php?code=%23008000207" 
            data-interval="60" 
@@ -56,20 +53,19 @@
            data-refresh="all">
         <h2>Departures Cologne Central Station</h2>
       </div>
-      <div class="feed" 
+      <div class="widget" 
            data-plugin="feed" 
            data-url="feeds/twitter.php?user=papayaCMS" 
            data-interval="60">
         <h2>@papayaCMS on Twitter</h2>
       </div>
-      <div class="feed" 
+      <div class="widget" 
            data-plugin="feed" 
            data-url="feeds/twitter.php?q=%23php%20-job%20-freelance"
            data-interval="60"
            data-max="8">
         <h2>#PHP on Twitter</h2>
       </div>
-       -->
     </div>
     <div id="clock" data-plugin="clock"></div>
     <script type="text/javascript" src="js/external/jquery.js"></script>

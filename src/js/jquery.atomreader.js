@@ -418,7 +418,7 @@
           '<div class="status"><span class="message">&nbsp;</span></div>'
         );
       }
-      this.node.append('<ul/>');
+      this.node.append('<ul class="feed"/>');
       if (this.options.refresh == 'all') {
         this.options.highlight = 'no';
       }
