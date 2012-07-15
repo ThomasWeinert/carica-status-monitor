@@ -63,7 +63,7 @@
           '<div class="status"><span class="message">&nbsp;</span></div>'
         );
       }
-      this.node.append('<div class="chart"/>');
+      this.node.append('<div class="chart"><div class="container"/></div>');
       this.fetch();
     },
 
@@ -112,7 +112,7 @@
     },
     
     update: function(series) {
-      var container = this.node.find('div.chart');
+      var container = this.node.find('.chart .container');
       container.css('height', '200px');
       $.plot(container, series);
     },

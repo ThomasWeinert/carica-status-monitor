@@ -128,7 +128,7 @@ table#splitview td {
   display: inline-block;
   padding: 1em;
 }
-.widget li, .widget h2, .widget div.status, .widget div.message {
+.widget li, .widget h2, .widget div.status, .widget div.message, .widget .chart {
   display: inline-block;
   width: 100%;
   list-style: none;
@@ -193,7 +193,7 @@ table#splitview td {
   background: -ms-linear-gradient(top, #FF0000 0%, #660000 100%); /* IE10+ */
   background: linear-gradient(top, #FF0000 0%, #660000 100%); /* W3C */
 }
-.widget div.warning, .feed li.warning {
+.widget div.warning, .widget li.warning {
   font-weight: bold;
   color: #000;
   background-color: #FF0000; /* Old browsers */
@@ -203,6 +203,7 @@ table#splitview td {
   background: -ms-linear-gradient(top, #fcaf3e 0%, #f57900 100%); /* IE10+ */
   background: linear-gradient(top, #fcaf3e 0%, #f57900 100%); /* W3C */
 }
+
 .feed li.entry {
   border-top: 1px solid #000;
   min-height: 54px;
@@ -227,11 +228,13 @@ table#splitview td {
 .feed li.error .updated {
   color: #F88;
 }
-
 .feed li.changed {
   -webkit-animation: item-glow 3s ease 10 alternate;
   -moz-animation: item-glow 3s ease 10 alternate;
   animation: item-glow 3s ease 10 alternate;
+}
+.chart {
+  padding: 0.4em;
 }
 
 span.spacer {
