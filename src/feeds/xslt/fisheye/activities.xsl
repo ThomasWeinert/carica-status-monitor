@@ -5,7 +5,7 @@
   xmlns:atom="http://www.w3.org/2005/Atom"
 >
 
-<xsl:import href="rss/atom.xsl"/>
+<xsl:import href="../rss/atom.xsl"/>
 
 <xsl:template name="images">
   <xsl:variable name="fromBackgroundImage" select="substring-after(description, 'background-image:url(/')"/>
