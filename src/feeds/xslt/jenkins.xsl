@@ -46,6 +46,9 @@
             <xsl:when test="starts-with(color, 'red')">
               <xsl:text>error</xsl:text>
             </xsl:when>
+            <xsl:when test="starts-with(color, 'yellow')">
+              <xsl:text>warning</xsl:text>
+            </xsl:when>
             <xsl:otherwise>
               <xsl:text>information</xsl:text>
             </xsl:otherwise>
