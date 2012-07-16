@@ -20,7 +20,6 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
      */
     private $_directory = '';
 
-
     /**
      * @var string
      */
@@ -45,6 +44,7 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
     /**
      * Validate if the cache is useable
      *
+     * @throws \LogicException
      * @param string $bucket
      * @param Library\Cache\Configuration $configuration
      */
@@ -125,6 +125,9 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
     }
 
     /**
+     * Get a file object from the file system factory.
+     *
+     * @throws UnexpectedValueException
      * @param string $name
      * @param mixed $parameters
      * @return Libary\FileSystem\File
@@ -145,6 +148,9 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
     }
 
     /**
+     * Get a cache directory object from the filesystem factory
+     *
+     * @throws UnexpectedValueException
      * @param string $name
      * @return Libary\FileSystem\Directory
      */
@@ -163,6 +169,9 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
     }
 
     /**
+     * Validate if the string is valid name for a cache bucket (directory name)
+     * or file
+     *
      * @param string $string
      * @param string $errorMessage
      * @throws UnexpectedValueException

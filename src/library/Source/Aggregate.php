@@ -1,6 +1,6 @@
 <?php
 /**
- * Data source aggregating several other atom feeds into one
+* Data source aggregating several other atom feeds into one
 *
 * @license http://www.opensource.org/licenses/mit-license.php The MIT License
 * @copyright 2012 Thomas Weinert <thomas@weinert.info>
@@ -10,6 +10,9 @@ namespace Carica\StatusMonitor\Library\Source {
 
   use Carica\StatusMonitor\Library as Library;
 
+  /**
+   * Data source aggregating several other atom feeds into one
+   */
   class Aggregate implements Library\Source {
 
     /**

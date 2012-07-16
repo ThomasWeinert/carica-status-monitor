@@ -13,6 +13,9 @@ namespace Carica\StatusMonitor\Library\FileSystem {
    */
   class File {
 
+    /**
+     * @var string
+     */
     private $_filename = '';
 
     /**

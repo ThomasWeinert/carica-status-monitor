@@ -10,13 +10,31 @@ namespace Carica\StatusMonitor\Library\Feed {
 
   use Carica\StatusMonitor\Library as Library;
 
+  /**
+   * Feed reading an XML data source and converting it to atom using XSLT
+   */
   class XmlToAtom extends Library\Feed {
 
+    /**
+     * @var string
+     */
     private $_url = '';
+    /**
+     * @var float|integer
+     */
     private $_timeout = 3;
+    /**
+     * @var string
+     */
     private $_xslt = '';
 
+    /**
+     * @var Carica\StatusMonitor\Library\Source\Url
+     */
     private $_source = NULL;
+    /**
+     * @var Carica\StatusMonitor\Library\Filter\Xslt
+     */
     private $_filter = NULL;
 
     /**

@@ -24,8 +24,19 @@ namespace Carica\StatusMonitor\Library\Source {
     */
     private $_url = '';
 
+    /**
+     * @var string
+     */
     private $_xmlns = 'urn:ietf:params:xml:ns:xcal';
+
+    /**
+     * @var DOMDocument
+     */
     private $_document = NULL;
+
+    /**
+     * @var DOMElement
+     */
     private $_currentNode = NULL;
 
     /**
@@ -33,6 +44,9 @@ namespace Carica\StatusMonitor\Library\Source {
      */
     private $_fileIterator = NULL;
 
+    /**
+     * @var string
+     */
     private $_linePattern = "(
         (?P<name>[A-Z\d-]+)
         (?:

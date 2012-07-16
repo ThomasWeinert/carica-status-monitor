@@ -1,7 +1,7 @@
 <?php
 /**
-* Loads and json from and url, looks for the specified property, extracts as and loads it
-* as html into an dom
+* Loads and JSON from and url, looks for the specified property, extracts as and loads it
+* as HTML into an DOM
 *
 * @license http://www.opensource.org/licenses/mit-license.php The MIT License
 * @copyright 2012 Thomas Weinert <thomas@weinert.info>
@@ -12,8 +12,8 @@ namespace Carica\StatusMonitor\Library\Source {
   use Carica\StatusMonitor\Library as Library;
 
   /**
-    * Loads and json from and url, looks for the specified property, extracts as and loads it
-    * as html into an dom
+   * Loads and JSON from and url, looks for the specified property, extracts as and loads it
+   * as HTML into an DOM
    */
   class JsonHtml implements Library\Source {
 

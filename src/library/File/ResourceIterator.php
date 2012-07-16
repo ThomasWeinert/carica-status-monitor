@@ -84,10 +84,21 @@ namespace Carica\StatusMonitor\Library\File {
       }
     }
 
+    /**
+     * Return TRUE if the iterator is skipping empty lines
+     *
+     * @return boolean
+     */
     public function isIgnoringNewLines() {
       return ($this->_options & FILE_SKIP_EMPTY_LINES) == FILE_SKIP_EMPTY_LINES;
     }
 
+    /**
+     * Return TRUE if the iterator is ignoring (removing) the new line
+     * characters.
+     *
+     * @return boolean
+     */
     public function isSkippingEmptyLines() {
       return ($this->_options & FILE_IGNORE_NEW_LINES) == FILE_IGNORE_NEW_LINES;
     }

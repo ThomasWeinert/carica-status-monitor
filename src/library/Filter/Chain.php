@@ -1,6 +1,6 @@
 <?php
 /**
-* Transform a DOM using the provided filters.
+* Transform a DOM using the provided chain of filters.
 *
 * @license http://www.opensource.org/licenses/mit-license.php The MIT License
 * @copyright 2012 Thomas Weinert <thomas@weinert.info>
@@ -11,7 +11,7 @@ namespace Carica\StatusMonitor\Library\Filter {
   use Carica\StatusMonitor\Library as Library;
 
   /**
-   * Transform a DOM using the provided filters.
+   * Transform a DOM using the provided chain of filters.
    *
    * This allows to chain multiple filters.
    */
