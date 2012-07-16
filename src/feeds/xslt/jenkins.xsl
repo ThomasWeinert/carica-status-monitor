@@ -73,7 +73,7 @@
                 <xsl:text>img/face-devilish.png</xsl:text>
               </xsl:when>
             <xsl:when test="starts-with(color, 'disabled')">
-              <xsl:text>img/face-neutral.png</xsl:text>
+              <xsl:text>img/face-plain.png</xsl:text>
             </xsl:when>
               <xsl:otherwise>
                 <xsl:text>img/face-angel.png</xsl:text>
