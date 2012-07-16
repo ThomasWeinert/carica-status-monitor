@@ -95,6 +95,7 @@
     <xsl:when test="contains($info, '+')">
       <xsl:value-of select="substring-after($info, '+')"/>
     </xsl:when>
+    <xsl:when test="contains($info, 'Zug f&#228;llt aus')">999</xsl:when>
     <xsl:otherwise>0</xsl:otherwise>
   </xsl:choose>
 </xsl:template>
