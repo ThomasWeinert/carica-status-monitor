@@ -9,6 +9,7 @@ namespace Carica\StatusMonitor\Library\Cache\Service {
   class FileTest extends Library\TestCase {
 
     /**
+     * @covers \Carica\StatusMonitor\Library\Cache\Service
      * @covers \Carica\StatusMonitor\Library\Cache\Service\File::__construct
      * @covers \Carica\StatusMonitor\Library\Cache\Service\File::validateName
      */
