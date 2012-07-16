@@ -49,6 +49,9 @@
             <xsl:when test="starts-with(color, 'yellow')">
               <xsl:text>warning</xsl:text>
             </xsl:when>
+            <xsl:when test="starts-with(color, 'disabled')">
+              <xsl:text>warning</xsl:text>
+            </xsl:when>
             <xsl:otherwise>
               <xsl:text>information</xsl:text>
             </xsl:otherwise>
@@ -69,6 +72,9 @@
               <xsl:when test="$status = 'error'">
                 <xsl:text>img/face-devilish.png</xsl:text>
               </xsl:when>
+            <xsl:when test="starts-with(color, 'disabled')">
+              <xsl:text>img/face-neutral.png</xsl:text>
+            </xsl:when>
               <xsl:otherwise>
                 <xsl:text>img/face-angel.png</xsl:text>
               </xsl:otherwise>
