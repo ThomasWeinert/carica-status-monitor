@@ -9,7 +9,7 @@ namespace Carica\StatusMonitor\Library\Source {
   class JsonHtmlTest extends Library\TestCase {
 
     /**
-     * @covers Carica\StatusMonitor\Library\Source\Url::__construct
+     * @covers Carica\StatusMonitor\Library\Source\JsonHtml::__construct
      */
     public function testConstructorWithAllParameters() {
       $source = new JsonHtml('http://example.tld/sample-data.json', 'sample.property', 23);
@@ -22,7 +22,8 @@ namespace Carica\StatusMonitor\Library\Source {
     }
 
     /**
-     * @covers Carica\StatusMonitor\Library\Source\Url::read
+     * @covers Carica\StatusMonitor\Library\Source\JsonHtml::read
+     * @covers Carica\StatusMonitor\Library\Source\JsonHtml::getPropertyByName
      */
     public function testReadExpectingDom() {
       $source = new JsonHtml('http://example.tld/sample-data.json', 'sample.property');
@@ -36,10 +37,22 @@ namespace Carica\StatusMonitor\Library\Source {
     }
 
     /**
-     * @covers Carica\StatusMonitor\Library\Source\Url::read
+     * @covers Carica\StatusMonitor\Library\Source\JsonHtml::read
+     * @covers Carica\StatusMonitor\Library\Source\JsonHtml::getPropertyByName
      */
-    public function testReadExpectingNull() {
+    public function testReadInvalidUrlExpectingNull() {
       $source = new JsonHtml('http://example.tld/INVALID.json', 'sample.property');
+      $this->assertNull(
+        $source->read()
+      );
+    }
+
+    /**
+     * @covers Carica\StatusMonitor\Library\Source\JsonHtml::read
+     * @covers Carica\StatusMonitor\Library\Source\JsonHtml::getPropertyByName
+     */
+    public function testReadInvalidSelectorExpectingNull() {
+      $source = new JsonHtml('http://example.tld/sample-data.json', 'sample.nonexisting');
       $this->assertNull(
         $source->read()
       );
