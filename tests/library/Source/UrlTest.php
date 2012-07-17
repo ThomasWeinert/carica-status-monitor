@@ -22,6 +22,17 @@ namespace Carica\StatusMonitor\Library\Source {
     }
 
     /**
+     * @covers Carica\StatusMonitor\Library\Source\Url::setUrl
+     */
+    public function testSetUrl() {
+      $source = new Url('', 23);
+      $source->setUrl('http://example.tld/success.xml');
+      $this->assertAttributeEquals(
+        'http://example.tld/success.xml', '_url', $source
+      );
+    }
+
+    /**
      * @covers Carica\StatusMonitor\Library\Source\Url::read
      */
     public function testReadExpectingDom() {
