@@ -58,7 +58,7 @@
             </xsl:call-template>
           </xsl:variable>
           <xsl:choose>
-            <xsl:when test="number($delay) &lt; 10">
+            <xsl:when test="number($delay) &lt;= 10">
               <csm:status>warning</csm:status>
             </xsl:when>
             <xsl:otherwise>
