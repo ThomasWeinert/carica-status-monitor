@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Debug</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/clock.css"/>
+    <link rel="stylesheet" type="text/css" href="css/effects/light.css">
+  </head>
+  <body>
+    <div id="pageHeader">
+      <img src="img/title-image.png" class="icon" alt=""/>
+      <h1>Status Monitor Debug</h1>
+    </div>
+    <div id="widgets">
+      <div class="widget" 
+           data-plugin="chart" 
+           data-url="feeds/ohloh-codehistory.php?project=papayaCMS" 
+           data-interval="600">
+        <h2>Line Status: Carica Status Monitor</h2>
+      </div>
+      <div class="widget" 
+           data-plugin="feed" 
+           data-url="feeds/ical.php?url=http://www.hcking.de/ical.ical" 
+           data-refresh="all"
+           data-interval="1800">
+        <h2>Hcking.de</h2>
+      </div>
+      <div class="widget" 
+           data-plugin="feed" 
+           data-url="feeds/db-station.php?code=%23008000207" 
+           data-interval="60" 
+           data-max="8" 
+           data-refresh="all">
+        <h2>Departures Cologne Central Station</h2>
+      </div>
+    </div>
+    <div id="clock" data-plugin="clock"></div>
+    <!-- This page loads all javascript files statically to allow debugging -->
+    <script type="text/javascript" src="js/external/jquery.js"></script>
+    <script type="text/javascript" src="js/external/jquery.xmlns.js"></script>
+    <script type="text/javascript" src="js/external/jquery.flot.js"></script>
+    <script type="text/javascript" src="js/external/globalize.js"></script>
+    <script type="text/javascript" src="js/external/cultures/globalize.cultures.js"></script>
+    <script type="text/javascript" src="js/jquery.csm.js"></script>
+    <script type="text/javascript" src="js/jquery.csm.widget.js"></script>
+    <script type="text/javascript" src="js/jquery.csm.atomreader.js"></script>
+    <script type="text/javascript" src="js/jquery.csm.chart.js"></script>
+    <script type="text/javascript" src="js/jquery.csm.hashreplace.js"></script>
+    <script type="text/javascript" src="js/jquery.csm.weatherclock.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(
+        function() {
+          jQuery.CaricaStatusMonitor({locale : 'de', dynamicLoading: false});
+        }
+      );
+    </script>
+  </body>
+</html>
