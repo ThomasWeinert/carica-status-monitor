@@ -231,6 +231,16 @@ div.chart {
   padding: 0.4em;
   padding-right: 1em;
 }
+#chartTooltip {
+  font-size: 0.8em;
+  position: absolute;
+  display: none;
+  border: 1px solid #808080;
+  color: #606060;
+  padding: 2px;
+  background-color: #ccc;
+  opacity: 0.90;
+}
 
 /* Sprite Icon (an icon combined from an background image and a subtitle */
 .spriteIcon {
