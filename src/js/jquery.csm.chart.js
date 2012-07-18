@@ -5,14 +5,14 @@
  * @copyright 2012 Thomas Weinert <thomas@weinert.info>
  */
 (function($){
-  
+
   var CaricaStatusMonitorChartSeries = {
-      
+
     data : [],
-    
+
     /**
      * Read the data series from the xml into an array
-     * 
+     *
      * @param xml
      */
     read : function(xml) {
@@ -29,9 +29,9 @@
              series.data[entryIndex].data[pointIndex] = [
                this.getAttribute('x'), this.getAttribute('y')
              ];
-           }  
+           }
          );
-       }    
+       }
       );
     }
   };
@@ -41,14 +41,14 @@
     options : {
       url : '',
       interval : 0,
-      height: '300px'
+      height: '200px'
     },
-    
+
     template : '<div class="chart"><div class="container"/></div>',
-    
+
     /**
      * Read the feed data and update the chart.
-     * 
+     *
      * @param data
      */
     update: function(xml) {
@@ -57,7 +57,7 @@
       var series = $.extend(true, {}, CaricaStatusMonitorChartSeries);
       series.read(entries);
       container.css('height', this.options.height);
-      
+
       var options = {
         series: {
           lines: { show: true },
@@ -68,10 +68,10 @@
       };
       $.plot(container, series.data, options);
     },
-    
+
     /**
      * Read the axis options from the xml node
-     *  
+     *
      * @param xml
      */
     getAxisOptions : function(xml) {
@@ -79,7 +79,7 @@
         mode : xml.attr('mode') != '' ? xml.attr('mode') : null,
         timeformat : xml.attr('timeformat') != '' ? xml.attr('timeformat') : null,
         min : xml.attr('min') > 0 ? xml.attr('min') : null,
-        max : xml.attr('max') != '' ? xml.attr('max') : null  
+        max : xml.attr('max') != '' ? xml.attr('max') : null
       };
       return options;
     }
@@ -87,7 +87,7 @@
 
   /**
    * jQuery selector handling to attach StatusChart to list elements
-   * 
+   *
    * @param options
    */
   $.fn.CaricaStatusMonitorChart = function(options) {

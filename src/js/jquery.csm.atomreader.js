@@ -35,7 +35,7 @@
     link : null,
 
     template :
-      '<li class="entry">' +
+      '<li class="item">' +
         '<div class="spriteIcon icon">' +
           '<div class="sprite"> </div>' +
           '<div class="title"> </div>' +
@@ -83,7 +83,7 @@
      */
     updateNode : function(data, entry) {
       var status = entry.find('csm|status').text();
-      this.node.attr('class', 'entry').addClass(
+      this.node.attr('class', 'item').addClass(
         (status != '') ? status : 'information'
       );
       var iconNode = this.node.find('.icon');
@@ -105,7 +105,7 @@
       this.updateTeaser(data, entry);
       this.node.find('.updated').text(Globalize.format(this.updated, "f"));
     },
-    
+
     /**
      * Read values from entry xml and update the teaser summary text
      *
@@ -114,7 +114,7 @@
      */
     updateTeaser : function(data, entry) {
       this.node.find('h3').text(entry.find('atom|title').text());
-      var type = entry.find('atom|summary').attr('type'); 
+      var type = entry.find('atom|summary').attr('type');
       var summary = this.node.find('.summary');
       var teaser;
       if (type == 'html') {
@@ -124,7 +124,7 @@
       } else {
         summary.text(entry.find('atom|summary').text());
         return;
-      } 
+      }
       if (this.entries.reader.options.allowHtml != 'yes') {
         summary.text(teaser.text());
         return;
@@ -133,10 +133,10 @@
       summary.append(teaser.clone());
       this.expandHrefs(summary.find('a[href],img[src]'), entry.find('atom|link').attr('href'));
     },
-    
+
     /**
      * Makes href/src attributes of the matches elements absolute
-     * 
+     *
      * @param nodes
      * @param baseHref
      */
@@ -156,7 +156,7 @@
             if (this.getAttribute('href')) {
               var href = this.getAttribute('href');
               if (!href.match(/^\w+:/)) {
-                this.setAttribute('href', baseHref + href); 
+                this.setAttribute('href', baseHref + href);
               }
               $(this).click(
                 function(href) {
@@ -164,13 +164,13 @@
                     event.preventDefault();
                     window.open(href, '_blank');
                   };
-                }(this.getAttribute('href'))  
+                }(this.getAttribute('href'))
               );
             }
             if (this.getAttribute('src')) {
               var href = this.getAttribute('src');
               if (!href.match(/^\w+:/)) {
-                this.setAttribute('src', baseHref + href); 
+                this.setAttribute('src', baseHref + href);
               }
             }
           }
@@ -195,10 +195,10 @@
         this.node.removeClass('clickable');
       }
     },
-    
+
     /**
      * Handle a click on the element
-     * 
+     *
      * @param event
      */
     onClick : function(event) {
@@ -246,7 +246,7 @@
      * Create the dom elements for the item
      */
     create : function() {
-      var nodes = this.entries.reader.node.find('li.entry');
+      var nodes = this.entries.reader.node.find('li');
       for (var i = nodes.length; i > 1, i >=  this.entries.reader.options.max; i--) {
         nodes.eq(i - 1).data('atomReaderEntry').remove();
       }
@@ -260,7 +260,7 @@
   var CaricaStatusMonitorAtomReaderEntryXCal = {
 
     template :
-      '<li class="entry">' +
+      '<li class="item">' +
         '<div class="dateIcon">'+
           '<span class="day"/>'+
           '<span class="month"/>'+
@@ -281,7 +281,7 @@
      */
     updateNode : function(data, entry) {
       var status = entry.find('csm|status').text();
-      this.node.attr('class', 'entry').addClass(
+      this.node.attr('class', 'item').addClass(
         (status != '') ? status : 'information'
       );
       var startDate = this.parseXCalDate(entry.find('xcal|dtstart'));
@@ -300,9 +300,9 @@
       if (startDateFormat == 'DATE-TIME') {
         this.node.find('h3').prepend(
           document.createTextNode(
-            Globalize.format(startDate, "t") + 
-            ' - ' + 
-            Globalize.format(endDate, "t") + 
+            Globalize.format(startDate, "t") +
+            ' - ' +
+            Globalize.format(endDate, "t") +
             ' '
           )
         );
@@ -399,9 +399,9 @@
       'xcal' : 'urn:ietf:params:xml:ns:xcal',
       'csm' : 'http://thomas.weinert.info/carica/ns/status-monitor'
     },
-    
+
     template : '<ul class="feed"/>',
-    
+
     /**
      * Prapare the object before fetching the data
      */
@@ -443,7 +443,7 @@
 
   /**
    * jQuery selector handling to attach Atom reader to list elements
-   * 
+   *
    * @param options
    */
   $.fn.CaricaStatusMonitorAtomReader = function(options) {
