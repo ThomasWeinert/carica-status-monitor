@@ -8,6 +8,8 @@
 
   var CaricaStatusMonitorChartSeries = {
 
+    widget : null,
+
     data : [],
 
     /**
@@ -36,12 +38,81 @@
     }
   };
 
+  /**
+   * A tooltip handler
+   */
+  var CaricaStatusMonitorChartTooltip = {
+
+    /**
+     * Chart hover event
+     *
+     * @param event
+     * @param pos
+     * @param item
+     */
+    onHover : function(event, pos, item) {
+      if (item) {
+        var x = this.format(item.datapoint[0], item.series.xaxis.options.mode);
+        var y = this.format(item.datapoint[1], item.series.yaxis.options.mode);
+        var label = item.series.label + ": " + x + " = " + y;
+        this.show(item.pageX, item.pageY, label)
+      } else {
+        this.hide();
+      }
+    },
+
+    /**
+     * Format the value depending on the axis mode (time)
+     *
+     * @param value
+     * @param mode
+     * @returns string
+     */
+    format : function(value, mode) {
+      return (mode == 'time') ? Globalize.format(new Date(value), "f") : value;
+    },
+
+    /**
+     * show the tooltip, if the dom element does not exists it will be created.
+     *
+     * @param x
+     * @param y
+     * @param label
+     */
+    show : function(x, y, label) {
+      var node = $('#chartTooltip');
+      if (node.length == 0) {
+        node = this.create();
+      }
+      node.css({left: x + 5, top: y + 5});
+      node.text(label)
+      node.show();
+    },
+
+    /**
+     * hide the tooltip (if it exists)
+     */
+    hide : function() {
+      $('#chartTooltip').hide();
+    },
+
+    /**
+     * Create the tooltop dom element
+     * @returns HTMLNode
+     */
+    create : function() {
+      return $('<div id="chartTooltip"/>').appendTo('body');
+    }
+
+  };
+
   var CaricaStatusMonitorChart = {
 
     options : {
       url : '',
       interval : 0,
-      height: '200px'
+      height: '200px',
+      chart: 'lines' /* lines | points | bars */
     },
 
     template : '<div class="chart"><div class="container"/></div>',
@@ -55,18 +126,37 @@
       var container = this.node.find('.chart .container');
       var entries = xml.find('atom|entry');
       var series = $.extend(true, {}, CaricaStatusMonitorChartSeries);
+      series.widget = this;
       series.read(entries);
       container.css('height', this.options.height);
 
       var options = {
-        series: {
-          lines: { show: true },
-          points: { show: false }
+        legend: {
+          show: true,
+          position: 'nw',
+          backgroundOpacity: 0.6
         },
+        grid: { hoverable: true },
+        series: {},
         xaxis: this.getAxisOptions(xml.find('csm|chart-options csm|axis-x')),
         yaxis: this.getAxisOptions(xml.find('csm|chart-options csm|axis-y'))
       };
+      switch (this.options.chart) {
+      case 'lines' :
+        options.series.lines = { show: true };
+        break;
+      case 'points' :
+        options.series.points = { show: true };
+        break;
+      case 'bars' :
+        options.series.bars = { show: true };
+        break;
+      }
       $.plot(container, series.data, options);
+      container.unbind().bind(
+        'plothover',
+        $.proxy(CaricaStatusMonitorChartTooltip.onHover, CaricaStatusMonitorChartTooltip)
+      )
     },
 
     /**
