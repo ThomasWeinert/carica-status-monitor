@@ -111,8 +111,9 @@
     options : {
       url : '',
       interval : 0,
-      height: '200px',
-      chart: 'lines' /* lines | points | bars */
+      height : '200px',
+      chart : 'lines',
+      hover : 'yes'
     },
 
     template : '<div class="chart"><div class="container"/></div>',
@@ -136,7 +137,7 @@
           position: 'nw',
           backgroundOpacity: 0.6
         },
-        grid: { hoverable: true },
+        grid: {},
         series: {},
         xaxis: this.getAxisOptions(xml.find('csm|chart-options csm|axis-x')),
         yaxis: this.getAxisOptions(xml.find('csm|chart-options csm|axis-y'))
@@ -152,11 +153,14 @@
         options.series.bars = { show: true };
         break;
       }
+      if (this.options.hover == 'yes') {
+        options.grid.hoverable = true;
+        container.unbind().bind(
+          'plothover',
+          $.proxy(CaricaStatusMonitorChartTooltip.onHover, CaricaStatusMonitorChartTooltip)
+        );
+      }
       $.plot(container, series.data, options);
-      container.unbind().bind(
-        'plothover',
-        $.proxy(CaricaStatusMonitorChartTooltip.onHover, CaricaStatusMonitorChartTooltip)
-      )
     },
 
     /**
