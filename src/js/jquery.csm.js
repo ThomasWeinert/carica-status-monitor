@@ -104,12 +104,17 @@
      * Directly apply the plugins to the dom, expects loading already done
      */
     applyPlugins : function() {
-      var nodes, options;
-      for (plugin in this.plugins) {
-        nodes = $('[data-plugin~='+plugin+']');
+      var nodes, options, plugin;
+      for (var name in this.plugins) {
+        nodes = $('[data-plugin~='+name+']');
         if (nodes.length > 0) {
-          options = $.extend({}, this.pluginOptions[plugin]);
-          nodes[this.plugins[plugin].object](options);
+          plugin = this.plugins[name];
+          if (nodes[plugin.object]) {
+            options = $.extend({}, this.pluginOptions[name]);
+            nodes[plugin.object](options);
+          } else {
+            console.error('Plugin "' + plugin.object + '" not found.');
+          }
         }
       }
     },
