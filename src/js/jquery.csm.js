@@ -65,7 +65,7 @@
     setUp : function(options, pluginOptions) {
       this.options = $.extend(this.options, options);
       this.pluginOptions = $.extend(this.pluginOptions, pluginOptions);
-      if (this.options.loading) {
+      if (this.options.dynamicLoading) {
         this.loadRequires();
       } else {
         this.applyPlugins();
