@@ -8,12 +8,104 @@
  */
 (function($){
   
+  var CaricaStatusMonitorWidgetEntry = {
+
+    entries : null,
+    node : null,
+
+    id : null,
+    updated : null,
+    link : null,
+
+    template : '',
+    
+    /**
+     * Update an entry if new data is available. This contains
+     * an implicit create for the dom elements
+     *
+     * @param data
+     * @param entry
+     */
+    update : function(data, entry) {
+      var updated = new Date(data.updated);
+      if (this.node) {
+        if (updated <= this.updated) {
+          return;
+        }
+        this.hide();
+      } else {
+        this.create();
+      }
+      this.id = data.id;
+      this.updated = updated;
+      this.updateData(data, entry);
+      this.show();
+    },
+    
+    updateData : function(data, entry) {
+    },
+
+    /**
+     * Handle a click on the element
+     *
+     * @param event
+     */
+    onClick : function(event) {
+    },
+
+    /**
+     * Move an item to the top of the list and show it.
+     */
+    show : function() {
+      this.entries.widget.node.find('ul').prepend(this.node);
+      if (this.entries.widget.options.refresh == 'updated') {
+        this.node.fadeIn(3000);
+      } else {
+        this.node.show();
+      }
+    },
+
+    /**
+     * Hide the dom element if here is one.
+     */
+    hide : function() {
+      if (this.node) {
+        this.node.hide();
+      }
+    },
+
+    /**
+     * Remove the dom elements and the item.
+     */
+    remove : function() {
+      this.hide();
+      if (this.node) {
+        this.node.remove();
+        if (this.entries[this.id]) {
+          delete(this.entries[this.id]);
+        }
+      }
+    },
+
+    /**
+     * Create the dom elements for the item
+     */
+    create : function() {
+      var nodes = this.entries.widget.node.find('li');
+      for (var i = nodes.length; i > 1, i >=  this.entries.widget.options.max; i--) {
+        nodes.eq(i - 1).data('widgetEntry').remove();
+      }
+      this.node = $(this.template).clone();
+      this.node.data('widgetEntry', this);
+      this.node.click($.proxy(this.onClick, this));
+    }
+  };
+  
   /** a list of items for an widget */
   var CaricaStatusMonitorWidgetEntries = {
 
     widget : null,
-    entries : {},    
-    entryPrototype : null,
+    entries : {},
     node : null,
     
     /**
@@ -23,10 +115,9 @@
      * @param node
      * @param entryPrototype
      */
-    setUp : function (widget, node, entryPrototype) {
+    setUp : function (widget, node) {
       this.widget = widget;
-      this.node = node;
-      this.entryPrototype = entryPrototype; 
+      this.node = node; 
     },
 
     /**
@@ -36,10 +127,10 @@
      * @param string id
      * @returns
      */
-    get : function(id, mixIn) {
+    get : function(id, prototype) {
       if (!this.entries[id]) {
         this.entries[id] = $.extend(
-          true, {}, this.entryPrototype, mixIn
+          true, {}, prototype
         );
         this.entries[id].entries = this;
       }
@@ -236,6 +327,10 @@
   
   $.CaricaStatusMonitorWidget.Entries = function() {
     return $.extend(true, {}, CaricaStatusMonitorWidgetEntries);
+  };
+  
+  $.CaricaStatusMonitorWidget.Entry = function() {
+    return $.extend(true, {}, CaricaStatusMonitorWidgetEntry);
   };
 
 })(jQuery);
