@@ -29,6 +29,10 @@
         file : 'js/jquery.csm.weatherclock.js',
         object : 'CaricaStatusMonitorWeatherClock'
       },
+      countdown : {
+        file : 'js/jquery.csm.countdown.js',
+        object : 'CaricaStatusMonitorCountdown'
+      },
       hash : {
         file : 'js/jquery.csm.hashreplace.js',
         object : 'CaricaStatusMonitorHashReplace'
