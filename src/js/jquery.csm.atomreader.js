@@ -69,7 +69,7 @@
       this.updated = updated;
       this.updateNode(data, entry);
       this.updateLink(data, entry);
-      if (this.entries.reader.options.highlight == 'yes') {
+      if (this.entries.widget.options.highlight == 'yes') {
         this.node.addClass('changed');
       }
       this.show();
@@ -125,7 +125,7 @@
         summary.text(entry.find('atom|summary').text());
         return;
       }
-      if (this.entries.reader.options.allowHtml != 'yes') {
+      if (this.entries.widget.options.allowHtml != 'yes') {
         summary.text(teaser.text());
         return;
       }
@@ -212,8 +212,8 @@
      * Move an item to the top of the list and show it.
      */
     show : function() {
-      this.entries.reader.node.find('ul').prepend(this.node);
-      if (this.entries.reader.options.refresh == 'updated') {
+      this.entries.widget.node.find('ul').prepend(this.node);
+      if (this.entries.widget.options.refresh == 'updated') {
         this.node.fadeIn(3000);
       } else {
         this.node.show();
@@ -246,8 +246,8 @@
      * Create the dom elements for the item
      */
     create : function() {
-      var nodes = this.entries.reader.node.find('li');
-      for (var i = nodes.length; i > 1, i >=  this.entries.reader.options.max; i--) {
+      var nodes = this.entries.widget.node.find('li');
+      for (var i = nodes.length; i > 1, i >=  this.entries.widget.options.max; i--) {
         nodes.eq(i - 1).data('atomReaderEntry').remove();
       }
       this.node = $(this.template).clone();
@@ -334,49 +334,6 @@
     }
   };
 
-  var CaricaStatusMonitorAtomReaderEntries = {
-
-    reader : null,
-    entries : {},
-
-    /**
-     * Get an entry item for the provided id, creates the item
-     * if it is not found.
-     *
-     * @param string id
-     * @returns
-     */
-    get : function(id, mixIn) {
-      if (!this.entries[id]) {
-        this.entries[id] = $.extend(
-          true, {}, CaricaStatusMonitorAtomReaderEntry, mixIn
-        );
-        this.entries[id].entries = this;
-      }
-      return this.entries[id];
-    },
-
-    /**
-     * Remove an item from the list, calls remove on the item, too.
-     * @param id
-     */
-    remove : function(id) {
-      if (this.entries[id]) {
-        var entry = this.entries[id];
-        delete(this.entries[id]);
-        entry.remove();
-      }
-    },
-
-    /**
-     * Remove all items and their dom elements
-     */
-    clear : function() {
-      this.reader.node.find('ul').empty();
-      this.entries = new Object();
-    }
-  };
-
   var CaricaStatusMonitorAtomReader = {
 
     entries : null,
@@ -406,8 +363,10 @@
      * Prapare the object before fetching the data
      */
     prepare : function() {
-      this.entries = $.extend(true, {}, CaricaStatusMonitorAtomReaderEntries);
-      this.entries.reader = this;
+      this.entries = $.CaricaStatusMonitorWidget.Entries();
+      this.entries.setUp(
+        this, this.node.find('ul'), CaricaStatusMonitorAtomReaderEntry
+      );
       if (this.options.refresh == 'all') {
         this.options.highlight = 'no';
       }

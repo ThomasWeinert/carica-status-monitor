@@ -8,6 +8,65 @@
  */
 (function($){
   
+  /** a list of items for an widget */
+  var CaricaStatusMonitorWidgetEntries = {
+
+    widget : null,
+    entries : {},    
+    entryPrototype : null,
+    node : null,
+    
+    /**
+     * Setup object for for the widget
+     * 
+     * @param widget
+     * @param node
+     * @param entryPrototype
+     */
+    setUp : function (widget, node, entryPrototype) {
+      this.widget = widget;
+      this.node = node;
+      this.entryPrototype = entryPrototype; 
+    },
+
+    /**
+     * Get an entry item for the provided id, creates the item
+     * if it is not found.
+     *
+     * @param string id
+     * @returns
+     */
+    get : function(id, mixIn) {
+      if (!this.entries[id]) {
+        this.entries[id] = $.extend(
+          true, {}, this.entryPrototype, mixIn
+        );
+        this.entries[id].entries = this;
+      }
+      return this.entries[id];
+    },
+
+    /**
+     * Remove an item from the list, calls remove on the item, too.
+     * @param id
+     */
+    remove : function(id) {
+      if (this.entries[id]) {
+        var entry = this.entries[id];
+        delete(this.entries[id]);
+        entry.remove();
+      }
+    },
+
+    /**
+     * Remove all items and their dom elements
+     */
+    clear : function() {
+      this.node.empty();
+      this.entries = new Object();
+    }
+  };
+  
   var CaricaStatusMonitorWidget = {
 
     node : null,
@@ -173,6 +232,10 @@
    */
   $.CaricaStatusMonitorWidget = function() {
     return $.extend(true, {}, CaricaStatusMonitorWidget);
+  };
+  
+  $.CaricaStatusMonitorWidget.Entries = function() {
+    return $.extend(true, {}, CaricaStatusMonitorWidgetEntries);
   };
 
 })(jQuery);
