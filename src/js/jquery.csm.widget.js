@@ -1,13 +1,13 @@
 /**
  * Superclass for widget plugins. It handles stuff like loading and
- * display errors. The "update" method needs to be defined to contains the 
+ * display errors. The "update" method needs to be defined to contains the
  * widget logic.
  *
  * @license http://www.opensource.org/licenses/mit-license.php The MIT License
  * @copyright 2012 Thomas Weinert <thomas@weinert.info>
  */
 (function($){
-  
+
   var CaricaStatusMonitorWidgetEntry = {
 
     entries : null,
@@ -18,7 +18,7 @@
     link : null,
 
     template : '',
-    
+
     /**
      * Update an entry if new data is available. This contains
      * an implicit create for the dom elements
@@ -41,8 +41,14 @@
       this.updateData(data, entry);
       this.show();
     },
-    
+
     updateData : function(data, entry) {
+    },
+
+    /**
+     * refresh display with current data
+     */
+    refresh : function() {
     },
 
     /**
@@ -100,24 +106,24 @@
       this.node.click($.proxy(this.onClick, this));
     }
   };
-  
+
   /** a list of items for an widget */
   var CaricaStatusMonitorWidgetEntries = {
 
     widget : null,
     entries : {},
     node : null,
-    
+
     /**
      * Setup object for for the widget
-     * 
+     *
      * @param widget
      * @param node
      * @param entryPrototype
      */
     setUp : function (widget, node) {
       this.widget = widget;
-      this.node = node; 
+      this.node = node;
     },
 
     /**
@@ -155,9 +161,15 @@
     clear : function() {
       this.node.empty();
       this.entries = new Object();
+    },
+
+    refresh : function() {
+      for (var i in this.entries) {
+        this.entries[i].refresh();
+      }
     }
   };
-  
+
   var CaricaStatusMonitorWidget = {
 
     node : null,
@@ -175,8 +187,8 @@
       'xcal' : 'urn:ietf:params:xml:ns:xcal',
       'csm' : 'http://thomas.weinert.info/carica/ns/status-monitor'
     },
-    
-    template : null, 
+
+    template : null,
 
     /**
      * Store options and trigger first update
@@ -203,27 +215,27 @@
       this.prepare();
       this.fetch();
     },
-    
+
     /**
-     * Prepare the widget instance. This method can be redefined by 
+     * Prepare the widget instance. This method can be redefined by
      * the actual widget objects
-     * 
+     *
      * @param data
      */
-    prepare : function() {      
+    prepare : function() {
     },
-    
+
     /**
-     * Update widget with data from feed. This method need to be redefined by 
+     * Update widget with data from feed. This method need to be redefined by
      * the actual widget objects
-     * 
+     *
      * @param data
      */
     update : function(data) {
-    },    
+    },
 
     /**
-     * schedule a ajax refresh in n seconds, the currently scheduled refresh is 
+     * schedule a ajax refresh in n seconds, the currently scheduled refresh is
      * stopped and removed.
      */
     schedule : function() {
@@ -244,7 +256,7 @@
     fetch : function() {
       if (this.options.url != '') {
         var href = window.location.href;
-        var hash = (href.lastIndexOf('#') > 0) 
+        var hash = (href.lastIndexOf('#') > 0)
          ? href.substr(href.lastIndexOf('#') + 1)
          : '';
         var url = this.options.url.replace(/\{hash\}/, hash);
@@ -254,7 +266,7 @@
           .error($.proxy(this.ajaxError, this));
       }
     },
-    
+
     /**
      * Read dom returned from the Ajax request. Update the found items.
      *
@@ -269,7 +281,7 @@
         }
       );
     },
-    
+
     /**
      * Update the status and message elements, if the are not showing something
      * they are hidden.
@@ -319,16 +331,16 @@
   };
 
   /**
-   * Get the a clone of the StatusWidget object 
+   * Get the a clone of the StatusWidget object
    */
   $.CaricaStatusMonitorWidget = function() {
     return $.extend(true, {}, CaricaStatusMonitorWidget);
   };
-  
+
   $.CaricaStatusMonitorWidget.Entries = function() {
     return $.extend(true, {}, CaricaStatusMonitorWidgetEntries);
   };
-  
+
   $.CaricaStatusMonitorWidget.Entry = function() {
     return $.extend(true, {}, CaricaStatusMonitorWidgetEntry);
   };
