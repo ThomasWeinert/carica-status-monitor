@@ -168,4 +168,27 @@
     return this;
   };
 
+  /**
+   * Convert the iCalendar date format into one parseable by
+   * the Date() object and use Globalize to format the date
+   *
+   * @param node
+   * @returns string
+   */
+  $.CaricaStatusMonitor.Xcalendar = {
+    parseDate : function(xcalDate, format) {
+      var dateString =
+        xcalDate.substr(0, 4) + '-' +
+        xcalDate.substr(4, 2) + '-' +
+        xcalDate.substr(6, 2);
+      if (format == 'DATE-TIME') {
+        dateString +=
+          xcalDate.substr(8, 3) + ':' +
+          xcalDate.substr(11, 2) + ':' +
+          xcalDate.substr(13);
+      }
+      return date = new Date(dateString);
+    }
+  };
+
 })(jQuery);

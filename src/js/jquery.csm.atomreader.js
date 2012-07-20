@@ -27,10 +27,10 @@
     true,
     $.CaricaStatusMonitorWidget.Entry(),
     {
-  
+
       defaultIcon : 'img/dialog-information.png',
       link : null,
-  
+
       template :
         '<li class="item">' +
           '<div class="spriteIcon icon">' +
@@ -56,7 +56,7 @@
           window.open(this.link, '_blank');
         }
       },
-  
+
       /**
        * Update data of the entry
        *
@@ -70,7 +70,7 @@
           this.node.addClass('changed');
         }
       },
-  
+
       /**
        * Read values from entry xml and update the dom element
        *
@@ -101,7 +101,7 @@
         this.updateTeaser(data, entry);
         this.node.find('.updated').text(Globalize.format(this.updated, "f"));
       },
-  
+
       /**
        * Read values from entry xml and update the teaser summary text
        *
@@ -129,7 +129,7 @@
         summary.append(teaser.clone());
         this.expandHrefs(summary.find('a[href],img[src]'), entry.find('atom|link').attr('href'));
       },
-  
+
       /**
        * Read values from entry xml and update the click action data
        *
@@ -147,7 +147,7 @@
           this.node.removeClass('clickable');
         }
       },
-  
+
       /**
        * Makes href/src attributes of the matches elements absolute
        *
@@ -197,8 +197,8 @@
   var CaricaStatusMonitorAtomReaderEntryXCal = $.extend(
     true,
     {},
-    CaricaStatusMonitorAtomReaderEntry,    
-    { 
+    CaricaStatusMonitorAtomReaderEntry,
+    {
       template :
         '<li class="item">' +
           '<div class="dateIcon">'+
@@ -212,7 +212,7 @@
           '<span class="updated"></span>' +
           '<span class="spacer"></span>' +
          '</li>',
-  
+
       /**
        * Read values from entry xml and update the dom element
        *
@@ -224,8 +224,8 @@
         this.node.attr('class', 'item').addClass(
           (status != '') ? status : 'information'
         );
-        var startDate = this.parseXCalDate(entry.find('xcal|dtstart'));
-        var endDate = this.parseXCalDate(entry.find('xcal|dtend'));
+        var startDate = this.parseEventDate(entry.find('xcal|dtstart'));
+        var endDate = this.parseEventDate(entry.find('xcal|dtend'));
         var startDateFormat = entry.find('xcal|dtstart').attr('value');
         this.node.find('.dateIcon .month').text(Globalize.format(startDate, "MMM"));
         this.node.find('.dateIcon .day').text(Globalize.format(startDate, " d"));
@@ -249,28 +249,9 @@
         }
         this.node.find('.updated').text(Globalize.format(this.updated, "f"));
       },
-  
-      /**
-       * Convert the iCalendar date format into one parseable by
-       * the Date() object and use Globalize to format the date
-       *
-       * @param node
-       * @returns string
-       */
-      parseXCalDate : function(node) {
-        var string = node.text();
-        var format = node.attr('value');
-        var dateString =
-          string.substr(0, 4) + '-' +
-          string.substr(4, 2) + '-' +
-          string.substr(6, 2);
-        if (format == 'DATE-TIME') {
-          dateString +=
-            string.substr(8, 3) + ':' +
-            string.substr(11, 2) + ':' +
-            string.substr(13);
-        }
-        return date = new Date(dateString);
+
+      parseEventDate : function(node) {
+        return $.CaricaStatusMonitor.Xcalendar.parseDate(node.text(), node.attr('value'));
       }
     }
   );
