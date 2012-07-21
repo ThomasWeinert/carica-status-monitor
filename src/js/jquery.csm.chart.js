@@ -69,7 +69,12 @@
      * @returns string
      */
     format : function(value, mode) {
-      return (mode == 'time') ? Globalize.format(new Date(value), "f") : value;
+      switch (mode) {
+      case 'time' :
+        return Globalize.format(new Date(value), "f");
+      default :
+        return Globalize.format(value, "n");
+      }
     },
 
     /**
