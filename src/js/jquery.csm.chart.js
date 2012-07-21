@@ -55,7 +55,7 @@
         var x = this.format(item.datapoint[0], item.series.xaxis.options.mode);
         var y = this.format(item.datapoint[1], item.series.yaxis.options.mode);
         var label = item.series.label + ": " + x + " = " + y;
-        this.show(item.pageX, item.pageY, label)
+        this.show(item.pageX, item.pageY, label);
       } else {
         this.hide();
       }
@@ -90,7 +90,7 @@
         node = this.create();
       }
       node.css({left: x + 5, top: y + 5});
-      node.text(label)
+      node.text(label);
       node.show();
     },
 
@@ -185,7 +185,7 @@
   };
 
   /**
-   * jQuery selector handling to attach StatusChart to list elements
+   * jQuery selector handling to attach StatusChart to dom elements
    *
    * @param options
    */
