@@ -205,9 +205,6 @@ ul.feed li {
 ul.feed li.clickable {
   cursor: pointer;
 }
-ul.feed li.clickable {
-  cursor: pointer;
-}
 ul.feed li .teaser {
   margin-left: 60px;
   font-size: 0.75em;
@@ -241,6 +238,43 @@ div.chart {
   background-color: #ccc;
   opacity: 0.90;
 }
+/* Countdown widget */
+ul.countdown .timer .numberIcon {
+  margin: 0 0.2em 0 0;
+}
+ul.countdown .timer .numberIcon.countdownNumber3 {
+  display: none;
+}
+ul.countdown li .teaser {
+  margin-left: 110px;
+  font-size: 0.75em;
+  min-height: 3em;
+  max-height: 7.5em;
+  overflow: auto;
+}
+ul.countdown li h3 {
+  font-size: 1em;
+}
+ul.countdown li.labelApproaching {
+  font-size: 1.5em;
+  text-align: center;
+}
+ul.countdown li.labelApproaching .teaser {
+  margin: 0.1em;
+  min-height: 0;
+}
+ul.countdown li.labelApproaching .teaser .summary {
+  font-size: 0.6em;
+}
+ul.countdown li.labelApproaching .numberIcon {
+  width: 84px;
+  float: none;
+  margin: 0.2em;
+}
+ul.countdown li.labelApproaching .timer .numberIcon.countdownNumber3 {
+  display: inline-block;
+}
+
 
 /* Sprite Icon (an icon combined from an background image and a subtitle */
 .spriteIcon {
@@ -295,6 +329,7 @@ div.chart {
   font-weight: bold;
   text-align: center;
   background-color: #FFF;
+  color: #000;
   border-radius: 4px 4px 0 0;
 }
 .numberIcon .title {

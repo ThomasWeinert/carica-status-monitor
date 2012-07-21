@@ -24,7 +24,6 @@
 
       template :
         '<li class="item">' +
-          '<h3></h3>' +
           '<div class="timer">' +
             '<div class="numberIcon countdownNumber1">' +
               '<div class="number">00</div>' +
@@ -39,6 +38,10 @@
               '<div class="title"> </div>' +
             '</div>' +
           '</div>' +
+          '<div class="teaser">' +
+            '<h3/>' +
+            '<div class="summary"/>' +
+          '</div>' +
           '<span class="spacer"></span>' +
         '</li>',
 
@@ -47,6 +50,7 @@
         this.targetTime = $.CaricaStatusMonitor.Xcalendar.parseDate(
           xml.find('xcal|dtstart').text(), xml.find('xcal|dtstart').attr('value')
         );
+        this.node.find('.summary').text(xml.find('atom|summary').text());
         this.refresh();
       },
 
@@ -54,6 +58,12 @@
         var now = new Date();
         var difference = this.targetTime.getTime() - now.getTime();
         var numbers = {};
+        if (difference <= 0) {
+          difference = Math.abs(difference);
+          this.node.addClass('error').removeClass('labelApproaching');
+        } else if (difference < this.entries.widget.options.approachingLimit) {
+          this.node.addClass('labelApproaching');
+        }
         numbers.years = Math.floor(difference / this.periods.year);
         difference -= numbers.years * this.periods.year;
         numbers.months = Math.floor(difference / this.periods.month);
@@ -65,11 +75,11 @@
         numbers.hours = Math.floor(difference / this.periods.hour);
         difference -= numbers.hours * this.periods.hour;
         numbers.minutes = Math.floor(difference / this.periods.minute);
-        numbers.seconds = difference - numbers.minutes * this.periods.minute;
+        numbers.seconds = Math.floor((difference - numbers.minutes * this.periods.minute) / 1000);
         var numberIndex = 0;
         var numberIcon = null;
         for (var i in numbers) {
-          if (numbers[i] > 0 || numberIndex > 0) {
+          if (numbers[i] > 0 || numberIndex > 0 || i == 'hours') {
             numberIndex++;
             numberIcon = this.node.find('.countdownNumber' + numberIndex);
             numberIcon.find('.number').text(numbers[i]);
@@ -90,7 +100,8 @@
     options : {
       url : '',
       interval : 0,
-      max : 5
+      max : 5,
+      approachingLimit : 86400000 // milliseconds
     },
 
     template : '<ul class="countdown"/>',
