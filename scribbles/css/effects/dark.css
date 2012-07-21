@@ -78,6 +78,7 @@ body {
 }
 .numberIcon .number {
   background: #202020;
+  color: #808080;
 }
 #clock .digit {
   border: none;
