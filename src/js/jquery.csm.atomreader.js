@@ -201,9 +201,9 @@
     {
       template :
         '<li class="item">' +
-          '<div class="dateIcon">'+
-            '<span class="day"/>'+
-            '<span class="month"/>'+
+          '<div class="numberIcon">'+
+            '<span class="number"/>'+
+            '<span class="title"/>'+
           '</div>' +
           '<div class="teaser">' +
             '<h3/>' +
@@ -227,14 +227,14 @@
         var startDate = this.parseEventDate(entry.find('xcal|dtstart'));
         var endDate = this.parseEventDate(entry.find('xcal|dtend'));
         var startDateFormat = entry.find('xcal|dtstart').attr('value');
-        this.node.find('.dateIcon .month').text(Globalize.format(startDate, "MMM"));
-        this.node.find('.dateIcon .day').text(Globalize.format(startDate, " d"));
+        this.node.find('.numberIcon .title').text(Globalize.format(startDate, "MMM"));
+        this.node.find('.numberIcon .number').text(Globalize.format(startDate, " d"));
         if (Globalize.format(startDate, "d") == Globalize.format(new Date(), "d")) {
-          this.node.find('.dateIcon').removeClass('allday').addClass('today');
+          this.node.find('.numberIcon').removeClass('labelAllDay').addClass('today');
         } else if (startDateFormat != 'DATE-TIME') {
-          this.node.find('.dateIcon').removeClass('today').addClass('allday');
+          this.node.find('.numberIcon').removeClass('labelToday').addClass('labelAllDay');
         } else {
-          this.node.find('.dateIcon').removeClass('today').removeClass('allday');
+          this.node.find('.numberIcon').removeClass('labelToday').removeClass('labelAllDay');
         }
         this.updateTeaser(data, entry);
         if (startDateFormat == 'DATE-TIME') {

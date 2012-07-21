@@ -76,7 +76,7 @@ body {
 .spriteIcon.hasTitle {
   background: #202020;
 }
-.dateIcon .day {
+.numberIcon .number {
   background: #202020;
 }
 #clock .digit {
