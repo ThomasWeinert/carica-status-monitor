@@ -61,7 +61,7 @@
         if (difference <= 0) {
           difference = Math.abs(difference);
           this.node.addClass('error').removeClass('labelApproaching');
-        } else if (difference < this.entries.widget.options.approachingLimit) {
+        } else if (difference < this.entries.widget.options.approachingLimitMS) {
           this.node.addClass('labelApproaching');
         }
         numbers.years = Math.floor(difference / this.periods.year);
@@ -101,7 +101,7 @@
       url : '',
       interval : 0,
       max : 5,
-      approachingLimit : 86400000 // milliseconds
+      approachingLimit : 86400 // seconds
     },
 
     template : '<ul class="countdown"/>',
@@ -115,6 +115,7 @@
       this.entries.setUp(
         this, this.node.find('ul')
       );
+      this.options.approachingLimitMS = this.options.approachingLimit * 1000;
       setInterval($.proxy(this.refreshEntries, this), 1000);
     },
 
