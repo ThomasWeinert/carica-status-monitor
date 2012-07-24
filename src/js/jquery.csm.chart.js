@@ -19,7 +19,7 @@
      */
     read : function(xml) {
       series = this;
-      xml.each(
+      xml.filter(':has(csm|data-point)').each(
        function(entryIndex) {
          var row = $(this).find('csm|data-series').first();
          series.data[entryIndex] = {
@@ -175,12 +175,82 @@
      */
     getAxisOptions : function(xml) {
       var options = {
-        mode : xml.attr('mode') != '' ? xml.attr('mode') : null,
-        timeformat : xml.attr('timeformat') != '' ? xml.attr('timeformat') : null,
         min : xml.attr('min') > 0 ? xml.attr('min') : null,
         max : xml.attr('max') != '' ? xml.attr('max') : null
       };
+      switch (xml.attr('mode')) {
+      case 'time' :
+        options.mode = 'time',
+        options.timeformat = xml.attr('timeformat') != '' ? xml.attr('timeformat') : null;
+        break;
+      case 'milliseconds' :
+        options.tickFormatter = $.proxy(this.formatPeriod, this);
+        break;
+      case 'integer' :
+        options.tickFormatter = $.proxy(this.formatNumeric, this);
+        break;
+      }
       return options;
+    },
+
+    /**
+     * Calulate the different parts of a time period and build a label from it.
+     *
+     * Like: 42min 21s 345ms
+     *
+     * @param value
+     * @param axis
+     * @returns
+     */
+    formatPeriod : function(value, axis) {
+      var labels = {
+        y  : 'y',
+        m : 'm',
+        w : 'w',
+        d : 'd',
+        h : 'h',
+        i : 'min',
+        s : 's',
+        ms : 'ms'
+      }
+      var numbers = {};
+      var numberIndex = 0;
+      var numberIcon = null;
+      var result = '';
+      numbers = $.CaricaStatusMonitor.Date.parsePeriod(value);
+      for (var i in numbers) {
+        if (numbers[i] > 0 || numberIndex > 0 || i == 'ms') {
+          numberIndex++;
+          if (numbers[i] > 0 || numberIndex == 1) {
+            result += ' ' + numbers[i] + labels[i];
+          }
+        }
+        if (numberIndex > 2) {
+          break;
+        }
+      }
+      return result.substr(1);
+    },
+
+    /**
+     *
+     * @param value
+     * @param axis
+     */
+    formatNumeric : function(value, axis) {
+      var multiple = {
+        P : 1000000000000000,
+        T : 1000000000000,
+        G : 1000000000,
+        M : 1000000,
+        k : 1000,
+      }
+      for (var i in multiple) {
+        if (value >= multiple[i]) {
+          return (value / multiple[i]).toFixed(0) + i;
+        }
+      }
+      return value.toFixed(0);
     }
   };
 
