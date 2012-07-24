@@ -1,2 +1,232 @@
 <?xml version="1.0"?>
-<atom:feed xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:csm="http://thomas.weinert.info/carica/ns/status-monitor"><csm:chart-options><csm:axis-x mode="time"/><csm:axis-y mode="milliseconds"/></csm:chart-options><atom:entry><atom:title>AOK-Gesundheitsnavigator</atom:title><atom:id>http://java.papaya.local:8080/jenkins/job/AOK-Gesundheitsnavigator/</atom:id><atom:updated>2012-07-24T17:28:29+02:00</atom:updated><atom:link ref="alternate" type="text/html" href="http://java.papaya.local:8080/jenkins/job/AOK-Gesundheitsnavigator/"/><atom:summary type="xhtml"><p>Clover Coverage: Elements 64% (2962/4655), <xhtml:br/>Test Result: 0 tests failing out of a total of 344 tests., <xhtml:br/>Build stability: No recent builds failed.</p></atom:summary><csm:status>information</csm:status><csm:icon src="img/weather-few-clouds.png"/><csm:data-series/></atom:entry><atom:entry><atom:title>papayaCMS</atom:title><atom:id>http://java.papaya.local:8080/jenkins/job/papayaCMS/</atom:id><atom:updated>2012-07-24T17:28:29+02:00</atom:updated><atom:link ref="alternate" type="text/html" href="http://java.papaya.local:8080/jenkins/job/papayaCMS/"/><atom:summary type="xhtml"><p>Clover Coverage: Elements 99% (18359/18465), <xhtml:br/>Test Result: 0 tests failing out of a total of 4,832 tests., <xhtml:br/>Build stability: No recent builds failed.</p></atom:summary><csm:status>information</csm:status><csm:icon src="img/weather-clear.png"/><csm:data-series><csm:data-point x="1343142361083" y="193224"/><csm:data-point x="1343139661095" y="187856"/><csm:data-point x="1343132161149" y="185974"/><csm:data-point x="1343124661095" y="184480"/><csm:data-point x="1343062561102" y="185143"/><csm:data-point x="1343061361134" y="185309"/><csm:data-point x="1343057461103" y="184778"/><csm:data-point x="1343054761111" y="185506"/><csm:data-point x="1343041561106" y="184384"/><csm:data-point x="1343038261102" y="184007"/><csm:data-point x="1343037361094" y="184409"/><csm:data-point x="1342803661060" y="190981"/><csm:data-point x="1342802761020" y="183483"/><csm:data-point x="1342797361095" y="193333"/><csm:data-point x="1342793461016" y="181534"/><csm:data-point x="1342791361101" y="182493"/><csm:data-point x="1342790161097" y="189360"/><csm:data-point x="1342787761109" y="182967"/><csm:data-point x="1342782661089" y="183363"/><csm:data-point x="1342781761107" y="183009"/><csm:data-point x="1342780861104" y="183736"/><csm:data-point x="1342780561091" y="183222"/><csm:data-point x="1342713661106" y="182359"/><csm:data-point x="1342710361104" y="181587"/><csm:data-point x="1342709761090" y="182737"/><csm:data-point x="1342708861088" y="183227"/><csm:data-point x="1342708261087" y="194966"/><csm:data-point x="1342704361101" y="181149"/><csm:data-point x="1342704061029" y="181407"/><csm:data-point x="1342689361123" y="181636"/><csm:data-point x="1342627861000" y="180973"/><csm:data-point x="1342612261087" y="182861"/><csm:data-point x="1342605961106" y="190116"/><csm:data-point x="1342543561082" y="182908"/><csm:data-point x="1342543261097" y="181011"/><csm:data-point x="1342542661012" y="181515"/><csm:data-point x="1342542361093" y="180661"/><csm:data-point x="1342542139980" y="181244"/><csm:data-point x="1342541761100" y="69610"/><csm:data-point x="1342536061097" y="180297"/><csm:data-point x="1342535161101" y="180646"/><csm:data-point x="1342522561104" y="180127"/><csm:data-point x="1342522261107" y="179382"/><csm:data-point x="1342521061101" y="184165"/><csm:data-point x="1342187660000" y="177590"/><csm:data-point x="1342187166000" y="171343"/><csm:data-point x="1342178466000" y="179134"/><csm:data-point x="1342173366000" y="179268"/><csm:data-point x="1342169466000" y="179011"/><csm:data-point x="1342103166000" y="178116"/><csm:data-point x="1342087866000" y="180519"/><csm:data-point x="1342012566000" y="178693"/></csm:data-series></atom:entry><atom:entry><atom:title>Upd 2011</atom:title><atom:id>http://java.papaya.local:8080/jenkins/job/Upd%202011/</atom:id><atom:updated>2012-07-24T17:28:29+02:00</atom:updated><atom:link ref="alternate" type="text/html" href="http://java.papaya.local:8080/jenkins/job/Upd%202011/"/><atom:summary type="xhtml"><p>Clover Coverage: Elements 81% (2540/3138), <xhtml:br/>Test Result: 0 tests failing out of a total of 1,142 tests., <xhtml:br/>Build stability: No recent builds failed.</p></atom:summary><csm:status>information</csm:status><csm:icon src="img/weather-clear.png"/><csm:data-series><csm:data-point x="1342617964482" y="39795"/><csm:data-point x="1342612264257" y="43355"/><csm:data-point x="1342610464235" y="39878"/><csm:data-point x="1342607164350" y="40076"/><csm:data-point x="1342606564187" y="44221"/><csm:data-point x="1342562164174" y="40605"/><csm:data-point x="1342561564244" y="39821"/><csm:data-point x="1342554664203" y="40159"/><csm:data-point x="1342480564172" y="40098"/><csm:data-point x="1342478164201" y="40208"/><csm:data-point x="1342475461108" y="40475"/><csm:data-point x="1342355166000" y="39909"/><csm:data-point x="1342354866000" y="39951"/><csm:data-point x="1342354566000" y="39784"/><csm:data-point x="1342354266000" y="39838"/><csm:data-point x="1342353966000" y="39874"/><csm:data-point x="1342353666000" y="40019"/><csm:data-point x="1342316466000" y="39956"/><csm:data-point x="1342315566000" y="39632"/><csm:data-point x="1342312566000" y="40034"/><csm:data-point x="1342307166000" y="39718"/><csm:data-point x="1342105566000" y="41543"/><csm:data-point x="1342100166000" y="40285"/><csm:data-point x="1342092966000" y="40049"/><csm:data-point x="1342092066000" y="43197"/><csm:data-point x="1342001166000" y="43299"/></csm:data-series></atom:entry><atom:entry><atom:title>WeisseListe</atom:title><atom:id>http://java.papaya.local:8080/jenkins/job/WeisseListe/</atom:id><atom:updated>2012-07-24T17:28:29+02:00</atom:updated><atom:link ref="alternate" type="text/html" href="http://java.papaya.local:8080/jenkins/job/WeisseListe/"/><atom:summary type="xhtml"><p>Clover Coverage: Elements 67% (34248/50985), <xhtml:br/>Test Result: 0 tests failing out of a total of 5,116 tests., <xhtml:br/>Build stability: No recent builds failed.</p></atom:summary><csm:status>information</csm:status><csm:icon src="img/weather-few-clouds.png"/><csm:data-series><csm:data-point x="1343142067710" y="595874"/><csm:data-point x="1343129467946" y="582506"/><csm:data-point x="1343128567296" y="587013"/><csm:data-point x="1343059268040" y="578749"/><csm:data-point x="1343045768782" y="587286"/><csm:data-point x="1343044867487" y="577185"/><csm:data-point x="1343043067672" y="578497"/><csm:data-point x="1343040367463" y="587350"/><csm:data-point x="1343039467704" y="600924"/><csm:data-point x="1342883766777" y="583813"/><csm:data-point x="1342809974100" y="591827"/><csm:data-point x="1342803668686" y="586120"/><csm:data-point x="1342798268582" y="591557"/><csm:data-point x="1342797367628" y="594200"/><csm:data-point x="1342796467402" y="586553"/><csm:data-point x="1342795567629" y="596869"/><csm:data-point x="1342794669384" y="594032"/><csm:data-point x="1342793768408" y="593819"/><csm:data-point x="1342792871034" y="588529"/><csm:data-point x="1342790168854" y="593669"/><csm:data-point x="1342788367987" y="578559"/><csm:data-point x="1342786568288" y="579143"/><csm:data-point x="1342785667398" y="590196"/><csm:data-point x="1342782968303" y="582543"/><csm:data-point x="1342782068239" y="587844"/><csm:data-point x="1342779368583" y="583737"/><csm:data-point x="1342777569725" y="582467"/><csm:data-point x="1342776669462" y="585196"/><csm:data-point x="1342775768293" y="590227"/><csm:data-point x="1342772169982" y="595847"/><csm:data-point x="1342712768878" y="590688"/><csm:data-point x="1342711867616" y="587770"/><csm:data-point x="1342709168487" y="588225"/><csm:data-point x="1342708267700" y="597693"/><csm:data-point x="1342706469111" y="582425"/><csm:data-point x="1342699267721" y="580281"/><csm:data-point x="1342698367355" y="339660"/><csm:data-point x="1342695667579" y="589012"/><csm:data-point x="1342693869087" y="582338"/><csm:data-point x="1342692967111" y="585747"/><csm:data-point x="1342691167523" y="580673"/><csm:data-point x="1342687566899" y="580194"/><csm:data-point x="1342629067925" y="580173"/><csm:data-point x="1342626367634" y="586257"/><csm:data-point x="1342614667182" y="576226"/><csm:data-point x="1342607467474" y="578043"/><csm:data-point x="1342606567335" y="577370"/><csm:data-point x="1342605666090" y="587648"/><csm:data-point x="1342602966970" y="576862"/><csm:data-point x="1342598466661" y="577993"/><csm:data-point x="1342538166972" y="579894"/><csm:data-point x="1342537268797" y="585930"/><csm:data-point x="1342535466569" y="575284"/><csm:data-point x="1342519268380" y="576495"/><csm:data-point x="1342518367036" y="576513"/><csm:data-point x="1342517466896" y="570889"/><csm:data-point x="1342457167012" y="574941"/><csm:data-point x="1342456267464" y="575344"/><csm:data-point x="1342454466880" y="569324"/><csm:data-point x="1342449967853" y="582384"/><csm:data-point x="1342448168415" y="573888"/><csm:data-point x="1342446368122" y="577335"/><csm:data-point x="1342442772701" y="576893"/><csm:data-point x="1342440067387" y="573220"/><csm:data-point x="1342436466661" y="578719"/><csm:data-point x="1342435566861" y="573523"/><csm:data-point x="1342434661523" y="579434"/><csm:data-point x="1342433758000" y="763189"/><csm:data-point x="1342426566000" y="580359"/><csm:data-point x="1342199766000" y="569532"/><csm:data-point x="1342197966000" y="567894"/><csm:data-point x="1342186266000" y="576350"/><csm:data-point x="1342176366000" y="569043"/><csm:data-point x="1342172766000" y="585573"/><csm:data-point x="1342170966000" y="574421"/><csm:data-point x="1342111566000" y="568973"/><csm:data-point x="1342109766000" y="567077"/><csm:data-point x="1342108866000" y="584806"/><csm:data-point x="1342107966000" y="565815"/><csm:data-point x="1342105266000" y="576586"/><csm:data-point x="1342104366000" y="574810"/><csm:data-point x="1342090866000" y="583848"/><csm:data-point x="1342089066000" y="564939"/><csm:data-point x="1342087266000" y="566132"/><csm:data-point x="1342085466000" y="566272"/><csm:data-point x="1342082766000" y="568092"/><csm:data-point x="1342023366000" y="564709"/><csm:data-point x="1342021566000" y="579567"/><csm:data-point x="1342014366000" y="565806"/><csm:data-point x="1342013466000" y="563984"/><csm:data-point x="1342011666000" y="573525"/><csm:data-point x="1342010766000" y="571532"/><csm:data-point x="1342002666000" y="564930"/><csm:data-point x="1341936966000" y="570634"/><csm:data-point x="1341934266000" y="562551"/></csm:data-series></atom:entry></atom:feed>
+<atom:feed xmlns:atom="http://www.w3.org/2005/Atom" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:csm="http://thomas.weinert.info/carica/ns/status-monitor">
+  <csm:chart-options>
+    <csm:axis-x mode="time"/>
+    <csm:axis-y mode="milliseconds"/>
+  </csm:chart-options>
+  <atom:entry>
+    <atom:title>ProjektOne</atom:title>
+    <atom:id>http://java.domain.local/jenkins/job/ProjektOne/</atom:id>
+    <atom:updated>2012-07-24T17:28:29+02:00</atom:updated>
+    <atom:link ref="alternate" type="text/html" href="http://java.domain.local/jenkins/job/ProjektOne/"/>
+    <atom:summary type="xhtml">
+      <p>Clover Coverage: Elements 64% (2962/4655), <xhtml:br/>Test Result: 0 tests failing out of a total of 344 tests., <xhtml:br/>Build stability: No recent builds failed.</p>
+    </atom:summary>
+    <csm:status>information</csm:status>
+    <csm:icon src="img/weather-few-clouds.png"/>
+    <csm:data-series/>
+  </atom:entry>
+  <atom:entry>
+    <atom:title>papayaCMS</atom:title>
+    <atom:id>http://java.domain.local/jenkins/job/papayaCMS/</atom:id>
+    <atom:updated>2012-07-24T17:28:29+02:00</atom:updated>
+    <atom:link ref="alternate" type="text/html" href="http://java.domain.local/jenkins/job/papayaCMS/"/>
+    <atom:summary type="xhtml">
+      <p>Clover Coverage: Elements 99% (18359/18465), <xhtml:br/>Test Result: 0 tests failing out of a total of 4,832 tests., <xhtml:br/>Build stability: No recent builds failed.</p>
+    </atom:summary>
+    <csm:status>information</csm:status>
+    <csm:icon src="img/weather-clear.png"/>
+    <csm:data-series>
+      <csm:data-point x="1343142361083" y="193224"/>
+      <csm:data-point x="1343139661095" y="187856"/>
+      <csm:data-point x="1343132161149" y="185974"/>
+      <csm:data-point x="1343124661095" y="184480"/>
+      <csm:data-point x="1343062561102" y="185143"/>
+      <csm:data-point x="1343061361134" y="185309"/>
+      <csm:data-point x="1343057461103" y="184778"/>
+      <csm:data-point x="1343054761111" y="185506"/>
+      <csm:data-point x="1343041561106" y="184384"/>
+      <csm:data-point x="1343038261102" y="184007"/>
+      <csm:data-point x="1343037361094" y="184409"/>
+      <csm:data-point x="1342803661060" y="190981"/>
+      <csm:data-point x="1342802761020" y="183483"/>
+      <csm:data-point x="1342797361095" y="193333"/>
+      <csm:data-point x="1342793461016" y="181534"/>
+      <csm:data-point x="1342791361101" y="182493"/>
+      <csm:data-point x="1342790161097" y="189360"/>
+      <csm:data-point x="1342787761109" y="182967"/>
+      <csm:data-point x="1342782661089" y="183363"/>
+      <csm:data-point x="1342781761107" y="183009"/>
+      <csm:data-point x="1342780861104" y="183736"/>
+      <csm:data-point x="1342780561091" y="183222"/>
+      <csm:data-point x="1342713661106" y="182359"/>
+      <csm:data-point x="1342710361104" y="181587"/>
+      <csm:data-point x="1342709761090" y="182737"/>
+      <csm:data-point x="1342708861088" y="183227"/>
+      <csm:data-point x="1342708261087" y="194966"/>
+      <csm:data-point x="1342704361101" y="181149"/>
+      <csm:data-point x="1342704061029" y="181407"/>
+      <csm:data-point x="1342689361123" y="181636"/>
+      <csm:data-point x="1342627861000" y="180973"/>
+      <csm:data-point x="1342612261087" y="182861"/>
+      <csm:data-point x="1342605961106" y="190116"/>
+      <csm:data-point x="1342543561082" y="182908"/>
+      <csm:data-point x="1342543261097" y="181011"/>
+      <csm:data-point x="1342542661012" y="181515"/>
+      <csm:data-point x="1342542361093" y="180661"/>
+      <csm:data-point x="1342542139980" y="181244"/>
+      <csm:data-point x="1342541761100" y="69610"/>
+      <csm:data-point x="1342536061097" y="180297"/>
+      <csm:data-point x="1342535161101" y="180646"/>
+      <csm:data-point x="1342522561104" y="180127"/>
+      <csm:data-point x="1342522261107" y="179382"/>
+      <csm:data-point x="1342521061101" y="184165"/>
+      <csm:data-point x="1342187660000" y="177590"/>
+      <csm:data-point x="1342187166000" y="171343"/>
+      <csm:data-point x="1342178466000" y="179134"/>
+      <csm:data-point x="1342173366000" y="179268"/>
+      <csm:data-point x="1342169466000" y="179011"/>
+      <csm:data-point x="1342103166000" y="178116"/>
+      <csm:data-point x="1342087866000" y="180519"/>
+      <csm:data-point x="1342012566000" y="178693"/>
+    </csm:data-series>
+  </atom:entry>
+  <atom:entry>
+    <atom:title>ProjectTwo</atom:title>
+    <atom:id>http://java.domain.local/jenkins/job/ProjektTwo/</atom:id>
+    <atom:updated>2012-07-24T17:28:29+02:00</atom:updated>
+    <atom:link ref="alternate" type="text/html" href="http://java.domain.local/jenkins/job/ProjektTwo/"/>
+    <atom:summary type="xhtml">
+      <p>Clover Coverage: Elements 81% (2540/3138), <xhtml:br/>Test Result: 0 tests failing out of a total of 1,142 tests., <xhtml:br/>Build stability: No recent builds failed.</p>
+    </atom:summary>
+    <csm:status>information</csm:status>
+    <csm:icon src="img/weather-clear.png"/>
+    <csm:data-series>
+      <csm:data-point x="1342617964482" y="39795"/>
+      <csm:data-point x="1342612264257" y="43355"/>
+      <csm:data-point x="1342610464235" y="39878"/>
+      <csm:data-point x="1342607164350" y="40076"/>
+      <csm:data-point x="1342606564187" y="44221"/>
+      <csm:data-point x="1342562164174" y="40605"/>
+      <csm:data-point x="1342561564244" y="39821"/>
+      <csm:data-point x="1342554664203" y="40159"/>
+      <csm:data-point x="1342480564172" y="40098"/>
+      <csm:data-point x="1342478164201" y="40208"/>
+      <csm:data-point x="1342475461108" y="40475"/>
+      <csm:data-point x="1342355166000" y="39909"/>
+      <csm:data-point x="1342354866000" y="39951"/>
+      <csm:data-point x="1342354566000" y="39784"/>
+      <csm:data-point x="1342354266000" y="39838"/>
+      <csm:data-point x="1342353966000" y="39874"/>
+      <csm:data-point x="1342353666000" y="40019"/>
+      <csm:data-point x="1342316466000" y="39956"/>
+      <csm:data-point x="1342315566000" y="39632"/>
+      <csm:data-point x="1342312566000" y="40034"/>
+      <csm:data-point x="1342307166000" y="39718"/>
+      <csm:data-point x="1342105566000" y="41543"/>
+      <csm:data-point x="1342100166000" y="40285"/>
+      <csm:data-point x="1342092966000" y="40049"/>
+      <csm:data-point x="1342092066000" y="43197"/>
+      <csm:data-point x="1342001166000" y="43299"/>
+    </csm:data-series>
+  </atom:entry>
+  <atom:entry>
+    <atom:title>ProjektThree</atom:title>
+    <atom:id>http://java.domain.local/jenkins/job/ProjektThree/</atom:id>
+    <atom:updated>2012-07-24T17:28:29+02:00</atom:updated>
+    <atom:link ref="alternate" type="text/html" href="http://java.domain.local/jenkins/job/ProjektThree/"/>
+    <atom:summary type="xhtml">
+      <p>Clover Coverage: Elements 67% (34248/50985), <xhtml:br/>Test Result: 0 tests failing out of a total of 5,116 tests., <xhtml:br/>Build stability: No recent builds failed.</p>
+    </atom:summary>
+    <csm:status>information</csm:status>
+    <csm:icon src="img/weather-few-clouds.png"/>
+    <csm:data-series>
+      <csm:data-point x="1343142067710" y="595874"/>
+      <csm:data-point x="1343129467946" y="582506"/>
+      <csm:data-point x="1343128567296" y="587013"/>
+      <csm:data-point x="1343059268040" y="578749"/>
+      <csm:data-point x="1343045768782" y="587286"/>
+      <csm:data-point x="1343044867487" y="577185"/>
+      <csm:data-point x="1343043067672" y="578497"/>
+      <csm:data-point x="1343040367463" y="587350"/>
+      <csm:data-point x="1343039467704" y="600924"/>
+      <csm:data-point x="1342883766777" y="583813"/>
+      <csm:data-point x="1342809974100" y="591827"/>
+      <csm:data-point x="1342803668686" y="586120"/>
+      <csm:data-point x="1342798268582" y="591557"/>
+      <csm:data-point x="1342797367628" y="594200"/>
+      <csm:data-point x="1342796467402" y="586553"/>
+      <csm:data-point x="1342795567629" y="596869"/>
+      <csm:data-point x="1342794669384" y="594032"/>
+      <csm:data-point x="1342793768408" y="593819"/>
+      <csm:data-point x="1342792871034" y="588529"/>
+      <csm:data-point x="1342790168854" y="593669"/>
+      <csm:data-point x="1342788367987" y="578559"/>
+      <csm:data-point x="1342786568288" y="579143"/>
+      <csm:data-point x="1342785667398" y="590196"/>
+      <csm:data-point x="1342782968303" y="582543"/>
+      <csm:data-point x="1342782068239" y="587844"/>
+      <csm:data-point x="1342779368583" y="583737"/>
+      <csm:data-point x="1342777569725" y="582467"/>
+      <csm:data-point x="1342776669462" y="585196"/>
+      <csm:data-point x="1342775768293" y="590227"/>
+      <csm:data-point x="1342772169982" y="595847"/>
+      <csm:data-point x="1342712768878" y="590688"/>
+      <csm:data-point x="1342711867616" y="587770"/>
+      <csm:data-point x="1342709168487" y="588225"/>
+      <csm:data-point x="1342708267700" y="597693"/>
+      <csm:data-point x="1342706469111" y="582425"/>
+      <csm:data-point x="1342699267721" y="580281"/>
+      <csm:data-point x="1342698367355" y="339660"/>
+      <csm:data-point x="1342695667579" y="589012"/>
+      <csm:data-point x="1342693869087" y="582338"/>
+      <csm:data-point x="1342692967111" y="585747"/>
+      <csm:data-point x="1342691167523" y="580673"/>
+      <csm:data-point x="1342687566899" y="580194"/>
+      <csm:data-point x="1342629067925" y="580173"/>
+      <csm:data-point x="1342626367634" y="586257"/>
+      <csm:data-point x="1342614667182" y="576226"/>
+      <csm:data-point x="1342607467474" y="578043"/>
+      <csm:data-point x="1342606567335" y="577370"/>
+      <csm:data-point x="1342605666090" y="587648"/>
+      <csm:data-point x="1342602966970" y="576862"/>
+      <csm:data-point x="1342598466661" y="577993"/>
+      <csm:data-point x="1342538166972" y="579894"/>
+      <csm:data-point x="1342537268797" y="585930"/>
+      <csm:data-point x="1342535466569" y="575284"/>
+      <csm:data-point x="1342519268380" y="576495"/>
+      <csm:data-point x="1342518367036" y="576513"/>
+      <csm:data-point x="1342517466896" y="570889"/>
+      <csm:data-point x="1342457167012" y="574941"/>
+      <csm:data-point x="1342456267464" y="575344"/>
+      <csm:data-point x="1342454466880" y="569324"/>
+      <csm:data-point x="1342449967853" y="582384"/>
+      <csm:data-point x="1342448168415" y="573888"/>
+      <csm:data-point x="1342446368122" y="577335"/>
+      <csm:data-point x="1342442772701" y="576893"/>
+      <csm:data-point x="1342440067387" y="573220"/>
+      <csm:data-point x="1342436466661" y="578719"/>
+      <csm:data-point x="1342435566861" y="573523"/>
+      <csm:data-point x="1342434661523" y="579434"/>
+      <csm:data-point x="1342433758000" y="763189"/>
+      <csm:data-point x="1342426566000" y="580359"/>
+      <csm:data-point x="1342199766000" y="569532"/>
+      <csm:data-point x="1342197966000" y="567894"/>
+      <csm:data-point x="1342186266000" y="576350"/>
+      <csm:data-point x="1342176366000" y="569043"/>
+      <csm:data-point x="1342172766000" y="585573"/>
+      <csm:data-point x="1342170966000" y="574421"/>
+      <csm:data-point x="1342111566000" y="568973"/>
+      <csm:data-point x="1342109766000" y="567077"/>
+      <csm:data-point x="1342108866000" y="584806"/>
+      <csm:data-point x="1342107966000" y="565815"/>
+      <csm:data-point x="1342105266000" y="576586"/>
+      <csm:data-point x="1342104366000" y="574810"/>
+      <csm:data-point x="1342090866000" y="583848"/>
+      <csm:data-point x="1342089066000" y="564939"/>
+      <csm:data-point x="1342087266000" y="566132"/>
+      <csm:data-point x="1342085466000" y="566272"/>
+      <csm:data-point x="1342082766000" y="568092"/>
+      <csm:data-point x="1342023366000" y="564709"/>
+      <csm:data-point x="1342021566000" y="579567"/>
+      <csm:data-point x="1342014366000" y="565806"/>
+      <csm:data-point x="1342013466000" y="563984"/>
+      <csm:data-point x="1342011666000" y="573525"/>
+      <csm:data-point x="1342010766000" y="571532"/>
+      <csm:data-point x="1342002666000" y="564930"/>
+      <csm:data-point x="1341936966000" y="570634"/>
+      <csm:data-point x="1341934266000" y="562551"/>
+    </csm:data-series>
+  </atom:entry>
+</atom:feed>
+
