@@ -43,6 +43,8 @@
    */
   var CaricaStatusMonitorChartTooltip = {
 
+    widget : null,
+
     /**
      * Chart hover event
      *
@@ -72,6 +74,10 @@
       switch (mode) {
       case 'time' :
         return Globalize.format(new Date(value), "f");
+      case 'milliseconds' :
+        return this.widget.formatPeriod(value);
+      case 'integer' :
+        return Globalize.format(value, "n0");
       default :
         return Globalize.format(value, "n");
       }
@@ -123,6 +129,16 @@
 
     template : '<div class="chart"><div class="container"/></div>',
 
+    tooltip : null,
+
+    /**
+     * create a tooltip for the chart widget instance
+     */
+    prepare : function() {
+      this.tooltip = $.extend(true, {}, CaricaStatusMonitorChartTooltip);
+      this.tooltip.widget = this;
+    },
+
     /**
      * Read the feed data and update the chart.
      *
@@ -162,7 +178,7 @@
         options.grid.hoverable = true;
         container.unbind().bind(
           'plothover',
-          $.proxy(CaricaStatusMonitorChartTooltip.onHover, CaricaStatusMonitorChartTooltip)
+          $.proxy(this.tooltip.onHover, this.tooltip)
         );
       }
       $.plot(container, series.data, options);
@@ -184,9 +200,11 @@
         options.timeformat = xml.attr('timeformat') != '' ? xml.attr('timeformat') : null;
         break;
       case 'milliseconds' :
+        options.mode = 'milliseconds';
         options.tickFormatter = $.proxy(this.formatPeriod, this);
         break;
       case 'integer' :
+        options.mode = 'integer';
         options.tickFormatter = $.proxy(this.formatNumeric, this);
         break;
       }
@@ -217,6 +235,9 @@
       var numberIndex = 0;
       var numberIcon = null;
       var result = '';
+      if (value == 0) {
+        return 0;
+      }
       numbers = $.CaricaStatusMonitor.Date.parsePeriod(value);
       for (var i in numbers) {
         if (numbers[i] > 0 || numberIndex > 0 || i == 'ms') {
