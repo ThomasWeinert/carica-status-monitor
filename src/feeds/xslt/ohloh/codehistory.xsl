@@ -19,6 +19,7 @@
     <atom:updated><xsl:value-of select="$currentDate"/></atom:updated>
     <csm:chart-options>
       <csm:axis-x mode="time"/>
+      <csm:axis-y mode="integer"/>
     </csm:chart-options>
     <xsl:for-each select="//series/series">
       <atom:entry>
