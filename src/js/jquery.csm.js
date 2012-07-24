@@ -191,4 +191,29 @@
     }
   };
 
+  $.CaricaStatusMonitor.Date = {
+
+    periods : {
+      y  : 31556926000,
+      m : 2629743830,
+      w : 604800000,
+      d : 86400000,
+      h : 3600000,
+      i : 60000,
+      s : 1000
+    },
+
+    parsePeriod : function(milliseconds) {
+      var period = {};
+      period.sign = (milliseconds > 0) ? '+' : '-';
+      milliseconds = Math.abs(milliseconds);
+      for (var i in this.periods) {
+        period[i] = Math.floor(milliseconds / this.periods[i]);
+        milliseconds -= period[i] * this.periods[i];
+      }
+      period.ms = milliseconds;
+      return period;
+    }
+  };
+
 })(jQuery);

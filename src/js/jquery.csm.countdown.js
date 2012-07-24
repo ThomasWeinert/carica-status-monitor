@@ -13,13 +13,14 @@
     {
       targetTime : 0,
 
-      periods : {
-        year  : 31556926000,
-        month : 2629743830,
-        week : 604800000,
-        day : 86400000,
-        hour : 3600000,
-        minute : 60000
+      periodTitles : {
+        y  : 'years',
+        m : 'months',
+        w : 'weeks',
+        d : 'days',
+        h : 'hours',
+        i : 'minutes',
+        s : 'seconds'
       },
 
       template :
@@ -57,25 +58,12 @@
       refresh : function() {
         var now = new Date();
         var difference = this.targetTime.getTime() - now.getTime();
-        var numbers = {};
         if (difference <= 0) {
-          difference = Math.abs(difference);
           this.node.addClass('error').removeClass('labelApproaching');
         } else if (difference < this.entries.widget.options.approachingLimitMS) {
           this.node.addClass('labelApproaching');
         }
-        numbers.years = Math.floor(difference / this.periods.year);
-        difference -= numbers.years * this.periods.year;
-        numbers.months = Math.floor(difference / this.periods.month);
-        difference -= numbers.months * this.periods.month;
-        numbers.weeks = Math.floor(difference / this.periods.week);
-        difference -= numbers.weeks * this.periods.week;
-        numbers.days = Math.floor(difference / this.periods.day);
-        difference -= numbers.days * this.periods.day;
-        numbers.hours = Math.floor(difference / this.periods.hour);
-        difference -= numbers.hours * this.periods.hour;
-        numbers.minutes = Math.floor(difference / this.periods.minute);
-        numbers.seconds = Math.floor((difference - numbers.minutes * this.periods.minute) / 1000);
+        var numbers = $.CaricaStatusMonitor.Date.parsePeriod(difference);
         var numberIndex = 0;
         var numberIcon = null;
         for (var i in numbers) {
@@ -83,7 +71,7 @@
             numberIndex++;
             numberIcon = this.node.find('.countdownNumber' + numberIndex);
             numberIcon.find('.number').text(numbers[i]);
-            numberIcon.find('.title').text(i);
+            numberIcon.find('.title').text(this.periodTitles[i]);
           }
           if (numberIndex > 2) {
             break;
