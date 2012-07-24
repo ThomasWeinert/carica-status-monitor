@@ -23,6 +23,14 @@
 
 <xsl:template match="/">
   <atom:feed>
+    <xsl:variable name="buildDataLimit" select="(date:seconds() - 86400 * 14) * 1000"/>
+    <xsl:variable name="hasBuildData" select="count(*/job/build[timestamp &gt; $buildDataLimit]) &gt; 0"/>
+    <xsl:if test="$hasBuildData">
+      <csm:chart-options>
+        <csm:axis-x mode="time"/>
+        <csm:axis-y mode="milliseconds"/>
+      </csm:chart-options>
+    </xsl:if>
     <xsl:for-each select="*/job">
       <atom:entry>
         <atom:title><xsl:value-of select="name"/></atom:title>
@@ -81,6 +89,13 @@
             </xsl:choose>
           </xsl:attribute>
         </csm:icon>
+        <xsl:if test="$hasBuildData">
+          <csm:data-series>
+            <xsl:for-each select="build[timestamp &gt; $buildDataLimit]">
+              <csm:data-point x="{timestamp}" y="{duration}"/>
+            </xsl:for-each>
+          </csm:data-series>
+        </xsl:if>
       </atom:entry>
     </xsl:for-each>
   </atom:feed>
