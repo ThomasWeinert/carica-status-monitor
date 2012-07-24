@@ -17,8 +17,8 @@
   1 = jobs and details about them including the build list
   2 = jobs, details and build details 
   
-  This template currently handles informations from the jobs list and the job details,
-  but no build details.
+  This template currently handles informations from the jobs list and the job details for the 
+  atom reader and build times for the chart widget.
 -->
 
 <xsl:template match="/">
