@@ -78,7 +78,7 @@
       <xsl:when test="starts-with($withoutSeconds, 'am')">am</xsl:when>
       <xsl:when test="starts-with($withoutSeconds, 'AM')">am</xsl:when>
       <xsl:when test="starts-with($withoutSeconds, 'pm')">pm</xsl:when>
-      <xsl:when test="starts-with($withoutSeconds, 'pm')">pm</xsl:when>
+      <xsl:when test="starts-with($withoutSeconds, 'PM')">pm</xsl:when>
     </xsl:choose>
   </xsl:variable>
   <xsl:variable name="zone">
@@ -139,6 +139,9 @@
     <xsl:choose>
       <xsl:when test="$timezones[@code = $zone]">
         <xsl:value-of select="$timezones[@code = $zone]/@offset"/>
+      </xsl:when>
+      <xsl:when test="starts-with($zone, '-') or starts-with($zone, '+')">
+        <xsl:value-of select="$zone"/>
       </xsl:when>
       <xsl:otherwise>Z</xsl:otherwise>
     </xsl:choose>
