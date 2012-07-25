@@ -230,7 +230,7 @@
         this.node.find('.numberIcon .title').text(Globalize.format(startDate, "MMM"));
         this.node.find('.numberIcon .number').text(Globalize.format(startDate, " d"));
         if (Globalize.format(startDate, "d") == Globalize.format(new Date(), "d")) {
-          this.node.find('.numberIcon').removeClass('labelAllDay').addClass('today');
+          this.node.find('.numberIcon').removeClass('labelAllDay').addClass('labelToday');
         } else if (startDateFormat != 'DATE-TIME') {
           this.node.find('.numberIcon').removeClass('labelToday').addClass('labelAllDay');
         } else {
