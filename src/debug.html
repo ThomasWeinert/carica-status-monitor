@@ -15,17 +15,25 @@
     <div id="widgets">
       <div class="widget" 
            data-plugin="chart" 
-           data-url="feeds/atom.php?url=http://example.tld/ohloh/lines.atom.xml" 
+           data-url="feeds/atom.php?url=http://example.tld/ohloh/lines.atom.xml"
            data-interval="600">
         <h2>Chart</h2>
       </div>
       <div class="widget" 
            data-plugin="feed" 
-           data-url="feeds/atom.php?url=http://example.tld/sample-buildstatus.xml"           
+           data-url="feeds/atom.php?url=http://example.tld/sample-buildstatus.xml"
            data-interval="60" 
            data-max="8" 
            data-refresh="all">
         <h2>Atom Reader</h2>
+      </div>
+      <div class="widget" 
+           data-plugin="sparklines" 
+           data-url="feeds/atom.php?url=http://example.tld/ohloh/lines.atom.xml"
+           data-interval="60" 
+           data-max="8" 
+           data-refresh="all">
+        <h2>Sparklines</h2>
       </div>
       <div class="widget" 
            data-plugin="feed" 
@@ -55,6 +63,7 @@
     <script type="text/javascript" src="js/jquery.csm.chart.js"></script>
     <script type="text/javascript" src="js/jquery.csm.countdown.js"></script>
     <script type="text/javascript" src="js/jquery.csm.hashreplace.js"></script>
+    <script type="text/javascript" src="js/jquery.csm.sparklines.js"></script>
     <script type="text/javascript" src="js/jquery.csm.weatherclock.js"></script>
     <script type="text/javascript">
       jQuery(document).ready(

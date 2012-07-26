@@ -25,6 +25,10 @@
         file : 'js/jquery.csm.chart.js',
         object : 'CaricaStatusMonitorChart'
       },
+      sparklines : {
+        file : 'js/jquery.csm.sparklines.js',
+        object : 'CaricaStatusMonitorSparklines'
+      },
       clock : {
         file : 'js/jquery.csm.weatherclock.js',
         object : 'CaricaStatusMonitorWeatherClock'
