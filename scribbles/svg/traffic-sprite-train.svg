@@ -13,7 +13,7 @@
    height="48px"
    id="svg2816"
    version="1.1"
-   inkscape:version="0.47 r22583"
+   inkscape:version="0.48.2 r9819"
    sodipodi:docname="traffic-sprite-train.svg"
    inkscape:export-filename="Y:\weinert\modules\spielwiese\htdocs\carica-status-monitor\scribbles\traffic-sprite-train.png"
    inkscape:export-xdpi="90"
@@ -45,16 +45,16 @@
      inkscape:pageshadow="2"
      inkscape:zoom="19.789869"
      inkscape:cx="24.00218"
-     inkscape:cy="29.636376"
+     inkscape:cy="29.206863"
      inkscape:current-layer="layer1"
      showgrid="true"
      inkscape:grid-bbox="true"
      inkscape:document-units="px"
      inkscape:snap-grids="false"
-     inkscape:window-width="1680"
-     inkscape:window-height="1000"
-     inkscape:window-x="1042"
-     inkscape:window-y="312"
+     inkscape:window-width="1050"
+     inkscape:window-height="1658"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
      inkscape:window-maximized="1">
     <inkscape:grid
        type="xygrid"
@@ -72,7 +72,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -105,16 +105,6 @@
        style="fill:none;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="m 15.550677,30.528722 16.727819,0"
        id="path3620" />
-    <text
-       xml:space="preserve"
-       style="font-size:13.88197517px;font-style:normal;font-weight:normal;fill:#ffffff;fill-opacity:1;stroke:none;font-family:Bitstream Vera Sans"
-       x="16.140636"
-       y="46.079399"
-       id="text2834"><tspan
-         sodipodi:role="line"
-         id="tspan2836"
-         x="16.140636"
-         y="46.079399">11</tspan></text>
     <rect
        style="fill:#3465a4;fill-opacity:1;fill-rule:nonzero;stroke:#204a87;stroke-width:0.99999994000000003;stroke-linecap:round;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none;stroke-dashoffset:0"
        id="rect2840"
