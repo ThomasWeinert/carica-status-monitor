@@ -41,8 +41,14 @@
       updateData : function(data, xml) {
         var data = this.readDatapoints(xml);
         this.node.find('h3').text(xml.find('atom|title').text());
-        this.node.find('.number').text(data[data.length - 1][1]);
-        this.node.find('.sparkline').width(this.entries.widget.node.width() - 80);
+        this.node.find('.number').text(
+          $.CaricaStatusMonitor.Number.roundWithUnit(
+            data[data.length - 1][1]
+          )
+        );
+        this.node.find('.sparkline').width(
+          this.entries.widget.node.width() - 160
+        );
         $.plot(
           this.node.find('.sparkline'),
           [ data ],

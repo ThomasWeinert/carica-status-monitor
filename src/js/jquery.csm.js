@@ -220,4 +220,22 @@
     }
   };
 
+  $.CaricaStatusMonitor.Number = {
+    roundWithUnit : function(value) {
+      var multiple = {
+        P : 1000000000000000,
+        T : 1000000000000,
+        G : 1000000000,
+        M : 1000000,
+        k : 1000,
+      };
+      for (var i in multiple) {
+        if (value >= multiple[i]) {
+          return (value / multiple[i]).toFixed(0) + i;
+        }
+      }
+      return value.toFixed(0);
+    }
+  };
+
 })(jQuery);

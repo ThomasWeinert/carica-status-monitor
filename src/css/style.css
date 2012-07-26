@@ -239,6 +239,22 @@ div.chart {
   background-color: #ccc;
   opacity: 0.90;
 }
+/* Sparklines widget */
+ul.sparklines .item .number {
+  float: left;
+  font-size: 4em;
+  text-align: right;
+  width: 140px;
+}
+ul.sparklines .item .teaser {
+  padding: 0;
+  margin-left: 150px;
+}
+ul.sparklines .item .teaser h3 {
+}
+ul.sparklines .item .teaser .sparkline {
+}
+
 /* Countdown widget */
 ul.countdown .timer .numberIcon {
   margin: 0 0.2em 0 0;

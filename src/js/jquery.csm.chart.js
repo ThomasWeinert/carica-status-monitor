@@ -230,10 +230,9 @@
         i : 'min',
         s : 's',
         ms : 'ms'
-      }
+      };
       var numbers = {};
       var numberIndex = 0;
-      var numberIcon = null;
       var result = '';
       if (value == 0) {
         return 0;
@@ -259,19 +258,7 @@
      * @param axis
      */
     formatNumeric : function(value, axis) {
-      var multiple = {
-        P : 1000000000000000,
-        T : 1000000000000,
-        G : 1000000000,
-        M : 1000000,
-        k : 1000,
-      }
-      for (var i in multiple) {
-        if (value >= multiple[i]) {
-          return (value / multiple[i]).toFixed(0) + i;
-        }
-      }
-      return value.toFixed(0);
+      return $.CaricaStatusMonitor.Number.roundWithUnit(value);
     }
   };
 
