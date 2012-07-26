@@ -67,7 +67,7 @@
         var numberIndex = 0;
         var numberIcon = null;
         for (var i in numbers) {
-          if (numbers[i] > 0 || numberIndex > 0 || i == 'hours') {
+          if (numbers[i] > 0 || numberIndex > 0 || i == 'h') {
             numberIndex++;
             numberIcon = this.node.find('.countdownNumber' + numberIndex);
             numberIcon.find('.number').text(numbers[i]);
