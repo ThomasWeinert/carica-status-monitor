@@ -210,7 +210,8 @@ ul.feed li .teaser {
   font-size: 0.75em;
   min-height: 3em;
   max-height: 7.5em;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 ul.feed li h3 {
   font-size: 1em;
@@ -250,7 +251,8 @@ ul.countdown li .teaser {
   font-size: 0.75em;
   min-height: 3em;
   max-height: 7.5em;
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 ul.countdown li h3 {
   font-size: 1em;
