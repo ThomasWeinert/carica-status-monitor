@@ -72,17 +72,17 @@
               <xsl:when test="contains(color, '_anim')">
                 <xsl:text>img/refresh-animated.png</xsl:text>
               </xsl:when>
+              <xsl:when test="$status = 'error'">
+                <xsl:text>img/face-devilish.png</xsl:text>
+              </xsl:when>
               <xsl:when test="healthReport">
                 <xsl:call-template name="icon-from-health-report">
                   <xsl:with-param name="reports" select="healthReport"/>
                 </xsl:call-template>
               </xsl:when>
-              <xsl:when test="$status = 'error'">
-                <xsl:text>img/face-devilish.png</xsl:text>
+              <xsl:when test="starts-with(color, 'disabled')">
+                <xsl:text>img/face-plain.png</xsl:text>
               </xsl:when>
-            <xsl:when test="starts-with(color, 'disabled')">
-              <xsl:text>img/face-plain.png</xsl:text>
-            </xsl:when>
               <xsl:otherwise>
                 <xsl:text>img/face-angel.png</xsl:text>
               </xsl:otherwise>
