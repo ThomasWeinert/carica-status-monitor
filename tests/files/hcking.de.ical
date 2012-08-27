@@ -3,176 +3,132 @@ PRODID;X-RICAL-TZSOURCE=TZINFO:-//com.denhaven2/NONSGML ri_cal gem//EN
 CALSCALE:GREGORIAN
 VERSION:2.0
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120619T230000Z
-DTSTART;VALUE=DATE-TIME:20120619T180000Z
-DESCRIPTION:Für den Juni hat die Eclipse Foundation wieder zu einer Demo
- Camp Serie aufgerufen. Auch diesmal wird es ein Eclipse DemoCamp in Bonn
-  geben. Die Veranstaltung ist wie gewohnt kostenlos. \n\nBisher konnten 
- wir folgende Vortragende gewinnen:\n\n- Moritz Eysholdt\, Eclipse Xtend:
-  java.lang.remove(overhead).add(sugar)\n- Markus Knauer\, (EclipseSource
- ): RAP mobile in action\n- Axel Terfloth\, YAKINDU HMI\n- Ömer Gürsoy\
- , YAKINDU Requirements und Traceability\n- Michael Wenz\, Graphiti\n- Ma
- tthias Zimmermann und Jonas Mendler\, Eclipse Scout \n- Lilija Klassen\,
-  Robert Wagner\, Büro für Softwaretechnik\, EMorF - Modelltransformati
- onen leicht gemacht.\nMartin Taal\, Texo\n\nIn unregelmäßigen abständ
- en ruft die Eclipse Foundation dazu auf\, sogenannte Demo Days zu verans
- talten. Dabei hält es sich um lokal organisierte Treffen\, die Neuigkei
- ten und interessante Entwicklungen in der Eclipse Szene zeigen sollen.
-URL:http://hcking.de/events/125/dates/740
-SUMMARY:Eclipse DemoCamp (Bonner Democamp)
-LOCATION:Collegium Leoninum Bonn\, Noeggerathstrasse 34\, 53111 Bonn
+DTEND;VALUE=DATE:20120818
+DTSTART;VALUE=DATE:20120818
+DESCRIPTION:Das weltweit größte Messe- und Event-Highlight für interak
+ tive Spiele und Unterhaltung...
+URL:http://hcking.de/events/8/dates/338
+SUMMARY:Gamescom
+LOCATION:Messe Köln\, Messeplatz 1\, 50679 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120620T190000Z
-DTSTART;VALUE=DATE-TIME:20120620T170000Z
-DESCRIPTION:1. Why we love Open Source and still use Google Maps? (@klaus
- topher): Über OSM und Leaflet.js\n2. Ruby is Magic #4 \n3. Vagrant\, Pu
- ppet und God \n\nHier treffen sich alle Ruby-Entwickler in Köln und Umg
- ebung.
-URL:http://hcking.de/events/40/dates/715
-SUMMARY:Cologne.rb (OSM\, Vagrant\, Puppet und ein bisschen Magic)
-LOCATION:triAGENS\, Brüsseler Str. 89-93\, 50672 Köln
+DTEND;VALUE=DATE:20120818
+DTSTART;VALUE=DATE:20120818
+DESCRIPTION:European Ruby Conference & Camp
+URL:http://hcking.de/events/123/dates/712
+SUMMARY:Eurucamp
+LOCATION:Berlin
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120621T200000Z
-DTSTART;VALUE=DATE-TIME:20120621T163000Z
-DESCRIPTION:An diesem Abend werden vier prominente Experten sich mit dem 
- Thema Modellierung für Programmierer auseinandersetzten: Was ist Modell
- ierung überhaupt\, und welche Modellierungssprachen gibt es? Wie stehen
-  Programmierung und Modellierung zueinander? Und nicht zuletzt: Was bede
- utet die Entwicklung im Bereich Modellierung für Programmierer\, und we
- lche Skills werden in den nächsten Jahren gebraucht werden?\n\nDie rhei
- njug bietet allen\, die beruflich oder privat mit Java zu tun haben\, ak
- tuelle Informationen sowie die Möglichkeit\, neue interessante Kontakte
-  zu knüpfen. Alle zwei Monate finden dazu an der Heinrich-Heine Univers
- ität hochqualitative Java-Fachvorträge statt.
-URL:http://hcking.de/events/44/dates/657
-SUMMARY:rheinjug - Java Usergroup Düsseldorf (Modellierst Du schon oder 
- programmierst Du noch?)
-LOCATION:Universität Düsseldorf\, Gebäude 25.12\, Hörsaal 5F\, Univer
- sitätsstraße 1\, 40225 Düsseldorf
+DTEND;VALUE=DATE:20120819
+DTSTART;VALUE=DATE:20120819
+DESCRIPTION:Das weltweit größte Messe- und Event-Highlight für interak
+ tive Spiele und Unterhaltung...
+URL:http://hcking.de/events/8/dates/41
+SUMMARY:Gamescom
+LOCATION:Messe Köln\, Messeplatz 1\, 50679 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120621T190000Z
-DTSTART;VALUE=DATE-TIME:20120621T170000Z
-DESCRIPTION:Die Cologne Clojure User Group and Functional Programming Gro
- up trifft sich jeden 3. Donnerstag im Monat und beschäftigt sich mit Cl
- ojure und anderen Themen / Programmiersprachen der Funktionalen Programm
- ierung.\n\nJeder ist herzlich dazu eingeladen\, an den Treffen der Colog
- ne Clojure User Group and Functional Programming Group teilzunehmen und 
- diese mitzugestalten. Da wir auch eine Functional Programming Group für
-  den Raum Köln sind\, werden auch Vorträge über andere funktionale Pr
- ogrammiersprachen als Clojure gerne gesehen.\n\nBei jedem Treffen gibt e
- s einen größeren Talk (ca. 30 Minuten)\, danach ist der Abend frei ges
- taltbar mit z. B. Hacking\, fünfminütigen Lighting Talks\, Diskussione
- n\, Coding Dojos ...\n\nAuch Clojure-Interessierte sind herzlich willkom
- men und werden im frei gestaltbaren Teil des Abends von den anderen User
-  Group Mitgliedern mit nützlichen Tipps und Erklärungen zu Clojure ver
- sorgt.
-URL:http://hcking.de/events/6/dates/33
-SUMMARY:Cologne Clojure User Group
-LOCATION:Cowoco\, Gasmotorenfabrik\, 3. Stock\, Deutz-Mülheimerstraße 1
- 29\, 51063 Köln
+DTEND;VALUE=DATE:20120819
+DTSTART;VALUE=DATE:20120819
+DESCRIPTION:European Ruby Conference & Camp
+URL:http://hcking.de/events/123/dates/713
+SUMMARY:Eurucamp
+LOCATION:Berlin
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120622T163000Z
-DTSTART;VALUE=DATE-TIME:20120622T153000Z
-DESCRIPTION:Unsere Idee\n\n* Regelmäßiges gemeinsames Entwickler-Treffe
- n\n* Erfahrungsaustausch zu technischen Fragestellungen oder Projektsitu
- ationen\n* Gemeinsames Arbeiten in Projekten und persönliche Weiterentw
- icklung im Team
-URL:http://hcking.de/events/96/dates/703
-SUMMARY:Goldschmiede - Kodieren auf (mit) Kölsch (Node.js)
-LOCATION:anderScore GmbH\, Frankenwerft 35\, 50667 Köln
+DTEND;VALUE=DATE-TIME:20120820T190000Z
+DTSTART;VALUE=DATE-TIME:20120820T170000Z
+DESCRIPTION:A place to meet for people interested in all things agile.\n\
+ nThe meetup is loosely organized by a fluxing bunch of volunteers\, inde
+ pendent of any company. \n\nTopics are: Agile Software Development pract
+ ices\, principles and values. We touch on XP\, Scrum\, Kanban\, Katas\, 
+ Dojos\, Testing\, TDD\, Pair-programming\, Continuous Integration\, User
+  Stories\, and many other related topics.
+URL:http://hcking.de/events/5/dates/23
+SUMMARY:Bonn Agile Meetup
+LOCATION:Diverse Orte in und um Bonn\, Bonn
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE:20120623
-DTSTART;VALUE=DATE:20120623
-DESCRIPTION:Am 23. und 24. Juni ist es wieder so weit. Das Medienfest.NRW
-  öffnet zwei Tage lang für euch die Tore des MediaPark 6 + 7 in Köln 
- und versorgt euch mit Infos\, Vorträgen und Workshops zum Einstieg in d
- ie Medienbranche. \n\nAuch in 2012 haben wir ein abwechslungsreiches Pro
- gramm für euch zusammengestellt: in über 100 kostenlosen Veranstaltung
- en wollen wir euch helfen\, euren Traumjob zu finden.  Vom 3D-Animations
- workshop über Berichte aus der Berufswelt bis hin zu Bewerbungstipps - 
- da ist bestimmt für jeden von euch etwas dabei.
-URL:http://hcking.de/events/118/dates/671
-SUMMARY:Medienfest.NRW
-LOCATION:MediaPark\, Im MediaPark 6 und 7\, 50670 Köln
+DTEND;VALUE=DATE-TIME:20120820T193000Z
+DTSTART;VALUE=DATE-TIME:20120820T173000Z
+DESCRIPTION:Herzlichen willkommen sind alle aus dem Bonner Raum\, die sic
+ h beruflich mit Themen des Internets auseinandersetzen oder sich privat 
+ engagieren\, in dem sie z.B. Open-Source-Projekte betreiben. Es wird nie
+ mand kategorisch ausgeschlossen und natürlich darf man auch unangemelde
+ t erscheinen (was nur die Planung etwas erschwert).
+URL:http://hcking.de/events/85/dates/447
+SUMMARY:Webmontag Bonn
+LOCATION:Waschsalon Innovationspoint\, Kaiserstr. 1b\, 53113 Bonn
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE:20120623
-DTSTART;VALUE=DATE:20120623
-DESCRIPTION:Du hast einen hohen Anspruch an die Software\, die Du entwick
- elst? Sie soll gut vertestet und leicht änderbar sein? Dann komm vorbei
- ! Wir möchten voneinander lernen und uns zu Software Craftsmanship sowi
- e verwandten Themen (Clean Code\, TDD\, etc.) austauschen.
-URL:http://hcking.de/events/119/dates/690
-SUMMARY:Düsseldorfer Softwerkskammer Konferenz
-LOCATION:sipgate GmbH\, Gladbacher Str. 74\, 40219 Düsseldorf
+DTEND;VALUE=DATE-TIME:20120823T190000Z
+DTSTART;VALUE=DATE-TIME:20120823T170000Z
+DESCRIPTION:Stammtisch der OpenStreetMap User im Rhein-Sieg Kreis und Bon
+ n.
+URL:http://hcking.de/events/11/dates/244
+SUMMARY:OpenStreetmap Stammtisch Bonn
+LOCATION:Greenfield-Lounge\, Christian-Miesen-Strasse 1\, 53129 Bonn
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE:20120624
-DTSTART;VALUE=DATE:20120624
-DESCRIPTION:Am 23. und 24. Juni ist es wieder so weit. Das Medienfest.NRW
-  öffnet zwei Tage lang für euch die Tore des MediaPark 6 + 7 in Köln 
- und versorgt euch mit Infos\, Vorträgen und Workshops zum Einstieg in d
- ie Medienbranche. \n\nAuch in 2012 haben wir ein abwechslungsreiches Pro
- gramm für euch zusammengestellt: in über 100 kostenlosen Veranstaltung
- en wollen wir euch helfen\, euren Traumjob zu finden.  Vom 3D-Animations
- workshop über Berichte aus der Berufswelt bis hin zu Bewerbungstipps - 
- da ist bestimmt für jeden von euch etwas dabei.
-URL:http://hcking.de/events/118/dates/672
-SUMMARY:Medienfest.NRW
-LOCATION:MediaPark\, Im MediaPark 6 und 7\, 50670 Köln
+DTEND;VALUE=DATE-TIME:20120824T213000Z
+DTSTART;VALUE=DATE-TIME:20120824T173000Z
+DESCRIPTION:### Agenda: \n\n19:30 Einlass & Begrüßung\n20:00 Unternehme
+ nspräsentation Pixelpark \n20:15 Xtend Talk + anschließender Fragen \n
+ 21:30 Wechselpause \n21:45 JBoss Forge Talk + anschließender Fragen \nc
+ a. 23Uhr Zug durch die Gemeinde \n\nDie Java Usergroup Köln trifft sich
+  einmal jeden Monat an wechselnden Locations.
+URL:http://hcking.de/events/39/dates/741
+SUMMARY:jugcologne - Java Usergroup Köln (Xtend / JBoss)
+LOCATION:Pixelpark AG  Geschäftsbereich Agentur \, Cäcilienkloster 2\, 
+ 50676 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120625T200000Z
-DTSTART;VALUE=DATE-TIME:20120625T170000Z
-DESCRIPTION:Wir sprechen gemeinsam über das neue Design für NerdHub :)\
- n\nDas Team hinter NerdHub (das ist das Team von hcking.de und Droid Boy
- s Kalender + redaktioneller Teil) trifft sich ab und zu\, um gemeinsam a
- m Projekt zu hacken\, zukünftige Schritte zu besprechen oder um einfach
-  ein Bierchen zu trinken. Zu unseren Hackathons seid ihr alle herzlich e
- ingeladen! Das ist die perfekte Chance\, um Contributor zu werden \;)
-URL:http://hcking.de/events/124/dates/738
-SUMMARY:NerdHub aka Hcking.de (Design Treffen)
-LOCATION:cowoco\, Deutz-Mülheimer Straße 129\, 51063 Köln
+DTEND;VALUE=DATE:20120825
+DTSTART;VALUE=DATE:20120825
+DESCRIPTION:Free Software and Open Source – these are the topics of FrO
+ SCon (Free and Open Source Software Conference). The computer science de
+ partment of the University of Applied Sciences Bonn-Rhein-Sieg\, support
+ ed by LUUSA and FrOSCon e.V. are yearly presenting an exciting programm 
+ with talks\, workshops and an exhibition the third weekend in August. Th
+ e social event\, that takes place saturday night gives you the opportuni
+ ty to exchange opinions with other visitors\, speakers or volunteers. 20
+ 11 the sixth conference will take place on August\, 20st and 21nd.
+URL:http://hcking.de/events/10/dates/659
+SUMMARY:Froscon
+LOCATION:Hochschule Bonn-Rhein-Sieg\, Grantham-Allee 20\, 53757 Sankt Aug
+ ustin
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120626T200000Z
-DTSTART;VALUE=DATE-TIME:20120626T180000Z
+DTEND;VALUE=DATE:20120826
+DTSTART;VALUE=DATE:20120826
+DESCRIPTION:Free Software and Open Source – these are the topics of FrO
+ SCon (Free and Open Source Software Conference). The computer science de
+ partment of the University of Applied Sciences Bonn-Rhein-Sieg\, support
+ ed by LUUSA and FrOSCon e.V. are yearly presenting an exciting programm 
+ with talks\, workshops and an exhibition the third weekend in August. Th
+ e social event\, that takes place saturday night gives you the opportuni
+ ty to exchange opinions with other visitors\, speakers or volunteers. 20
+ 11 the sixth conference will take place on August\, 20st and 21nd.
+URL:http://hcking.de/events/10/dates/660
+SUMMARY:Froscon
+LOCATION:Hochschule Bonn-Rhein-Sieg\, Grantham-Allee 20\, 53757 Sankt Aug
+ ustin
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120828T200000Z
+DTSTART;VALUE=DATE-TIME:20120828T180000Z
 DESCRIPTION:Der LastTuesday ist der Networking-Stammtisch der Kölner Int
  ernet Union (KIU) für Mitglieder und Interessierte\, findet schon viele
   Jahre statt und jeder ist bei uns herzlich willkommen. Kosten fallen nu
  r für verzehrte Speisen- und Getränke an.
-URL:http://hcking.de/events/38/dates/165
+URL:http://hcking.de/events/38/dates/167
 SUMMARY:KIU: Last Tuesday
 LOCATION:Hotel am Augustinerplatz\, Hohe Straße 30\, 50667 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120627T193000Z
-DTSTART;VALUE=DATE-TIME:20120627T163000Z
-DESCRIPTION:Da ich zum regulären dorkbot Termin noch in Bremen sein werd
- e\, findet\ndas nächste dorkbot.de Treffen in Aachen\, wie beim letzten
-  Treffen\nangekündigt\, am 27.6. statt. Der Termin für das nächste Tr
- effen kann\nauch immer auf unserer [Homepage](http://www.dorkbot.de) nac
- hgeschlagen werden.\n\ndorkbot ist ein internationales Netz von Gruppen\
- , die Spaß an interaktiver Kunst und elektronischen Hacks haben. Als ei
- ne der ersten deutschen Gruppen gibt es dorkbot jetzt auch in Aachen. Wi
- r befassen uns in den Treffen unter anderem mit Arduino Microcontrollerb
- oards.\n\nWir treffen uns im Raum 2010 im Erdgeschoss. Die Türen des Ge
- bäudes schließen um 19 Uhr. Geh zum Eingang an der Halifaxstraße – 
- dort ist ein Schild mit einer Telefonnummer. Oder ruf die folgende Numme
- r an: 0241/8021060.
-URL:http://hcking.de/events/57/dates/736
-SUMMARY:dorkbot-ac
-LOCATION:Media Computing Group at RWTH Aachen University\, Ahornstraße 5
- 5\, 52074 Aachen
-END:VEVENT
-BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120627T190000Z
-DTSTART;VALUE=DATE-TIME:20120627T170000Z
+DTEND;VALUE=DATE-TIME:20120829T190000Z
+DTSTART;VALUE=DATE-TIME:20120829T170000Z
 DESCRIPTION:Der Zweck des Vereins ist die Pflege der Sperrtechnik als spo
  rtliche Herausforderung. Unter dem Begriff Sperrtechnik verstehen wir s
  ämtliche Verfahren und Kenntnisse\, welche mittels mechanischer und/ode
@@ -180,13 +136,13 @@ DESCRIPTION:Der Zweck des Vereins ist die Pflege der Sperrtechnik als spo
  herheitstechnologie) den Zugang beschränken. Des weiteren strebt der Ve
  rein einen Informationsaustausch an\, dieser soll unter anderem mit unse
  rem Wissens-Wiki verwirklicht werden.
-URL:http://hcking.de/events/14/dates/87
+URL:http://hcking.de/events/14/dates/89
 SUMMARY:Sportfreunde der Sperrtechnik
 LOCATION:NaturFreundehaus Köln-Kalk\, Kapellenstraße 9a\, 51103 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120628T190000Z
-DTSTART;VALUE=DATE-TIME:20120628T170000Z
+DTEND;VALUE=DATE-TIME:20120830T190000Z
+DTSTART;VALUE=DATE-TIME:20120830T170000Z
 DESCRIPTION:CocoaHeads.org is an international group devoted to discussio
  n of Apple's Cocoa Framework for programming on MacOS X. During monthly 
  meetings\, members present on their projects and offer tutorials on vari
@@ -194,165 +150,178 @@ DESCRIPTION:CocoaHeads.org is an international group devoted to discussio
   by the Media Computing and Human-Computer Interaction Group at RWTH Aac
  hen University and supported by Apple. We get together for informal shor
  t talks and demos\, have a pizza\, and talk code.
-URL:http://hcking.de/events/12/dates/63
+URL:http://hcking.de/events/12/dates/553
 SUMMARY:Cocoaheads Aachen
 LOCATION:RWTH Aachen University\, Computer Science Centre\, Room 2010\, A
  hornstr. 55\, 52074 Aachen
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120628T210000Z
-DTSTART;VALUE=DATE-TIME:20120628T170000Z
-DESCRIPTION:Meet with other web site system administrators\, developers\,
-  designers and business people who're interested in making their sites w
- ork fast to get better user experience\, lower abandonment rates and mor
- e money.
-URL:http://hcking.de/events/61/dates/406
-SUMMARY:Cologne Web Performance Optimization Group
-LOCATION:eco Verband der deutschen Internetwirtschaft e.V.\, Lichtstr. 43
- h\, 50825 Köln
-END:VEVENT
-BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120628T190000Z
-DTSTART;VALUE=DATE-TIME:20120628T170000Z
-DESCRIPTION:Stammtisch der OpenStreetMap User im Rhein-Sieg Kreis und Bon
- n.
-URL:http://hcking.de/events/11/dates/242
-SUMMARY:OpenStreetmap Stammtisch Bonn
-LOCATION:Greenfield-Lounge\, Christian-Miesen-Strasse 1\, 53129 Bonn
-END:VEVENT
-BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120628T210000Z
-DTSTART;VALUE=DATE-TIME:20120628T180000Z
+DTEND;VALUE=DATE-TIME:20120830T210000Z
+DTSTART;VALUE=DATE-TIME:20120830T180000Z
 DESCRIPTION:Das OpenChaos ist eine Bildungsveranstaltung mit der Option d
  en C4 kennenzulernen. Es findet am letzten Donnerstag jedes Monats (auß
  er Dezember\, wegen Weihnachten und Chaos Communication Congress) ab 20:
  00h (Ab 19:30h ist auf jeden Fall schon die Tür offen) im Clubraum stat
  t. Wann das genau ist und um welches Thema es geht steht auf unserer Hom
  epage.
-URL:http://hcking.de/events/13/dates/75
+URL:http://hcking.de/events/13/dates/77
 SUMMARY:OpenChaos Köln
 LOCATION:Chaos Computer Club Cologne (C4)\, Heliosstraße 6a\, 50825 Köl
  n
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120629T210000Z
-DTSTART;VALUE=DATE-TIME:20120629T170000Z
-DESCRIPTION:DevHouseFriday is an event intended for creative and curious 
- people interested in technology inspired by SuperHappyDevHouse. Once a m
- onth (on fridays) we talk about technology and share our knowledge while
-  meeting new people and learning stuff we are all interested in.
-URL:http://hcking.de/events/9/dates/386
-SUMMARY:DevHouse Friday
-LOCATION:Diverse Locations in\, Köln
-END:VEVENT
-BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120629T190000Z
-DTSTART;VALUE=DATE-TIME:20120629T170000Z
+DTEND;VALUE=DATE-TIME:20120831T190000Z
+DTSTART;VALUE=DATE-TIME:20120831T170000Z
 DESCRIPTION:Die Java Usergroup Köln trifft sich einmal jeden Monat an we
  chselnden Locations.
-URL:http://hcking.de/events/39/dates/177
+URL:http://hcking.de/events/39/dates/179
 SUMMARY:jugcologne - Java Usergroup Köln
-LOCATION:boquerones\, Lindenstraße 8\, 50674 Köln
+LOCATION:50667 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120703T200000Z
-DTSTART;VALUE=DATE-TIME:20120703T170000Z
+DTEND;VALUE=DATE:20120901
+DTSTART;VALUE=DATE:20120901
+DESCRIPTION:BrainCamp – die lockere\, inspirierende Diskussions- und Ne
+ tworking-Plattform für Kreative\, Macher und Newbies aus den Bereichen 
+ Mobile\, Web- und Software-Entwicklung.\n \nBasierend auf dem BarCamp-Ko
+ nzept bestimmen die Teilnehmer des BrainCamp das Programm beider Veranst
+ altungstage selbst. Im Gegensatz zu den offenen BarCamps ist das BrainCa
+ mp ein ThemenCamp: Der Fokus liegt auf Inhalten aus den Bereichen Mobile
+ \, Web- und Software-Entwicklung.\nJeder kann seine Sessionvorschläge s
+ chon jetzt eintragen. Die endgültige Sessionplanung erfolgt dann wie ge
+ wohnt nach der Begrüßungsrunde - mit dem Ziel\, ein vielfältiges Vort
+ ragsprogramm inklusive „rotem Faden“ für die Camper zu schaffen. Da
+ bei sollte jeder Session nicht länger als 45 Minuten dauern.
+URL:http://hcking.de/events/129/dates/752
+SUMMARY:Braincamp
+LOCATION:CARDEA Akademie\, Vogelsanger Straße 80a\, 50823 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE:20120902
+DTSTART;VALUE=DATE:20120902
+DESCRIPTION:BrainCamp – die lockere\, inspirierende Diskussions- und Ne
+ tworking-Plattform für Kreative\, Macher und Newbies aus den Bereichen 
+ Mobile\, Web- und Software-Entwicklung.\n \nBasierend auf dem BarCamp-Ko
+ nzept bestimmen die Teilnehmer des BrainCamp das Programm beider Veranst
+ altungstage selbst. Im Gegensatz zu den offenen BarCamps ist das BrainCa
+ mp ein ThemenCamp: Der Fokus liegt auf Inhalten aus den Bereichen Mobile
+ \, Web- und Software-Entwicklung.\nJeder kann seine Sessionvorschläge s
+ chon jetzt eintragen. Die endgültige Sessionplanung erfolgt dann wie ge
+ wohnt nach der Begrüßungsrunde - mit dem Ziel\, ein vielfältiges Vort
+ ragsprogramm inklusive „rotem Faden“ für die Camper zu schaffen. Da
+ bei sollte jeder Session nicht länger als 45 Minuten dauern.
+URL:http://hcking.de/events/129/dates/753
+SUMMARY:Braincamp
+LOCATION:CARDEA Akademie\, Vogelsanger Straße 80a\, 50823 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120904T200000Z
+DTSTART;VALUE=DATE-TIME:20120904T170000Z
 DESCRIPTION:Der Linux-Workshop Köln (LiWoK) ist eine Gruppe von Linux-An
  wendern in Köln\, die sich jeden ersten Dienstag im Monat treffen. Gege
  nstand der Treffen sind kurze Vorträge und Erfahrungsberichte von Anwen
  dern\, Erfahrungsaustausch und Hilfestellung und Problemdiskussionen. De
  r gesellige Teil kommt nicht zu kurz.
-URL:http://hcking.de/events/16/dates/111
+URL:http://hcking.de/events/16/dates/113
 SUMMARY:Linux Workshop Köln
 LOCATION:ZAIK/AFS (Zentrum für Angewandte Informatik Köln\, Arbeitsgrup
  pe Faigle/Schrader) - im Keller links\, Weyertal 80\, 50931 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120703T183000Z
-DTSTART;VALUE=DATE-TIME:20120703T173000Z
-DESCRIPTION:Das Ziel von UX-CGN ist es\, Leuten aus dem Bereich User Expe
- rience\nDesign\, Interaktionsdesign\, Informationsarchitektur\, Web Konz
- eption\nund verwandten Disziplinen ein Forum für zwanglosen Austausch b
- ei\nTreffen (Meetups) im realen Raum zu bieten.
-URL:http://hcking.de/events/88/dates/689
-SUMMARY:UX-CGN: Cologne User Experience Meetup
-LOCATION:Pixum.de - Diginet GmbH & Co. KG\, Industriestr. 161\, 50999 Kö
- ln
+DTEND;VALUE=DATE-TIME:20120905T200000Z
+DTSTART;VALUE=DATE-TIME:20120905T170000Z
+DESCRIPTION:* Jan will be talking about [Modelling data in a schema-free 
+ world?](http://programm.froscon.de/2012/events/983.html)\n* Tayssir John
+  Gabbour will talk about [Cascalog](http://clojure.com/blog/2012/02/03/f
+ unctional-relational-programming-with-cascalog.html)\, a very pleasant l
+ ayer over Hadoop.\n\nWer hat Lust\, sich über neue Datenbank-Technologi
+ en und aktuelle Entwicklungen in der NoSQL-Szene auszutauschen oder einf
+ ach nur gut zu unterhalten?\n\nWir haben die NoSQL-User-Group in Köln i
+ ns Leben gerufen. Du bist herzlich eingeladen! Die Teilnahme ist kostenf
+ rei. Bitte melde Dich zur Raum-\, Snack- & Getränkeplanung an.
+URL:http://hcking.de/events/17/dates/125
+SUMMARY:NoSQL User Group Cologne (Modeling Data in a Schema-Free World / 
+ Cascalog)
+LOCATION:Klingel triAGENS\, Brüsseler Str. 89-93\, 50672 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120704T200000Z
-DTSTART;VALUE=DATE-TIME:20120704T170000Z
-DESCRIPTION:Am Mittwoch\, dem 04.07.2012\, werden wir wieder grillen\, di
- esmal zusammen mit der NoSQL User Group Köln.\n\nWie schon 2007 und 200
- 8 treffen wir uns ab 19:00 in der Bachemer Straße 12 in Köln.\n\nAb 19
- :00 ist es möglich\, direkt vor dem Haus zu parken.\n\nDie Anreise ist 
- auch mit öffentlichen Verkehrsmitteln gut möglich\, vom Bahnhof Süd s
- ind es ca. 10 Minuten Fußweg\, vom Neumarkt aus fahren die Buslinien 13
- 6 und 146 fast vor die Haustür (Haltestelle Hildegardis-Krankenhaus).\n
- \nDie Party wird – dank eines Zelts – auch bei schlechterem Wetter s
- tattfinden.\n\nGrillgut und Beilagen werden von der triAGENS GmbH und de
- r GUUG gesponsort\, für die Getränke wir bitten um Zahlung von 5 Euro 
- direkt bei der Veranstaltung.\n\nVorher hier [anmelden](http://www.guug.
- de/lokal/west/).\n\nWer hat Lust\, sich über neue Datenbank-Technologie
- n und aktuelle Entwicklungen in der NoSQL-Szene auszutauschen oder einfa
- ch nur gut zu unterhalten?\n\nWir haben die NoSQL-User-Group in Köln in
- s Leben gerufen. Du bist herzlich eingeladen! Die Teilnahme ist kostenfr
- ei. Bitte melde Dich zur Raum-\, Snack- & Getränkeplanung an.
-URL:http://hcking.de/events/17/dates/123
-SUMMARY:NoSQL User Group Cologne (Grillen)
-LOCATION:Klingel triAGENS\, Bachemer Straße 12\, 50931 Köln
+DTEND;VALUE=DATE-TIME:20120905T190000Z
+DTSTART;VALUE=DATE-TIME:20120905T180000Z
+DESCRIPTION:Als öffentliche Veranstaltungen bietet die Regionalgruppe K
+ öln ihren Mitgliedern und weiteren Intertessierten Themenabende an. Zie
+ l eines Themenabends ist die unabhängige Behandlung eines aktuellen Inf
+ ormatik-Themas in angenehmer Atmosphäre mit Gelegenheit zum persönlich
+ en Austausch. Es gibt an einem Abend immer mehrere Vortragende\, die ihr
+ e vielleicht sogar kontroversen Ansichten in 20minütigen Präsentatione
+ n darstellen. In der anschließenden Diskussion hat das Publikum Gelegen
+ heit\, weitere Fragen einzubringen.
+URL:http://hcking.de/events/99/dates/628
+SUMMARY:Gesellschaft für Informatik eV Köln (voraussichtliches Thema: M
+ ustererkennung)
+LOCATION:Bürgerhaus Stollwerk\, Dreikönigenstr. 23\, 50678 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120704T200000Z
-DTSTART;VALUE=DATE-TIME:20120704T170000Z
-DESCRIPTION:Am Mittwoch\, dem 04.07.2012\, werden wir wieder grillen\, di
- esmal zusammen mit der NoSQL User Group Köln.\n\nWie schon 2007 und 200
- 8 treffen wir uns ab 19:00 in der Bachemer Straße 12 in Köln.\n\nAb 19
- :00 ist es möglich\, direkt vor dem Haus zu parken.\n\nDie Anreise ist 
- auch mit öffentlichen Verkehrsmitteln gut möglich\, vom Bahnhof Süd s
- ind es ca. 10 Minuten Fußweg\, vom Neumarkt aus fahren die Buslinien 13
- 6 und 146 fast vor die Haustür (Haltestelle Hildegardis-Krankenhaus).\n
- \nDie Party wird – dank eines Zelts – auch bei schlechterem Wetter s
- tattfinden.\n\nGrillgut und Beilagen werden von der triAGENS GmbH und de
- r GUUG gesponsort\, für die Getränke wir bitten um Zahlung von 5 Euro 
- direkt bei der Veranstaltung.\n\nVorher hier [anmelden](http://www.guug.
- de/lokal/west/).\n\n\nDie German Unix User Group\, gegründet 1984 als e
- ingetragener Verein\, ist ein Zusammenschluss professioneller System- un
- d Netzadministratoren\, IT-Sicherheitsexperten und Programmierer\, deren
-  bevorzugtes Betriebssystem Unix ist.
-URL:http://hcking.de/events/114/dates/730
-SUMMARY:German Unix User Group (Grillen)
-LOCATION:Bachemer Straße 12\, 50931 Köln
+DTEND;VALUE=DATE-TIME:20120906T200000Z
+DTSTART;VALUE=DATE-TIME:20120906T163000Z
+DESCRIPTION:Unser erster Vortrag nach der Sommerpause... JavaScript erleb
+ t zur Zeit einen ungeheuren Auftrieb\, und auch wir wollen uns damit in 
+ Zukunft etwas mehr beschäftigen. Den Anfang machen Peter Roßbach und P
+ hilipp Tarasiewicz\, die sich seit längerem mit den neuen Möglichkeite
+ n des JavaScript-Öko-Systems beschäftgen und das Zusammenwirken versch
+ iedener Frameworks demonstrieren werden.\n\n\nDie Java Usergroup Essen\,
+  aka Ruhrjug.
+URL:http://hcking.de/events/43/dates/832
+SUMMARY:ruhrjug - Java Usergroup Essen (Effiziente Webprogrammierung mit 
+ WebSockets)
+LOCATION:Unperfekthaus\, Friedrich-Ebert-Str. 18\, 45127 Essen
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120705T180000Z
-DTSTART;VALUE=DATE-TIME:20120705T170000Z
+DTEND;VALUE=DATE-TIME:20120906T200000Z
+DTSTART;VALUE=DATE-TIME:20120906T170000Z
+DESCRIPTION:Drupal-Nutzer in Köln/Bonn treffen hier zum gemeinsamen aust
+ ausch.
+URL:http://hcking.de/events/73/dates/799
+SUMMARY:Drupal Usergroup Köln
+LOCATION:Cowoco\, Deutz-Mülheimer Straße 129\, Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120906T180000Z
+DTSTART;VALUE=DATE-TIME:20120906T170000Z
 DESCRIPTION:Mit diesem lokalen Netzwerk im Raum Rhein/Ruhr wollen wir all
  e Agilisten und die\, die es werden wollen\, mit aktuellen Informationen
   rund um´s Thema Agilität\, Scrum\, agiles Projektmanagement und agile
   Softwareentwicklung versorgen. Interessante Veranstaltungen/Termine ode
  r Schulungen werden hier gepostet. Natürlich soll es auch einen Platz z
  um Diskutieren\, Nachfragen und dem aktiven Austausch geben.
-URL:http://hcking.de/events/103/dates/647
+URL:http://hcking.de/events/103/dates/649
 SUMMARY:Agile RheinRuhr
 LOCATION:Zum Schlüssel\, im "Lichthof"\, Bolkerstraße 41 - 47\, 40213 D
  üsseldorf
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120705T200000Z
-DTSTART;VALUE=DATE-TIME:20120705T170000Z
+DTEND;VALUE=DATE-TIME:20120906T200000Z
+DTSTART;VALUE=DATE-TIME:20120906T170000Z
 DESCRIPTION:Die Joomla! User Group Cologne (JUGC) ist die offiziellen Pla
  ttform der Joomla Freunde in Köln und Umgebung. \n\nWir treffen uns reg
  elmäßig einmal im Monat um uns über alle Themen rund um das freie CMS
   Joomla! zu unterhalten\, Anregungen\, Tricks und Tipps zu geben\, bzw. 
  zu bekommen.
-URL:http://hcking.de/events/26/dates/717
+URL:http://hcking.de/events/26/dates/719
 SUMMARY:Joomla! User Group Cologne
 LOCATION:Altenberger Hof\, Mauenheimer Straße 92\, 50733 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120705T200000Z
-DTSTART;VALUE=DATE-TIME:20120705T180000Z
+DTEND;VALUE=DATE:20120906
+DTSTART;VALUE=DATE:20120906
+DESCRIPTION:Splatter\, Zombies\, Science Fiction...alles was das Herz beg
+ ehrt.
+URL:http://hcking.de/events/33/dates/575
+SUMMARY:Fantasy Filmfest
+LOCATION:Cinedom\, Im MediaPark 1\, 50670 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120906T200000Z
+DTSTART;VALUE=DATE-TIME:20120906T180000Z
 DESCRIPTION:Wir sind eine Gruppe junger Menschen\, die Interesse an jegli
  cher Form von Betriebssystemen haben. Unser Schwerpunkt liegt dabei auf 
  freien Unix-Varianten wie GNU/Linux\, NetBSD\, FreeBSD oder OpenBSD. Wir
@@ -361,69 +330,122 @@ DESCRIPTION:Wir sind eine Gruppe junger Menschen\, die Interesse an jegli
  rm für betriebssystemübergreifende Diskussionen rund um Unix zu sein\,
   Hilfestellungen und Anregungen für Einsteiger zu bieten sowie Projekte
  n aus dem OpenSource-Umfeld Infrastruktur zur Verfügung zu stellen.
-URL:http://hcking.de/events/15/dates/99
+URL:http://hcking.de/events/15/dates/101
 SUMMARY:Luusa - Linux/Unix Usergroup St. Augustin
 LOCATION:Netzladen\, Wolfstr. 10\, 53111 Bonn
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120706T180000Z
-DTSTART;VALUE=DATE-TIME:20120706T160000Z
-DESCRIPTION:* ANOVA (Varianzanalyse) für Nicht-Statistiker (J. Schumann)
- \n* ggplot2 einfacher mit Deducer (S. Sprenger)\n* R\, Emacs und Org-mod
- e (B. Weiss)
-URL:http://hcking.de/events/110/dates/616
-SUMMARY:KoelnRUG - R Benutzer Treffen Köln
-LOCATION:Forschungsinstitut für Soziologie (großer Seminarraum)\, Grein
- straße 2\, Köln
+DTEND;VALUE=DATE-TIME:20120907T163000Z
+DTSTART;VALUE=DATE-TIME:20120907T153000Z
+DESCRIPTION:Unsere Idee\n\n* Regelmäßiges gemeinsames Entwickler-Treffe
+ n\n* Erfahrungsaustausch zu technischen Fragestellungen oder Projektsitu
+ ationen\n* Gemeinsames Arbeiten in Projekten und persönliche Weiterentw
+ icklung im Team
+URL:http://hcking.de/events/96/dates/784
+SUMMARY:Goldschmiede - Kodieren auf (mit) Kölsch (Backbone.js)
+LOCATION:anderScore GmbH\, Frankenwerft 35\, 50667 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120706T190000Z
-DTSTART;VALUE=DATE-TIME:20120706T170000Z
+DTEND;VALUE=DATE-TIME:20120907T190000Z
+DTSTART;VALUE=DATE-TIME:20120907T170000Z
 DESCRIPTION:Die PHP Entwickler Usergroup für Entwickler im Raum Köln/Bo
  nn.
-URL:http://hcking.de/events/58/dates/262
+URL:http://hcking.de/events/58/dates/264
 SUMMARY:PHP Usergroup Köln/Bonn
 LOCATION:papaya Software GmbH (Bitte beim östlichen Eingang / Richtung H
  aus 4 klingeln)\, Im Mediapark 5\, 50670 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120706T200000Z
-DTSTART;VALUE=DATE-TIME:20120706T170000Z
+DTEND;VALUE=DATE-TIME:20120907T200000Z
+DTSTART;VALUE=DATE-TIME:20120907T170000Z
+DESCRIPTION:Der Chaostreff Salzburg ist eine\, als eingetragener Verein o
+ rganisierte und trotzdem lockere Runde von Leuten\, die sich mit dem Cha
+ os Computer Club e. V. verbunden fühlen. Wir versuchen einen Blick hint
+ er die Kulissen zu werfen und viele Dinge zu hinterfragen und zu diskuti
+ eren.\n\nFalls dich die Arbeit und die Themen mit denen sich der CCC aus
+ einandersetzt interessieren\, bist du bei uns genau richtig.\n\nUnsere T
+ reffen finden regelmäßig jeden ersten Freitag eines Monats statt.
+URL:http://hcking.de/events/136/dates/816
+SUMMARY:ChaosTreff Salzburg
+LOCATION:Subnet / Arge\, Ulrike-Gschwandtner-Straße 5\, 5020 Salzburg
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120907T200000Z
+DTSTART;VALUE=DATE-TIME:20120907T170000Z
 DESCRIPTION:Jeden Freitag ab 19 Uhr ist “Bastelnachmittag”. Ihr könn
  t mit unseren Maschinen und Werkzeugen arbeiten oder selbst etwas mitbri
  ngen – egal ob Elektronikbasteleien mit Arduino\, Origami oder Textila
  rbeiten. Besucher sind herzlich willkommen!
-URL:http://hcking.de/events/84/dates/419
+URL:http://hcking.de/events/84/dates/421
 SUMMARY:Dingfabrik Bastelnachmittag
 LOCATION:Dingfabrik - Gasmotorenfabrik\, 3. Etage\, Deutz-Mülheimerstra
  ße 129\, 51063 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120707T170000Z
-DTSTART;VALUE=DATE-TIME:20120707T120000Z
-DESCRIPTION:5h interaktive Medien pur!\n\n## Die Speaker im Juli sind:\n\
- nOnline Games - Teut Weidemann\n\nWenn Kreation auf Coding trifft - Joha
- nnes Henseler\n\nJavaScript mal serverseitig - Simon Tiffert\n\nAdobe Ed
- ge - Simon Widjaja\n\nHaXe - Michael Schlösser\n\nMaking Of... - tba \n
- \n**Wichtig**: Das Ticket muss vorab kostenlos auf der Eventseite bestel
- lt werden.
-URL:http://hcking.de/events/122/dates/709
-SUMMARY:Insidrrr Day 01
-LOCATION:Tagungszentrum DJH Düsseldorf\, Düsseldorfer Straße 1\, 40545
-  Düsseldorf
+DTEND;VALUE=DATE:20120907
+DTSTART;VALUE=DATE:20120907
+DESCRIPTION:Splatter\, Zombies\, Science Fiction...alles was das Herz beg
+ ehrt.
+URL:http://hcking.de/events/33/dates/576
+SUMMARY:Fantasy Filmfest
+LOCATION:Cinedom\, Im MediaPark 1\, 50670 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120710T190000Z
-DTSTART;VALUE=DATE-TIME:20120710T170000Z
+DTEND;VALUE=DATE:20120908
+DTSTART;VALUE=DATE:20120908
+DESCRIPTION:Splatter\, Zombies\, Science Fiction...alles was das Herz beg
+ ehrt.
+URL:http://hcking.de/events/33/dates/577
+SUMMARY:Fantasy Filmfest
+LOCATION:Cinedom\, Im MediaPark 1\, 50670 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE:20120909
+DTSTART;VALUE=DATE:20120909
+DESCRIPTION:Splatter\, Zombies\, Science Fiction...alles was das Herz beg
+ ehrt.
+URL:http://hcking.de/events/33/dates/578
+SUMMARY:Fantasy Filmfest
+LOCATION:Cinedom\, Im MediaPark 1\, 50670 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE:20120910
+DTSTART;VALUE=DATE:20120910
+DESCRIPTION:Splatter\, Zombies\, Science Fiction...alles was das Herz beg
+ ehrt.
+URL:http://hcking.de/events/33/dates/579
+SUMMARY:Fantasy Filmfest
+LOCATION:Cinedom\, Im MediaPark 1\, 50670 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120911T190000Z
+DTSTART;VALUE=DATE-TIME:20120911T170000Z
 DESCRIPTION:Kölner Javascript-Meetup.
-URL:http://hcking.de/events/3/dates/9
+URL:http://hcking.de/events/3/dates/11
 SUMMARY:Cologne.js
 LOCATION:Cowoco\, Gasmotorenfabrik\, 3. Stock\, Deutz-Mülheimer Straße 
  129\, 51063 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120711T193000Z
-DTSTART;VALUE=DATE-TIME:20120711T163000Z
+DTEND;VALUE=DATE:20120911
+DTSTART;VALUE=DATE:20120911
+DESCRIPTION:Cocoa/Objective-C Konferenz in Köln
+URL:http://hcking.de/events/102/dates/544
+SUMMARY:Objective-Cologne
+LOCATION:Alte Versteigerungshalle\, Marktstraße 10\, 50968 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE:20120911
+DTSTART;VALUE=DATE:20120911
+DESCRIPTION:Splatter\, Zombies\, Science Fiction...alles was das Herz beg
+ ehrt.
+URL:http://hcking.de/events/33/dates/580
+SUMMARY:Fantasy Filmfest
+LOCATION:Cinedom\, Im MediaPark 1\, 50670 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120912T193000Z
+DTSTART;VALUE=DATE-TIME:20120912T163000Z
 DESCRIPTION:pyCologne ist eine Gruppe von Python-Interessenten aus der Re
  gion Köln-Bonn-Düsseldorf und zum Teil auch darüber hinaus. Sie setzt
   sich zusammen aus Studenten\, Berufstätigen sowie ehemalig Berufstäti
@@ -435,80 +457,156 @@ DESCRIPTION:pyCologne ist eine Gruppe von Python-Interessenten aus der Re
   Durch Vorträge der Mitglieder und externer Referenten werden die vielf
  ältigen Möglichkeiten der Sprache aufgezeigt und es wird vorgestellt\,
   wie Python eingesetzt wird und was mit Python bereits erreicht wurde.
-URL:http://hcking.de/events/4/dates/365
+URL:http://hcking.de/events/4/dates/367
 SUMMARY:pyCologne
 LOCATION:Benutzerrechenzentrum der Uni Köln\, Berrenrather Str. 136\, 50
  937 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120711T190000Z
-DTSTART;VALUE=DATE-TIME:20120711T170000Z
+DTEND;VALUE=DATE-TIME:20120912T190000Z
+DTSTART;VALUE=DATE-TIME:20120912T170000Z
 DESCRIPTION:Die Limited WIP Society Köln soll ein Forum bilden für alle
  \, die sich im Raum Köln für Lean und Kanban für Wissensarbeiter inte
  ressieren.
-URL:http://hcking.de/events/70/dates/306
+URL:http://hcking.de/events/70/dates/308
 SUMMARY:Limited WIP Society Cologne - Kanban Usergroup Köln
 LOCATION:Cowoco\, Gasmotorenfabrik\, 3. Stock\, Deutz-Mülheimer Straße 
  129\, 51063 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120712T190000Z
-DTSTART;VALUE=DATE-TIME:20120712T170000Z
-DESCRIPTION:User group für ios\, android\, html5  &  co\n\nWir wollen Br
- ücken zwischen den mobilen Plattformen schlagen. Es soll das „große 
- Ganze“ der mobilen Software-Entwicklung und dessen Synergien beleuchte
- n werden. Das Ziel dieses Vorhabens ist es\, den Blick über den Tellerr
- and für alle Disziplinen zu erleichtern und somit bessere Produkte einf
- acher erstellen zu können.\n\nDie Gegebenheiten in der mobilen Software
- -Entwicklung ändern sich permanent. Um auf dem Laufenden zu bleiben\, w
- ollen wir durch regelmäßige Treffen eine Plattform bieten\, dieses zu 
- erleichtern. Wir laden daher zum interdisziplinären Informationsaustaus
- ch zwischen ios\, android\, html5 Entwicklern ein!
-URL:http://hcking.de/events/105/dates/599
+DTEND;VALUE=DATE:20120912
+DTSTART;VALUE=DATE:20120912
+DESCRIPTION:Cocoa/Objective-C Konferenz in Köln
+URL:http://hcking.de/events/102/dates/545
+SUMMARY:Objective-Cologne
+LOCATION:Alte Versteigerungshalle\, Marktstraße 10\, 50968 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE:20120912
+DTSTART;VALUE=DATE:20120912
+DESCRIPTION:Splatter\, Zombies\, Science Fiction...alles was das Herz beg
+ ehrt.
+URL:http://hcking.de/events/33/dates/581
+SUMMARY:Fantasy Filmfest
+LOCATION:Cinedom\, Im MediaPark 1\, 50670 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120913T190000Z
+DTSTART;VALUE=DATE-TIME:20120913T170000Z
+DESCRIPTION:User group für ios\, android\, html5  &  co\n---------------
+ --------------------\n\nWir wollen Brücken zwischen den mobilen Plattfo
+ rmen schlagen. Es soll das „große Ganze“ der mobilen Software-Entwi
+ cklung und dessen Synergien beleuchten werden. Das Ziel dieses Vorhabens
+  ist es\, den Blick über den Tellerrand für alle Disziplinen zu erleic
+ htern und somit bessere Produkte einfacher erstellen zu können.\n\nDie 
+ Gegebenheiten in der mobilen Software-Entwicklung ändern sich permanent
+ . Um auf dem Laufenden zu bleiben\, wollen wir durch regelmäßige Treff
+ en eine Plattform bieten\, dieses zu erleichtern. Wir laden daher zum in
+ terdisziplinären Informationsaustausch zwischen ios\, android\, html5 E
+ ntwicklern ein!
+URL:http://hcking.de/events/105/dates/768
 SUMMARY:mobile.cologne
-LOCATION:50667 Köln
+LOCATION:Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120714T170000Z
-DTSTART;VALUE=DATE-TIME:20120714T080000Z
-DESCRIPTION:Wir treffen uns mal wieder zum Hacken an unserem System :)\n\
- n\nDas Team hinter NerdHub (das ist das Team von hcking.de und Droid Boy
- s Kalender + redaktioneller Teil) trifft sich ab und zu\, um gemeinsam a
- m Projekt zu hacken\, zukünftige Schritte zu besprechen oder um einfach
-  ein Bierchen zu trinken. Zu unseren Hackathons seid ihr alle herzlich e
- ingeladen! Das ist die perfekte Chance\, um Contributor zu werden \;)
-URL:http://hcking.de/events/124/dates/739
-SUMMARY:NerdHub aka Hcking.de (Hackathon)
-LOCATION:Railslove\, Deutz-Mülheimer Straße 129\, 51063 Köln
+DTEND;VALUE=DATE:20120913
+DTSTART;VALUE=DATE:20120913
+DESCRIPTION:Splatter\, Zombies\, Science Fiction...alles was das Herz beg
+ ehrt.
+URL:http://hcking.de/events/33/dates/582
+SUMMARY:Fantasy Filmfest
+LOCATION:Cinedom\, Im MediaPark 1\, 50670 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120716T190000Z
-DTSTART;VALUE=DATE-TIME:20120716T170000Z
+DTEND;VALUE=DATE:20120914
+DTSTART;VALUE=DATE:20120914
+DESCRIPTION:ROBODONIEN lädt Künstler aus ganz Europa ein\, die den Kuns
+ t- und Kulturfreistaat Odonien in eine multimediale\, interaktive Scienc
+ e-Fiction Szenerie verwandeln. Die Installationen\, kinetischen Objekte 
+ und spektakulären Shows bieten den Besuchern eine Fülle von ungewöhnl
+ ichen und spannenden Impressionen.
+URL:http://hcking.de/events/27/dates/673
+SUMMARY:ROBODONIEN
+LOCATION:Odonien\, Hornstr. 85\, 50823 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120915T150000Z
+DTSTART;VALUE=DATE-TIME:20120915T080000Z
+DESCRIPTION:Dieses Jahr wird der SFD am 15. September gefeiert werden. De
+ r Computer Club Pascal organisiert auch in diesem Jahr mit Hilfe von Mit
+ gliedern des [Linux-Workshops Köln](http://www.uni-koeln.de/themen/linu
+ x/) ein Vortrags­programm mit Gelegen­heiten zum Informations­austaus
+ ch. Jeder Interessierte – egal ob neu\, fort­geschritten und/oder Mit
+ glied einer User-Gruppe oder nicht – ist eingeladen\, zu kommen!\n\nAm
+  Tag der freien Software werden seit dem Jahr 2004 jedes Jahr die Erfolg
+ e freier Software gefeiert. Aus einer ersten Idee\, umgesetzt von einer 
+ kleinen Gruppe von Enthusiasten\, die die Dach­organisation Software Fr
+ eedom International (SFI) gründeten\, wurde ein weltweit begangener Tag
+ . Freunde freier Software bilden Arbeits­gruppen und organisieren ehren
+ ­amtlich Veran­staltungen\, um Leistungs­fähigkeit und Erfolge freie
+ r Software einer breiteren Öffent­lich­keit vorzustellen.\n\nIn Köln
+  organisiert der Computer Club Pascal unter Mithilfe von Mitgliedern des
+  Linux-Workshops Köln ein Vortrags­programm mit Gelegen­heiten zum In
+ formations­austausch. Jeder Interessierte – egal ob neu\, fort­gesch
+ ritten und/oder Mitglied einer User-Gruppe oder nicht – ist eingeladen
+ \, zu kommen!
+URL:http://hcking.de/events/18/dates/619
+SUMMARY:Sofware Freedom Day
+LOCATION:Cowoco\, Gasmotorenfabrik\, 3. Stock\, Deutz-Mülheimerstraße 1
+ 29\, 51063 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE:20120915
+DTSTART;VALUE=DATE:20120915
+DESCRIPTION:ROBODONIEN lädt Künstler aus ganz Europa ein\, die den Kuns
+ t- und Kulturfreistaat Odonien in eine multimediale\, interaktive Scienc
+ e-Fiction Szenerie verwandeln. Die Installationen\, kinetischen Objekte 
+ und spektakulären Shows bieten den Besuchern eine Fülle von ungewöhnl
+ ichen und spannenden Impressionen.
+URL:http://hcking.de/events/27/dates/674
+SUMMARY:ROBODONIEN
+LOCATION:Odonien\, Hornstr. 85\, 50823 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE:20120916
+DTSTART;VALUE=DATE:20120916
+DESCRIPTION:ROBODONIEN lädt Künstler aus ganz Europa ein\, die den Kuns
+ t- und Kulturfreistaat Odonien in eine multimediale\, interaktive Scienc
+ e-Fiction Szenerie verwandeln. Die Installationen\, kinetischen Objekte 
+ und spektakulären Shows bieten den Besuchern eine Fülle von ungewöhnl
+ ichen und spannenden Impressionen.
+URL:http://hcking.de/events/27/dates/675
+SUMMARY:ROBODONIEN
+LOCATION:Odonien\, Hornstr. 85\, 50823 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120917T190000Z
+DTSTART;VALUE=DATE-TIME:20120917T170000Z
 DESCRIPTION:A place to meet for people interested in all things agile.\n\
  nThe meetup is loosely organized by a fluxing bunch of volunteers\, inde
  pendent of any company. \n\nTopics are: Agile Software Development pract
  ices\, principles and values. We touch on XP\, Scrum\, Kanban\, Katas\, 
  Dojos\, Testing\, TDD\, Pair-programming\, Continuous Integration\, User
   Stories\, and many other related topics.
-URL:http://hcking.de/events/5/dates/22
+URL:http://hcking.de/events/5/dates/24
 SUMMARY:Bonn Agile Meetup
 LOCATION:Diverse Orte in und um Bonn\, Bonn
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120716T193000Z
-DTSTART;VALUE=DATE-TIME:20120716T173000Z
+DTEND;VALUE=DATE-TIME:20120917T193000Z
+DTSTART;VALUE=DATE-TIME:20120917T173000Z
 DESCRIPTION:Herzlichen willkommen sind alle aus dem Bonner Raum\, die sic
  h beruflich mit Themen des Internets auseinandersetzen oder sich privat 
  engagieren\, in dem sie z.B. Open-Source-Projekte betreiben. Es wird nie
  mand kategorisch ausgeschlossen und natürlich darf man auch unangemelde
  t erscheinen (was nur die Planung etwas erschwert).
-URL:http://hcking.de/events/85/dates/446
+URL:http://hcking.de/events/85/dates/448
 SUMMARY:Webmontag Bonn
 LOCATION:Waschsalon Innovationspoint\, Kaiserstr. 1b\, 53113 Bonn
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120718T173000Z
-DTSTART;VALUE=DATE-TIME:20120718T163000Z
+DTEND;VALUE=DATE-TIME:20120919T173000Z
+DTSTART;VALUE=DATE-TIME:20120919T163000Z
 DESCRIPTION:dorkbot ist ein internationales Netz von Gruppen\, die Spaß 
  an interaktiver Kunst und elektronischen Hacks haben. Als eine der erste
  n deutschen Gruppen gibt es dorkbot jetzt auch in Aachen. Wir befassen u
@@ -517,14 +615,30 @@ DESCRIPTION:dorkbot ist ein internationales Netz von Gruppen\, die Spaß
  ießen um 19 Uhr. Geh zum Eingang an der Halifaxstraße – dort ist ein
   Schild mit einer Telefonnummer. Oder ruf die folgende Nummer an: 0241/8
  021060.
-URL:http://hcking.de/events/57/dates/207
+URL:http://hcking.de/events/57/dates/209
 SUMMARY:dorkbot-ac
 LOCATION:Media Computing Group at RWTH Aachen University\, Ahornstraße 5
  5\, 52074 Aachen
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120719T190000Z
-DTSTART;VALUE=DATE-TIME:20120719T170000Z
+DTEND;VALUE=DATE-TIME:20120919T190000Z
+DTSTART;VALUE=DATE-TIME:20120919T170000Z
+DESCRIPTION:Hier treffen sich alle Ruby-Entwickler in Köln und Umgebung.
+URL:http://hcking.de/events/40/dates/834
+SUMMARY:Cologne.rb
+LOCATION:Ort wechselt\, Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE:20120919
+DTSTART;VALUE=DATE:20120919
+DESCRIPTION:Arrr\, Smutijes und Klabautermänner. Einmal im Jahr werden d
+ ie Ninjas kiehl geholt. Am 19. September.\n\nHoch den Grogg!
+URL:http://hcking.de/events/34/dates/275
+SUMMARY:Talk Like A Pirate Day
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120920T190000Z
+DTSTART;VALUE=DATE-TIME:20120920T170000Z
 DESCRIPTION:Die Cologne Clojure User Group and Functional Programming Gro
  up trifft sich jeden 3. Donnerstag im Monat und beschäftigt sich mit Cl
  ojure und anderen Themen / Programmiersprachen der Funktionalen Programm
@@ -539,14 +653,34 @@ DESCRIPTION:Die Cologne Clojure User Group and Functional Programming Gro
  men und werden im frei gestaltbaren Teil des Abends von den anderen User
   Group Mitgliedern mit nützlichen Tipps und Erklärungen zu Clojure ver
  sorgt.
-URL:http://hcking.de/events/6/dates/34
+URL:http://hcking.de/events/6/dates/36
 SUMMARY:Cologne Clojure User Group
 LOCATION:Cowoco\, Gasmotorenfabrik\, 3. Stock\, Deutz-Mülheimerstraße 1
  29\, 51063 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120725T190000Z
-DTSTART;VALUE=DATE-TIME:20120725T170000Z
+DTEND;VALUE=DATE-TIME:20120925T200000Z
+DTSTART;VALUE=DATE-TIME:20120925T170000Z
+DESCRIPTION:.NET Usergroup für Bonn und Umgebung
+URL:http://hcking.de/events/19/dates/706
+SUMMARY:Bonn-to-Code.net
+LOCATION:Comma Soft AG\, Pützchens Chaussee 202-204a\, 53229 Bonn-Pützc
+ hen
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120925T200000Z
+DTSTART;VALUE=DATE-TIME:20120925T180000Z
+DESCRIPTION:Der LastTuesday ist der Networking-Stammtisch der Kölner Int
+ ernet Union (KIU) für Mitglieder und Interessierte\, findet schon viele
+  Jahre statt und jeder ist bei uns herzlich willkommen. Kosten fallen nu
+ r für verzehrte Speisen- und Getränke an.
+URL:http://hcking.de/events/38/dates/168
+SUMMARY:KIU: Last Tuesday
+LOCATION:Hotel am Augustinerplatz\, Hohe Straße 30\, 50667 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120926T190000Z
+DTSTART;VALUE=DATE-TIME:20120926T170000Z
 DESCRIPTION:Der Zweck des Vereins ist die Pflege der Sperrtechnik als spo
  rtliche Herausforderung. Unter dem Begriff Sperrtechnik verstehen wir s
  ämtliche Verfahren und Kenntnisse\, welche mittels mechanischer und/ode
@@ -554,13 +688,13 @@ DESCRIPTION:Der Zweck des Vereins ist die Pflege der Sperrtechnik als spo
  herheitstechnologie) den Zugang beschränken. Des weiteren strebt der Ve
  rein einen Informationsaustausch an\, dieser soll unter anderem mit unse
  rem Wissens-Wiki verwirklicht werden.
-URL:http://hcking.de/events/14/dates/88
+URL:http://hcking.de/events/14/dates/90
 SUMMARY:Sportfreunde der Sperrtechnik
 LOCATION:NaturFreundehaus Köln-Kalk\, Kapellenstraße 9a\, 51103 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120726T190000Z
-DTSTART;VALUE=DATE-TIME:20120726T170000Z
+DTEND;VALUE=DATE-TIME:20120927T190000Z
+DTSTART;VALUE=DATE-TIME:20120927T170000Z
 DESCRIPTION:CocoaHeads.org is an international group devoted to discussio
  n of Apple's Cocoa Framework for programming on MacOS X. During monthly 
  meetings\, members present on their projects and offer tutorials on vari
@@ -568,107 +702,130 @@ DESCRIPTION:CocoaHeads.org is an international group devoted to discussio
   by the Media Computing and Human-Computer Interaction Group at RWTH Aac
  hen University and supported by Apple. We get together for informal shor
  t talks and demos\, have a pizza\, and talk code.
-URL:http://hcking.de/events/12/dates/64
+URL:http://hcking.de/events/12/dates/66
 SUMMARY:Cocoaheads Aachen
 LOCATION:RWTH Aachen University\, Computer Science Centre\, Room 2010\, A
  hornstr. 55\, 52074 Aachen
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120726T210000Z
-DTSTART;VALUE=DATE-TIME:20120726T170000Z
-DESCRIPTION:Meet with other web site system administrators\, developers\,
-  designers and business people who're interested in making their sites w
- ork fast to get better user experience\, lower abandonment rates and mor
- e money.
-URL:http://hcking.de/events/61/dates/407
-SUMMARY:Cologne Web Performance Optimization Group
-LOCATION:eco Verband der deutschen Internetwirtschaft e.V.\, Lichtstr. 43
- h\, 50825 Köln
-END:VEVENT
-BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120726T190000Z
-DTSTART;VALUE=DATE-TIME:20120726T170000Z
+DTEND;VALUE=DATE-TIME:20120927T190000Z
+DTSTART;VALUE=DATE-TIME:20120927T170000Z
 DESCRIPTION:Stammtisch der OpenStreetMap User im Rhein-Sieg Kreis und Bon
  n.
-URL:http://hcking.de/events/11/dates/243
+URL:http://hcking.de/events/11/dates/245
 SUMMARY:OpenStreetmap Stammtisch Bonn
 LOCATION:Greenfield-Lounge\, Christian-Miesen-Strasse 1\, 53129 Bonn
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120726T210000Z
-DTSTART;VALUE=DATE-TIME:20120726T180000Z
+DTEND;VALUE=DATE-TIME:20120927T210000Z
+DTSTART;VALUE=DATE-TIME:20120927T180000Z
 DESCRIPTION:Das OpenChaos ist eine Bildungsveranstaltung mit der Option d
  en C4 kennenzulernen. Es findet am letzten Donnerstag jedes Monats (auß
  er Dezember\, wegen Weihnachten und Chaos Communication Congress) ab 20:
  00h (Ab 19:30h ist auf jeden Fall schon die Tür offen) im Clubraum stat
  t. Wann das genau ist und um welches Thema es geht steht auf unserer Hom
  epage.
-URL:http://hcking.de/events/13/dates/76
+URL:http://hcking.de/events/13/dates/78
 SUMMARY:OpenChaos Köln
 LOCATION:Chaos Computer Club Cologne (C4)\, Heliosstraße 6a\, 50825 Köl
  n
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120727T190000Z
-DTSTART;VALUE=DATE-TIME:20120727T170000Z
+DTEND;VALUE=DATE-TIME:20120928T200000Z
+DTSTART;VALUE=DATE-TIME:20120928T170000Z
+DESCRIPTION:Der Kölner Zweig der [Rails Girls](http://www.railsgirls.com
+ ) \n\n### Von der RailsGirls-Seite:\nOur aim is to give tools and a comm
+ unity for women to understand technology and to build their ideas. We do
+  this by providing a great experiences on building things and make techn
+ ology more approachable.
+URL:http://hcking.de/events/115/dates/683
+SUMMARY:Rails Girls CGN (Install Party)
+LOCATION:CoWoCo\, Deutz-Mülheimer Straße 129\, Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20120928T190000Z
+DTSTART;VALUE=DATE-TIME:20120928T170000Z
 DESCRIPTION:Die Java Usergroup Köln trifft sich einmal jeden Monat an we
  chselnden Locations.
-URL:http://hcking.de/events/39/dates/178
+URL:http://hcking.de/events/39/dates/180
 SUMMARY:jugcologne - Java Usergroup Köln
 LOCATION:50667 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120731T200000Z
-DTSTART;VALUE=DATE-TIME:20120731T180000Z
-DESCRIPTION:Der LastTuesday ist der Networking-Stammtisch der Kölner Int
- ernet Union (KIU) für Mitglieder und Interessierte\, findet schon viele
-  Jahre statt und jeder ist bei uns herzlich willkommen. Kosten fallen nu
- r für verzehrte Speisen- und Getränke an.
-URL:http://hcking.de/events/38/dates/166
-SUMMARY:KIU: Last Tuesday
-LOCATION:Hotel am Augustinerplatz\, Hohe Straße 30\, 50667 Köln
+DTEND;VALUE=DATE-TIME:20120929T180000Z
+DTSTART;VALUE=DATE-TIME:20120929T080000Z
+DESCRIPTION:Der Kölner Zweig der [Rails Girls](http://www.railsgirls.com
+ ) \n\n### Von der RailsGirls-Seite:\nOur aim is to give tools and a comm
+ unity for women to understand technology and to build their ideas. We do
+  this by providing a great experiences on building things and make techn
+ ology more approachable.
+URL:http://hcking.de/events/115/dates/684
+SUMMARY:Rails Girls CGN (Workshop)
+LOCATION:CoWoCo\, Deutz-Mülheimer Straße 129\, Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120801T200000Z
-DTSTART;VALUE=DATE-TIME:20120801T170000Z
+DTEND;VALUE=DATE-TIME:20121002T200000Z
+DTSTART;VALUE=DATE-TIME:20121002T170000Z
+DESCRIPTION:Der Linux-Workshop Köln (LiWoK) ist eine Gruppe von Linux-An
+ wendern in Köln\, die sich jeden ersten Dienstag im Monat treffen. Gege
+ nstand der Treffen sind kurze Vorträge und Erfahrungsberichte von Anwen
+ dern\, Erfahrungsaustausch und Hilfestellung und Problemdiskussionen. De
+ r gesellige Teil kommt nicht zu kurz.
+URL:http://hcking.de/events/16/dates/114
+SUMMARY:Linux Workshop Köln
+LOCATION:ZAIK/AFS (Zentrum für Angewandte Informatik Köln\, Arbeitsgrup
+ pe Faigle/Schrader) - im Keller links\, Weyertal 80\, 50931 Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20121003T200000Z
+DTSTART;VALUE=DATE-TIME:20121003T170000Z
 DESCRIPTION:Wer hat Lust\, sich über neue Datenbank-Technologien und akt
  uelle Entwicklungen in der NoSQL-Szene auszutauschen oder einfach nur gu
  t zu unterhalten?\n\nWir haben die NoSQL-User-Group in Köln ins Leben g
  erufen. Du bist herzlich eingeladen! Die Teilnahme ist kostenfrei. Bitte
   melde Dich zur Raum-\, Snack- & Getränkeplanung an.
-URL:http://hcking.de/events/17/dates/124
+URL:http://hcking.de/events/17/dates/126
 SUMMARY:NoSQL User Group Cologne
 LOCATION:Klingel triAGENS\, Brüsseler Str. 89-93\, 50672 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120802T180000Z
-DTSTART;VALUE=DATE-TIME:20120802T170000Z
+DTEND;VALUE=DATE-TIME:20121004T200000Z
+DTSTART;VALUE=DATE-TIME:20121004T170000Z
+DESCRIPTION:Drupal-Nutzer in Köln/Bonn treffen hier zum gemeinsamen aust
+ ausch.
+URL:http://hcking.de/events/73/dates/800
+SUMMARY:Drupal Usergroup Köln
+LOCATION:Cowoco\, Deutz-Mülheimer Straße 129\, Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20121004T180000Z
+DTSTART;VALUE=DATE-TIME:20121004T170000Z
 DESCRIPTION:Mit diesem lokalen Netzwerk im Raum Rhein/Ruhr wollen wir all
  e Agilisten und die\, die es werden wollen\, mit aktuellen Informationen
   rund um´s Thema Agilität\, Scrum\, agiles Projektmanagement und agile
   Softwareentwicklung versorgen. Interessante Veranstaltungen/Termine ode
  r Schulungen werden hier gepostet. Natürlich soll es auch einen Platz z
  um Diskutieren\, Nachfragen und dem aktiven Austausch geben.
-URL:http://hcking.de/events/103/dates/648
+URL:http://hcking.de/events/103/dates/650
 SUMMARY:Agile RheinRuhr
 LOCATION:Zum Schlüssel\, im "Lichthof"\, Bolkerstraße 41 - 47\, 40213 D
  üsseldorf
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120802T200000Z
-DTSTART;VALUE=DATE-TIME:20120802T170000Z
+DTEND;VALUE=DATE-TIME:20121004T200000Z
+DTSTART;VALUE=DATE-TIME:20121004T170000Z
 DESCRIPTION:Die Joomla! User Group Cologne (JUGC) ist die offiziellen Pla
  ttform der Joomla Freunde in Köln und Umgebung. \n\nWir treffen uns reg
  elmäßig einmal im Monat um uns über alle Themen rund um das freie CMS
   Joomla! zu unterhalten\, Anregungen\, Tricks und Tipps zu geben\, bzw. 
  zu bekommen.
-URL:http://hcking.de/events/26/dates/718
+URL:http://hcking.de/events/26/dates/720
 SUMMARY:Joomla! User Group Cologne
 LOCATION:Altenberger Hof\, Mauenheimer Straße 92\, 50733 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120802T200000Z
-DTSTART;VALUE=DATE-TIME:20120802T180000Z
+DTEND;VALUE=DATE-TIME:20121004T200000Z
+DTSTART;VALUE=DATE-TIME:20121004T180000Z
 DESCRIPTION:Wir sind eine Gruppe junger Menschen\, die Interesse an jegli
  cher Form von Betriebssystemen haben. Unser Schwerpunkt liegt dabei auf 
  freien Unix-Varianten wie GNU/Linux\, NetBSD\, FreeBSD oder OpenBSD. Wir
@@ -677,68 +834,67 @@ DESCRIPTION:Wir sind eine Gruppe junger Menschen\, die Interesse an jegli
  rm für betriebssystemübergreifende Diskussionen rund um Unix zu sein\,
   Hilfestellungen und Anregungen für Einsteiger zu bieten sowie Projekte
  n aus dem OpenSource-Umfeld Infrastruktur zur Verfügung zu stellen.
-URL:http://hcking.de/events/15/dates/100
+URL:http://hcking.de/events/15/dates/102
 SUMMARY:Luusa - Linux/Unix Usergroup St. Augustin
 LOCATION:Netzladen\, Wolfstr. 10\, 53111 Bonn
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120803T190000Z
-DTSTART;VALUE=DATE-TIME:20120803T170000Z
+DTEND;VALUE=DATE-TIME:20121005T180000Z
+DTSTART;VALUE=DATE-TIME:20121005T160000Z
+DESCRIPTION:
+URL:http://hcking.de/events/110/dates/781
+SUMMARY:KoelnRUG - R Benutzer Treffen Köln
+LOCATION:Forschungsinstitut für Soziologie (großer Seminarraum)\, Grein
+ straße 2\, Köln
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20121005T190000Z
+DTSTART;VALUE=DATE-TIME:20121005T170000Z
 DESCRIPTION:Die PHP Entwickler Usergroup für Entwickler im Raum Köln/Bo
  nn.
-URL:http://hcking.de/events/58/dates/263
+URL:http://hcking.de/events/58/dates/265
 SUMMARY:PHP Usergroup Köln/Bonn
 LOCATION:papaya Software GmbH (Bitte beim östlichen Eingang / Richtung H
  aus 4 klingeln)\, Im Mediapark 5\, 50670 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120803T200000Z
-DTSTART;VALUE=DATE-TIME:20120803T170000Z
+DTEND;VALUE=DATE-TIME:20121005T200000Z
+DTSTART;VALUE=DATE-TIME:20121005T170000Z
+DESCRIPTION:Der Chaostreff Salzburg ist eine\, als eingetragener Verein o
+ rganisierte und trotzdem lockere Runde von Leuten\, die sich mit dem Cha
+ os Computer Club e. V. verbunden fühlen. Wir versuchen einen Blick hint
+ er die Kulissen zu werfen und viele Dinge zu hinterfragen und zu diskuti
+ eren.\n\nFalls dich die Arbeit und die Themen mit denen sich der CCC aus
+ einandersetzt interessieren\, bist du bei uns genau richtig.\n\nUnsere T
+ reffen finden regelmäßig jeden ersten Freitag eines Monats statt.
+URL:http://hcking.de/events/136/dates/817
+SUMMARY:ChaosTreff Salzburg
+LOCATION:Subnet / Arge\, Ulrike-Gschwandtner-Straße 5\, 5020 Salzburg
+END:VEVENT
+BEGIN:VEVENT
+DTEND;VALUE=DATE-TIME:20121005T200000Z
+DTSTART;VALUE=DATE-TIME:20121005T170000Z
 DESCRIPTION:Jeden Freitag ab 19 Uhr ist “Bastelnachmittag”. Ihr könn
  t mit unseren Maschinen und Werkzeugen arbeiten oder selbst etwas mitbri
  ngen – egal ob Elektronikbasteleien mit Arduino\, Origami oder Textila
  rbeiten. Besucher sind herzlich willkommen!
-URL:http://hcking.de/events/84/dates/420
+URL:http://hcking.de/events/84/dates/422
 SUMMARY:Dingfabrik Bastelnachmittag
 LOCATION:Dingfabrik - Gasmotorenfabrik\, 3. Etage\, Deutz-Mülheimerstra
  ße 129\, 51063 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120806T183000Z
-DTSTART;VALUE=DATE-TIME:20120806T160000Z
-DESCRIPTION:Eine Woche vor dem Startschuss zur gamescom 2012 ist der [Mul
- timediatreff (mmt)](http://multimediatreff.de/) bei uns zu Gast und widm
- et sich voll und ganz dem Thema Game Development. Die mmt-Konferenz ist 
- normalerweise in den Veranstaltungsräumen des Komed beheimatet und erst
- reckt sich über ein oder zwei komplette Tage. Für uns wird MMT 31 zur 
- Abendveranstaltung. Mit dabei: Vertreter von Ubisoft!\n\nGeeks@cologne i
- st eine neue Veranstaltungsreihe der Stadtbibliothek Köln\, die sich an
-  Technikinteressierte und Pixelverliebte in und um Köln wendet. Sechs M
- al im Jahr laden wir Euch zu uns in die Zentralbibliothek am Neumarkt ei
- n.\n\nBeginnen wird die Reihe mit dem [Gadgetabend](http://hcking.de/eve
- nts/2/single_events/454) am 06.02. \, danach geht es weiter mit einer Le
- sung von [@vergraemer](http://twitter.com/vergraemer) am 26.03. .
-URL:http://hcking.de/events/87/dates/698
-SUMMARY:geeks@cologne (Game Development – Konzepte\, Strategien & Entwi
- cklung)
-LOCATION:Stadtbibliothek Köln\, Josef-Haubrich-Hof 1\, 50676 Köln
+DTEND;VALUE=DATE-TIME:20121009T190000Z
+DTSTART;VALUE=DATE-TIME:20121009T170000Z
+DESCRIPTION:Kölner Javascript-Meetup.
+URL:http://hcking.de/events/3/dates/12
+SUMMARY:Cologne.js
+LOCATION:Cowoco\, Gasmotorenfabrik\, 3. Stock\, Deutz-Mülheimer Straße 
+ 129\, 51063 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120807T200000Z
-DTSTART;VALUE=DATE-TIME:20120807T170000Z
-DESCRIPTION:Der Linux-Workshop Köln (LiWoK) ist eine Gruppe von Linux-An
- wendern in Köln\, die sich jeden ersten Dienstag im Monat treffen. Gege
- nstand der Treffen sind kurze Vorträge und Erfahrungsberichte von Anwen
- dern\, Erfahrungsaustausch und Hilfestellung und Problemdiskussionen. De
- r gesellige Teil kommt nicht zu kurz.
-URL:http://hcking.de/events/16/dates/112
-SUMMARY:Linux Workshop Köln
-LOCATION:ZAIK/AFS (Zentrum für Angewandte Informatik Köln\, Arbeitsgrup
- pe Faigle/Schrader) - im Keller links\, Weyertal 80\, 50931 Köln
-END:VEVENT
-BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120808T193000Z
-DTSTART;VALUE=DATE-TIME:20120808T163000Z
+DTEND;VALUE=DATE-TIME:20121010T193000Z
+DTSTART;VALUE=DATE-TIME:20121010T163000Z
 DESCRIPTION:pyCologne ist eine Gruppe von Python-Interessenten aus der Re
  gion Köln-Bonn-Düsseldorf und zum Teil auch darüber hinaus. Sie setzt
   sich zusammen aus Studenten\, Berufstätigen sowie ehemalig Berufstäti
@@ -750,61 +906,38 @@ DESCRIPTION:pyCologne ist eine Gruppe von Python-Interessenten aus der Re
   Durch Vorträge der Mitglieder und externer Referenten werden die vielf
  ältigen Möglichkeiten der Sprache aufgezeigt und es wird vorgestellt\,
   wie Python eingesetzt wird und was mit Python bereits erreicht wurde.
-URL:http://hcking.de/events/4/dates/366
+URL:http://hcking.de/events/4/dates/368
 SUMMARY:pyCologne
 LOCATION:Benutzerrechenzentrum der Uni Köln\, Berrenrather Str. 136\, 50
  937 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120808T190000Z
-DTSTART;VALUE=DATE-TIME:20120808T170000Z
+DTEND;VALUE=DATE-TIME:20121010T190000Z
+DTSTART;VALUE=DATE-TIME:20121010T170000Z
 DESCRIPTION:Die Limited WIP Society Köln soll ein Forum bilden für alle
  \, die sich im Raum Köln für Lean und Kanban für Wissensarbeiter inte
  ressieren.
-URL:http://hcking.de/events/70/dates/307
+URL:http://hcking.de/events/70/dates/309
 SUMMARY:Limited WIP Society Cologne - Kanban Usergroup Köln
 LOCATION:Cowoco\, Gasmotorenfabrik\, 3. Stock\, Deutz-Mülheimer Straße 
  129\, 51063 Köln
 END:VEVENT
 BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120809T190000Z
-DTSTART;VALUE=DATE-TIME:20120809T170000Z
-DESCRIPTION:User group für ios\, android\, html5  &  co\n\nWir wollen Br
- ücken zwischen den mobilen Plattformen schlagen. Es soll das „große 
- Ganze“ der mobilen Software-Entwicklung und dessen Synergien beleuchte
- n werden. Das Ziel dieses Vorhabens ist es\, den Blick über den Tellerr
- and für alle Disziplinen zu erleichtern und somit bessere Produkte einf
- acher erstellen zu können.\n\nDie Gegebenheiten in der mobilen Software
- -Entwicklung ändern sich permanent. Um auf dem Laufenden zu bleiben\, w
- ollen wir durch regelmäßige Treffen eine Plattform bieten\, dieses zu 
- erleichtern. Wir laden daher zum interdisziplinären Informationsaustaus
- ch zwischen ios\, android\, html5 Entwicklern ein!
-URL:http://hcking.de/events/105/dates/600
+DTEND;VALUE=DATE-TIME:20121011T190000Z
+DTSTART;VALUE=DATE-TIME:20121011T170000Z
+DESCRIPTION:User group für ios\, android\, html5  &  co\n---------------
+ --------------------\n\nWir wollen Brücken zwischen den mobilen Plattfo
+ rmen schlagen. Es soll das „große Ganze“ der mobilen Software-Entwi
+ cklung und dessen Synergien beleuchten werden. Das Ziel dieses Vorhabens
+  ist es\, den Blick über den Tellerrand für alle Disziplinen zu erleic
+ htern und somit bessere Produkte einfacher erstellen zu können.\n\nDie 
+ Gegebenheiten in der mobilen Software-Entwicklung ändern sich permanent
+ . Um auf dem Laufenden zu bleiben\, wollen wir durch regelmäßige Treff
+ en eine Plattform bieten\, dieses zu erleichtern. Wir laden daher zum in
+ terdisziplinären Informationsaustausch zwischen ios\, android\, html5 E
+ ntwicklern ein!
+URL:http://hcking.de/events/105/dates/769
 SUMMARY:mobile.cologne
-LOCATION:50667 Köln
-END:VEVENT
-BEGIN:VEVENT
-DTEND;VALUE=DATE-TIME:20120810T210000Z
-DTSTART;VALUE=DATE-TIME:20120810T180000Z
-DESCRIPTION:DAS Event der Demo-Szene in Köln.
-URL:http://hcking.de/events/21/dates/594
-SUMMARY:Evoke
-LOCATION:Abenteuerhallen Kalk\, Christian Sünner Strasse 8\, 51103 Köln
-END:VEVENT
-BEGIN:VEVENT
-DTEND;VALUE=DATE:20120811
-DTSTART;VALUE=DATE:20120811
-DESCRIPTION:DAS Event der Demo-Szene in Köln.
-URL:http://hcking.de/events/21/dates/595
-SUMMARY:Evoke
-LOCATION:Abenteuerhallen Kalk\, Christian Sünner Strasse 8\, 51103 Köln
-END:VEVENT
-BEGIN:VEVENT
-DTEND;VALUE=DATE:20120812
-DTSTART;VALUE=DATE:20120812
-DESCRIPTION:DAS Event der Demo-Szene in Köln.
-URL:http://hcking.de/events/21/dates/596
-SUMMARY:Evoke
-LOCATION:Abenteuerhallen Kalk\, Christian Sünner Strasse 8\, 51103 Köln
+LOCATION:Köln
 END:VEVENT
 END:VCALENDAR
