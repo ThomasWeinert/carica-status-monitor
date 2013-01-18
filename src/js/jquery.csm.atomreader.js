@@ -237,7 +237,8 @@
           this.node.find('.numberIcon').removeClass('labelToday').removeClass('labelAllDay');
         }
         this.updateTeaser(data, entry);
-        if (startDateFormat == 'DATE-TIME') {
+        if ((startDateFormat == 'DATE-TIME') ||
+            (startDateFormat != 'DATE' && endDate > startDate)) {
           this.node.find('h3').prepend(
             document.createTextNode(
               Globalize.format(startDate, "t") +
