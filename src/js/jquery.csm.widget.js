@@ -176,7 +176,9 @@
 
     options : {
       url : '',
-      interval : 0
+      interval : 0,
+      refresh : 'all',
+      highlight : 'no'
     },
 
     /**
