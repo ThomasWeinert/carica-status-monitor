@@ -46,7 +46,7 @@ namespace Carica\StatusMonitor\Library\Source {
           'timeout' => (float)$this->_timeout
         )
       );
-      $xml = @file_get_contents(validateUrl($this->_url), FALSE, stream_context_create($options));
+      $xml = file_get_contents(validateUrl($this->_url), FALSE, stream_context_create($options));
       if (!empty($xml)) {
         $dom = new \DOMDocument();
         $dom->loadXml($xml);
