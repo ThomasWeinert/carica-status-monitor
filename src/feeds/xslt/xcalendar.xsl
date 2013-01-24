@@ -9,6 +9,8 @@
   xmlns:func="http://exslt.org/functions"
   extension-element-prefixes="date func"
 >
+<!-- Configuration -->
+<xsl:variable name="HIDE_ENDED" select="true()"/>
 
 <xsl:template match="/*">
   <xsl:variable name="now" select="date:date-time()"/>
@@ -17,21 +19,23 @@
   <atom:feed>
     <xsl:for-each select="$events">
       <xsl:sort select="xCal:dtstart" data-type="text" order="ascending"/>
-      <xsl:variable name="isFullday" select="xCal:dtstart/@value = 'DATE'"/>
-      <xsl:variable name="startDate" select="date:parseIcalDateTime(xCal:dtstart, xCal:dtstart/@value)"/>
+      <xsl:variable 
+        name="isFullday"
+        select="xCal:dtstart/@value = 'DATE' or string-length(xCal:dtstart/@value) &lt;= 10"/>
+      <xsl:variable name="startDate" select="date:parseIcalDateTime(xCal:dtstart)"/>
       <xsl:variable name="endDate">
         <xsl:choose>
           <xsl:when test="$isFullday">
-            <xsl:value-of select="date:add(date:parseIcalDateTime(xCal:dtend, xCal:dtend/@value), 'P1D')"/>
+            <xsl:value-of select="date:add($startDate, 'P1D')"/>
           </xsl:when>
           <xsl:otherwise>
-            <xsl:value-of select="date:parseIcalDateTime(xCal:dtend, xCal:dtend/@value)"/>
+            <xsl:value-of select="date:parseIcalDateTime(xCal:dtend)"/>
           </xsl:otherwise>
         </xsl:choose>
       </xsl:variable>
       <xsl:variable name="isStarted" select="date:seconds($startDate) &lt;= $nowTimestamp"/>
       <xsl:variable name="isEnded" select="date:seconds($endDate) &lt; $nowTimestamp"/>
-      <xsl:if test="($isStarted and not($isEnded)) or not($isStarted)">
+      <xsl:if test="not($HIDE_ENDED) or ($isStarted and not($isEnded)) or not($isStarted)">
         <atom:entry>
           <atom:title><xsl:value-of select="xCal:summary"/></atom:title>
           <atom:id>
@@ -68,7 +72,6 @@
 <!--  20120619T180000Z -->
 <func:function name="date:parseIcalDateTime">
   <xsl:param name="dateTime"/>
-  <xsl:param name="format"/>
   <xsl:variable name="result">
     <xsl:value-of select="substring($dateTime, 1, 4)"/>
     <xsl:text>-</xsl:text>
@@ -77,7 +80,7 @@
     <xsl:value-of select="substring($dateTime, 7, 2)"/>
     <xsl:text>T</xsl:text>
     <xsl:choose>
-      <xsl:when test="$format != 'DATE'">
+      <xsl:when test="string-length($dateTime) &gt; 10">
         <xsl:value-of select="substring($dateTime, 10, 2)"/>
         <xsl:text>:</xsl:text>
         <xsl:value-of select="substring($dateTime, 12, 2)"/>
