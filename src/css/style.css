@@ -298,21 +298,27 @@ ul.countdown li.labelApproaching .timer .numberIcon.countdownNumber3 {
 .spriteIcon {
   display: inline-block;
   float: left;
-  width: 48px;
-  min-height: 48px;
   border-radius: 5px;
   background-repeat: no-repeat;
   background-position: center middle;
   background-size: contain;
 }
-.spriteIcon.hasTitle {
+.spriteIcon.hasImage {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.spriteIcon.hasTitle,
+.spriteIcon.hasText {
   border: 1px solid #404040;
   background-color: #FFF;
 }
 .spriteIcon .sprite {
   display: inline-block;
-  width: 48px;
-  height: 32px;
+}
+.spriteIcon.hasImage .sprite {
+  min-width: 48px;
+  min-height: 32px;
 }
 .spriteIcon .title {
   display: block;
