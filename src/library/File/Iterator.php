@@ -42,19 +42,21 @@ namespace Carica\StatusMonitor\Library\File {
     /**
      * Return an Iterator instance, if the resource is not seekable, read it completly
      * and return an array iterator. If it is seekable return a ResourceIterator
-     * 
+     *
      * @see IteratorAggregate::getIterator()
      */
     public function getIterator() {
-      $resource = fopen($this->_name, 'r');
-      $options = stream_get_meta_data($resource); 
-      if ($options['seekable']) {
-        return new ResourceIterator($resource, $this->_options);
-      } else {
-        return new \ArrayIterator(
-          iterator_to_array(new ResourceIterator($resource, $this->_options))
-        );
+      if ($resource = fopen($this->_name, 'r')) {
+        $options = stream_get_meta_data($resource);
+        if ($options['seekable']) {
+          return new ResourceIterator($resource, $this->_options);
+        } else {
+          return new \ArrayIterator(
+            iterator_to_array(new ResourceIterator($resource, $this->_options))
+          );
+        }
       }
+      return new \EmptyIterator();
     }
   }
 }
