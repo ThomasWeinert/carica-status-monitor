@@ -47,7 +47,6 @@
       var current = this.slides.filter(':visible');
       var currentIndex = this.slides.index(current);
       var next = null;
-      var animation ={};
 
       for (var i = currentIndex + 1; i < this.slides.length; i++) {
         if (this.slides.eq(i).has(this.options.filter).length > 0) {
@@ -58,7 +57,7 @@
       if (!next) {
         next = this.slides.eq(0);
       }
-      if (next) {
+      if (next && current.get(0) != next.get(0)) {
         if (current) {
           $(current).fadeOut(
             'slow',
