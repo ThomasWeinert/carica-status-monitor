@@ -40,6 +40,10 @@
       hash : {
         file : 'js/jquery.csm.hashreplace.js',
         object : 'CaricaStatusMonitorHashReplace'
+      },
+      slides : {
+        file : 'js/jquery.csm.slides.js',
+        object : 'CaricaStatusMonitorSlides'
       }
     },
 
