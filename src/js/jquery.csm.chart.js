@@ -131,6 +131,8 @@
 
     tooltip : null,
 
+    plotTimer : null,
+
     /**
      * create a tooltip for the chart widget instance
      */
@@ -181,7 +183,33 @@
           $.proxy(this.tooltip.onHover, this.tooltip)
         );
       }
-      $.plot(container, series.data, options);
+      this.plot(container, series.data, options);
+    },
+
+    /**
+     * The control need to be visislbe and contain a width.
+     *
+     * If this is not the case, postphone the plotting for some time
+     *
+     * @param container
+     * @param data
+     * @param options
+     */
+    plot : function(container, data, options) {
+      if (this.plotTimer) {
+        window.clearTimeout(this.plotTimer);
+      }
+      if (container.width() > 0) {
+        $.plot(container, data, options);
+      } else {
+        var that = this;
+        this.plotTimer = window.setTimeout(
+          function() {
+            that.plot(container, data, options)
+          },
+          100
+        );
+      }
     },
 
     /**

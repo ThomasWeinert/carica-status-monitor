@@ -21,6 +21,8 @@
           '<span class="spacer"></span>' +
         '</li>',
 
+      plotTimer : null,
+
       readDatapoints : function(xml) {
         result = [];
         xml.filter(':has(csm|data-point)').each(
@@ -46,11 +48,8 @@
             data[data.length - 1][1]
           )
         );
-        this.node.find('.sparkline').width(
-          this.entries.widget.node.width() - 160
-        );
-        $.plot(
-          this.node.find('.sparkline'),
+        this.plot(
+          this.node,
           [ data ],
           {
             xaxis : {
@@ -64,6 +63,35 @@
             }
           }
         );
+      },
+
+      /**
+       * The control need to be visislbe and contain a width.
+       *
+       * If this is not the case, postphone the plotting for some time
+       *
+       * @param container
+       * @param data
+       * @param options
+       */
+      plot : function(container, data, options) {
+        if (this.plotTimer) {
+          window.clearTimeout(this.plotTimer);
+        }
+        if (container.width() > 0 && container.height() > 0) {
+          container.find('.sparkline').width(
+            container.width() - 160
+          );
+          $.plot(container.find('.sparkline'), data, options);
+        } else {
+          var that = this;
+          this.plotTimer = window.setTimeout(
+            function() {
+              that.plot(container, data, options)
+            },
+            1000
+          );
+        }
       }
     }
   );
