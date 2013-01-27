@@ -2,7 +2,7 @@
   "name": "carica/statusmonitor",
   "type": "library",
   "description": "Shows feeds and charts on public monitors",
-  "keywords": ["monitor", "status", 'feed', 'atom'],
+  "keywords": ["monitor", "status", "feed", "atom"],
   "homepage": "https://bitbucket.org/ThomasWeinert/carica-status-monitor/",
   "license": "MIT",
   "authors": [
