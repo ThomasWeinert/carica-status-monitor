@@ -19,11 +19,18 @@
     options : {
       interval : 30,
       slides : '',
-      filter : '* > *'
+      filter : '* > *',
+      animation : 'none',
+      animationSpeed : null
+    },
+
+    animations : {
+      'fade' : ['fadeIn', 'fadeOut'],
+      'slide' : ['slideDown', 'slideUp']
     },
 
     /**
-     * Bind event handler, and store orignal text content of the element.
+     * Bind event handler, and store original text content of the element.
      *
      * @param node
      * @param options
@@ -58,17 +65,39 @@
         next = this.slides.eq(0);
       }
       if (next && current.get(0) != next.get(0)) {
+        var showAnimation = this.getAnimationFunction(true);
+        var hideAnimation = this.getAnimationFunction(false);
+        var animationSpeed = this.options.animationSpeed;
         if (current) {
-          $(current).fadeOut(
-            'slow',
+          $(current)[hideAnimation](
+            animationSpeed,
             function () {
-              next.fadeIn('slow');
+              next[showAnimation](animationSpeed);
             }
           );
+          if (showAnimation == 'show' && animationSpeed == null) {
+            next.show();
+          }
         } else {
-          next.fadeIn('slow');
+          next[showAnimation](animationSpeed);
         }
       }
+    },
+
+    /**
+     * Get the animation function name from the this.animations
+     * property.
+     *
+     * @param boolean show
+     * @return string
+     */
+    getAnimationFunction : function(show) {
+      if (typeof this.animations[this.options.animation] != 'undefined') {
+        return show
+          ? this.animations[this.options.animation][0]
+          : this.animations[this.options.animation][1];
+      }
+      return show ? 'show' : 'hide';
     }
   };
 
