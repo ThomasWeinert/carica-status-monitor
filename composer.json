@@ -1,5 +1,5 @@
 {
-  "name": "Carica/StatusMonitor",
+  "name": "carica/statusMonitor",
   "type": "library",
   "description": "Shows feeds and charts on public monitors",
   "keywords": ["monitor", "status", "feed", "atom"],
