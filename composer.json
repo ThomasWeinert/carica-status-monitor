@@ -1,5 +1,5 @@
 {
-  "name": "carica/statusmonitor",
+  "name": "Carica/StatusMonitor",
   "type": "library",
   "description": "Shows feeds and charts on public monitors",
   "keywords": ["monitor", "status", "feed", "atom"],
@@ -13,6 +13,6 @@
     "ext-xsl": "*"
   },
   "autoload": {
-    "psr-0": { "Carica\\StatusMonitor\\": "src/Library" }
+    "classmap": { "Carica\\StatusMonitor\\Library": "src/Library" }
   }
 }
