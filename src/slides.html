@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Status Monitor</title>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8"/>
+    <link rel="stylesheet" type="text/css" href="css/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/clock.css"/>
+    <link rel="stylesheet" type="text/css" href="css/effects/light.css">
+  </head>
+  <body>
+    <div id="pageHeader">
+      <img src="img/title-image.png" class="icon" alt=""/>
+      <h1>Status Monitor - Slides</h1>
+    </div>
+    <div class="widgetGroups" 
+        data-plugin="slides" 
+        data-filter="ul li" 
+        data-interval="10"
+      >
+      <div class="widgets">
+        <div class="widget" 
+             data-plugin="feed" 
+             data-url="feeds/jenkins.php?view=http://example.tld/jenkins/view.xml" 
+             data-refresh="all"
+             data-allow-html="yes" 
+             data-interval="60">
+          <h2>Project Build Status</h2>
+        </div>
+        <div class="widget" 
+             data-plugin="feed" 
+             data-url="feeds/yweather.php?location=667931" 
+             data-refresh="all"
+             data-interval="600">
+          <h2>Yahoo Weather</h2>
+        </div>
+      </div>
+      <div class="widgets">
+        <div class="widget" 
+             data-plugin="feed" 
+             data-url="feeds/db-station.php?code=%23008000207" 
+             data-interval="60" 
+             data-max="8" 
+             data-refresh="all">
+          <h2>Departures Cologne Central Station</h2>
+        </div>
+        <div class="widget" 
+             data-plugin="feed" 
+             data-url="feeds/twitter.php?q=%23php%20-job%20-freelance"
+             data-interval="60"
+             data-max="8">
+          <h2>#PHP on Twitter</h2>
+        </div>
+      </div>
+    </div>
+    <div id="clock" data-plugin="clock"></div>
+    <script type="text/javascript" src="js/external/jquery.js"></script>
+    <script type="text/javascript" src="js/jquery.csm.js"></script>
+    <script type="text/javascript">
+      jQuery(document).ready(
+        function() {
+          jQuery.CaricaStatusMonitor({locale : 'de'});
+        }
+      );
+    </script>
+  </body>
+</html>

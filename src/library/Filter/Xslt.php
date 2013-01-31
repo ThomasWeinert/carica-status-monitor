@@ -24,12 +24,18 @@ namespace Carica\StatusMonitor\Library\Filter {
     private $_xsltFile = '';
 
     /**
+     * @var string
+     */
+    private $_xsltParameters = '';
+
+    /**
      * Create the filter object and store the xslt file name
      *
      * @param string $xsltFile
      */
-    public function __construct($xsltFile) {
+    public function __construct($xsltFile, array $parameters = array()) {
       $this->_xsltFile = $xsltFile;
+      $this->_xsltParameters = $parameters;
     }
 
     /**
@@ -42,6 +48,9 @@ namespace Carica\StatusMonitor\Library\Filter {
       $template = new \DOMDocument();
       $template->load($this->_xsltFile);
       $this->processor()->importStylesheet($template);
+      foreach ($this->_xsltParameters as $name => $value) {
+        $this->processor()->setParameter('', $name, $value);
+      }
       return $this->processor()->transformToDoc($dom);
     }
 

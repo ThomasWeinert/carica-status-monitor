@@ -40,6 +40,10 @@
       hash : {
         file : 'js/jquery.csm.hashreplace.js',
         object : 'CaricaStatusMonitorHashReplace'
+      },
+      slides : {
+        file : 'js/jquery.csm.slides.js',
+        object : 'CaricaStatusMonitorSlides'
       }
     },
 
@@ -51,7 +55,9 @@
       /* cache script files */
       cache : false,
       /* locale for date time formatting */
-      locale : 'en'
+      locale : 'en',
+      /* base path for scripts */
+      basePath : ''
     },
 
     pluginOptions : {
@@ -87,7 +93,7 @@
       for (var i in this.requires) {
         $.ajax(
           {
-            url : this.requires[i],
+            url : this.options.basePath + this.requires[i],
             cache: this.options.cache,
             dataType: "script"
           }
@@ -149,7 +155,7 @@
         var options = $.extend({}, this.pluginOptions[name]);
         $.ajax(
           {
-            url : plugin.file,
+            url : this.options.basePath + plugin.file,
             cache: this.options.cache,
             dataType: "script"
           }
@@ -185,7 +191,7 @@
         xcalDate.substr(0, 4) + '-' +
         xcalDate.substr(4, 2) + '-' +
         xcalDate.substr(6, 2);
-      if (format == 'DATE-TIME') {
+      if (xcalDate.length > 8) {
         dateString +=
           xcalDate.substr(8, 3) + ':' +
           xcalDate.substr(11, 2) + ':' +

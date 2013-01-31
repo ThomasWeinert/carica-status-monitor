@@ -61,7 +61,9 @@
         if (difference <= 0) {
           this.node.addClass('error').removeClass('labelApproaching');
         } else if (difference < this.entries.widget.options.approachingLimitMS) {
-          this.node.addClass('labelApproaching');
+          this.node.addClass('labelApproaching').removeClass('error');
+        } else {
+          this.node.removeClass('error');
         }
         var numbers = $.CaricaStatusMonitor.Date.parsePeriod(difference);
         var numberIndex = 0;
@@ -123,9 +125,7 @@
       var entry, data, prototype;
       var entries = xml.find('atom|entry');
       var max = this.options.max;
-      if (this.options.refresh == 'all') {
-        this.entries.clear();
-      }
+      this.entries.clear();
       for (var i = max; i > 0; i--) {
         entry = entries.eq(i - 1);
         if (entry.length > 0) {

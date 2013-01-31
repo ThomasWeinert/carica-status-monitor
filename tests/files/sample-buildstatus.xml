@@ -19,7 +19,7 @@
     <updated>2012-06-16T13:15:02Z</updated>
     <summary>Build #23 failed</summary>
     <csm:status>error</csm:status>
-    <csm:icon src="img/weather-storm.png"/>
+    <csm:icon src="img/face-devilish.png"/>
   </entry>
   <entry>
     <title>phpCss</title>
@@ -27,7 +27,7 @@
     <updated>2012-06-16T10:16:02Z</updated>
     <summary>Build #23 failed, building</summary>
     <csm:status>error</csm:status>
-    <csm:icon src="img/weather-storm.png"/>
+    <csm:icon src="img/refresh-animated.png"/>
   </entry>
   <entry>
     <title>FluentDom</title>

@@ -32,6 +32,7 @@
 
     options : {
       url : 'feeds/yweather.php?location=667931',
+      weather : 'yes',
       interval : 600
     },
 
@@ -46,14 +47,16 @@
       this.options = $.extend(this.options, options, node.data());
       this.create(node);
       this.update();
-      this.fetchWeather();
       window.setInterval(
         $.proxy(this.update, this), 5000
       );
-      if (this.options.interval > 0) {
-        window.setInterval(
-          $.proxy(this.fetchWeather, this), this.options.interval * 1000
-        );
+      if (this.options.weather != 'no') {
+        this.fetchWeather();
+        if (this.options.interval > 0) {
+          window.setInterval(
+            $.proxy(this.fetchWeather, this), this.options.interval * 1000
+          );
+        }
       }
     },
 

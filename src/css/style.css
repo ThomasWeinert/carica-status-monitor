@@ -63,55 +63,55 @@ table#splitview td {
 }
 
 /** multicolumn layout depending on screen size **/
-#widgets {
+#widgets, .widgets {
   -moz-column-gap: 0;
   -webkit-column-gap: 0;
   column-gap: 0;
   margin: 1.5em 0.5em 0em 0.5em;
 }
 @media screen and (min-width: 500px) {
-  #widgets {
+  #widgets, .widgets {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
   }
-  #splitview #widgets {
+  #splitview #widgets, #splitview .widgets {
     -moz-column-count: 1;
     -webkit-column-count: 1;
     column-count: 1;
   }
 }
 @media screen and (min-width: 1000px) {
-  #widgets {
+  #widgets, .widgets {
     -moz-column-count: 3;
     -webkit-column-count: 3;
     column-count: 3;
   }
-  #splitview #widgets {
+  #splitview #widgets, #splitview .widgets {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
   }
 }
 @media screen and (min-width: 1500px) {
-  #widgets {
+  #widgets, .widgets {
     -moz-column-count: 4;
     -webkit-column-count: 4;
     column-count: 4;
   }
-  #splitview #widgets {
+  #splitview #widgets, #splitview .widgets {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
   }
 }
 @media screen and (min-width: 2000px) {
-  #widgets {
+  #widgets, .widgets {
     -moz-column-count: 5;
     -webkit-column-count: 5;
     column-count: 5;
   }
-  #splitview #widgets {
+  #splitview #widgets, #splitview .widgets {
     -moz-column-count: 3;
     -webkit-column-count: 3;
     column-count: 3;
@@ -298,21 +298,27 @@ ul.countdown li.labelApproaching .timer .numberIcon.countdownNumber3 {
 .spriteIcon {
   display: inline-block;
   float: left;
-  width: 48px;
-  min-height: 48px;
   border-radius: 5px;
   background-repeat: no-repeat;
   background-position: center middle;
   background-size: contain;
 }
-.spriteIcon.hasTitle {
+.spriteIcon.hasImage {
+  min-width: 48px;
+  min-height: 48px;
+}
+
+.spriteIcon.hasTitle,
+.spriteIcon.hasText {
   border: 1px solid #404040;
   background-color: #FFF;
 }
 .spriteIcon .sprite {
   display: inline-block;
-  width: 48px;
-  height: 32px;
+}
+.spriteIcon.hasImage .sprite {
+  min-width: 48px;
+  min-height: 32px;
 }
 .spriteIcon .title {
   display: block;

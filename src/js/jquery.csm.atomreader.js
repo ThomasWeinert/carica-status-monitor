@@ -28,7 +28,7 @@
     $.CaricaStatusMonitorWidget.Entry(),
     {
 
-      defaultIcon : 'img/dialog-information.png',
+      defaultIcon : '',
       link : null,
 
       template :
@@ -87,9 +87,25 @@
         if (!icon || icon == '') {
           icon = entry.find('atom|link[rel=image]').attr('href');
         }
-        iconNode.css(
-          'background-image', 'url(' + (icon ? icon : this.defaultIcon) + ')'
-        );
+        if (icon || this.defaultIcon) {
+          iconNode.css(
+            'background-image', 'url(' + (icon ? icon : this.defaultIcon) + ')'
+          );
+          iconNode.addClass('hasImage');
+        } else {
+          iconNode.css(
+            'background-image', 'none'
+          );
+          iconNode.removeClass('hasImage');
+        }
+        var iconText = entry.find('csm|icon').attr('text');
+        if (iconText) {
+          iconNode.find('.sprite').text(iconText);
+          iconNode.addClass('hasText');
+        } else {
+          iconNode.find('.sprite').text(' ');
+          iconNode.removeClass('hasText');
+        }
         var iconTitle = entry.find('csm|icon').attr('title');
         if (iconTitle) {
           iconNode.find('.title').text(iconTitle).show();
@@ -237,7 +253,8 @@
           this.node.find('.numberIcon').removeClass('labelToday').removeClass('labelAllDay');
         }
         this.updateTeaser(data, entry);
-        if (startDateFormat == 'DATE-TIME') {
+        if ((startDateFormat == 'DATE-TIME') ||
+            (startDateFormat != 'DATE' && endDate > startDate)) {
           this.node.find('h3').prepend(
             document.createTextNode(
               Globalize.format(startDate, "t") +
