@@ -46,6 +46,10 @@ body {
   color: #aaa;
   background-color: #a40000;
 }
+.widget .fatal {
+  color: #FEFF00;
+  background-color: #F00;
+}
 
 .spriteIcon.hasTitle {
   background: #181c1d;
