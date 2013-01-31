@@ -58,11 +58,14 @@
             </xsl:call-template>
           </xsl:variable>
           <xsl:choose>
-            <xsl:when test="number($delay) &lt;= 10">
+            <xsl:when test="number($delay) &lt; 10">
               <csm:status>warning</csm:status>
             </xsl:when>
-            <xsl:otherwise>
+          	<xsl:when test="number($delay) &lt; 120">
               <csm:status>error</csm:status>
+            </xsl:when>
+            <xsl:otherwise>
+              <csm:status>fatal</csm:status>
             </xsl:otherwise>
           </xsl:choose>
         </xsl:if>
@@ -95,7 +98,7 @@
     <xsl:when test="contains($info, '+')">
       <xsl:value-of select="substring-after($info, '+')"/>
     </xsl:when>
-    <xsl:when test="contains($info, 'Zug f&#228;llt aus')">999</xsl:when>
+    <xsl:when test="contains($info, 'f&#228;llt aus')">999</xsl:when>
     <xsl:otherwise>0</xsl:otherwise>
   </xsl:choose>
 </xsl:template>
