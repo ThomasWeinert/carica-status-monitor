@@ -61,7 +61,7 @@
             <xsl:when test="number($delay) &lt; 10">
               <csm:status>warning</csm:status>
             </xsl:when>
-          	<xsl:when test="number($delay) &lt; 120">
+            <xsl:when test="number($delay) &lt; 120">
               <csm:status>error</csm:status>
             </xsl:when>
             <xsl:otherwise>
