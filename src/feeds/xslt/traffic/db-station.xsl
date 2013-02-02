@@ -15,6 +15,8 @@
 
 <xsl:strip-space elements="*"/>
 
+<xsl:param name="FEED_PATH"></xsl:param>
+
 <xsl:template match="/*">
   <xsl:variable name="currentDateString" select="//body/table[1]//td"/>
   <xsl:variable name="currentDate" select="date:date-time()"/>
@@ -84,10 +86,10 @@
   <xsl:choose>
     <xsl:when test="$vehicles/vehicle[@code = $type]">
       <xsl:variable name="vehicle" select="$vehicles/vehicle[@code = $type]"/>
-      <csm:icon src="img/{$vehicle/@image}" title="{$route}"/>
+      <csm:icon src="{$FEED_PATH}../img/{$vehicle/@image}" title="{$route}"/>
     </xsl:when>
     <xsl:otherwise>
-      <csm:icon src="img/traffic-sprite-train.png" title="{$route}"/>
+      <csm:icon src="{$FEED_PATH}../img/traffic-sprite-train.png" title="{$route}"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

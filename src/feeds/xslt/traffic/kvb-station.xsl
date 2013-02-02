@@ -9,6 +9,8 @@
   extension-element-prefixes="date func"
 >
 
+<xsl:param name="FEED_PATH"></xsl:param>
+
 <xsl:template match="/*">
   <xsl:variable name="currentDateString" select="//body/table[1]//td"/>
   <xsl:variable name="currentDate" select="date:date-time()"/>
@@ -33,8 +35,8 @@
           <csm:icon title="{$type} {$route}">
             <xsl:attribute name="src">
               <xsl:choose>
-                <xsl:when test="$type = 'BUS'">img/traffic-sprite-bus.png</xsl:when>
-                <xsl:otherwise>img/traffic-sprite-tram.png</xsl:otherwise>
+                <xsl:when test="$type = 'BUS'">{$FEED_PATH}../img/traffic-sprite-bus.png</xsl:when>
+                <xsl:otherwise>{$FEED_PATH}../img/traffic-sprite-tram.png</xsl:otherwise>
               </xsl:choose>
             </xsl:attribute>
           </csm:icon>

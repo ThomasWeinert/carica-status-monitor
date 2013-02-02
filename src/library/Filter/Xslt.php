@@ -51,6 +51,7 @@ namespace Carica\StatusMonitor\Library\Filter {
       foreach ($this->_xsltParameters as $name => $value) {
         $this->processor()->setParameter('', $name, $value);
       }
+      $this->processor()->setParameter('', 'FEED_PATH', dirname($_SERVER['PHP_SELF']).'/');
       return $this->processor()->transformToDoc($dom);
     }
 

@@ -7,6 +7,8 @@
 
 <xsl:import href="../rss/atom.xsl"/>
 
+<xsl:param name="FEED_PATH"></xsl:param>
+
 <xsl:template name="images">
   <xsl:variable name="fromBackgroundImage" select="substring-after(description, 'background-image:url(/')"/>
   <xsl:variable name="backgroundImageWithoutSize" select="substring-before($fromBackgroundImage, '?s=16')"/>
@@ -15,7 +17,7 @@
       <atom:link rel="image" href="{/rss/channel/link}{$backgroundImageWithoutSize}?s=48"/>
     </xsl:when>
     <xsl:otherwise>
-      <atom:link rel="image" href="img/user-no-avatar.png"/>
+      <atom:link rel="image" href="{$FEED_PATH}../img/user-no-avatar.png"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

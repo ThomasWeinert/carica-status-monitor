@@ -10,6 +10,8 @@
   extension-element-prefixes="func date"
 >
 
+<xsl:param name="FEED_PATH"></xsl:param>
+
 <!--  
   The level of detail an jenkins output depends on the "depth" parameter
   
@@ -68,6 +70,8 @@
         <csm:status><xsl:value-of select="$status"/></csm:status>
         <csm:icon>
           <xsl:attribute name="src">
+            <xsl:value-of select="$FEED_PATH"/>
+            <xsl:text>../</xsl:text>
             <xsl:choose>
               <xsl:when test="contains(color, '_anim')">
                 <xsl:text>img/refresh-animated.png</xsl:text>
