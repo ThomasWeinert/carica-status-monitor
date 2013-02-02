@@ -21,7 +21,7 @@ $url = 'http://www.kvb-koeln.de/generated/?aktion=show&title=none&code='.(int)$_
 
 use Carica\StatusMonitor\Library as Library;
 
-include_once(__DIR__.'/../library/Autoloader.php');
+include_once(__DIR__.'/../Carica/StatusMonitor/Library/Autoloader.php');
 Library\Autoloader::register();
 
 $feed = new Library\Feed(

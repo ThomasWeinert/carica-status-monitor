@@ -14,7 +14,7 @@ if (empty($_GET['rss']) && empty($_GET['atom'])) {
 
 use Carica\StatusMonitor\Library as Library;
 
-include_once(__DIR__.'/../library/Autoloader.php');
+include_once(__DIR__.'/../Carica/StatusMonitor/Library/Autoloader.php');
 Library\Autoloader::register();
 
 $feeds = array();

@@ -22,7 +22,7 @@ if (empty($_GET['q']) && empty($_GET['user'])) {
 
 use Carica\StatusMonitor\Library as Library;
 
-include_once(__DIR__.'/../library/Autoloader.php');
+include_once(__DIR__.'/../Carica/StatusMonitor/Library/Autoloader.php');
 Library\Autoloader::register();
 
 if (!empty($_GET['user'])) {

@@ -13,6 +13,6 @@
     "ext-xsl": "*"
   },
   "autoload": {
-    "classmap": { "Carica\\StatusMonitor\\Library": "src/Library" }
+    "psr-0": { "Carica\\StatusMonitor\\Library": "src" }
   }
 }
