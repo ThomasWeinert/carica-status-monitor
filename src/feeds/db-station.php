@@ -27,6 +27,11 @@
 * offset = A time period
 *   5 minutes: PT5M
 *
+* Optionally you can change the delay in minutes after a train is considered late or really late.
+*
+* delay_warning = 10 (default, 10 minutes)
+* delay_error = 120 (default, 120 minutes)
+*
 * @license http://www.opensource.org/licenses/mit-license.php The MIT License
 * @copyright 2012 Thomas Weinert <thomas@weinert.info>
 */
@@ -40,7 +45,6 @@ $time = new DateTime();
 $time->add(
   new DateInterval(empty($_GET['offset']) ? 'PT5M' : $_GET['offset'])
 );
-
 
 $parameters = array(
   'ld'=> 96236,
@@ -57,6 +61,9 @@ $parameters = array(
   'ao' => 'yes'
 );
 
+$delayWarning = empty($_GET['delay_warning']) ? 10 : (int)$_GET['delay_warning'];
+$delayError = empty($_GET['delay_error']) ? 120 : (int)$_GET['delay_error'];
+
 $url = 'http://mobile.bahn.de/bin/mobil/bhftafel.exe/dox?';
 foreach ($parameters as $name => $value) {
   $url .= '&'.$name.'='.urlencode($value);
@@ -69,7 +76,13 @@ Library\Autoloader::register();
 
 $feed = new Library\Feed(
   new Library\Source\HtmlPage($url),
-  new Library\Filter\Xslt(__DIR__.'/xslt/traffic/db-station.xsl')
+  new Library\Filter\Xslt(
+    __DIR__.'/xslt/traffic/db-station.xsl',
+    array(
+      'DELAY_MINUTES_WARNING' => $delayWarning,
+      'DELAY_MINUTES_ERROR' => $delayError
+    )
+  )
 );
 
 $feed->output();
