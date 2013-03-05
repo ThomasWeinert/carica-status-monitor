@@ -15,7 +15,7 @@ use Carica\StatusMonitor\Library as Library;
 
 $url = 'http://www.ohloh.net/p/'.$_GET['project'].'/analyses/latest/codehistory';
 
-include_once(__DIR__.'/../library/Autoloader.php');
+include_once(__DIR__.'/../Carica/StatusMonitor/Library/Autoloader.php');
 Library\Autoloader::register();
 
 $feed = new Library\Feed(

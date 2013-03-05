@@ -178,7 +178,8 @@
       url : '',
       interval : 0,
       refresh : 'all',
-      highlight : 'no'
+      highlight : 'no',
+      basePath : ''
     },
 
     /**

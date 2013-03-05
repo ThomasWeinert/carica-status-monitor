@@ -12,6 +12,8 @@
 
 <xsl:import href="../rss/dates.xsl"/>
 
+<xsl:param name="FEED_PATH"></xsl:param>
+
 <xsl:template match="/*">
   <atom:feed>
     <atom:title><xsl:value-of select="channel/title"/></atom:title>
@@ -52,7 +54,8 @@
   <func:result>
     <xsl:choose>
       <xsl:when test="$image != ''">
-        <xsl:text>img/</xsl:text>
+        <xsl:value-of select="$FEED_PATH"/>
+        <xsl:text>../img/</xsl:text>
         <xsl:value-of select="$image"/>
       </xsl:when>
       <xsl:otherwise></xsl:otherwise>

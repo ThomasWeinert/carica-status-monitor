@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<atom:feed xmlns:atom="http://www.w3.org/2005/Atom">
+  <atom:entry>
+    <atom:title>Sample Item One</atom:title>
+    <atom:id>urn:sample-feed:one:sample-item:one</atom:id>
+    <atom:updated>2003-12-13T18:30:02Z</atom:updated>
+  </atom:entry>
+  <atom:entry>
+    <atom:title>Sample Item Two</atom:title>
+    <atom:id>urn:sample-feed:two:sample-item:one</atom:id>
+    <atom:updated>2003-12-13T18:30:02Z</atom:updated>
+  </atom:entry>
+</atom:feed>

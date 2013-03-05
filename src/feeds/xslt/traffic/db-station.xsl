@@ -15,6 +15,11 @@
 
 <xsl:strip-space elements="*"/>
 
+<xsl:param name="FEED_PATH"></xsl:param>
+
+<xsl:param name="DELAY_MINUTES_WARNING" select="10"/>
+<xsl:param name="DELAY_MINUTES_ERROR" select="120"/>
+
 <xsl:template match="/*">
   <xsl:variable name="currentDateString" select="//body/table[1]//td"/>
   <xsl:variable name="currentDate" select="date:date-time()"/>
@@ -58,10 +63,10 @@
             </xsl:call-template>
           </xsl:variable>
           <xsl:choose>
-            <xsl:when test="number($delay) &lt;= 10">
+            <xsl:when test="number($delay) &lt;= $DELAY_MINUTES_WARNING">
               <csm:status>warning</csm:status>
             </xsl:when>
-            <xsl:when test="number($delay) &lt;= 120">
+            <xsl:when test="number($delay) &lt;= $DELAY_MINUTES_ERROR">
               <csm:status>error</csm:status>
             </xsl:when>
             <xsl:otherwise>
@@ -84,10 +89,10 @@
   <xsl:choose>
     <xsl:when test="$vehicles/vehicle[@code = $type]">
       <xsl:variable name="vehicle" select="$vehicles/vehicle[@code = $type]"/>
-      <csm:icon src="img/{$vehicle/@image}" title="{$route}"/>
+      <csm:icon src="{$FEED_PATH}../img/{$vehicle/@image}" title="{$route}"/>
     </xsl:when>
     <xsl:otherwise>
-      <csm:icon src="img/traffic-sprite-train.png" title="{$route}"/>
+      <csm:icon src="{$FEED_PATH}../img/traffic-sprite-train.png" title="{$route}"/>
     </xsl:otherwise>
   </xsl:choose>
 </xsl:template>

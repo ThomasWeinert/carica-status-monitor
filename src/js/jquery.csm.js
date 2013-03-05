@@ -125,6 +125,9 @@
           plugin = this.plugins[name];
           if (nodes[plugin.object]) {
             options = $.extend({}, this.pluginOptions[name]);
+            if (!options.basePath || options.basePath == '') {
+              options.basePath = this.options.basePath;
+            }
             nodes[plugin.object](options);
           } else {
             console.error('Plugin "' + plugin.object + '" not found.');
@@ -153,6 +156,9 @@
       var nodes = $('[data-plugin~='+name+']');
       if (nodes.length > 0) {
         var options = $.extend({}, this.pluginOptions[name]);
+        if (!options.basePath || options.basePath == '') {
+          options.basePath = this.options.basePath;
+        }
         $.ajax(
           {
             url : this.options.basePath + plugin.file,

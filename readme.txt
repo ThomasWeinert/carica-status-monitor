@@ -3,7 +3,7 @@
 
  License:   The MIT License
             http://www.opensource.org/licenses/mit-license.php
- Copyright: 2012 Thomas Weinert <thomas@weinert.info>
+ Copyright: 2012-2013 Thomas Weinert <thomas@weinert.info>
 ---------------------------------------------------------------------
 
 This is a panic/status monitor. The main component is an Atom reader
@@ -15,22 +15,29 @@ in your favorite browser.
 --------------------------------------------------------------------
 
 Browser Compatiblity:
-- Firefox 13 (Windows 7)
-- Firefox 11 (Ubuntu Linux)
-- Chrome 19 (Windows 7)
+- Firefox >= 16
+- Chrome >= 20
 
 --------------------------------------------------------------------
 
-/src/status-monitor.html
+The pages are configured using data-Attributes in the HTML pages.
+Check the wiki for more information.
 
-A status monitor example. The feeds are configured using
-data-attributes inside the html. Several feeds are only test data.
+https://bitbucket.org/ThomasWeinert/carica-status-monitor/wiki/Home
 
 --------------------------------------------------------------------
 
-/src/twitter-wall.html
+The project supports Composer (http://getcomposer.org/) and is
+available on Packagist:
 
-A twitter wall example. It uses only a single feed (a simple
-twitter search proxy) and displays the feed on all columns.
+https://packagist.org/packages/carica/statusmonitor
 
-The search is defined by the url fragment/hash.
+--------------------------------------------------------------------
+
+A skeleton project for your implementation using CSM as a library
+can be found at:
+
+https://bitbucket.org/ThomasWeinert/carica-status-monitor-skeleton
+
+--------------------------------------------------------------------
+  

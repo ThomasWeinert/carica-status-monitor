@@ -33,7 +33,8 @@
     options : {
       url : 'feeds/yweather.php?location=667931',
       weather : 'yes',
-      interval : 600
+      interval : 600,
+      basePath : ''
     },
 
     /**
@@ -87,7 +88,7 @@
      */
     fetchWeather : function() {
       if (this.options.url != '') {
-        var url = this.options.url;
+        var url = this.options.basePath + this.options.url;
         $.get(url)
           .success($.proxy(this.ajaxSuccess, this));
       }
