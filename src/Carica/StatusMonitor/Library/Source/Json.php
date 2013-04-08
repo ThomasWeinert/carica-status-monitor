@@ -116,12 +116,14 @@ namespace Carica\StatusMonitor\Library\Source {
          $nameStartChar.
          '\\.\\d\\x{B7}\\x{300}-\\x{36F}\\x{203F}-\\x{2040}';
       $tagNameNormalized = preg_replace(
-        '((^[^'.$nameStartChar.'])|[^'.$nameChar.'])u', '-', $tagName
+        '((^[^'.$nameStartChar.']+)|[^'.$nameChar.'])u', '-', $tagName
       );
-      $childNode = $parentNode->ownerDocument->createElement($tagNameNormalized);
-      if ($tagNameNormalized != $tagName) {
-        $childNode->setAttribute('name', $tagName);
+      $tagNameNormalized = trim($tagNameNormalized, '-');
+      if (empty($tagNameNormalized)) {
+        $tagNameNormalized = 'element';
       }
+      $childNode = $parentNode->ownerDocument->createElement($tagNameNormalized);
+      $childNode->setAttribute('name', $tagName);
       $parentNode->appendChild($childNode);
       return $childNode;
     }
