@@ -116,7 +116,7 @@ namespace Carica\StatusMonitor\Library\Source {
          $nameStartChar.
          '\\.\\d\\x{B7}\\x{300}-\\x{36F}\\x{203F}-\\x{2040}';
       $tagNameNormalized = preg_replace(
-        '((^[^'.$nameStartChar.']+)|[^'.$nameChar.'])u', '-', $tagName
+        '((^[^'.$nameStartChar.']+)|[^'.$nameChar.']+)u', '-', $tagName
       );
       $tagNameNormalized = trim($tagNameNormalized, '-');
       if (empty($tagNameNormalized)) {
