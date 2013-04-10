@@ -179,7 +179,8 @@
       interval : 0,
       refresh : 'all',
       highlight : 'no',
-      basePath : ''
+      basePath : '',
+      showStatus : 'yes'
     },
 
     /**
@@ -294,13 +295,13 @@
       var messageNode = this.node.find('.message');
       statusNode.attr('class', 'status');
       messageNode.attr('class', 'message');
-      if (status != 'none' && status != '') {
+      if (status != 'none' && status != '' && this.options.showStatus != 'no') {
         statusNode.addClass(status).show();
         messageNode.addClass(status);
       } else {
         statusNode.hide();
       }
-      if (message != '') {
+      if (message != '' && this.options.showStatus != 'no') {
         messageNode.text(message).show();
       } else {
         messageNode.html('&nbsp;').filter('div').hide();
