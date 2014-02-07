@@ -8,14 +8,14 @@
   xmlns:func="http://exslt.org/functions"
   xmlns:date="http://exslt.org/dates-and-times"
   extension-element-prefixes="func date">
-  
+
 <xsl:param name="FEED_PATH"></xsl:param>
 <xsl:param name="CAPTION_ALL_OK">NO warnings or errors</xsl:param>
 
 <xsl:template match="/json">
   <atom:feed>
-    <xsl:variable 
-      name="hasErrors" 
+    <xsl:variable
+      name="hasErrors"
       select="count(content//current_state[number(text()) &gt; 0]) &gt; 0"/>
     <xsl:choose>
       <xsl:when test="$hasErrors">
@@ -33,7 +33,7 @@
         <atom:id>nagios-all-ok</atom:id>
         <csm:icon src="{$FEED_PATH}../img/dialog-information.png"/>
       </xsl:otherwise>
-    </xsl:choose> 
+    </xsl:choose>
   </atom:feed>
 </xsl:template>
 
@@ -41,6 +41,7 @@
   <xsl:param name="entries"/>
   <xsl:param name="level" select="1"/>
   <xsl:for-each select="$entries">
+    <xsl:sort select="date:timestamp(last_state_change)" order="descending"/>
     <xsl:variable name="serverCaption" select="@name"/>
     <xsl:if test="current_state = $level">
       <xsl:call-template name="feed-entry">
@@ -57,7 +58,6 @@
       </xsl:call-template>
     </xsl:for-each>
   </xsl:for-each>
-  
 </xsl:template>
 
 <xsl:template name="feed-entry">
@@ -85,5 +85,5 @@
   <xsl:param name="timestamp"/>
   <func:result select="date:add('1970-01-01T00:00:00Z', date:duration($timestamp))"/>
 </func:function>
-  
+
 </xsl:stylesheet>
