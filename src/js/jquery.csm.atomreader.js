@@ -268,7 +268,7 @@
       },
 
       parseEventDate : function(node) {
-        return $.CaricaStatusMonitor.Xcalendar.parseDate(node.text(), node.attr('value'));
+        return $.CaricaStatusMonitor.Xcalendar.parseDate(node.text(), node.attr('tzoffset'));
       }
     }
   );

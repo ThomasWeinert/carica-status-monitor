@@ -131,9 +131,25 @@ namespace Carica\StatusMonitor\Library\Source {
           )
         );
         if (!empty($token['paramName'])) {
+          $paramName = strtolower($token['paramName']);
           $itemNode->setAttribute(
-            strtolower($token['paramName']), $token['paramValue']
+            $paramName, $token['paramValue']
           );
+          if ($paramName == 'tzid') {
+            $timezone = new \DateTimeZone($token['paramValue']);
+            $offset = $timezone->getOffset(new \DateTime($token['value']));
+            $offsetHours = floor(abs($offset)/3600);
+            $offsetMinutes = floor((abs($offset) - $offsetHours * 3600) / 60);
+            $itemNode->setAttribute(
+              'tzoffset',
+              sprintf(
+                '%s%02d:%02d',
+                $offset > 0 ? '+' : '-',
+                $offsetHours,
+                $offsetMinutes
+              )
+            );
+          }
         }
       }
     }
@@ -168,6 +184,7 @@ namespace Carica\StatusMonitor\Library\Source {
      * a file iterator using the stored url.
      *
      * @param $iterator
+     * @return \Traversable
      */
     public function fileIterator(\Traversable $iterator = NULL) {
       if (isset($iterator)) {

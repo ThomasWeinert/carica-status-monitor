@@ -192,7 +192,7 @@
    * @returns string
    */
   $.CaricaStatusMonitor.Xcalendar = {
-    parseDate : function(xcalDate, format) {
+    parseDate : function(xcalDate, tzoffset) {
       var dateString =
         xcalDate.substr(0, 4) + '-' +
         xcalDate.substr(4, 2) + '-' +
@@ -201,8 +201,16 @@
         dateString +=
           xcalDate.substr(8, 3) + ':' +
           xcalDate.substr(11, 2) + ':' +
-          xcalDate.substr(13);
+          xcalDate.substr(13, 2);
+      } else {
+        dateString += 'T00:00:00';
       }
+      if (xcalDate.length > 15) {
+        tzoffset = xcalDate.substr(15);
+      } else if (tzoffset == undefined) {
+        tzoffset = 'Z';
+      }
+      dateString += tzoffset;
       return date = new Date(dateString);
     }
   };
