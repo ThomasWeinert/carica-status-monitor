@@ -12,14 +12,14 @@
 
 <xsl:param name="FEED_PATH"></xsl:param>
 
-<!--  
+<!--
   The level of detail an jenkins output depends on the "depth" parameter
-  
+
   0 = only the jobs list
   1 = jobs and details about them including the build list
-  2 = jobs, details and build details 
-  
-  This template currently handles informations from the jobs list and the job details for the 
+  2 = jobs, details and build details
+
+  This template currently handles informations from the jobs list and the job details for the
   atom reader and build times for the chart widget.
 -->
 
@@ -74,7 +74,7 @@
             <xsl:text>../</xsl:text>
             <xsl:choose>
               <xsl:when test="contains(color, '_anim')">
-                <xsl:text>img/refresh-animated.png</xsl:text>
+                <xsl:text>img/refresh.png</xsl:text>
               </xsl:when>
               <xsl:when test="$status = 'error'">
                 <xsl:text>img/face-devilish.png</xsl:text>
@@ -92,6 +92,11 @@
               </xsl:otherwise>
             </xsl:choose>
           </xsl:attribute>
+          <xsl:if test="contains(color, '_anim')">
+            <xsl:attribute name="animation">
+              <xsl:text>rotate</xsl:text>
+            </xsl:attribute>
+          </xsl:if>
         </csm:icon>
         <xsl:if test="$hasBuildData">
           <csm:data-series>

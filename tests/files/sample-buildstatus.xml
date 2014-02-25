@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed 
+<feed
   xmlns="http://www.w3.org/2005/Atom"
   xmlns:csm="http://thomas.weinert.info/carica/ns/status-monitor">
 
@@ -27,7 +27,7 @@
     <updated>2012-06-16T10:16:02Z</updated>
     <summary>Build #23 failed, building</summary>
     <csm:status>error</csm:status>
-    <csm:icon src="img/refresh-animated.png"/>
+    <csm:icon src="img/refresh.png" animation="rotate"/>
   </entry>
   <entry>
     <title>FluentDom</title>

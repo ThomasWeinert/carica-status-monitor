@@ -98,6 +98,15 @@
           );
           iconNode.removeClass('hasImage');
         }
+        iconNode.removeClass('rotate');
+        switch (entry.find('csm|icon').attr('animation')) {
+          case 'rotate' :
+            iconNode.addClass('rotate');
+            break;
+          case 'bounce' :
+            iconNode.addClass('bounce');
+            break;
+        }
         var iconText = entry.find('csm|icon').attr('text');
         if (iconText) {
           iconNode.find('.sprite').text(iconText);
