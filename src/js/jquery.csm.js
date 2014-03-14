@@ -206,12 +206,11 @@
         dateString += 'T00:00:00';
       }
       if (xcalDate.length > 15) {
-        tzoffset = xcalDate.substr(15);
+        dateString += xcalDate.substr(15);
       } else if (tzoffset == undefined) {
-        tzoffset = 'Z';
+        dateString += 'Z';
       }
-      dateString += tzoffset;
-      return date = new Date(dateString);
+      return new Date(dateString);
     }
   };
 

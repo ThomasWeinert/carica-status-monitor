@@ -49,7 +49,8 @@
       updateData : function(data, xml) {
         this.node.find('h3').text(xml.find('atom|title').text());
         this.targetTime = $.CaricaStatusMonitor.Xcalendar.parseDate(
-          xml.find('xcal|dtstart').text(), xml.find('xcal|dtstart').attr('value')
+          xml.find('xcal|dtstart').text(),
+          xml.find('xcal|dtstart').attr('tzoffset')
         );
         this.node.find('.summary').text(xml.find('atom|summary').text());
         this.refresh();
