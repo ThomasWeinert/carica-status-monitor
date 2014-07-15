@@ -33,7 +33,7 @@ namespace Carica\StatusMonitor\Library\Source {
    */
   function validateUrl($url) {
     if (!preg_match('(^https?://)', $url)) {
-      throw new UnexpectedValueException('Source url is invalid.');
+      throw new \UnexpectedValueException('Source url is invalid.');
     }
     $exampleUrl = 'http://example.tld/';
     if (0 === strpos($url, $exampleUrl)) {

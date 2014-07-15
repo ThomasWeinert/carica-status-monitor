@@ -59,11 +59,11 @@
         var now = new Date();
         var difference = this.targetTime.getTime() - now.getTime();
         if (difference <= 0) {
-          this.node.addClass('error').removeClass('labelApproaching');
+          this.node.addClass('fatal').removeClass('labelApproaching');
         } else if (difference < this.entries.widget.options.approachingLimitMS) {
-          this.node.addClass('labelApproaching').removeClass('error');
+          this.node.addClass('labelApproaching').removeClass('fatal');
         } else {
-          this.node.removeClass('error');
+          this.node.removeClass('fatal');
         }
         var numbers = $.CaricaStatusMonitor.Date.parsePeriod(difference);
         var numberIndex = 0;
