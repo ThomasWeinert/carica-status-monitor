@@ -36,7 +36,7 @@ namespace Carica\StatusMonitor\Library\Source {
       $options = array(
         'http'=>array(
           'method'=> "GET",
-          'user_agent' => "User-Agent: Mozilla/5.0 (Windows NT 6.0; rv:13.0) Gecko/20100101 Firefox/13.0",
+          'user_agent' => "Mozilla/5.0 (Windows NT 6.0; rv:13.0) Gecko/20100101 Firefox/13.0",
           'timeout' => 3.0
         )
       );
