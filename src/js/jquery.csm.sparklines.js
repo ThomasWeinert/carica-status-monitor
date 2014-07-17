@@ -25,29 +25,26 @@
 
       readDatapoints : function(xml) {
         result = [];
-        xml.filter(':has(csm|data-point)').each(
-          function(entryIndex) {
-            var row = $(this).find('csm|data-series').first();
-            row.find('csm|data-point').each(
-              function(pointIndex) {
-                result[pointIndex] = [
-                  this.getAttribute('x'), this.getAttribute('y')
-                ];
-              }
-            );
+        xml.each(
+          function(pointIndex) {
+            result[pointIndex] = [
+              this.getAttribute('x'), this.getAttribute('y')
+            ];
           }
         );
         return result;
       },
 
       updateData : function(data, xml) {
-        var data = this.readDatapoints(xml);
-        this.node.find('h3').text(xml.find('atom|title').text());
-        this.node.find('.number').text(
-          $.CaricaStatusMonitor.Number.roundWithUnit(
-            data[data.length - 1][1]
-          )
-        );
+        var data = this.readDatapoints(xml.evaluate('csm:data-series[1]/csm:data-point'));
+        this.node.find('h3').text(xml.evaluate('string(atom:title)'));
+        if (data) {
+          this.node.find('.number').text(
+            $.CaricaStatusMonitor.Number.roundWithUnit(
+              data[data.length - 1][1]
+            )
+          );
+        }
         this.plot(
           this.node,
           [ data ],
@@ -66,9 +63,9 @@
       },
 
       /**
-       * The control need to be visislbe and contain a width.
+       * The control need to be visible and contain a width.
        *
-       * If this is not the case, postphone the plotting for some time
+       * If this is not the case, postpone the plotting for some time
        *
        * @param container
        * @param data
@@ -126,21 +123,22 @@
      */
     update: function(xml) {
       var entry, data, prototype;
-      var entries = xml.find('atom|entry');
+      var entries = $(xml).xpath().evaluate('//atom:entry').toArray();
       var max = this.options.max;
+      if (entries.length < max) {
+        max = entries.length;
+      }
       if (this.options.refresh == 'all') {
         this.entries.clear();
       }
       for (var i = max; i > 0; i--) {
-        entry = entries.eq(i - 1);
-        if (entry.length > 0) {
-          data = new Object();
-          data.id = entry.find('atom|id').text();
-          data.updated = entry.find('atom|updated').text();
-          if (entry.find('csm|data-series').length > 0) {
-            prototype = CaricaStatusMonitorSparklinesEntry;
-            this.entries.get(data.id, prototype).update(data, entry);
-          }
+        entry = $(entries[i - 1]).xpath();
+        data = new Object();
+        data.id = entry.evaluate('string(atom:id)');
+        data.updated = entry.evaluate('string(atom:updated)');
+        if (entry.evaluate('count(csm:data-series) > 0')) {
+          prototype = CaricaStatusMonitorSparklinesEntry;
+          this.entries.get(data.id, prototype).update(data, entry);
         }
       }
     }

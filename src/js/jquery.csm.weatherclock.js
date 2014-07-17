@@ -102,17 +102,22 @@
       $(data).xmlns(
         clock.namespaces,
         function () {
-          var condition = data.find('yweather|condition').first();
-          clock.node.find('.text').text(condition.attr('text'));
-          clock.node.find('.location').text(
-            data.find('yweather|location').attr('city')
-          );
-          clock.node.find('.temperature').text(
-            condition.attr('temp') + '°' +
-            data.find('yweather|units').attr('temperature')
-          );
-          clock.node.css(
-            'background-image', 'url('+data.find('atom|link[rel=image]').attr('href')+')'
+          $(data).xpath().evaluate('//yweather:condition[0]').each(
+            function() {
+              var xpath = $(this).xpath();
+              clock.node.find('.text').text(xpath.evaluate('string(@text)'));
+              clock.node.find('.location').text(
+                xpath.evaluate('string(yweather:location/@city)')
+              );
+              clock.node.find('.temperature').text(
+                xpath.evaluate('string(@temp)') + '°' +
+                xpath.evaluate('string(yweather:units/@temperature)')
+              );
+              clock.node.css(
+                'background-image',
+                'url('+$(data).xpath().evaluate('string(atom:link[rel=image]/@href)')+')'
+              );
+            }
           );
         }
       );

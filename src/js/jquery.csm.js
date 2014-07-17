@@ -9,7 +9,8 @@
   var CaricaStatusMonitor = {
 
     requires : [
-      'js/external/jquery.xmlns.js',
+      'js/external/xpath.js',
+      'js/external/XpathWrapper.js',
       'js/external/globalize.js',
       'js/external/cultures/globalize.cultures.js',
       'js/external/jquery.flot.js',

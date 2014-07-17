@@ -19,21 +19,23 @@
      */
     read : function(xml) {
       series = this;
-      xml.filter(':has(csm|data-point)').each(
-       function(entryIndex) {
-         var row = $(this).find('csm|data-series').first();
-         series.data[entryIndex] = {
-           label : $(this).find('atom|title').text(),
-           data : []
-         };
-         row.find('csm|data-point').each(
-           function(pointIndex) {
-             series.data[entryIndex].data[pointIndex] = [
-               this.getAttribute('x'), this.getAttribute('y')
-             ];
-           }
-         );
-       }
+      xml.each(
+        function(entryIndex) {
+          var xpath = $(this).xpath();
+          if (xpath.evaluate('count(csm:data-series) > 0')) {
+            series.data[entryIndex] = {
+              label: xpath.evaluate('string(atom:title)'),
+              data: []
+            };
+            xpath.evaluate('csm:data-series/csm:data-point').each(
+              function (pointIndex) {
+                series.data[entryIndex].data[pointIndex] = [
+                  this.getAttribute('x'), this.getAttribute('y')
+                ];
+              }
+            );
+          }
+        }
       );
     }
   };
@@ -148,12 +150,12 @@
      */
     update: function(xml) {
       var container = this.node.find('.chart .container');
-      var entries = xml.find('atom|entry');
+      var xpath = xml.xpath();
+      var entries = xpath.evaluate('//atom:entry[//csm:data-point]');
       var series = $.extend(true, {}, CaricaStatusMonitorChartSeries);
       series.widget = this;
       series.read(entries);
       container.css('height', this.options.height);
-
       var options = {
         legend: {
           show: true,
@@ -162,8 +164,8 @@
         },
         grid: {},
         series: {},
-        xaxis: this.getAxisOptions(xml.find('csm|chart-options csm|axis-x')),
-        yaxis: this.getAxisOptions(xml.find('csm|chart-options csm|axis-y'))
+        xaxis: this.getAxisOptions(xpath.evaluate('//csm:chart-options/csm:axis-x').first()),
+        yaxis: this.getAxisOptions(xpath.evaluate('//csm:chart-options/csm:axis-y').first())
       };
       switch (this.options.chart) {
       case 'lines' :
@@ -187,9 +189,9 @@
     },
 
     /**
-     * The control need to be visislbe and contain a width.
+     * The control need to be visible and contain a width.
      *
-     * If this is not the case, postphone the plotting for some time
+     * If this is not the case, postpone the plotting for some time
      *
      * @param container
      * @param data
@@ -218,6 +220,7 @@
      * @param xml
      */
     getAxisOptions : function(xml) {
+      var xml = $(xml);
       var options = {
         min : xml.attr('min') > 0 ? xml.attr('min') : null,
         max : xml.attr('max') != '' ? xml.attr('max') : null
