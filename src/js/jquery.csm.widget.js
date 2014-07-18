@@ -179,6 +179,7 @@
       interval : 0,
       refresh : 'all',
       highlight : 'no',
+      animations : 'no',
       basePath : '',
       showStatus : 'yes'
     },

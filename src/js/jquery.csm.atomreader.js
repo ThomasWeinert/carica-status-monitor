@@ -99,13 +99,15 @@
           iconNode.removeClass('hasImage');
         }
         iconNode.removeClass('rotate');
-        switch (entry.evaluate('string(csm:icon/@animation)')) {
-          case 'rotate' :
-            iconNode.addClass('rotate');
-            break;
-          case 'bounce' :
-            iconNode.addClass('bounce');
-            break;
+        if (this.entries.widget.options.animations == 'yes') {
+          switch (entry.evaluate('string(csm:icon/@animation)')) {
+            case 'rotate' :
+              iconNode.addClass('rotate');
+              break;
+            case 'bounce' :
+              iconNode.addClass('bounce');
+              break;
+          }
         }
         var iconText = entry.evaluate('string(csm:icon/@text)');
         if (iconText) {
