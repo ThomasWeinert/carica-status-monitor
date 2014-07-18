@@ -329,7 +329,6 @@
      */
     update : function(xml) {
       var entry, data, prototype;
-      console.log(xml);
       var entries = xml.xpath().evaluate('//atom:entry').toArray();
       var max = this.options.max;
       if (entries.length < max) {

@@ -102,7 +102,7 @@
       $(data).xmlns(
         clock.namespaces,
         function () {
-          $(data).xpath().evaluate('//yweather:condition[0]').each(
+          $(data).xpath().evaluate('//yweather:condition[1]').each(
             function() {
               var xpath = $(this).xpath();
               clock.node.find('.text').text(xpath.evaluate('string(@text)'));
@@ -115,7 +115,7 @@
               );
               clock.node.css(
                 'background-image',
-                'url('+$(data).xpath().evaluate('string(atom:link[rel=image]/@href)')+')'
+                'url('+$(data).xpath().evaluate('string(//atom:link[@rel="image"]/@href)')+')'
               );
             }
           );
