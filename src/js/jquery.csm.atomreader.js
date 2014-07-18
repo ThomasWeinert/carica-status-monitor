@@ -75,17 +75,17 @@
        * Read values from entry xml and update the dom element
        *
        * @param data
-       * @param entry
+       * @param {XpathWrapper} entry
        */
       updateNode : function(data, entry) {
-        var status = entry.find('csm|status').text();
+        var status = entry.evaluate('string(csm:status)');
         this.node.attr('class', 'item').addClass(
           (status != '') ? status : 'information'
         );
         var iconNode = this.node.find('.icon');
-        var icon = entry.find('csm|icon').attr('src');
+        var icon = entry.evaluate('string(csm:icon/@src)');
         if (!icon || icon == '') {
-          icon = entry.find('atom|link[rel=image]').attr('href');
+          icon = entry.evaluate('string(atom:link[rel=image]/@href)');
         }
         if (icon || this.defaultIcon) {
           iconNode.css(
@@ -99,7 +99,7 @@
           iconNode.removeClass('hasImage');
         }
         iconNode.removeClass('rotate');
-        switch (entry.find('csm|icon').attr('animation')) {
+        switch (entry.evaluate('string(csm:icon/@animation)')) {
           case 'rotate' :
             iconNode.addClass('rotate');
             break;
@@ -107,7 +107,7 @@
             iconNode.addClass('bounce');
             break;
         }
-        var iconText = entry.find('csm|icon').attr('text');
+        var iconText = entry.evaluate('string(csm:icon/@text)');
         if (iconText) {
           iconNode.find('.sprite').text(iconText);
           iconNode.addClass('hasText');
@@ -115,7 +115,7 @@
           iconNode.find('.sprite').text(' ');
           iconNode.removeClass('hasText');
         }
-        var iconTitle = entry.find('csm|icon').attr('title');
+        var iconTitle = entry.evaluate('string(csm:icon/@title)');
         if (iconTitle) {
           iconNode.find('.title').text(iconTitle).show();
           iconNode.addClass('hasTitle');
@@ -134,16 +134,16 @@
        * @param entry
        */
       updateTeaser : function(data, entry) {
-        this.node.find('h3').text(entry.find('atom|title').text());
-        var type = entry.find('atom|summary').attr('type');
+        this.node.find('h3').text(entry.evaluate('string(atom:title)'));
+        var type = entry.evaluate('string(atom:summary/@type)');
         var summary = this.node.find('.summary');
         var teaser;
         if (type == 'html') {
-          teaser = $($.parseHTML(entry.find('atom|summary').text()));
+          teaser = $($.parseHTML(entry.evaluate('string(atom:summary)')));
         } else if (type == 'xhtml') {
-          teaser = entry.find('atom|summary').children();
+          teaser = $(entry.evaluate('atom:summary/node()').toArray());
         } else {
-          summary.text(entry.find('atom|summary').text());
+          summary.text(entry.evaluate('string(atom:summary)'));
           return;
         }
         if (this.entries.widget.options.allowHtml != 'yes') {
@@ -152,7 +152,10 @@
         }
         summary.empty();
         summary.append(teaser.clone());
-        this.expandHrefs(summary.find('a[href],img[src]'), entry.find('atom|link').attr('href'));
+        this.expandHrefs(
+          summary.find('a[href],img[src]'),
+          entry.evaluate('string(atom:link/@href)')
+        );
       },
 
       /**
@@ -162,10 +165,9 @@
        * @param entry
        */
       updateLink : function(data, entry) {
-        this.link = entry
-          .find('atom|link[type="text/html"],atom|link[rel=alternate]')
-          .first()
-          .attr('href');
+        this.link = entry.evaluate(
+          'string(atom:link[@type="text/html" and @rel="alternate"]/@href)'
+        );
         if (this.link && this.link != '') {
           this.node.addClass('clickable');
         } else {
@@ -245,13 +247,19 @@
        * @param entry
        */
       updateNode : function(data, entry) {
-        var status = entry.find('csm|status').text();
+        var status = entry.evaluate('string(csm:status)');
         this.node.attr('class', 'item').addClass(
           (status != '') ? status : 'information'
         );
-        var startDate = this.parseEventDate(entry.find('xcal|dtstart'));
-        var endDate = this.parseEventDate(entry.find('xcal|dtend'));
-        var startDateFormat = entry.find('xcal|dtstart').attr('value');
+        var startDate = $.CaricaStatusMonitor.Xcalendar.parseDate(
+          entry.evaluate('string(xcal:dtstart)'),
+          entry.evaluate('string(xcal:dtstart/@tzoffset)')
+        );
+        var endDate = $.CaricaStatusMonitor.Xcalendar.parseDate(
+          entry.evaluate('string(xcal:dtend)'),
+          entry.evaluate('string(xcal:dtend/@tzoffset)')
+        );
+        var startDateFormat = entry.evaluate('string(xcal:dtstart/@value)');
         this.node.find('.numberIcon .title').text(Globalize.format(startDate, "MMM"));
         this.node.find('.numberIcon .number').text(Globalize.format(startDate, " d"));
         if (Globalize.format(startDate, "d") == Globalize.format(new Date(), "d")) {
@@ -274,10 +282,6 @@
           );
         }
         this.node.find('.updated').text(Globalize.format(this.updated, "f"));
-      },
-
-      parseEventDate : function(node) {
-        return $.CaricaStatusMonitor.Xcalendar.parseDate(node.text(), node.attr('tzoffset'));
       }
     }
   );
@@ -308,7 +312,7 @@
     template : '<ul class="feed"/>',
 
     /**
-     * Prapare the object before fetching the data
+     * Prepare the object before fetching the data
      */
     prepare : function() {
       this.entries = $.CaricaStatusMonitorWidget.Entries();
@@ -325,24 +329,26 @@
      */
     update : function(xml) {
       var entry, data, prototype;
-      var entries = xml.find('atom|entry');
+      console.log(xml);
+      var entries = xml.xpath().evaluate('//atom:entry').toArray();
       var max = this.options.max;
+      if (entries.length < max) {
+        max = entries.length;
+      }
       if (this.options.refresh == 'all') {
         this.entries.clear();
       }
       for (var i = max; i > 0; i--) {
-        entry = entries.eq(i - 1);
-        if (entry.length > 0) {
-          data = new Object();
-          data.id = entry.find('atom|id').text();
-          data.updated = entry.find('atom|updated').text();
-          if (entry.find('xcal|vevent').length > 0) {
-            prototype = CaricaStatusMonitorAtomReaderEntryXCal;
-          } else {
-            prototype = CaricaStatusMonitorAtomReaderEntry;
-          }
-          this.entries.get(data.id, prototype).update(data, entry);
+        entry = $(entries[i - 1]).xpath();
+        data = new Object();
+        data.id = entry.evaluate('string(atom:id)');
+        data.updated = entry.evaluate('string(atom:updated)');
+        if (entry.evaluate('count(xcal:vevent) > 0')) {
+          prototype = CaricaStatusMonitorAtomReaderEntryXCal;
+        } else {
+          prototype = CaricaStatusMonitorAtomReaderEntry;
         }
+        this.entries.get(data.id, prototype).update(data, entry);
       }
     }
   };

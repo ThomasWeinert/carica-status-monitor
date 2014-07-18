@@ -47,12 +47,12 @@
         '</li>',
 
       updateData : function(data, xml) {
-        this.node.find('h3').text(xml.find('atom|title').text());
+        this.node.find('h3').text(xml.evaluate('string(atom:title)'));
         this.targetTime = $.CaricaStatusMonitor.Xcalendar.parseDate(
-          xml.find('xcal|dtstart').text(),
-          xml.find('xcal|dtstart').attr('tzoffset')
+          xml.evaluate('string(xcal:dtstart)'),
+          xml.evaluate('string(xcal:dtstart/@tzoffset)')
         );
-        this.node.find('.summary').text(xml.find('atom|summary').text());
+        this.node.find('.summary').text(xml.evaluate('atom:summary'));
         this.refresh();
       },
 
@@ -124,19 +124,20 @@
      */
     update: function(xml) {
       var entry, data, prototype;
-      var entries = xml.find('atom|entry');
+      var entries = xml.xpath().evaluate('//atom:entry').toArray();
       var max = this.options.max;
+      if (entries.length < max) {
+        max = entries.length;
+      }
       this.entries.clear();
       for (var i = max; i > 0; i--) {
-        entry = entries.eq(i - 1);
-        if (entry.length > 0) {
-          data = new Object();
-          data.id = entry.find('atom|id').text();
-          data.updated = entry.find('atom|updated').text();
-          if (entry.find('xcal|vevent').length > 0) {
-            prototype = CaricaStatusMonitorCountdownEntry;
-            this.entries.get(data.id, prototype).update(data, entry);
-          }
+        entry = $(entries[i - 1]).xpath();
+        data = new Object();
+        data.id = entry.evaluate('string(atom:id)');
+        data.updated = entry.evaluate('string(atom:updated)');
+        if (entry.evaluate('count(xcal:vevent) > 0')) {
+          prototype = CaricaStatusMonitorCountdownEntry;
+          this.entries.get(data.id, prototype).update(data, entry);
         }
       }
     }
