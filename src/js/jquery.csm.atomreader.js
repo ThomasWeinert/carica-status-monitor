@@ -85,7 +85,7 @@
         var iconNode = this.node.find('.icon');
         var icon = entry.evaluate('string(csm:icon/@src)');
         if (!icon || icon == '') {
-          icon = entry.evaluate('string(atom:link[rel=image]/@href)');
+          icon = entry.evaluate('string(atom:link[@rel="image"]/@href)');
         }
         if (icon || this.defaultIcon) {
           iconNode.css(
