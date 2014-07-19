@@ -52,7 +52,7 @@
           xml.evaluate('string(.//xcal:dtstart)'),
           xml.evaluate('string(.//xcal:dtstart/@tzoffset)')
         );
-        this.node.find('.summary').text(xml.evaluate('atom:summary'));
+        this.node.find('.summary').text(xml.evaluate('string(atom:summary)'));
         this.refresh();
       },
 
