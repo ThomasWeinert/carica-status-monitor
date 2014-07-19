@@ -254,12 +254,12 @@
           (status != '') ? status : 'information'
         );
         var startDate = $.CaricaStatusMonitor.Xcalendar.parseDate(
-          entry.evaluate('string(xcal:dtstart)'),
-          entry.evaluate('string(xcal:dtstart/@tzoffset)')
+          entry.evaluate('string(.//xcal:dtstart)'),
+          entry.evaluate('string(.//xcal:dtstart/@tzoffset)')
         );
         var endDate = $.CaricaStatusMonitor.Xcalendar.parseDate(
-          entry.evaluate('string(xcal:dtend)'),
-          entry.evaluate('string(xcal:dtend/@tzoffset)')
+          entry.evaluate('string(.//xcal:dtend)'),
+          entry.evaluate('string(.//xcal:dtend/@tzoffset)')
         );
         var startDateFormat = entry.evaluate('string(xcal:dtstart/@value)');
         this.node.find('.numberIcon .title').text(Globalize.format(startDate, "MMM"));
