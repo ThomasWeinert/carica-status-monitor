@@ -33,6 +33,12 @@
         this.node.append(this.template);
       }
       this.image = this.node.find('img');
+      if (this.options.width) {
+        this.image.width(this.options.width);
+      }
+      if (this.options.height) {
+        this.image.height(this.options.height);
+      }
       this.update();
       window.setInterval(
         $.proxy(this.update, this),

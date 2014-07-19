@@ -297,9 +297,11 @@ div.image {
   width: 100%;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 div.image > img {
   width: 100%;
+  margin: auto;
 }
 
 
