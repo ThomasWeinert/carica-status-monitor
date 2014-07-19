@@ -178,7 +178,7 @@ table#splitview td {
   background-color: #FFFFFF;
 }
 .widget .changed {
-  
+
 }
 .widget .warning {
   font-weight: bold;
@@ -291,6 +291,15 @@ ul.countdown li.labelApproaching .numberIcon {
 }
 ul.countdown li.labelApproaching .timer .numberIcon.countdownNumber3 {
   display: inline-block;
+}
+
+div.image {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+div.image > img {
+  width: 100%;
 }
 
 

@@ -42,6 +42,10 @@
         file : 'js/jquery.csm.hashreplace.js',
         object : 'CaricaStatusMonitorHashReplace'
       },
+      image : {
+        file : 'js/jquery.csm.image.js',
+        object : 'CaricaStatusMonitorImage'
+      },
       slides : {
         file : 'js/jquery.csm.slides.js',
         object : 'CaricaStatusMonitorSlides'
