@@ -7,10 +7,12 @@
   xmlns:csm="http://thomas.weinert.info/carica/ns/status-monitor"
   xmlns:func="http://exslt.org/functions"
   xmlns:date="http://exslt.org/dates-and-times"
-  extension-element-prefixes="func date"
+  xmlns:math="http://exslt.org/math"
+  extension-element-prefixes="func date math"
 >
 
 <xsl:param name="FEED_PATH"></xsl:param>
+<xsl:param name="ENTRY_LIMIT" select="15"/>
 
 <!--
   The level of detail an jenkins output depends on the "depth" parameter
@@ -33,81 +35,116 @@
         <csm:axis-y mode="milliseconds"/>
       </csm:chart-options>
     </xsl:if>
-    <xsl:for-each select="*/job">
-      <atom:entry>
-        <atom:title><xsl:value-of select="name"/></atom:title>
-        <atom:id><xsl:value-of select="url"/></atom:id>
-        <atom:updated><xsl:value-of select="date:date-time()"/></atom:updated>
-        <atom:link ref="alternate" type="text/html" href="{url}"/>
-        <xsl:if test="healthReport">
-          <atom:summary type="xhtml">
-            <p>
-              <xsl:for-each select="healthReport">
-                <xsl:if test="position() &gt; 1">
-                  <xsl:text>, </xsl:text><xhtml:br/>
-                </xsl:if>
-                <xsl:value-of select="description"/>
-              </xsl:for-each>
-            </p>
-          </atom:summary>
-        </xsl:if>
-        <xsl:variable name="status">
-          <xsl:choose>
-            <xsl:when test="starts-with(color, 'red')">
-              <xsl:text>error</xsl:text>
-            </xsl:when>
-            <xsl:when test="starts-with(color, 'yellow')">
-              <xsl:text>warning</xsl:text>
-            </xsl:when>
-            <xsl:when test="starts-with(color, 'disabled')">
-              <xsl:text>warning</xsl:text>
-            </xsl:when>
-            <xsl:otherwise>
-              <xsl:text>information</xsl:text>
-            </xsl:otherwise>
-          </xsl:choose>
-        </xsl:variable>
-        <csm:status><xsl:value-of select="$status"/></csm:status>
-        <csm:icon>
-          <xsl:attribute name="src">
-            <xsl:value-of select="$FEED_PATH"/>
-            <xsl:text>../</xsl:text>
-            <xsl:choose>
-              <xsl:when test="contains(color, '_anim')">
-                <xsl:text>img/refresh.png</xsl:text>
-              </xsl:when>
-              <xsl:when test="$status = 'error'">
-                <xsl:text>img/face-devilish.png</xsl:text>
-              </xsl:when>
-              <xsl:when test="healthReport">
-                <xsl:call-template name="icon-from-health-report">
-                  <xsl:with-param name="reports" select="healthReport"/>
-                </xsl:call-template>
-              </xsl:when>
-              <xsl:when test="starts-with(color, 'disabled')">
-                <xsl:text>img/face-plain.png</xsl:text>
-              </xsl:when>
-              <xsl:otherwise>
-                <xsl:text>img/face-angel.png</xsl:text>
-              </xsl:otherwise>
-            </xsl:choose>
-          </xsl:attribute>
-          <xsl:if test="contains(color, '_anim')">
-            <xsl:attribute name="animation">
-              <xsl:text>rotate</xsl:text>
-            </xsl:attribute>
-          </xsl:if>
-        </csm:icon>
-        <xsl:if test="$hasBuildData">
-          <csm:data-series>
-            <xsl:for-each select="build[timestamp &gt; $buildDataLimit]">
-              <csm:data-point x="{timestamp}" y="{duration}"/>
-            </xsl:for-each>
-          </csm:data-series>
-        </xsl:if>
-      </atom:entry>
+    <xsl:for-each select="*/job[lastBuild/result = 'FAILURE']">
+      <xsl:sort select="lastBuild/timestamp" data-type="number" order="descending"/>
+      <xsl:if test="position() &lt; $ENTRY_LIMIT">
+        <xsl:call-template name="entry">
+          <xsl:with-param name="job" select="."/>
+          <xsl:with-param name="buildDataLimit" select="$buildDataLimit"/>
+          <xsl:with-param name="hasBuildData" select="$hasBuildData"/>
+        </xsl:call-template>
+      </xsl:if>
+    </xsl:for-each>
+    <xsl:variable name="failures" select="count(*/job[lastBuild/result = 'FAILURE'])"/>
+    <xsl:for-each select="*/job[lastBuild/result != 'FAILURE']">
+      <xsl:sort select="lastBuild/timestamp" data-type="number" order="descending"/>
+      <xsl:if test="position() &lt; ($ENTRY_LIMIT - $failures)">
+        <xsl:call-template name="entry">
+          <xsl:with-param name="job" select="."/>
+          <xsl:with-param name="buildDataLimit" select="$buildDataLimit"/>
+          <xsl:with-param name="hasBuildData" select="$hasBuildData"/>
+        </xsl:call-template>
+      </xsl:if>
     </xsl:for-each>
   </atom:feed>
+</xsl:template>
+
+<xsl:template name="entry">
+  <xsl:param name="job"/>
+  <xsl:param name="buildDataLimit" select="0"/>
+  <xsl:param name="hasBuildData" select="false()"/>
+  <xsl:variable name="lastestBuild" select="round($job/lastBuild/timestamp div 1000)"/>
+  <atom:entry>
+    <atom:title><xsl:value-of select="$job/name"/></atom:title>
+    <atom:id><xsl:value-of select="$job/url"/></atom:id>
+    <atom:updated>
+      <xsl:choose>
+        <xsl:when test="$lastestBuild > 0">
+          <xsl:value-of select="date:add('1970-01-01T00:00:00Z', date:duration($lastestBuild))"/>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:value-of select="date:date-time()"/>
+        </xsl:otherwise>
+      </xsl:choose>
+    </atom:updated>
+    <atom:link ref="alternate" type="text/html" href="{$job/url}"/>
+    <xsl:if test="$job/healthReport">
+      <atom:summary type="xhtml">
+        <p>
+          <xsl:for-each select="$job/healthReport">
+            <xsl:if test="position() &gt; 1">
+              <xsl:text>, </xsl:text><xhtml:br/>
+            </xsl:if>
+            <xsl:value-of select="description"/>
+          </xsl:for-each>
+        </p>
+      </atom:summary>
+    </xsl:if>
+    <xsl:variable name="status">
+      <xsl:choose>
+        <xsl:when test="starts-with($job/color, 'red')">
+          <xsl:text>error</xsl:text>
+        </xsl:when>
+        <xsl:when test="starts-with($job/color, 'yellow')">
+          <xsl:text>warning</xsl:text>
+        </xsl:when>
+        <xsl:when test="starts-with($job/color, 'disabled')">
+          <xsl:text>warning</xsl:text>
+        </xsl:when>
+        <xsl:otherwise>
+          <xsl:text>information</xsl:text>
+        </xsl:otherwise>
+      </xsl:choose>
+    </xsl:variable>
+    <csm:status><xsl:value-of select="$status"/></csm:status>
+    <csm:icon>
+      <xsl:attribute name="src">
+        <xsl:value-of select="$FEED_PATH"/>
+        <xsl:text>../</xsl:text>
+        <xsl:choose>
+          <xsl:when test="contains($job/color, '_anim')">
+            <xsl:text>img/refresh.png</xsl:text>
+          </xsl:when>
+          <xsl:when test="$status = 'error'">
+            <xsl:text>img/face-devilish.png</xsl:text>
+          </xsl:when>
+          <xsl:when test="$job/healthReport">
+            <xsl:call-template name="icon-from-health-report">
+              <xsl:with-param name="reports" select="$job/healthReport"/>
+            </xsl:call-template>
+          </xsl:when>
+          <xsl:when test="starts-with($job/color, 'disabled')">
+            <xsl:text>img/face-plain.png</xsl:text>
+          </xsl:when>
+          <xsl:otherwise>
+            <xsl:text>img/face-angel.png</xsl:text>
+          </xsl:otherwise>
+        </xsl:choose>
+      </xsl:attribute>
+      <xsl:if test="contains($job/color, '_anim')">
+        <xsl:attribute name="animation">
+          <xsl:text>rotate</xsl:text>
+        </xsl:attribute>
+      </xsl:if>
+    </csm:icon>
+    <xsl:if test="$hasBuildData">
+      <csm:data-series>
+        <xsl:for-each select="$job/build[timestamp &gt; $buildDataLimit]">
+          <csm:data-point x="{timestamp}" y="{duration}"/>
+        </xsl:for-each>
+      </csm:data-series>
+    </xsl:if>
+  </atom:entry>
 </xsl:template>
 
 <xsl:template name="icon-from-health-report">
