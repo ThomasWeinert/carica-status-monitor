@@ -20,6 +20,7 @@
           '<h3/>' +
           '<div class="numbers">' +
           '</div>' +
+          '<span class="updated"></span>' +
           '<span class="spacer"></span>' +
         '</li>',
 
@@ -70,6 +71,7 @@
           iconNode.find('.sprite').text(' ');
           iconNode.removeClass('hasText');
         }
+        this.node.find('.updated').text(Globalize.format(this.updated, "f"));
       }
     }
   );

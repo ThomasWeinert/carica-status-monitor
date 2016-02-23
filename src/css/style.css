@@ -299,6 +299,13 @@ ul.numbers li {
 ul.numbers li h3 {
   margin-bottom: 0.5em;
 }
+ul.numbers li .updated {
+  float: right;
+  font-size: 0.7em;
+  text-align: right;
+  opacity: 0.5;
+  margin-top: 1em;
+}
 ul.numbers div.numbers .numberIcon {
   margin: 0 0.5em;
   float: none;
