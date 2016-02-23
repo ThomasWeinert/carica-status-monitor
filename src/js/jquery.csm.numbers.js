@@ -47,6 +47,10 @@
           numberNode.find('.title').text(number.attr('title'));
           numberNode.find('.title').css('background', number.attr('color') || 'black');
         }
+        var status = entry.evaluate('string(csm:status)');
+        this.node.attr('class', 'item').addClass(
+          (status != '') ? status : 'information'
+        );
         var iconNode = this.node.find('.icon');
         var icon = entry.evaluate('string(csm:icon/@src)');
         if (!icon || icon == '') {
