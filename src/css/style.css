@@ -307,8 +307,11 @@ ul.numbers li .updated {
   margin-top: 1em;
 }
 ul.numbers div.numbers .numberIcon {
-  margin: 0 0.5em;
   float: none;
+  margin: 0 0.4em 0.2em 0;
+}
+ul.numbers div.numbers .numberIcon:first {
+  margin: 0 0 0.2em 0;
 }
 ul.numbers div.numbers .numberIcon .title {
   position: relative;
