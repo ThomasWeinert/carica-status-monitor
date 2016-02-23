@@ -293,6 +293,20 @@ ul.countdown li.labelApproaching .timer .numberIcon.countdownNumber3 {
   display: inline-block;
 }
 
+ul.numbers li {
+  text-align: center;
+}
+ul.numbers li h3 {
+  margin-bottom: 0.5em;
+}
+ul.numbers div.numbers .numberIcon {
+  margin: 0 0.5em;
+  float: none;
+}
+ul.numbers div.numbers .numberIcon .title {
+  position: relative;
+}
+
 div.image {
   width: 100%;
   margin: 0;
@@ -312,7 +326,7 @@ div.image > img {
   float: left;
   border-radius: 5px;
   background-repeat: no-repeat;
-  background-position: center middle;
+  background-position: center center;
   background-size: contain;
 }
 .spriteIcon.hasImage {
@@ -348,12 +362,15 @@ div.image > img {
   background: -ms-linear-gradient(top, #444444 0%,#222222 100%); /* IE10+ */
   background: linear-gradient(top, #444444 0%,#222222 100%); /* W3C */
 }
+.spriteIcon .title:empty {
+  display: none;
+}
 
 /** Number Icons, number with border and title bar **/
 .numberIcon {
   display: inline-block;
   float: left;
-  width: 48px;
+  min-width: 48px;
   border: 1px solid #404040;
   border-radius: 5px;
 }

@@ -26,6 +26,10 @@
         file : 'js/jquery.csm.chart.js',
         object : 'CaricaStatusMonitorChart'
       },
+      numbers : {
+        file : 'js/jquery.csm.numbers.js',
+        object : 'CaricaStatusMonitorNumbers'
+      },
       sparklines : {
         file : 'js/jquery.csm.sparklines.js',
         object : 'CaricaStatusMonitorSparklines'

@@ -15,6 +15,12 @@
     </div>
     <div id="widgets">
       <div class="widget"
+           data-plugin="numbers"
+           data-url="feeds/atom.php?url=http://example.tld/sample-numbers.xml"
+           data-interval="600">
+        <h2>Numbers</h2>
+      </div>
+      <div class="widget"
            data-plugin="chart"
            data-url="feeds/atom.php?url=http://example.tld/ohloh/lines.atom.xml"
            data-interval="600">
@@ -59,7 +65,7 @@
         <h2>Countdown</h2>
       </div>
     </div>
-    <div id="clock" data-plugin="clock"></div>
+    <div id="clock" class="digitsOnly" data-plugin="clock" data-weather="no"></div>
     <!-- This page loads all javascript files statically to allow debugging -->
     <script type="text/javascript" src="js/external/jquery.js"></script>
     <script type="text/javascript" src="js/external/xpath.js"></script>
@@ -74,6 +80,7 @@
     <script type="text/javascript" src="js/jquery.csm.countdown.js"></script>
     <script type="text/javascript" src="js/jquery.csm.hashreplace.js"></script>
     <script type="text/javascript" src="js/jquery.csm.image.js"></script>
+    <script type="text/javascript" src="js/jquery.csm.numbers.js"></script>
     <script type="text/javascript" src="js/jquery.csm.sparklines.js"></script>
     <script type="text/javascript" src="js/jquery.csm.weatherclock.js"></script>
     <script type="text/javascript">
