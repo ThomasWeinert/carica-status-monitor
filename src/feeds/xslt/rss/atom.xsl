@@ -9,23 +9,24 @@
   xmlns:openSearch="http://a9.com/-/spec/opensearch/1.1/"
   xmlns:date="http://exslt.org/dates-and-times"
   xmlns:func="http://exslt.org/functions"
+  xmlns:rss="http://purl.org/rss/1.0/"
   extension-element-prefixes="date func"
 >
 
 <xsl:import href="dates.xsl"/>
 
 <xsl:template match="/">
-  <xsl:variable name="channel" select="./rss/channel"/>
+  <xsl:variable name="channel" select=".//channel|.//rss:channel"/>
   <atom:feed>
-    <xsl:if test="$channel/language">
+    <xsl:if test="$channel/language|$channel/dc:language">
       <xsl:attribute name="xml:lang">
-        <xsl:value-of select="$channel/language"/>
+        <xsl:value-of select="$channel/language|$channel/dc:language"/>
       </xsl:attribute>
     </xsl:if>
-    <atom:title><xsl:value-of select="$channel/title"/></atom:title>
-    <atom:subtitle><xsl:value-of select="$channel/description"/></atom:subtitle>
-    <atom:link rel="self" href="{$channel/link}"/>
-    <atom:id><xsl:value-of select="$channel/link"/></atom:id>
+    <atom:title><xsl:value-of select="$channel/title|$channel/rss:title"/></atom:title>
+    <atom:subtitle><xsl:value-of select="$channel/description|$channel/rss:description"/></atom:subtitle>
+    <atom:link rel="self" href="{$channel/link|$channel/rss:link}"/>
+    <atom:id><xsl:value-of select="$channel/link|$channel/rss:link"/></atom:id>
     <xsl:if test="$channel/pubDate">
       <atom:updated><xsl:value-of select="date:convertDateRssToAtom($channel/pubDate)"/></atom:updated>
     </xsl:if>
@@ -33,22 +34,27 @@
       <xsl:with-param name="rssAuthor" select="$channel/managingEditor"/>
       <xsl:with-param name="dcAuthor" select="$channel/dc:creator"/>
     </xsl:call-template>
-    <xsl:if test="$channel/copyright">
-      <atom:rights><xsl:value-of select="$channel/copyright"/></atom:rights>
+    <xsl:if test="$channel/copyright|$channel/dc:rights">
+      <atom:rights>
+        <xsl:choose>
+          <xsl:when test="$channel/copyright"><xsl:value-of select="$channel/copyright"/></xsl:when>
+          <xsl:when test="$channel/dc:rights"><xsl:value-of select="$channel/dc:rights"/></xsl:when>
+        </xsl:choose></atom:rights>
     </xsl:if>
     <xsl:call-template name="categories">
       <xsl:with-param name="categories" select="$channel/category"/>
     </xsl:call-template>
-    <xsl:for-each select="$channel/item">
+    <xsl:for-each select="$channel//item|.//rss:item">
       <atom:entry>
-        <atom:title><xsl:value-of select="title"/></atom:title>
-        <atom:link rel="alternate" type="text/html" href="{link}"/>
+        <atom:title><xsl:value-of select="title|rss:title"/></atom:title>
+        <atom:link rel="alternate" type="text/html" href="{link|rss:link}"/>
         <atom:id>
           <xsl:choose>
             <xsl:when test="guid"><xsl:value-of select="guid"/></xsl:when>
             <xsl:when test="link"><xsl:value-of select="link"/></xsl:when>
+            <xsl:when test="rss:link"><xsl:value-of select="rss:link"/></xsl:when>
             <xsl:otherwise>
-              <xsl:value-of select="concat($channel/link, '#', position())"/>
+              <xsl:value-of select="concat($channel/link|$channel/rss:link, '#', position())"/>
             </xsl:otherwise>
           </xsl:choose>
         </atom:id>
@@ -60,6 +66,9 @@
             <xsl:when test="$channel/pubDate">
               <xsl:value-of select="date:convertDateRssToAtom($channel/pubDate)"/>
             </xsl:when>
+            <xsl:when test="dc:date">
+              <xsl:value-of select="dc:date"/>
+            </xsl:when>
             <xsl:otherwise><xsl:value-of select="date:date-time()"/></xsl:otherwise>
           </xsl:choose>
         </atom:updated>
@@ -69,7 +78,7 @@
         <xsl:call-template name="categories">
           <xsl:with-param name="categories" select="category"/>
         </xsl:call-template>
-        <atom:content type="html"><xsl:value-of select="description"/></atom:content>
+        <atom:content type="html"><xsl:value-of select="description|rss:description"/></atom:content>
         <xsl:call-template name="images"/>
         <xsl:copy-of select="media:*"/>
       </atom:entry>
