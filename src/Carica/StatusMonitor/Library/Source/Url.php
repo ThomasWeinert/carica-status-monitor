@@ -43,6 +43,7 @@ namespace Carica\StatusMonitor\Library\Source {
       $options = array(
         'http'=>array(
           'method'=> "GET",
+          'protocol_version' => "1.1",
           'timeout' => (float)$this->_timeout
         )
       );
